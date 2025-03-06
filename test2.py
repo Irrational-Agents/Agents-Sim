@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 
 def main():
     # basic_info.jsonを読み込む
-    with open(f"storage/sample_data/meta.json", 'r', encoding='utf-8') as f:
+    with open(f"storage/sample_data/spawn.json", 'r', encoding='utf-8') as f:
         meta = json.load(f)
     
     

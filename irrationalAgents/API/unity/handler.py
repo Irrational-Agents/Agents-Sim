@@ -1,30 +1,15 @@
 # handlers.py
 import os
-import json
 from typing import Dict, Any
-from datetime import datetime
 from logger_config import setup_logger
 from API.unity.models import *
-from irrationalAgents.API.unity.config import *
 from common_method import *
 from API.unity.request import UnityRequest
 from API.unity.map import Map
 from config import WORK_DIR
+from API.unity.tools import *
 
 logger = setup_logger('API-unity-handler')
-
-
-def gen_agent_by_name(name):
-    root_dir = os.path.join(WORK_DIR, f'../storage/sample_data/agents/{name}')
-    if not os.path.exists(root_dir):
-        logger.error(f"agent {name} not exists!")
-        return None
-
-    with open(os.path.join(root_dir, "basic_info.json"), 'r', encoding='utf-8') as f:
-        basic_info = json.load(f)
-    with open(os.path.join(root_dir, "memory/short_term.json"), 'r', encoding='utf-8') as f:
-        short_mem = json.load(f)
-    return basic_info, short_mem
 
 
 class UnityHandlers:
@@ -81,42 +66,9 @@ class UnityHandlers:
     def handle_get_npcs(self, params: Dict) -> Dict:
         """Handle request to get all NPCs"""
         try:
-            request = NPCGetRequest(**params)
-
-            with open(os.path.join(self.NPC_STORAGE_BASE_PATH, "meta.json"), 'r', encoding='utf-8') as f:
-                data = json.load(f)
-
-            if request.names:
-                logger.info(f"Received get request for NPCs: {request.names}")
-                # 检查NPCs是否存在
-                valid_npcs = []
-                invalid_npcs = []
-                for name in request.names:
-                    if convert_id2name(name) in data["agents_list"]:
-                        valid_npcs.append(name)
-                    else:
-                        invalid_npcs.append(name)
-
-                if not valid_npcs:
-                    return {'error': f"No valid NPCs found. Invalid NPCs: {invalid_npcs}"}
-
-                if invalid_npcs:
-                    logger.warning(f"Skipping invalid NPCs: {invalid_npcs}")
-            else:
-                valid_npcs = [convert_name2id(name)
-                              for name in data["agents_list"]]
-            # 获取NPC信息
-            npcs = []
-            for npc_id in valid_npcs:
-                agent, status = gen_agent_by_name(npc_id)
-                if request.isDetails:
-                    npc_data = NPCModel(**agent)
-                    npc_data.status = status
-                else:
-                    npc_data = NPCInfoModel(**(agent | status))
-                npcs.append(npc_data)
+            npcs = get_npcs(params)
             self.unity_request.emit('npc.getList.response', {
-                                    'npcs': [npc.model_dump() for npc in npcs] or None})
+                                    'npcs': npcs})
         except Exception as e:
             logger.error(f"Error getting NPCs: {str(e)}")
             return {'error': str(e)}
@@ -124,22 +76,9 @@ class UnityHandlers:
     def handle_get_npc_info(self, params: Dict) -> Dict:
         """Handle request to get specific NPC info"""
         try:
-            npc_id = params.get('NPCID')
-
-            with open(os.path.join(self.NPC_STORAGE_BASE_PATH, "meta.json"), 'r', encoding='utf-8') as f:
-                data = json.load(f)
-
-            if convert_id2name(npc_id) not in data["agents_list"]:
-                logger.warning(f'NPC {npc_id} not found')
-                return {'error': f"NPC '{npc_id}' not found"}
-
-            agent, status = gen_agent_by_name(npc_id)
-            logger.debug(f"get agent {agent}")
-            npc_data = NPCModel(**agent)
-            npc_data.status = status
-
+            npc_data = get_npc_info(params)
             self.unity_request.emit('npc.getInfo.response', {
-                                    'npc': npc_data.model_dump()})
+                                    'npc': npc_data})
 
         except Exception as e:
             logger.error(f"Error getting NPC info: {str(e)}")

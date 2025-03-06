@@ -20,7 +20,7 @@ def get_npcs(request: NPCGetRequest):
     invalid_npcs = []
     
     for name in request.names:
-        with open("storage/sample_data/agents/meta.json", 'w', encoding='utf-8') as f:
+        with open("storage/sample_data/agents/spawn.json", 'w', encoding='utf-8') as f:
             data = json.load(f)
         if name not in data["agents_list"]:    
             invalid_npcs.append(name)
@@ -57,7 +57,7 @@ def get_npcs(request: NPCGetRequest):
 @app.post("/npcs/", response_model=NPCModel)
 def create_npc(npc: NPCModel):
     try:
-        with open("storage/sample_data/agents/meta.json", 'w', encoding='utf-8') as f:
+        with open("storage/sample_data/agents/spawn.json", 'w', encoding='utf-8') as f:
             data = json.load(f)
         if npc.prefered_name in data["agents_list"]:
             logger.warning(f"Attempting to create existing NPC: {npc.name}")
@@ -81,7 +81,7 @@ def update_npc(npc_name: str, updated_npc: NPCModel):
             logger.warning(f"NPC name mismatch: path {npc_name}, data {updated_npc.name}")
             raise HTTPException(status_code=400, detail="NPC name in path must match the name in data")
         
-        with open("storage/sample_data/agents/meta.json", 'w', encoding='utf-8') as f:
+        with open("storage/sample_data/agents/spawn.json", 'w', encoding='utf-8') as f:
             data = json.load(f)
         if npc_name in data["agents_list"]:
             logger.warning(f"Attempting to update existing NPC: {npc_name}")
@@ -107,7 +107,7 @@ def delete_npc(npc_name: str):
         import shutil
         shutil.rmtree(npc_dir)
 
-        with open("storage/sample_data/agents/meta.json", 'w', encoding='utf-8') as f:
+        with open("storage/sample_data/agents/spawn.json", 'w', encoding='utf-8') as f:
             data = json.load(f)
             data["agents_list"].remove(npc_name)
             json.dump(data, f, ensure_ascii=False, indent=2)

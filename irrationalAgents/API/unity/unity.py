@@ -1,12 +1,9 @@
 import socketio
-import asyncio
 import eventlet
-from typing import Dict, Any
 from logger_config import setup_logger
 from API.unity.handler import UnityHandlers
 from API.unity.request import UnityRequest
-from irrationalAgents.API.unity.config import Config
-
+from API.unity.tools import *
 from datetime import datetime
 import json
 
@@ -92,9 +89,8 @@ class UnityServer:
         """Perform server initialization tasks."""
         logger.info("Initializing server...")
        
-        sim_name = "the_ville_test"
-        sim_config = Config.get_sim_config(sim_name)
-        npc_config = Config.get_spawn_config(sim_name)
+        sim_config = {'npcs': get_npcs({"names": []})}
+        npc_config = get_spawns()
 
         self.unity_request.send_init(json.dumps({**sim_config, **npc_config}))
 
@@ -104,23 +100,22 @@ class UnityServer:
         logger.info(f"Starting Unity server on {host}:{port}")
         eventlet.wsgi.server(eventlet.listen((host, port)), self.app)
 
+    def keep_alive(self):
+        try:
+            while True:
+                eventlet.sleep(1)
+        except KeyboardInterrupt:
+            logger.info("Shutting down server...")
 
+    def run(self):
+        self.start_background()
 
+        logger.info("Waiting for client connection...")
+        if self.wait_for_connection(timeout=30): 
+            self.init() 
+            logger.info("Client connected, sending map request...")
+            return True
+        else:
+            logger.error("Timeout waiting for client connection.")
+            return False
 
-
-if __name__ == '__main__':
-    server = UnityServer()
-    server.start_background()
-
-    logger.info("Waiting for client connection...")
-    if server.wait_for_connection(timeout=30): 
-        server.init() 
-        logger.info("Client connected, sending map request...")
-    else:
-        logger.error("Timeout waiting for client connection.")
-    
-    try:
-        while True:
-            eventlet.sleep(1)
-    except KeyboardInterrupt:
-        logger.info("Shutting down server...")
