@@ -1,3 +1,12 @@
+'''
+Author: Yifei Wang
+Github: ephiewangyf@gmail.com
+Date: 2025-03-06 16:03:40
+LastEditors: ephie && ephiewangyf@gmail.com
+LastEditTime: 2025-03-07 22:11:10
+FilePath: /Agents-Sim/irrationalAgents/API/unity/handler.py
+Description: 
+'''
 # handlers.py
 import os
 from typing import Dict, Any
@@ -5,9 +14,9 @@ from logger_config import setup_logger
 from API.unity.models import *
 from common_method import *
 from API.unity.request import UnityRequest
-from API.unity.map import Map
-from config import WORK_DIR
+from config.config import WORK_DIR
 from API.unity.tools import *
+from API.unity.world import WorldState
 
 logger = setup_logger('API-unity-handler')
 
@@ -21,8 +30,7 @@ class UnityHandlers:
         self.clock = 0
         self.npc_pos = None
         self.player_pos = None
-        self.map_translator = None
-
+        
     def handle_map_data(self, data: Dict[str, Any]):
         self.map_data = data
 
@@ -35,26 +43,22 @@ class UnityHandlers:
             self.npc_pos = data['npc_pos']
             self.player_pos = data['player_pos']
 
-            if self.clock == 0:
+            if self.clock == 0:# initialize
                 if self.map_data is not None:
-                    self.map = Map(self.map_data)
+                    self.world = WorldState(self.map_data, self.NPC_STORAGE_BASE_PATH)
                     self.unity_request.send_server_tick(1)
                 else:
                     self.unity_request.get_map_data()
                     # if return is 0 frame will not be updated
                     self.unity_request.send_server_tick(0)
-            else:
-                for npc in self.npc_pos:
-                    x = self.npc_pos[npc]['x']
-                    y = self.npc_pos[npc]['y']
+            else: # in loop
+                self.world.update_agent_positions(self.npc_pos)
+                # gett all stimuli from nearby tiles
+                self.world.update_world()
+                # process events to npc
 
-                    self.map.add_npc_to_tile(npc, (x, y))
+                # update tile according to agent information
 
-                    # get nearby tiles
-                    logger.info(self.map.get_nearby_tiles((x, y), 1))
-
-                    # get details on tiles
-                    logger.info(self.map.get_tile_details((x, y)))
 
                 # comment to stop
                 self.unity_request.send_server_tick(1)

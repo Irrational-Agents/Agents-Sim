@@ -26,3 +26,6 @@ MAX_GROWTH_PER_CYCLE = 0.1
 # Memory configuration
 MEMORY_IMPORTANCE_THRESHOLD = 0.5
 MEMORY_DECAY_RATE = 0.99
+
+# Perception configuration
+PERCEPTION_RANGE = 2
