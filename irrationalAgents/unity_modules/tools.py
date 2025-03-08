@@ -1,18 +1,15 @@
 import os
 import json
 from logger_config import setup_logger
-from API.unity.models import *
+from unity_modules.models import *
 from common_method import *
-from config import WORK_DIR
+from config.config import NPC_STORAGE_BASE_PATH, SPAWN_FILE_PATH
 
-NPC_STORAGE_BASE_PATH = os.path.join(
-            WORK_DIR, "../storage/sample_data")
-
-logger = setup_logger('API-unity-tools')
+logger = setup_logger('tools')
 
 
-def gen_agent_by_name(name):
-    root_dir = os.path.join(WORK_DIR, f'../storage/sample_data/agents/{name}')
+def mess_agent_by_name(name):
+    root_dir = os.path.join(NPC_STORAGE_BASE_PATH, f'agents/{name}')
     if not os.path.exists(root_dir):
         logger.error(f"agent {name} not exists!")
         return None, None
@@ -30,7 +27,7 @@ def get_npcs(params: Dict) -> Dict:
     try:
         request = NPCGetRequest(**params)
 
-        with open(os.path.join(NPC_STORAGE_BASE_PATH, "spawn.json"), 'r', encoding='utf-8') as f:
+        with open(SPAWN_FILE_PATH, 'r', encoding='utf-8') as f:
             data = json.load(f)
 
 
@@ -56,7 +53,7 @@ def get_npcs(params: Dict) -> Dict:
         # 获取NPC信息
         npcs = []
         for npc_id in valid_npcs:
-            agent, status = gen_agent_by_name(npc_id)
+            agent, status = mess_agent_by_name(npc_id)
             if not agent:
                 continue
             if request.isDetails:
@@ -74,14 +71,14 @@ def get_npc_info(params: Dict) -> Dict:
     """Handle request to get specific NPC info"""
     npc_id = params.get('NPCID')
 
-    with open(os.path.join(NPC_STORAGE_BASE_PATH, "spawn.json"), 'r', encoding='utf-8') as f:
+    with open(SPAWN_FILE_PATH, 'r', encoding='utf-8') as f:
         data = json.load(f)
 
     if convert_id2name(npc_id) not in list(data.keys()):
         logger.warning(f'NPC {npc_id} not found')
         return {'error': f"NPC '{npc_id}' not found"}
 
-    agent, status = gen_agent_by_name(npc_id)
+    agent, status = mess_agent_by_name(npc_id)
     logger.debug(f"get agent {agent}")
     npc_data = NPCModel(**agent)
     npc_data.status = status
@@ -89,7 +86,7 @@ def get_npc_info(params: Dict) -> Dict:
 
 
 def get_spawns() -> Dict:
-    with open(os.path.join(NPC_STORAGE_BASE_PATH, "spawn.json"), 'r', encoding='utf-8') as f:
+    with open(SPAWN_FILE_PATH, 'r', encoding='utf-8') as f:
         data = json.load(f)
     return data
 

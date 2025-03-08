@@ -1,15 +1,13 @@
 import socketio
 import eventlet
 from logger_config import setup_logger
-from API.unity.handler import UnityHandlers
-from API.unity.request import UnityRequest
-from API.unity.tools import *
+from API.handler import UnityHandlers
+from API.request import UnityRequest
+from unity_modules.tools import *
 from datetime import datetime
 import json
 
-
 logger = setup_logger('API-unity')
-
 
 
 class UnityServer:

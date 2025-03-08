@@ -15,8 +15,9 @@ from typing import Dict, Any, List
 from datetime import datetime, timedelta
 from logger_config import setup_logger
 from config.meta_manager import MetaManager
-
+from config.config import *
 logger = setup_logger('Agent')
+
 
 class Agent:
     def __init__(self, basic_info, memory_folder_path=False):
@@ -65,7 +66,6 @@ class Agent:
         growth(self)
 
 
-
     def move(self, curr_time, event):
 
         #核心逻辑
@@ -96,35 +96,29 @@ class Agent:
             plan_list = self.plan(new_day)
             best_plan = self.plan_evaluation(plan_list)
             self.short_memory.save(self.short_memory)
-            self.action(best_plan)
+            description = self.action(best_plan)
+            return best_plan.get('action', None), description
 
 class AgentManager:
-    def __init__(self, spawn_config_path: str):
+    def __init__(self):
         """
         初始化Agent管理器
         
         Args:
-            spawn_config_path: spawn.json的路径
+            meta_config_path: meta.json的路径
         """
         self.agents: Dict[str, Agent] = {}
-        self.curr_time: datetime = None
-        self.spawn_config_path = spawn_config_path
+        
         self.meta_manager = MetaManager()
-        self.curr_time = self.meta_manager.get_datetime()
+
         self.load_agents()
         
     def load_agents(self):
-        """从spawn配置文件加载所有agent"""
+        """从meta, spawn配置文件加载所有agent"""
         try:
-            with open(self.spawn_config_path, 'r', encoding='utf-8') as f:
+            with open(SPAWN_FILE_PATH, 'r', encoding='utf-8') as f:
                 spawn_data = json.load(f)
-                
-            # 获取开始时间
-            self.curr_time = datetime.strptime(
-                f"{spawn_data.get('start_date')} {spawn_data.get('curr_time')}", 
-                "%Y-%m-%d %H:%M"
-            )
-            
+
             for agent_name, agent_data in spawn_data.items():
                 if isinstance(agent_data, dict):  # 跳过非agent的配置项
                     self.agents[agent_name] = self.create_agent(agent_name)
@@ -142,7 +136,9 @@ class AgentManager:
     
             
     def _get_agent_info_by_name(self, name):
-        root_dir = os.path.join(WORK_DIR, f'../storage/sample_data/agents/{name}')
+        
+        root_dir = os.path.join(NPC_STORAGE_BASE_PATH, f'agents/{name}')
+        
         if not os.path.exists(root_dir):
             logger.error(f"agent {name} not exists!")
             return None, None
@@ -153,44 +149,34 @@ class AgentManager:
         memory_folder_path = os.path.join(root_dir, "memory")
         return basic_info, memory_folder_path
 
-    def update_all(self, events: List[str]):
-        """
-        用于处理外部整体事件，比如当前世界的促销活动, 天气环境等
-        @todo: 这里可以考虑由前端触发
-        
-        Args:
-            events: 需要处理的事件列表
-        """
-        for agent_name, agent in self.agents.items():
-            try:
-                logger.info(f"更新 {agent_name} 状态")
-                agent.move(list(self.agents.keys()), self.curr_time, events)
-            except Exception as e:
-                logger.error(f"更新 {agent_name} 时出错: {str(e)}")
-
     def get_all_agents_positions(self):
         positions = {}
         for agent_name, agent in self.agents.items():
-            position = self._get_agent_position(agent_name, agent)
+            position = agent.short_memory.current_status.get('spawn', None)
             if position:
                 positions[agent_name] = position
 
         return positions
     
-    def _get_agent_position(self, agent_name, agent):
-        return agent.basic_info.get('spawn_point', None)
+    def write_agent_status(self, agent_name: str, status: Dict[str, Any]):
+        """
+        写入agent的status
+        """
+        with open(NPC_STORAGE_BASE_PATH + f'agents/{agent_name}/memory/short_term.json', 'w', encoding='utf-8') as f:
+            data = json.load(f)
+            data['current_status'] = status
+            json.dump(data, f, ensure_ascii=False, indent=4)
+        return status
     
-    def advance_time_by_15_minutes(curr_time, curr_date):
-        current_datetime = datetime.strptime(f"{curr_date} {curr_time}", "%Y-%m-%d %H:%M")
-        
-        advanced_datetime = current_datetime + timedelta(minutes=15)
-
-        advanced_time = advanced_datetime.strftime("%H:%M")
-        advanced_date = advanced_datetime.strftime("%Y-%m-%d")
-        
-        return advanced_time, advanced_date
+    def get_agent_current_status(self, agent_name: str) -> Dict[str, Any]:
+        """
+        获取指定agent的位置
+        """
+        with open(NPC_STORAGE_BASE_PATH + f'agents/{agent_name}/memory/short_term.json', 'r', encoding='utf-8') as f:
+            data = json.load(f)
+            return data['current_status']
     
-    def get_agent_status(self, agent_name: str) -> Dict[str, Any]:
+    def get_agent_psychological_status(self, agent_name: str) -> Dict[str, Any]:
         """
         获取指定agent的状态
         
@@ -203,9 +189,32 @@ class AgentManager:
         if agent_name in self.agents:
             agent = self.agents[agent_name]
             return {
-                "current_time": self.curr_time,
                 "memory": agent.short_memory.short_memory[-1] if agent.short_memory.short_memory else None,
                 "emotion": agent.short_memory.emotion,
                 "basic_info": agent.basic_info
             }
         return None
+
+    def erase_all_agents(self, storage: bool = True):
+        """
+        删除所有agent
+        """
+        for agent_name, _ in self.agents.items():
+            self.erase_agent(agent_name, storage)
+    
+    def erase_agent(self, agent_name: str, storage: bool = True):
+        """
+        删除指定agent, 包括basic_info.json, short_term.json, long_term.json
+        """
+        # 删除spawn.json中的agent
+        with open(SPAWN_FILE_PATH, 'w', encoding='utf-8') as f:
+            spawn_data = json.load(f)
+            spawn_data.pop(agent_name)
+            json.dump(spawn_data, f, ensure_ascii=False, indent=4)
+        
+        self.agents.pop(agent_name)
+
+        if storage:
+            # 删除 short_term.json, long_term.json
+            #@todo
+            pass

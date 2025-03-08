@@ -201,7 +201,6 @@ class Map:
         """
         Retrieves all tiles within a given radius of a specified tile.
         """
-        x, y = tile
         nearby_tiles = self.get_nearby_tiles(tile, PERCEPTION_RANGE)
         visible_tiles = []
         for tile in nearby_tiles:

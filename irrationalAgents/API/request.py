@@ -1,7 +1,6 @@
 from typing import Dict, Callable, Optional, Any
 from datetime import datetime
 from logger_config import setup_logger
-import asyncio
 import socketio
 
 # Setup the logger for this module

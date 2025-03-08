@@ -1,7 +1,12 @@
+import os
+
 # Websocket Configuration
 
 socket_url = "https://orange-cliff-0b3a9151e.5.azurestaticapps.net:8080" # dev
 WORK_DIR = '/Users/wangyifei/code/Agents-Sim/irrationalAgents'
+META_FILE_PATH = os.path.join(WORK_DIR, "storage/meta.data")
+SPAWN_FILE_PATH = os.path.join(WORK_DIR, "storage/sample_data/spawn.json")
+NPC_STORAGE_BASE_PATH = os.path.join(WORK_DIR, "storage/sample_data")
 
 # Action configuration
 AVAILABLE_ACTIONS = ["moving", "interacting", "thinking", "sleeping"]

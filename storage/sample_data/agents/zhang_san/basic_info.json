@@ -1,9 +1,6 @@
 {
   "name": "Zhang San",
   "birthday": "2002-04-15",
-  "pronunciation": "\ud83d\udca4",
-  "spawn_point": { "x": 127, "y": 46 },
-  "character": "C001",
   "description": [
     "Zhang San is an interior architect, who graduated from Tsinghua University's Academy of Arts",
     "Zhang San is particularly interested in modern minimalist style and the fusion of natural elements, often incorporating oceanic themes into his work",

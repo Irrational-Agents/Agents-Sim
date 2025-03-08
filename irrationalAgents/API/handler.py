@@ -1,42 +1,29 @@
-'''
-Author: Yifei Wang
-Github: ephiewangyf@gmail.com
-Date: 2025-03-06 16:03:40
-LastEditors: ephie && ephiewangyf@gmail.com
-LastEditTime: 2025-03-07 22:11:10
-FilePath: /Agents-Sim/irrationalAgents/API/unity/handler.py
-Description: 
-'''
 # handlers.py
 import os
 from typing import Dict, Any
 from logger_config import setup_logger
-from API.unity.models import *
+from unity_modules.models import *
 from common_method import *
-from API.unity.request import UnityRequest
-from config.config import WORK_DIR
-from API.unity.tools import *
-from API.unity.world import WorldState
-
+from API.request import UnityRequest
+from unity_modules.tools import *
+from unity_modules.world import WorldState
 logger = setup_logger('API-unity-handler')
 
 
 class UnityHandlers:
     def __init__(self):
-        self.NPC_STORAGE_BASE_PATH = os.path.join(
-            WORK_DIR, "../storage/sample_data")
         self.unity_request: UnityRequest = None
         self.map_data = None
         self.clock = 0
         self.npc_pos = None
         self.player_pos = None
+        self.world = None
         
     def handle_map_data(self, data: Dict[str, Any]):
         self.map_data = data
 
-    def update(self, data: Dict[str, Any]):
+    async def update(self, data: Dict[str, Any]):
         """Handle updates from the client."""
-        # @todo need to restructure in the future
         try:
 
             self.clock = int(data['clock'])
@@ -45,23 +32,23 @@ class UnityHandlers:
 
             if self.clock == 0:# initialize
                 if self.map_data is not None:
-                    self.world = WorldState(self.map_data, self.NPC_STORAGE_BASE_PATH)
-                    self.unity_request.send_server_tick(1)
+                    self.world = WorldState(self.map_data)
+                    #self.unity_request.send_server_tick(1)
                 else:
                     self.unity_request.get_map_data()
                     # if return is 0 frame will not be updated
                     self.unity_request.send_server_tick(0)
-            else: # in loop
-                self.world.update_agent_positions(self.npc_pos)
-                # gett all stimuli from nearby tiles
-                self.world.update_world()
-                # process events to npc
+            
+            # MAIN LOOP
+            # update agent positions
+            # update world state
+            # process events to npc
+            # update tile according to agent information
+            
+            self.world.update_agent_positions(self.npc_pos)
+            results = await self.world.tick_world()
 
-                # update tile according to agent information
-
-
-                # comment to stop
-                self.unity_request.send_server_tick(1)
+            self.unity_request.send_server_tick(1)
 
         except ValueError as e:
             logger.error(

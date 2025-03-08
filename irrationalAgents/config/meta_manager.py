@@ -28,7 +28,7 @@ class MetaManager:
         load_dotenv()
         
         self._meta_data = {}
-        self._meta_file_path = os.getenv('META_FILE_PATH', 'storage/sample_data/meta.json')
+        self._meta_file_path = os.getenv('META_FILE_PATH', 'storage/meta.data')
         self._initialized = True
         self.reload()
         
@@ -89,7 +89,9 @@ class MetaManager:
         required_fields = {
             'start_date': str,
             'curr_time': str,
-            'time_step': int
+            'time_step': int,
+            'simulation_speed': int,
+            'debug_mode': bool
         }
         
         for field, field_type in required_fields.items():
@@ -108,27 +110,44 @@ class MetaManager:
         """获取默认元数据"""
         return {
             'start_date': datetime.now().strftime('%Y-%m-%d'),
-            'curr_time': '08:00',
-            'time_step': 15,
-            'simulation_speed': 1,
-            'debug_mode': False
+            'curr_time': '00:00',
+            'sec_per_step': 15,
+            'step': 0
         }
         
     def get(self, key: str, default: Any = None) -> Any:
         """获取配置值"""
         return self._meta_data.get(key, default)
+    
+    def set_curr_datetime(self, curr_date: str, curr_time: str) -> None:
+        """设置当前日期时间"""
+        self._meta_data['curr_date'] = curr_date
+        self._meta_data['curr_time'] = curr_time
+    
+    def set_step(self, step: int) -> None:
+        """设置当前步数"""
+        self._meta_data['step'] = step
+    
+
+    def write_meta(self) -> None:
+        """写入元数据文件"""
+        with open(self._meta_file_path, 'w', encoding='utf-8') as f:
+            json.dump(self._meta_data, f, ensure_ascii=False, indent=4)
         
     def get_datetime(self) -> datetime:
         """获取当前日期时间"""
-        try:
-            return datetime.strptime(
-                f"{self.get('start_date')} {self.get('curr_time')}", 
-                "%Y-%m-%d %H:%M"
-            )
-        except ValueError as e:
-            logger.error(f"日期时间格式错误: {e}")
-            raise
+        return datetime.strptime(
+            f"{self.get('curr_date')} {self.get('curr_time')}", 
+            "%Y-%m-%d %H:%M"
+        )
             
+    def get_start_datetime(self) -> datetime:
+        """获取初始日期时间"""
+        return datetime.strptime(
+            f"{self.get('start_date')} {self.get('start_time')}", 
+            "%Y-%m-%d %H:%M"
+        )
+        
     def get_time_step(self) -> int:
         """获取时间步长（分钟）"""
         return self.get('time_step', 15)
