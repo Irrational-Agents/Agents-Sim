@@ -17,13 +17,13 @@ class UnityHandlers:
         self.world = None
         
     def handle_map_data(self, data: Dict[str, Any]):
-        logger.info(f"map_data: {data}")
+        logger.debug(f"map_data: {data}")
         self.map_data = data
 
     async def update(self, data: Dict[str, Any]):
         """Handle updates from the client."""
         try:
-            logger.info(f"update: {data}")
+            logger.debug(f"update: {data}")
             self.clock = int(data['clock'])
             self.npc_pos = data['npc_pos']
             self.player_pos = data['player_pos']
@@ -31,11 +31,12 @@ class UnityHandlers:
             if self.clock == 0:# initialize
                 if self.map_data is not None:
                     self.world = WorldState(self.map_data)
-                    #self.unity_request.send_server_tick(1)
+                    self.unity_request.send_server_tick(1)
                 else:
                     self.unity_request.get_map_data()
                     # if return is 0 frame will not be updated
                     self.unity_request.send_server_tick(0)
+                return
             
             # MAIN LOOP
             # update agent positions

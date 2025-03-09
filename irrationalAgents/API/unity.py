@@ -112,6 +112,7 @@ class UnityServer:
         if self.wait_for_connection(timeout=30): 
             self.init() 
             logger.info("Client connected, sending map request...")
+            self.unity_request.get_map_data()
             return True
         else:
             logger.error("Timeout waiting for client connection.")
