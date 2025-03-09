@@ -1,15 +1,13 @@
 import socketio
 import eventlet
-from logger_config import setup_logger
-from API.unity.handler import UnityHandlers
-from API.unity.request import UnityRequest
-from API.unity.tools import *
-from datetime import datetime
+from API.handler import UnityHandlers
+from API.request import UnityRequest
+from unity_modules.tools import *
 import json
 
+from config.logger_config import setup_logger
 
 logger = setup_logger('API-unity')
-
 
 
 class UnityServer:
@@ -89,10 +87,10 @@ class UnityServer:
         """Perform server initialization tasks."""
         logger.info("Initializing server...")
        
-        sim_config = {'npcs': get_npcs({"names": []})}
+        sim_config = {'npcs': get_npcs({})}
         npc_config = get_spawns()
-
-        self.unity_request.send_init(json.dumps({**sim_config, **npc_config}))
+        meta_config = get_meta()
+        self.unity_request.send_init(json.dumps({**sim_config, **npc_config, **meta_config}))
 
 
     def start(self, host: str = '0.0.0.0', port: int = 8080):

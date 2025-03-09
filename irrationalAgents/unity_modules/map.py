@@ -1,7 +1,8 @@
-from logger_config import setup_logger
-import json
-import csv
+from typing import Dict, Any, List, Tuple
 import numpy as np
+from config.config import PERCEPTION_RANGE
+
+from config.logger_config import setup_logger
 
 logger = setup_logger('Map-translator')
 
@@ -195,6 +196,17 @@ class Map:
             for j in range(max(0, x - vision_r), min(self.maze_width, x + vision_r + 1)):
                 nearby_tiles.append((j, i))
         return nearby_tiles
+    
+    def get_visible_tiles(self, tile):
+        """
+        Retrieves all tiles within a given radius of a specified tile.
+        """
+        nearby_tiles = self.get_nearby_tiles(tile, PERCEPTION_RANGE)
+        visible_tiles = []
+        for tile in nearby_tiles:
+            if self.tiles[tile[1]][tile[0]]['npc'] == '_': # 只返回没有npc的tiles
+                visible_tiles.append(tile)
+        return visible_tiles
 
     def add_event_to_tile(self, tile, event):
         """

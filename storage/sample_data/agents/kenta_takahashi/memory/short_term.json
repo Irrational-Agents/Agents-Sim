@@ -1,6 +1,12 @@
 {
   "age": null,
-  "current_location": null,
+  "current_status": {
+    "spawn": { "x": 73, "y": 14 },
+    "action": null,
+    "description": null,
+    "location": null,
+    "room": null
+  },
   "short_term_goal_capacity": 3,
   "short_term_goal": [
     {
@@ -66,7 +72,7 @@
       "time": "11:15",
       "date": "2024-09-16",
       "moccupying": 2,
-      "description": "Class ends and I head to the cafeteria"
+      "description": "Class ends and I head to the cafeteria, I need to go to the cafeteria to eat lunch"
     },
     {
       "time": "11:30",

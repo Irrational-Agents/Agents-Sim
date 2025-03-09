@@ -1,5 +1,5 @@
-from API.unity.unity import UnityServer
-import eventlet
+from API.unity import UnityServer
+from config.config import load_config_to_env
 
 def main():
     unity_server = UnityServer()
@@ -8,4 +8,6 @@ def main():
         unity_server.keep_alive()
 
 if __name__ == '__main__':
+
+    load_config_to_env()
     main() 
