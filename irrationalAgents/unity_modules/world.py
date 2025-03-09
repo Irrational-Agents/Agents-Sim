@@ -2,7 +2,6 @@ import os
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
 from typing import Dict, Any, List, Tuple
-from config.common_method import *
 from unity_modules.map import Map
 from unity_modules.tools import *
 from agents_modules.agent import AgentManager

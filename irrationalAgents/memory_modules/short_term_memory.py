@@ -48,6 +48,7 @@ class ShortTermMemory:
 
             # Load data from JSON
             self.age = short_memory_load.get("age")
+            self.current_status = short_memory_load.get("current_status")
             self.current_location = short_memory_load.get("current_location")
             self.short_term_goal_capacity = short_memory_load.get("short_term_goal_capacity")
             self.short_term_goal = short_memory_load.get("short_term_goal", [])

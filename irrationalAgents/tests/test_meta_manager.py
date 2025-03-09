@@ -14,10 +14,8 @@ class TestMetaManager(unittest.TestCase):
             'curr_date': '2024-03-06',
             'curr_time': '08:00',
             'start_time': '08:00',
-            'time_step': 15,
-            'simulation_speed': 1,
-            'debug_mode': False,
-            'step': 0
+            'step': 0,
+            'sec_per_step': 15
         }
         
         # 写入测试数据
@@ -53,13 +51,13 @@ class TestMetaManager(unittest.TestCase):
         """测试从文件加载配置"""
         self.meta_manager.reload()
         self.assertEqual(self.meta_manager.get('curr_time'), '09:00')  # 应该被环境变量覆盖
-        self.assertEqual(self.meta_manager.get('time_step'), 15)
+        self.assertEqual(self.meta_manager.get('step'), 15)
 
     def test_override_from_env(self):
         """测试环境变量覆盖"""
-        os.environ['TIME_STEP'] = '30'
+        os.environ['STEP'] = '30'
         self.meta_manager.reload()
-        self.assertEqual(self.meta_manager.get('time_step'), 30)
+        self.assertEqual(self.meta_manager.get('step'), 30)
 
     def test_datetime_operations(self):
         """测试日期时间操作"""

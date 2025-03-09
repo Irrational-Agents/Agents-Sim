@@ -1,5 +1,6 @@
 import sys
 sys.path.append('../../')
+import os
 
 import json
 import datetime
@@ -75,6 +76,7 @@ class LongTermMemory:
       o = node_details["object"]
 
       description = node_details["description"]
+
       embedding_pair = (node_details["embedding_key"], 
                         self.embeddings[node_details["embedding_key"]])
       poignancy =node_details["poignancy"]
