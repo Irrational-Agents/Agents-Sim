@@ -1,12 +1,13 @@
 from ast import While
-from irrationalAgents.agent import Agent
+from agents_modules.agent import Agent
 import json
 import os
+from config.config import *
 from datetime import datetime, timedelta
 
 def main():
     # basic_info.jsonを読み込む
-    with open(f"storage/sample_data/meta.json", 'r', encoding='utf-8') as f:
+    with open(META_FILE_PATH, 'r', encoding='utf-8') as f:
         meta = json.load(f)
     
     
@@ -25,14 +26,13 @@ def main():
 
 def create_agent(name):
 # プロジェクトのルートディレクトリを取得
-    root_dir = f"storage/sample_data/agents/{name}"
-
+    root_dir = NPC_STORAGE_BASE_PATH
     # basic_info.jsonを読み込む
-    with open(os.path.join(root_dir, "basic_info.json"), 'r', encoding='utf-8') as f:
+    with open(os.path.join(root_dir, f"agents/{name}/basic_info.json"), 'r', encoding='utf-8') as f:
         basic_info = json.load(f)
 
     # memoryフォルダのパスを設定
-    memory_folder_path = os.path.join(root_dir, "memory")
+    memory_folder_path = os.path.join(root_dir, f"agents/{name}/memory")
 
     # Agentインスタンスを作成
     sakura_agent = Agent(basic_info, memory_folder_path)

@@ -1,6 +1,6 @@
-from irrationalAgents.prompt.llm_command_list import *
-from irrationalAgents.common_method import *
-from irrationalAgents.agents_modules.personality.emotion import *
+from prompt.llm_command_list import *
+from config.common_method import *
+from agents_modules.personality.emotion import *
 
 def action(agent, next_action):
     action_type = next_action['action']
@@ -13,6 +13,7 @@ def action(agent, next_action):
     elif action_type == "interact":
         return handle_interact(agent, description)
     elif action_type == "move":
+        # @TODO: 需要结合计算路径 unity_modules/path_planner.py
         return handle_move(agent, description)
     else:
         return handle_unknown_action(agent, action_type, description)

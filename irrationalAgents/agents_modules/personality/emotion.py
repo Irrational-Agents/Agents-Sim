@@ -1,4 +1,4 @@
-from irrationalAgents.config import *
+from config import *
 import logging
 logger = logging.getLogger(__name__)
 

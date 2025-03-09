@@ -1,9 +1,8 @@
-
 from datetime import datetime, timedelta
 import math
 import logging
-from irrationalAgents.prompt.llm_command_list import *
-from irrationalAgents.agents_modules.personality.emotion import *
+from prompt.llm_command_list import *
+from agents_modules.personality.emotion import *
 
 logger = logging.getLogger(__name__)
 

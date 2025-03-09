@@ -36,3 +36,41 @@ Agents Sim repository
    ```
    python test3.py
    ```
+
+
+### Dev
+
+#### QuickStart
+
+```
+cd irrationalAgents
+python -m API.unity.unity
+```
+
+APIs
+```
+ui.tick
+server.tick
+
+player.getInfo
+player.getInfo.response
+
+npc.getList
+npc.getList.response
+
+npc.getInfo
+npc.getInfo.response
+
+npc.navigate
+
+map.getTownData
+map.getTownData.response
+
+map.getSceneMetadata
+map.getSceneMetadata.response
+
+config.getBlockData
+config.getBlockData.response
+
+chat.updateNPC
+```

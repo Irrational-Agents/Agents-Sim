@@ -1,6 +1,6 @@
-from irrationalAgents.memory_modules.short_term_memory import *
-from irrationalAgents.agents_modules.personality.emotion import *
-from irrationalAgents.prompt.llm_command_list import *
+from memory_modules.short_term_memory import *
+from agents_modules.personality.emotion import *
+from prompt.llm_command_list import *
 
 def stimulus(agent, events):
 

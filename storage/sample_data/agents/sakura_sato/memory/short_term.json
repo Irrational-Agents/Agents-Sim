@@ -1,6 +1,12 @@
 {
   "age": null,
-  "current_location": null,
+  "current_status": {
+    "spawn":{ "x": 127, "y": 46 },
+    "action": null,
+    "description": null,
+    "location": null,
+    "room": null
+  },
   "short_term_goal_capacity": 3,
   "short_term_goal": [
     {

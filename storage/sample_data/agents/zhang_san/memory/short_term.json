@@ -1,6 +1,13 @@
 {
   "age": 27,
-  "current_location": "Beijing",
+  "current_status": {
+    "spawn": { "x": 123, "y": 57 },
+    "next_spawn": { "x": 123, "y": 57 },
+    "action": null,
+    "description": null,
+    "location": null,
+    "room": null
+  },
   "short_term_goal_capacity": 3,
   "short_term_goal": [
     {

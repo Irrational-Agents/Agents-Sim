@@ -112,7 +112,7 @@ def generate_conversation(agent_name, agent_profile, current_emotion, plan, rece
 
 @traceable(name="generate_personality")
 def generate_personality(traits):    
-        with open('irrationalAgents/prompt/prompt_templates/personality_prompt.txt', 'r') as file:
+        with open('prompt/prompt_templates/personality_prompt.txt', 'r') as file:
             prompt_template = file.read()
         
         traits_str = json.dumps(traits, indent=2)
