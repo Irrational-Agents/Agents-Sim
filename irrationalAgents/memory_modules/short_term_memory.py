@@ -5,7 +5,7 @@ import sys
 from agents_modules.behavior.plan import *
 sys.path.append('../../')
 
-from common_method import *
+from config.common_method import *
 
 class ShortTermMemory:
     def __init__(self, short_memory_path):

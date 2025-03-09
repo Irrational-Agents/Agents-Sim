@@ -2,7 +2,7 @@ from typing import Dict, Any, List, Tuple
 import numpy as np
 from config.config import PERCEPTION_RANGE
 
-from logger_config import setup_logger
+from config.logger_config import setup_logger
 
 logger = setup_logger('Map-translator')
 

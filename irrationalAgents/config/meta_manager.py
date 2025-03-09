@@ -3,7 +3,7 @@ import json
 from datetime import datetime
 from typing import Any, Optional
 from dotenv import load_dotenv
-from logger_config import setup_logger
+from config.logger_config import setup_logger
 
 logger = setup_logger('MetaManager')
 

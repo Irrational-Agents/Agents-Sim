@@ -3,6 +3,7 @@
   "start_time": "00:00",
   "sec_per_step": 10,
   "map_name": null,
+  "step": 0,
   "agents_list": {
         "Sakura Sato" : {
           "pronunciation": "\ud83d\udca4",
@@ -23,6 +24,5 @@
               "spawn_point": { "x": 75, "y": 14 },
               "character": "C004"
           }
-  },
-  "step": 0
+  }
 }

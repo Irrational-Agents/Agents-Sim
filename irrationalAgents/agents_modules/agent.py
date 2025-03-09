@@ -1,19 +1,17 @@
 import json
 
-
 from memory_modules.long_term_memory import *
 from memory_modules.short_term_memory import *
-from common_method import *
-from stimulus import *
+from config.common_method import *
+from agents_modules.stimulus import *
 from agents_modules.behavior.plan import *
 from agents_modules.behavior.plan_evaluation import *
 from agents_modules.behavior.action import *
 from agents_modules.personality.cognition import *
 from agents_modules.personality.emotion import *
 from agents_modules.personality.personality import *
-from typing import Dict, Any, List
-from datetime import datetime, timedelta
-from logger_config import setup_logger
+from typing import Dict, Any
+from config.logger_config import setup_logger
 from config.meta_manager import MetaManager
 from config.config import *
 logger = setup_logger('Agent')
@@ -114,7 +112,7 @@ class AgentManager:
         self.load_agents()
         
     def load_agents(self):
-        """从meta, spawn配置文件加载所有agent"""
+        """spawn配置文件加载所有agent"""
         try:
             with open(SPAWN_FILE_PATH, 'r', encoding='utf-8') as f:
                 spawn_data = json.load(f)
@@ -170,7 +168,7 @@ class AgentManager:
     
     def get_agent_current_status(self, agent_name: str) -> Dict[str, Any]:
         """
-        获取指定agent的位置
+        获取指定agent的当前状态
         """
         with open(NPC_STORAGE_BASE_PATH + f'agents/{agent_name}/memory/short_term.json', 'r', encoding='utf-8') as f:
             data = json.load(f)
@@ -178,7 +176,7 @@ class AgentManager:
     
     def get_agent_psychological_status(self, agent_name: str) -> Dict[str, Any]:
         """
-        获取指定agent的状态
+        获取指定agent的情感状态
         
         Args:
             agent_name: agent的名称

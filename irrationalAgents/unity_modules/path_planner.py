@@ -3,7 +3,7 @@ from collections import deque
 import heapq
 from enum import Enum
 from dataclasses import dataclass
-from logger_config import setup_logger
+from config.logger_config import setup_logger
 
 logger = setup_logger('PathPlanner')
 
@@ -15,8 +15,7 @@ class MovementType(Enum):
 @dataclass
 class MovementConfig:
     """移动配置"""
-    tiles_per_15min: int  # 每15分钟可以移动的格子数
-    energy_cost: float    # 每格消耗的能量
+    tiles_per_time_unit: int  # 每15分钟可以移动的格子数
 
 # 不同移动类型的配置
 MOVEMENT_SPEEDS = {

@@ -1,5 +1,5 @@
 from prompt.llm_command_list import *
-from common_method import *
+from config.common_method import *
 from agents_modules.personality.emotion import *
 
 def action(agent, next_action):

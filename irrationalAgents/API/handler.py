@@ -1,9 +1,6 @@
-# handlers.py
-import os
 from typing import Dict, Any
-from logger_config import setup_logger
-from unity_modules.models import *
-from common_method import *
+from config.logger_config import setup_logger
+from config.common_method import *
 from API.request import UnityRequest
 from unity_modules.tools import *
 from unity_modules.world import WorldState
@@ -20,12 +17,13 @@ class UnityHandlers:
         self.world = None
         
     def handle_map_data(self, data: Dict[str, Any]):
+        logger.info(f"map_data: {data}")
         self.map_data = data
 
     async def update(self, data: Dict[str, Any]):
         """Handle updates from the client."""
         try:
-
+            logger.info(f"update: {data}")
             self.clock = int(data['clock'])
             self.npc_pos = data['npc_pos']
             self.player_pos = data['player_pos']
@@ -57,6 +55,7 @@ class UnityHandlers:
     def handle_get_npcs(self, params: Dict) -> Dict:
         """Handle request to get all NPCs"""
         try:
+            logger.info(f"get_npcs: {params}")
             npcs = get_npcs(params)
             self.unity_request.emit('npc.getList.response', {
                                     'npcs': npcs})
@@ -67,6 +66,7 @@ class UnityHandlers:
     def handle_get_npc_info(self, params: Dict) -> Dict:
         """Handle request to get specific NPC info"""
         try:
+            logger.info(f"get_npc_info: {params}")
             npc_data = get_npc_info(params)
             self.unity_request.emit('npc.getInfo.response', {
                                     'npc': npc_data})

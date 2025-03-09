@@ -2,14 +2,13 @@ import os
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
 from typing import Dict, Any, List, Tuple
-from unity_modules.models import *
-from common_method import *
+from config.common_method import *
 from unity_modules.map import Map
 from unity_modules.tools import *
-from agent import AgentManager
-from logger_config import setup_logger
+from agents_modules.agent import AgentManager
+from config.logger_config import setup_logger
 from config.meta_manager import MetaManager
-from common_method import advance_time_by_15_minutes
+from config.common_method import advance_time_by_15_minutes
 from unity_modules.path_planner import PathPlanner
 logger = setup_logger('World')
 
@@ -103,7 +102,7 @@ class WorldState:
                 self.global_time,
                 stimuli
             )
-            status = self.gen_npc_current_status(pos, action, move_description)
+            status = self.gen_npc_current_status(agent_name, action, move_description)
             self.agent_manager.write_agent_status_agent_status(agent_name, action, status)
 
             logger.debug(f"Agent {agent_name} 更新完成")
@@ -172,10 +171,11 @@ class WorldState:
         生成NPC的当前状态
         """
         # todo: map_translator: translate from pos to location, room etc
+        pos = self.agent_manager.agents[agent_name].short_memory.current_status['spawn']
         status = {
             'action': action,
             'description': move_description,
-            'spawn': self.agent_manager.agents[agent_name].short_memory.current_status['spawn']
+            'spawn': pos
         }
         if action == 'move':
             path = self.path_planner.plan_path_from_memory(move_description, pos)
