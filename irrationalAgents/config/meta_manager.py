@@ -4,7 +4,7 @@ from datetime import datetime
 from typing import Any, Optional
 from dotenv import load_dotenv
 from config.logger_config import setup_logger
-
+from config.config import META_FILE_PATH
 logger = setup_logger('MetaManager')
 
 class MetaManager:
@@ -28,7 +28,7 @@ class MetaManager:
         load_dotenv()
         
         self._meta_data = {}
-        self._meta_file_path = os.getenv('META_FILE_PATH', 'storage/meta.data')
+        self._meta_file_path = META_FILE_PATH
         self._initialized = True
         self.reload()
         
@@ -67,19 +67,16 @@ class MetaManager:
         env_mappings = {
             'START_DATE': 'start_date',
             'CURR_TIME': 'curr_time',
-            'TIME_STEP': 'time_step',
-            'SIMULATION_SPEED': 'simulation_speed',
-            'DEBUG_MODE': 'debug_mode'
+            'STEP': 'step',
+            'SEC_PER_STEP': 'sec_per_step'
         }
         
         for env_key, meta_key in env_mappings.items():
             env_value = os.getenv(env_key)
             if env_value is not None:
                 # 特殊类型转换
-                if meta_key in ['time_step', 'simulation_speed']:
+                if meta_key in ['step', 'sec_per_step']:
                     env_value = int(env_value)
-                elif meta_key == 'debug_mode':
-                    env_value = env_value.lower() == 'true'
                     
                 self._meta_data[meta_key] = env_value
                 logger.info(f"从环境变量加载配置: {meta_key} = {env_value}")
@@ -89,9 +86,8 @@ class MetaManager:
         required_fields = {
             'start_date': str,
             'curr_time': str,
-            'time_step': int,
-            'simulation_speed': int,
-            'debug_mode': bool
+            'step': int,
+            'sec_per_step': int
         }
         
         for field, field_type in required_fields.items():

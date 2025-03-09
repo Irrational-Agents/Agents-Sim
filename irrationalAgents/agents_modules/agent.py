@@ -197,7 +197,8 @@ class AgentManager:
         """
         删除所有agent
         """
-        for agent_name, _ in self.agents.items():
+        agent_names = list(self.agents.keys())
+        for agent_name in agent_names:
             self.erase_agent(agent_name, storage)
     
     def erase_agent(self, agent_name: str, storage: bool = True):
@@ -205,12 +206,21 @@ class AgentManager:
         删除指定agent, 包括basic_info.json, short_term.json, long_term.json
         """
         # 删除spawn.json中的agent
-        with open(SPAWN_FILE_PATH, 'w', encoding='utf-8') as f:
+         # 删除spawn.json中的agent
+        with open(SPAWN_FILE_PATH, 'r', encoding='utf-8') as f:
             spawn_data = json.load(f)
+        
+        # 从数据中移除agent
+        if agent_name in spawn_data:
             spawn_data.pop(agent_name)
+        
+        # 将修改后的数据写回文件
+        with open(SPAWN_FILE_PATH, 'w', encoding='utf-8') as f:
             json.dump(spawn_data, f, ensure_ascii=False, indent=4)
         
-        self.agents.pop(agent_name)
+        # 从内存中移除agent
+        if agent_name in self.agents:
+            self.agents.pop(agent_name)
 
         if storage:
             # 删除 short_term.json, long_term.json
