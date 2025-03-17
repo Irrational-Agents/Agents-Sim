@@ -3,9 +3,10 @@ import asyncio
 import eventlet
 from typing import Dict, Any
 from logger_config import setup_logger
+#from logger_config import setup_logger
 from API.unity.handler import UnityHandlers
 from API.unity.request import UnityRequest
-from irrationalAgents.API.unity.config import Config
+from API.unity.config import Config
 
 from datetime import datetime
 import json

@@ -5,7 +5,7 @@ from typing import Dict, Any
 from datetime import datetime
 from logger_config import setup_logger
 from API.unity.models import *
-from irrationalAgents.API.unity.config import *
+from API.unity.config import *
 from common_method import *
 from API.unity.request import UnityRequest
 from API.unity.map import Map
