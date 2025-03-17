@@ -1,0 +1,12 @@
+{
+  "start_time": "00:00:00",
+  "maze_name": "the_ville_test",
+  "npc_names": [
+      "Sakura Sato",
+      "Kenta Takahashi", 
+      "Zhang San"
+  ],
+  "player_name": "Yuriko Yamamoto",
+  "step": 20,
+  "sec_per_step": 10
+}

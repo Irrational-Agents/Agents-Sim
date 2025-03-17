@@ -1,0 +1,158 @@
+{
+  "age": 27,
+  "current_location": "Beijing",
+  "short_term_goal_capacity": 3,
+  "short_term_goal": [
+    {
+      "description": "Complete the 3D model for the seaside hotel suite design",
+      "deadline": "2024-09-25"
+    }
+  ],
+  "short_memory_capacity": 30,
+  "short_memory_for_plan": [],
+  "daily_plan_req": [
+    {
+      "time": "10:00",
+      "activity": "Wake up and enjoy a light stretch",
+      "moccupying": 1
+    },
+    {
+      "time": "10:15",
+      "activity": "Feed Bobo and Langley",
+      "moccupying": 1
+    },
+    {
+      "time": "10:30",
+      "activity": "Have breakfast, typically a smoothie or toast",
+      "moccupying": 2
+    },
+    {
+      "time": "11:00",
+      "activity": "Personal hygiene routine",
+      "moccupying": 2
+    },
+    {
+      "time": "11:30",
+      "activity": "Spend some time sketching or brainstorming design ideas",
+      "moccupying": 4
+    },
+    {
+      "time": "12:30",
+      "activity": "Lunch, often focusing on healthy options",
+      "moccupying": 2
+    },
+    {
+      "time": "13:00",
+      "activity": "Review ongoing design projects for the seaside hotel",
+      "moccupying": 4
+    },
+    {
+      "time": "14:00",
+      "activity": "Attend an online seminar or workshop on design trends",
+      "moccupying": 6
+    },
+    {
+      "time": "15:30",
+      "activity": "Work on design software for current projects",
+      "moccupying": 4
+    },
+    {
+      "time": "16:30",
+      "activity": "Break for tea and relax with Bobo and Langley",
+      "moccupying": 2
+    },
+    {
+      "time": "17:00",
+      "activity": "Continue working on the hotel suite designs",
+      "moccupying": 6
+    },
+    {
+      "time": "18:30",
+      "activity": "Wrap up work for the day and organize the workspace",
+      "moccupying": 2
+    },
+    {
+      "time": "19:00",
+      "activity": "Dinner, experimentation with new recipes",
+      "moccupying": 4
+    },
+    {
+      "time": "20:00",
+      "activity": "Connect with university classmates over video call",
+      "moccupying": 4
+    },
+    {
+      "time": "21:00",
+      "activity": "Relaxing walk in the neighborhood, enjoying the fresh air",
+      "moccupying": 4
+    },
+    {
+      "time": "22:00",
+      "activity": "Engage in a personal hobby such as reading or art",
+      "moccupying": 6
+    },
+    {
+      "time": "23:30",
+      "activity": "Prepare for sleep, including unwinding activities",
+      "moccupying": -92
+    },
+    {
+      "time": "00:30",
+      "activity": "Spend time planning surfing trip with Li Si",
+      "moccupying": 2
+    },
+    {
+      "time": "01:00",
+      "activity": "Reflect on the day and set goals for tomorrow",
+      "moccupying": 2
+    },
+    {
+      "time": "01:30",
+      "activity": "Go to bed",
+      "moccupying": 90
+    }
+  ],
+  "short_memory": [
+    {
+      "time": "00:00",
+      "date": "2024-09-16",
+      "moccupying": 3,
+      "description": "Feeling bored, which may dampen the current happiness."
+    },
+    {
+      "time": "00:00",
+      "date": "2024-09-16",
+      "moccupying": 1,
+      "description": "Feeling hungry"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-09-16",
+      "moccupying": 1,
+      "description": "Ordered food"
+    }
+  ],
+  "basic_needs": {
+    "fullness": 6,
+    "social": 7,
+    "fun": 5,
+    "health": 8,
+    "energy": 7
+  },
+  "temporary_personality_changes": {
+    "openness": 0.3,
+    "conscientiousness": 0.2,
+    "extraversion": 0,
+    "agreeableness": 0.1,
+    "neuroticism": -0.2
+  },
+  "emotion": [
+    6,
+    0,
+    0,
+    0,
+    1,
+    0,
+    3
+  ]
+}

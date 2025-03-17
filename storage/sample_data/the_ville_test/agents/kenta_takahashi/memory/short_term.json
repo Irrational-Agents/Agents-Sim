@@ -1,0 +1,93 @@
+{
+  "age": null,
+  "current_location": null,
+  "short_term_goal_capacity": 3,
+  "short_term_goal": [
+    {
+      "description": "Debug and optimize the natural language processing module of the AI chatbot",
+      "deadline": "2024-09-20"
+    }
+  ],
+  "short_memory_capacity": 30,
+  "short_memory_for_plan": [
+    {
+      "time": "07:00",
+      "moccupying": 1,
+      "activity": "Wake up and prepare for the day"
+    },
+    {
+      "time": "08:30",
+      "moccupying": 1,
+      "activity": "Head to the University of Tokyo and attend the Data Structures and Algorithms lecture"
+    },
+    {
+      "time": "11:30",
+      "moccupying": 1,
+      "activity": "Have lunch at the university cafeteria"
+    },
+    {
+      "time": "13:00",
+      "moccupying": 1,
+      "activity": "Attend the Machine Learning seminar"
+    },
+    {
+      "time": "15:30",
+      "moccupying": 1,
+      "activity": "Work on the AI chatbot project in the computer lab"
+    },
+    {
+      "time": "18:00",
+      "moccupying": 1,
+      "activity": "Participate in the robotics club meeting"
+    },
+    {
+      "time": "20:00",
+      "moccupying": 1,
+      "activity": "Return home"
+    },
+    {
+      "time": "20:30",
+      "moccupying": 1,
+      "activity": "Have dinner and relax"
+    },
+    {
+      "time": "22:00",
+      "moccupying": 1,
+      "activity": "Continue working on the AI project"
+    },
+    {
+      "time": "00:00",
+      "moccupying": 1,
+      "activity": "Prepare for bed"
+    }
+  ],
+  "short_memory": [
+    {
+      "time": "11:15",
+      "date": "2024-09-16",
+      "moccupying": 2,
+      "description": "Class ends and I head to the cafeteria"
+    },
+    {
+      "time": "11:30",
+      "date": "2024-09-16",
+      "moccupying": 2,
+      "description": "Have lunch with Sakura Sato while discussing our projects"
+    }
+  ],
+  "basic_needs": {
+    "fullness": 7,
+    "social": 6,
+    "fun": 5,
+    "health": 8,
+    "energy": 6
+  },
+  "temporary_personality_changes": {
+    "openness": 0.2,
+    "conscientiousness": 0.3,
+    "extraversion": 0.1,
+    "agreeableness": 0,
+    "neuroticism": -0.1
+  },
+  "emotion": [0, 0, 1, 7, 0, 2, 0]
+}
