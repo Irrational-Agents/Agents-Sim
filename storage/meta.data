@@ -4,6 +4,8 @@
   "sec_per_step": 10,
   "map_name": null,
   "step": 0,
+  "player_name": "Yuriko Yamamoto",
+  "npc_names":["Sakura Sato","Kenta Takahashi","Zhang San"],
   "agents_list": {
         "Sakura Sato" : {
           "pronunciation": "\ud83d\udca4",
