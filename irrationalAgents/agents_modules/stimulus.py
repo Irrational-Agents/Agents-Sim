@@ -32,6 +32,9 @@ def incident():
 
 def form_short_memory(agent, percept_events_list):
     short_memory_list = generate_short_memory(agent.name, get_complex_mood(agent.short_memory.emotion_memory[-1]), agent.short_memory.personality_text, agent.relationships, agent.short_memory.recent_events, percept_events_list)
+    if not short_memory_list:
+        return []
+    
     agent.short_memory.emotion_memory.append(short_memory_list['new_emotion'])
     new_entries = []
 

@@ -15,7 +15,7 @@ def plan(agent, new_day):
         agent.short_memory.daily_plan_req = agent.short_memory.intervals4plan(
             daily_plan)
     plan_list = create_plan(agent)
-    logger.info(f"plan: {plan_list}")
+    logger.info(f"{agent.name} plan: {plan_list}")
     return plan_list
 
 

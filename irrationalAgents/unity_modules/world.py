@@ -88,9 +88,7 @@ class WorldState:
             raise
 
     def _update_agent(self, agent_name: str, env_info: Dict[str, Any]):
-        """
-        异步更新单个agent
-        
+        """        
         Args:
             agent_name: agent的名称
             env_info: 环境信息
@@ -103,7 +101,7 @@ class WorldState:
             
             action, move_description = agent.move(self.global_time, stimuli)
             status = self.gen_npc_current_status(agent_name, action, move_description)
-            self.agent_manager.write_agent_status(agent_name, action, status)
+            self.agent_manager.write_agent_status(agent_name, status)
 
             logger.debug(f"Agent {agent_name} 更新完成")
             return agent_name, action, move_description

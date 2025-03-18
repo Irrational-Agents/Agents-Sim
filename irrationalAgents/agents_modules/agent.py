@@ -88,7 +88,7 @@ class Agent:
         self.short_memory.curr_date = self.short_memory.curr_datetime.strftime('%Y-%m-%d')
             
         stimulus = self.stimulus(events)
-
+        logger.info(f"{self.short_memory.curr_date}:{self.short_memory.curr_time} agent {self.name}")
         if stimulus == "sys2":
             return
         elif stimulus == "sys1":

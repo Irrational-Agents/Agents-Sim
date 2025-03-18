@@ -21,6 +21,7 @@ class ShortTermMemory:
         self.recent_events = ""
         self.personality_text = ""
         self.emotion_memory = []
+        self.current_status = {}
 
         # WORLD INFORMATION
         self.curr_datetime = None

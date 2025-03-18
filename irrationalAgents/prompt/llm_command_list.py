@@ -142,8 +142,7 @@ def generate_short_memory(agent_name, current_emotion, personality_traits, relat
     
     system_content = "You are an AI assistant tasked with updating an agent's short-term memory and emotional state based on perceived events and context."
     response = generative_agent(system_content, prompt)
-    logger.info(f"short memory response: {response}")
-    print(type(response))
+    logger.info(f"agent {agent_name} short memory response: {response}")
     try:
         parsed_response = json.loads(response)
         return parsed_response
