@@ -73,13 +73,13 @@ class WorldState:
                     logger.debug(f"Agent update result: {result}")
                 except Exception as e:
                     logger.error(f"更新Agent时出错: {str(e)}")
-   
+                    raise e
             # 4. 更新世界时间
-            advanced_time, advanced_date = advance_time_by_15_minutes(self.global_time.strftime("%H:%M"), self.global_time.strftime("%Y-%m-%d"))            
-            # 更新MetaManager中的时间, 用于后续断点恢复
-            self.meta_manager.set_curr_datetime(advanced_date, advanced_time)
-            self.meta_manager.set_step(self.meta_manager.get('step') + 1)
-            self.global_time = self.meta_manager.get_datetime()
+            # advanced_time, advanced_date = advance_time_by_15_minutes(self.global_time.strftime("%H:%M"), self.global_time.strftime("%Y-%m-%d"))            
+            # # 更新MetaManager中的时间, 用于后续断点恢复
+            # self.meta_manager.set_curr_datetime(advanced_date, advanced_time)
+            # self.meta_manager.set_step(self.meta_manager.get('step') + 1)
+            # self.global_time = self.meta_manager.get_datetime()
             
             logger.info("所有Agent更新完成")
             
@@ -93,22 +93,20 @@ class WorldState:
             agent_name: agent的名称
             env_info: 环境信息
         """
-        try:
-            agent = self.agent_manager.agents[agent_name]
-            
-            # 构建环境刺激
-            stimuli =  self._build_stimuli(env_info)
-            
-            action, move_description = agent.move(self.global_time, stimuli)
-            status = self.gen_npc_current_status(agent_name, action, move_description)
-            self.agent_manager.write_agent_status(agent_name, status)
+        agent = self.agent_manager.agents[agent_name]
+        
+        # 构建环境刺激
+        stimuli =  self._build_stimuli(env_info)
+        
+        action, move_description = agent.move(self.global_time, stimuli)
+        logger.info(f"{agent_name} action: {action}, move_description: {move_description}")
 
-            logger.debug(f"Agent {agent_name} 更新完成")
-            return agent_name, action, move_description
-            
-        except Exception as e:
-            logger.error(f"更新Agent {agent_name} 时出错: {str(e)}")
-            raise
+        status = self.gen_npc_current_status(agent_name, action, move_description)
+        logger.debug(f"{agent_name} status: {status}")
+        self.agent_manager.write_agent_status(agent_name, status)
+
+        logger.debug(f"Agent {agent_name} 更新完成")
+        return agent_name, action, move_description
 
     def _build_stimuli(self, env_info: Dict[str, Any]) -> List[str]:
         """
@@ -134,7 +132,7 @@ class WorldState:
 
         stimuli.append(f"seeing items: {items}")
         stimuli.append(f"seeing npcs: {npcs}")
-        stimuli.append(f"seeing events: {events}")
+        #stimuli.append(f"seeing events: {events}") temporary commented for parsing
         logger.debug(f"stimuli: {stimuli}")
             
         return stimuli
@@ -182,8 +180,8 @@ class WorldState:
             'description': move_description,
             'spawn': pos
         }
-        if action == 'move':
-            path = self.path_planner.plan_path_from_memory(move_description, pos)
-            if path:
-                status = {**path, **status}
+        # if action == 'move':
+        #     path = self.path_planner.plan_path_from_memory(move_description, pos)
+        #     if path:
+        #         status = {**path, **status}
         return status

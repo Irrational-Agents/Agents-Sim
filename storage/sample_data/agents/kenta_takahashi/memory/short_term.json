@@ -1,221 +1,208 @@
 {
-  "age": null,
-  "current_status": {
-    "spawn": {
-      "x": 73,
-      "y": 14,
-      "direction": "down"
+    "age": null,
+    "current_status": {
+        "action": "interact",
+        "description": "Interacted with Wake up, have a quick breakfast, and prepare for the day ahead.",
+        "spawn": {
+            "x": 73,
+            "y": 14,
+            "direction": "down"
+        }
     },
-    "action": null,
-    "description": null,
-    "location": null,
-    "room": null,
-    "next_spawn": {
-      "x": 73,
-      "y": 14,
-      "direction": "down"
-    }
-  },
-  "current_location": null,
-  "short_term_goal_capacity": 3,
-  "short_term_goal": [
-    {
-      "description": "Debug and optimize the natural language processing module of the AI chatbot",
-      "deadline": "2024-09-20"
-    }
-  ],
-  "short_memory_capacity": 30,
-  "short_memory_for_plan": [
-    {
-      "time": "07:00",
-      "moccupying": 1,
-      "activity": "Wake up and prepare for the day"
+    "current_location": null,
+    "short_term_goal_capacity": 3,
+    "short_term_goal": [
+        {
+            "description": "Debug and optimize the natural language processing module of the AI chatbot",
+            "deadline": "2024-09-20"
+        }
+    ],
+    "short_memory_capacity": 30,
+    "short_memory_for_plan": [
+        {
+            "time": "07:00",
+            "moccupying": 1,
+            "activity": "Wake up and prepare for the day"
+        },
+        {
+            "time": "08:30",
+            "moccupying": 1,
+            "activity": "Head to the University of Tokyo and attend the Data Structures and Algorithms lecture"
+        },
+        {
+            "time": "11:30",
+            "moccupying": 1,
+            "activity": "Have lunch at the university cafeteria"
+        },
+        {
+            "time": "13:00",
+            "moccupying": 1,
+            "activity": "Attend the Machine Learning seminar"
+        },
+        {
+            "time": "15:30",
+            "moccupying": 1,
+            "activity": "Work on the AI chatbot project in the computer lab"
+        },
+        {
+            "time": "18:00",
+            "moccupying": 1,
+            "activity": "Participate in the robotics club meeting"
+        },
+        {
+            "time": "20:00",
+            "moccupying": 1,
+            "activity": "Return home"
+        },
+        {
+            "time": "20:30",
+            "moccupying": 1,
+            "activity": "Have dinner and relax"
+        },
+        {
+            "time": "22:00",
+            "moccupying": 1,
+            "activity": "Continue working on the AI project"
+        },
+        {
+            "time": "00:00",
+            "moccupying": 1,
+            "activity": "Prepare for bed"
+        }
+    ],
+    "daily_plan_req": [
+        {
+            "time": "00:00",
+            "activity": "Sleep",
+            "moccupying": 1,
+            "intervals": 28
+        },
+        {
+            "time": "07:00",
+            "activity": "Wake up and personal hygiene",
+            "moccupying": 1,
+            "intervals": 2
+        },
+        {
+            "time": "07:30",
+            "activity": "Breakfast - Healthy smoothie and toast",
+            "moccupying": 1,
+            "intervals": 2
+        },
+        {
+            "time": "08:00",
+            "activity": "Review notes for advanced classes",
+            "moccupying": 2,
+            "intervals": 4
+        },
+        {
+            "time": "09:00",
+            "activity": "Attend Data Structures class",
+            "moccupying": 2,
+            "intervals": 6
+        },
+        {
+            "time": "10:30",
+            "activity": "Work on AI-powered chatbot project",
+            "moccupying": 3,
+            "intervals": 6
+        },
+        {
+            "time": "12:00",
+            "activity": "Lunch with Hiroshi at the campus café",
+            "moccupying": 2,
+            "intervals": 4
+        },
+        {
+            "time": "13:00",
+            "activity": "Attend Algorithms class",
+            "moccupying": 2,
+            "intervals": 6
+        },
+        {
+            "time": "14:30",
+            "activity": "Study and practice Python programming",
+            "moccupying": 3,
+            "intervals": 6
+        },
+        {
+            "time": "16:00",
+            "activity": "Collaborate with Hiroshi on an interdisciplinary project",
+            "moccupying": 2,
+            "intervals": 8
+        },
+        {
+            "time": "18:00",
+            "activity": "Participate in university robotics club meeting",
+            "moccupying": 2,
+            "intervals": 6
+        },
+        {
+            "time": "19:30",
+            "activity": "Dinner - Cook a simple meal at home",
+            "moccupying": 1,
+            "intervals": 2
+        },
+        {
+            "time": "20:00",
+            "activity": "Relax and watch a technology documentary",
+            "moccupying": 1,
+            "intervals": 4
+        },
+        {
+            "time": "21:00",
+            "activity": "Catch up with Yuki and Kenji over video call",
+            "moccupying": 2,
+            "intervals": 4
+        },
+        {
+            "time": "22:00",
+            "activity": "Work on final touches for chatbot project",
+            "moccupying": 3,
+            "intervals": 6
+        },
+        {
+            "time": "23:30",
+            "activity": "Prepare for bed and reflect on the day",
+            "moccupying": 1,
+            "intervals": 2
+        }
+    ],
+    "short_memory": [
+        {
+            "time": "00:00",
+            "date": "2024-09-16",
+            "moccupying": 1,
+            "description": "seeing items: [{'item': 'bed'}, {'item': 'bed'}, {'item': 'refrigerator'}, {'item': 'desk'}]"
+        },
+        {
+            "time": "00:00",
+            "date": "2024-09-16",
+            "moccupying": 1,
+            "description": "seeing npcs: ['Kenta Takahashi']"
+        }
+    ],
+    "basic_needs": {
+        "fullness": 7,
+        "social": 6,
+        "fun": 5,
+        "health": 8,
+        "energy": 6
     },
-    {
-      "time": "08:30",
-      "moccupying": 1,
-      "activity": "Head to the University of Tokyo and attend the Data Structures and Algorithms lecture"
+    "temporary_personality_changes": {
+        "openness": 0.2,
+        "conscientiousness": 0.3,
+        "extraversion": 0.1,
+        "agreeableness": 0,
+        "neuroticism": -0.1
     },
-    {
-      "time": "11:30",
-      "moccupying": 1,
-      "activity": "Have lunch at the university cafeteria"
-    },
-    {
-      "time": "13:00",
-      "moccupying": 1,
-      "activity": "Attend the Machine Learning seminar"
-    },
-    {
-      "time": "15:30",
-      "moccupying": 1,
-      "activity": "Work on the AI chatbot project in the computer lab"
-    },
-    {
-      "time": "18:00",
-      "moccupying": 1,
-      "activity": "Participate in the robotics club meeting"
-    },
-    {
-      "time": "20:00",
-      "moccupying": 1,
-      "activity": "Return home"
-    },
-    {
-      "time": "20:30",
-      "moccupying": 1,
-      "activity": "Have dinner and relax"
-    },
-    {
-      "time": "22:00",
-      "moccupying": 1,
-      "activity": "Continue working on the AI project"
-    },
-    {
-      "time": "00:00",
-      "moccupying": 1,
-      "activity": "Prepare for bed"
-    }
-  ],
-  "daily_plan_req": [
-    {
-      "time": "00:00",
-      "activity": "Sleep",
-      "moccupying": 1,
-      "intervals": 28
-    },
-    {
-      "time": "07:00",
-      "activity": "Wake up and morning meditation to alleviate fear and sadness",
-      "moccupying": 2,
-      "intervals": 2
-    },
-    {
-      "time": "07:30",
-      "activity": "Personal hygiene (shower, brush teeth)",
-      "moccupying": 1,
-      "intervals": 2
-    },
-    {
-      "time": "08:00",
-      "activity": "Breakfast (healthy meal to boost energy)",
-      "moccupying": 1,
-      "intervals": 2
-    },
-    {
-      "time": "08:30",
-      "activity": "Review project goals and plan for the day",
-      "moccupying": 3,
-      "intervals": 2
-    },
-    {
-      "time": "09:00",
-      "activity": "Attend advanced class in data structures",
-      "moccupying": 1,
-      "intervals": 8
-    },
-    {
-      "time": "11:00",
-      "activity": "Group study session with Hiroshi on algorithms",
-      "moccupying": 2,
-      "intervals": 6
-    },
-    {
-      "time": "12:30",
-      "activity": "Lunch with classmates",
-      "moccupying": 2,
-      "intervals": 4
-    },
-    {
-      "time": "13:30",
-      "activity": "Work on AI-powered chatbot project",
-      "moccupying": 3,
-      "intervals": 8
-    },
-    {
-      "time": "15:30",
-      "activity": "Attend class on neural networks",
-      "moccupying": 1,
-      "intervals": 6
-    },
-    {
-      "time": "17:00",
-      "activity": "Active involvement in robotics club meeting",
-      "moccupying": 2,
-      "intervals": 8
-    },
-    {
-      "time": "19:00",
-      "activity": "Dinner and catch up with high school friends via video call",
-      "moccupying": 2,
-      "intervals": 4
-    },
-    {
-      "time": "20:00",
-      "activity": "Continue working on the AI chatbot",
-      "moccupying": 3,
-      "intervals": 8
-    },
-    {
-      "time": "22:00",
-      "activity": "Leisure time (play video games or watch a show)",
-      "moccupying": 1,
-      "intervals": 4
-    },
-    {
-      "time": "23:00",
-      "activity": "Journaling to process emotions and thoughts",
-      "moccupying": 3,
-      "intervals": 2
-    },
-    {
-      "time": "23:30",
-      "activity": "Prepare for bed and relax",
-      "moccupying": 1,
-      "intervals": 2
-    }
-  ],
-  "short_memory": [
-    {
-      "time": "00:00",
-      "date": "2024-09-16",
-      "moccupying": 1,
-      "description": "seeing items: [{'item': 'bed'}, {'item': 'bed'}, {'item': 'refrigerator'}, {'item': 'desk'}]"
-    },
-    {
-      "time": "00:00",
-      "date": "2024-09-16",
-      "moccupying": 1,
-      "description": "seeing npcs: ['Kenta Takahashi']"
-    },
-    {
-      "time": "00:00",
-      "date": "2024-09-16",
-      "moccupying": 1,
-      "description": "seeing events: [({ 'item': 'bed' }, None, None), ({ 'item': 'bed' }, None, None), ({ 'item': 'refrigerator' }, None, None), ({ 'item': 'desk' }, None, None)]"
-    }
-  ],
-  "basic_needs": {
-    "fullness": 7,
-    "social": 6,
-    "fun": 5,
-    "health": 8,
-    "energy": 6
-  },
-  "temporary_personality_changes": {
-    "openness": 0.2,
-    "conscientiousness": 0.3,
-    "extraversion": 0.1,
-    "agreeableness": 0,
-    "neuroticism": -0.1
-  },
-  "emotion": [
-    0,
-    0,
-    1,
-    7,
-    0,
-    2,
-    0
-  ]
+    "emotion": [
+        0,
+        0,
+        1,
+        7,
+        0,
+        2,
+        0
+    ]
 }

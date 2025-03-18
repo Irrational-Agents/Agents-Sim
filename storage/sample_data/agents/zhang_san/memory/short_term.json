@@ -1,16 +1,9 @@
 {
     "age": 27,
     "current_status": {
+        "action": "interact",
+        "description": "Interacted with Organize and arrange the desk and bed in his apartment to create a more functional workspace and living area.",
         "spawn": {
-            "x": 123,
-            "y": 57,
-            "direction": "down"
-        },
-        "action": null,
-        "description": null,
-        "location": null,
-        "room": null,
-        "next_spawn": {
             "x": 123,
             "y": 57,
             "direction": "down"
@@ -29,15 +22,21 @@
     "daily_plan_req": [
         {
             "time": "00:00",
-            "activity": "Wind down with a book or listen to calming music",
+            "activity": "Wind down with a book on interior design",
             "moccupying": 1,
             "intervals": 4
         },
         {
             "time": "01:00",
-            "activity": "Practice mindfulness meditation to maintain emotional balance",
+            "activity": "Meditate for 30 minutes to promote relaxation",
             "moccupying": 1,
-            "intervals": 4
+            "intervals": 2
+        },
+        {
+            "time": "01:30",
+            "activity": "Prepare for bed and reflect on the day's accomplishments",
+            "moccupying": 1,
+            "intervals": 2
         },
         {
             "time": "02:00",
@@ -47,97 +46,79 @@
         },
         {
             "time": "10:00",
-            "activity": "Wake up and feed Bobo and Langley",
+            "activity": "Wake up and take care of Bobo and Langley",
             "moccupying": 1,
             "intervals": 2
         },
         {
             "time": "10:30",
-            "activity": "Personal hygiene and morning routine",
+            "activity": "Morning hygiene routine",
             "moccupying": 1,
             "intervals": 2
         },
         {
             "time": "11:00",
-            "activity": "Enjoy a healthy breakfast inspired by ocean themes",
+            "activity": "Have breakfast while reviewing design magazines",
             "moccupying": 1,
-            "intervals": 2
-        },
-        {
-            "time": "11:30",
-            "activity": "Review design projects and respond to client emails",
-            "moccupying": 2,
             "intervals": 4
         },
         {
-            "time": "12:30",
-            "activity": "Attend online industry seminar or webinar",
-            "moccupying": 2,
-            "intervals": 6
-        },
-        {
-            "time": "14:00",
-            "activity": "Lunch with Li Si to discuss design ideas and surfing plans",
-            "moccupying": 2,
-            "intervals": 4
+            "time": "12:00",
+            "activity": "Work on interior design project for seaside hotel",
+            "moccupying": 1,
+            "intervals": 12
         },
         {
             "time": "15:00",
-            "activity": "Work on current interior design project for the seaside hotel",
-            "moccupying": 3,
-            "intervals": 4
-        },
-        {
-            "time": "16:00",
-            "activity": "Take a break to play with Bobo and Langley",
+            "activity": "Take a break, go for a short walk in Chaoyang District",
             "moccupying": 1,
             "intervals": 2
         },
         {
-            "time": "16:30",
-            "activity": "Continue working on design project",
-            "moccupying": 3,
+            "time": "15:30",
+            "activity": "Continue working on the seaside hotel design project",
+            "moccupying": 1,
             "intervals": 6
         },
         {
-            "time": "18:00",
-            "activity": "Relax with a walk in the nearby park",
-            "moccupying": 1,
-            "intervals": 4
+            "time": "17:00",
+            "activity": "Call Li Si to discuss weekend surfing plans",
+            "moccupying": 2,
+            "intervals": 2
         },
         {
-            "time": "19:00",
-            "activity": "Prepare and have dinner",
-            "moccupying": 1,
-            "intervals": 4
+            "time": "17:30",
+            "activity": "Attend an industry seminar on modern minimalist design",
+            "moccupying": 3,
+            "intervals": 10
         },
         {
             "time": "20:00",
-            "activity": "Catch up with university classmates Wang Wu and Zhao Liu via video call",
-            "moccupying": 2,
+            "activity": "Dinner and relax at home",
+            "moccupying": 1,
             "intervals": 4
         },
         {
             "time": "21:00",
-            "activity": "Research modern minimalist design trends and gather inspiration",
-            "moccupying": 3,
-            "intervals": 6
-        },
-        {
-            "time": "22:30",
-            "activity": "Leisure time watching documentaries about architecture and nature",
-            "moccupying": 1,
+            "activity": "Video call with university classmates Wang Wu and Zhao Liu",
+            "moccupying": 2,
             "intervals": 4
         },
         {
+            "time": "22:00",
+            "activity": "Watch a design exhibition online",
+            "moccupying": 1,
+            "intervals": 6
+        },
+        {
             "time": "23:30",
-            "activity": "Plan next day's work schedule and relax with meditation",
+            "activity": "Spend time playing with Bobo and Langley",
             "moccupying": 1,
             "intervals": -94
         },
         {
             "time": "00:00",
-            "activity": "Prepare for bed",
+            "activity": "Journal about the day and plan tomorrow's activities",
             "moccupying": 1,
             "intervals": 96
         }
@@ -146,8 +127,14 @@
         {
             "time": "00:00",
             "date": "2024-09-16",
-            "moccupying": 3,
-            "description": "Zhang San feels slightly bored and hungry after seeing items on his desk and bed, prompting him to order food."
+            "moccupying": 1,
+            "description": "seeing items: [{'item': 'desk'}, {'item': 'bed'}]"
+        },
+        {
+            "time": "00:00",
+            "date": "2024-09-16",
+            "moccupying": 1,
+            "description": "seeing npcs: ['Zhang San']"
         }
     ],
     "basic_needs": {

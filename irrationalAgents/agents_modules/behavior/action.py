@@ -32,8 +32,7 @@ def handle_think(agent, description):
             "intensity": 4
         }
     }
-    
-    agent.short_memory.add_short_memory(new_entry)
+    agent.short_memory.add_short_memory([new_entry])
     logger.info(f"{agent.name} Thought new entry: {new_entry}")
     return f"Thought about: {description}"
 

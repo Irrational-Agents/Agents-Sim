@@ -1,21 +1,15 @@
 {
     "age": null,
     "current_status": {
+        "action": "interact",
+        "description": "Interacted with Wake up and enjoy a leisurely breakfast while reading a chapter from a contemporary novel.",
         "spawn": {
-            "x": 127,
-            "y": 46,
-            "direction": "down"
-        },
-        "action": null,
-        "description": null,
-        "location": null,
-        "room": null,
-        "next_spawn": {
             "x": 127,
             "y": 46,
             "direction": "down"
         }
     },
+    "current_location": null,
     "short_term_goal_capacity": 3,
     "short_term_goal": [
         {
@@ -71,18 +65,110 @@
             "activity": "Prepare for bed"
         }
     ],
-    "short_memory": [
+    "daily_plan_req": [
         {
-            "time": "11:30",
-            "date": "2024-09-16",
-            "moccupying": 2,
-            "description": "Class ends and I head to the cafeteria"
+            "time": "00:00",
+            "activity": "Sleep",
+            "moccupying": 1,
+            "intervals": 32
         },
         {
-            "time": "11:45",
-            "date": "2024-09-16",
+            "time": "08:00",
+            "activity": "Wake up and personal hygiene",
+            "moccupying": 1,
+            "intervals": 2
+        },
+        {
+            "time": "08:30",
+            "activity": "Breakfast with family",
             "moccupying": 2,
-            "description": "Have lunch with Kenta Takahashi while chatting"
+            "intervals": 2
+        },
+        {
+            "time": "09:00",
+            "activity": "Attend literary theory class",
+            "moccupying": 3,
+            "intervals": 8
+        },
+        {
+            "time": "11:00",
+            "activity": "Study session with Hanako in the library",
+            "moccupying": 2,
+            "intervals": 8
+        },
+        {
+            "time": "13:00",
+            "activity": "Lunch at a nearby café",
+            "moccupying": 2,
+            "intervals": 4
+        },
+        {
+            "time": "14:00",
+            "activity": "Creative writing practice class",
+            "moccupying": 3,
+            "intervals": 8
+        },
+        {
+            "time": "16:00",
+            "activity": "Free time for writing short story",
+            "moccupying": 1,
+            "intervals": 6
+        },
+        {
+            "time": "17:30",
+            "activity": "Meeting with literary club members",
+            "moccupying": 2,
+            "intervals": 6
+        },
+        {
+            "time": "19:00",
+            "activity": "Dinner with family",
+            "moccupying": 2,
+            "intervals": 4
+        },
+        {
+            "time": "20:00",
+            "activity": "Relax with a book by Haruki Murakami",
+            "moccupying": 1,
+            "intervals": 4
+        },
+        {
+            "time": "21:00",
+            "activity": "Video call with childhood friends Taro and Ichiro",
+            "moccupying": 2,
+            "intervals": 4
+        },
+        {
+            "time": "22:00",
+            "activity": "Personal journaling and reflection",
+            "moccupying": 3,
+            "intervals": 4
+        },
+        {
+            "time": "23:00",
+            "activity": "Prepare for bed",
+            "moccupying": 1,
+            "intervals": 2
+        },
+        {
+            "time": "23:30",
+            "activity": "Sleep",
+            "moccupying": 1,
+            "intervals": 2
+        }
+    ],
+    "short_memory": [
+        {
+            "time": "00:00",
+            "date": "2024-09-16",
+            "moccupying": 1,
+            "description": "seeing items: [{'item': 'bed'}, {'item': 'bed'}, {'item': 'game console'}, {'item': 'game console'}]"
+        },
+        {
+            "time": "00:00",
+            "date": "2024-09-16",
+            "moccupying": 1,
+            "description": "seeing npcs: ['Sakura Sato']"
         }
     ],
     "basic_needs": {

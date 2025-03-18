@@ -11,6 +11,7 @@ def check_if_file_exists(curr_file):
 
 def convert_name2id(name):
     return name.lower().replace(" ", "_")
+
 def convert_id2name(id: str) -> str:
     return ' '.join(word.capitalize() for word in id.split('_'))
 
