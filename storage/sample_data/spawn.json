@@ -13,5 +13,9 @@
         "pronunciation": "\ud83d\ude34",
         "spawn_point": { "x": 123, "y": 57 },
         "character": "C003"
-    }
+    },
+    "Yuriko Yamamoto": {
+        "spawn_point": { "x": 75, "y": 14 },
+        "character": "C004"
+    }    
 }

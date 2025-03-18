@@ -15,9 +15,9 @@ class WorldState:
     def __init__(self, map_data: Dict):
         self.map = Map(map_data)
         self.agent_manager = AgentManager()
-        return
         self.meta_manager = MetaManager()
        # self.path_planner = PathPlanner(self.map)
+        return
         self.global_time = self.meta_manager.get_start_datetime()
         self.map_translator = None
         # 创建线程池

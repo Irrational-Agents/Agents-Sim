@@ -13,7 +13,7 @@ def mess_agent_by_name(name):
         name = convert_name2id(name)
 
     root_dir = os.path.join(NPC_STORAGE_BASE_PATH, f'agents/{name}')
-    logger.info(f"root_dir: {root_dir}")
+    logger.debug(f"root_dir: {root_dir}")
     if not os.path.exists(root_dir):
         logger.error(f"agent {name} not exists!")
         return None, None
@@ -32,7 +32,7 @@ def get_npcs(params: Dict) -> Dict:
         else:
             with open(META_FILE_PATH, 'r', encoding='utf-8') as f:
                 data = json.load(f)
-                names = list(data.get('agents_list', {}).keys())
+                names = list(data.get('npc_names', {}).keys())
       
         npcs = []
         for npc_name in names:

@@ -58,6 +58,7 @@ class UnityServer:
         """Handle a new client connection."""
         self.current_client_sid = sid
         self.unity_request = UnityRequest(self.sio, self.current_client_sid)
+        self.handlers.unity_request = self.unity_request
         logger.info(f"Client connected: {sid}")
         self.connected_event.set()  # 使用 set() 替代 send()
 

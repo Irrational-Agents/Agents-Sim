@@ -5,26 +5,5 @@
   "map_name": null,
   "step": 0,
   "player_name": "Yuriko Yamamoto",
-  "npc_names":["Sakura Sato","Kenta Takahashi","Zhang San"],
-  "agents_list": {
-        "Sakura Sato" : {
-            "pronunciation": "\ud83d\udca4",
-            "spawn_point": { "x": 127, "y": 46 },
-            "character": "C001"
-          },
-          "Kenta Takahashi": {
-              "pronunciation": "\ud83d\ude34",
-              "spawn_point": { "x": 73, "y": 14 },
-              "character": "C002"
-          },
-          "Zhang San": {
-              "pronunciation": "\ud83d\ude34",
-              "spawn_point": { "x": 123, "y": 57 },
-              "character": "C003"
-          },
-          "Yuriko Yamamoto": {
-              "spawn_point": { "x": 75, "y": 14 },
-              "character": "C004"
-          }
-  }
+  "npc_names":["Sakura Sato","Kenta Takahashi","Zhang San"]
 }

@@ -110,15 +110,14 @@ class AgentManager:
         self.load_agents()
         
     def load_agents(self):
-        """spawn配置文件加载所有agent"""
+        """根据meta.data中的npc_names加载所有agent"""
         try:
-            with open(config.SPAWN_FILE_PATH, 'r', encoding='utf-8') as f:
-                spawn_data = json.load(f)
+            with open(config.META_FILE_PATH, 'r', encoding='utf-8') as f:
+                meta_data = json.load(f)
 
-            for agent_name, agent_data in spawn_data.items():
-                if isinstance(agent_data, dict):  # 跳过非agent的配置项
-                    agent_data = self.create_agent(agent_name)
-                    if agent_data:
+            for agent_name in meta_data['npc_names']:
+                agent_data = self.create_agent(agent_name)
+                if agent_data:
                         self.agents[agent_name] = agent_data
                         logger.info(f"Agent {agent_name} 已创建")
                     

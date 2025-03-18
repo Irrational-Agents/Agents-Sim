@@ -11,6 +11,8 @@ WORK_DIR = '$PATH/irrationalAgents'
 LANGCHAIN_TRACING_V2 = "true"
 LANGCHAIN_ENDPOINT = "https://api.smith.langchain.com"
 LANGCHAIN_PROJECT = "IrationalAgents"
+LANGCHAIN_API_KEY = "xxx"
+OPENAI_API_KEY = "xxx"
 
 # Action configuration
 AVAILABLE_ACTIONS = ["moving", "interacting", "thinking", "sleeping"]
@@ -58,7 +60,6 @@ def load_config_to_env():
         # 如果环境变量存在，使用环境变量的值
         if env_name in os.environ:
             env_value = os.environ[env_name]
-            print(env_value)
             globals()[name] = _convert_value(env_value, default_value)
         else:
             # 环境变量不存在，使用默认值
@@ -100,7 +101,6 @@ def get_config(key: str, default: Any = None) -> Any:
     """
     try:
         env_name = key.upper()
-        
         # 如果环境变量存在，使用环境变量的值
         if env_name in os.environ:
             env_value = os.environ[env_name]
