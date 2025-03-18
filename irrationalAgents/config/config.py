@@ -7,6 +7,11 @@ LOG_LEVEL = 'DEBUG'
 SOCKET_URL = "https://orange-cliff-0b3a9151e.5.azurestaticapps.net:8080"
 WORK_DIR = '$PATH/irrationalAgents'
 
+# langchain configuration
+LANGCHAIN_TRACING_V2 = "true"
+LANGCHAIN_ENDPOINT = "https://api.smith.langchain.com"
+LANGCHAIN_PROJECT = "IrationalAgents"
+
 # Action configuration
 AVAILABLE_ACTIONS = ["moving", "interacting", "thinking", "sleeping"]
 ACTION_COOLDOWN = 5

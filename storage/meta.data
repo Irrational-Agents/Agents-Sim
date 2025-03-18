@@ -8,9 +8,9 @@
   "npc_names":["Sakura Sato","Kenta Takahashi","Zhang San"],
   "agents_list": {
         "Sakura Sato" : {
-          "pronunciation": "\ud83d\udca4",
-          "spawn_point": { "x": 127, "y": 46 },
-          "character": "C001"
+            "pronunciation": "\ud83d\udca4",
+            "spawn_point": { "x": 127, "y": 46 },
+            "character": "C001"
           },
           "Kenta Takahashi": {
               "pronunciation": "\ud83d\ude34",
