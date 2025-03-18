@@ -189,6 +189,7 @@ class Map:
 
         Returns:
             list: A list of tile coordinates within the radius.
+            返回一个 (vision_r * 2 + 1) * (vision_r * 2 + 1) 的矩阵 
         """
         x, y = tile
         nearby_tiles = []
@@ -197,15 +198,27 @@ class Map:
                 nearby_tiles.append((j, i))
         return nearby_tiles
     
-    def get_visible_tiles(self, tile):
+    def generate_visible_tiles(self, current_tile):
         """
-        Retrieves all tiles within a given radius of a specified tile.
+        Retrieves all tiles within a given radius of a specified tile. 
+        # can be rewrited
         """
-        nearby_tiles = self.get_nearby_tiles(tile, PERCEPTION_RANGE)
+        nearby_tiles = self.get_nearby_tiles(current_tile, PERCEPTION_RANGE)
         visible_tiles = []
-        for tile in nearby_tiles:
-            if self.tiles[tile[1]][tile[0]]['npc'] == '_': # 只返回没有npc的tiles
-                visible_tiles.append(tile)
+        for tile in nearby_tiles:                
+            # 这里把无关信息过滤掉。减少推理负担
+            tile_data = self.tiles[tile[1]][tile[0]]
+            tile_data['tile'] = tile
+            
+            visible_tile = {
+                key: value for key, value in tile_data.items() if value
+            }
+            visible_tile.pop('spawning_location')
+            if visible_tile['npc'] == '_':
+                visible_tile.pop('npc')
+            if visible_tile:
+                visible_tiles.append(visible_tile)
+        logger.debug(f"tile: {tile}, visible_tiles: {visible_tiles}")
         return visible_tiles
 
     def add_event_to_tile(self, tile, event):

@@ -29,7 +29,6 @@ class WorldState:
         """
         # 清除旧的NPC位置
         self._clear_npc_positions()
-        
         # 更新新的位置
         for npc_name, pos in npc_positions.items():
             # 更新地图上的位置
@@ -119,18 +118,25 @@ class WorldState:
         stimuli = []
         items = []
         npcs = []
+        events = []
         
         # 处理周围的tile信息
         for tile in env_info['nearby_tiles']:
-            if tile['events']:
-                stimuli.extend([str(event) for event in tile['events']])
-            if tile['item']:
+            if tile.get('events'):
+                for event in tile['events']:
+                    events.append(event)
+            if tile.get('item'):
                 items.append(tile['item'])
-            if tile['npc']:
+            if tile.get('npc'):
                 npcs.append(tile['npc'])
+        
+        # 处理当前位置的tile信息
+        #todo: 需要处理当前位置的tile信息，包括地址，房间，楼层，事件等
 
         stimuli.append(f"seeing items: {items}")
         stimuli.append(f"seeing npcs: {npcs}")
+        stimuli.append(f"seeing events: {events}")
+        logger.debug(f"stimuli: {stimuli}")
             
         return stimuli
 
@@ -153,7 +159,7 @@ class WorldState:
                 
                 # 收集周围环境信息
                 nearby_info = {
-                    "nearby_tiles": self.map.get_visible_tiles(
+                    "nearby_tiles": self.map.generate_visible_tiles(
                         (pos['x'], pos['y'])
                     )
                 }

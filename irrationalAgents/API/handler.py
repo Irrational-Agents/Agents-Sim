@@ -27,17 +27,17 @@ class UnityHandlers:
             self.clock = int(data['clock'])
             self.npc_pos = data['npc_pos']
             self.player_pos = data['player_pos']
+            print(f"self.npc_pos: {self.npc_pos}, self.player_pos: {self.player_pos}")
 
             if self.clock == 0:# initialize
                 logger.debug(f"initialize")
                 if self.map_data is not None:
                     self.world = WorldState(self.map_data)
-                    print(self.world.meta_manager.get_all())
                     self.unity_request.send_server_tick(1)
                 else:
                     self.unity_request.get_map_data()
                     self.unity_request.send_server_tick(0)   # if return is 0 frame will not be updated
-                return
+                    return
             
             # MAIN LOOP
             # update agent positions

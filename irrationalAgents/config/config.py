@@ -116,4 +116,4 @@ load_config_to_env()
 
 META_FILE_PATH = os.path.join(WORK_DIR, "../storage/meta.data")
 SPAWN_FILE_PATH = os.path.join(WORK_DIR, "../storage/sample_data/spawn.json")
-NPC_STORAGE_BASE_PATH = os.path.join(WORK_DIR, "../storage/sample_data")
+NPC_STORAGE_BASE_PATH = os.path.join(WORK_DIR, "../storage/sample_data/")

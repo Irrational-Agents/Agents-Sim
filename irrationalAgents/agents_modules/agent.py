@@ -159,10 +159,15 @@ class AgentManager:
         """
         写入agent的status
         """
-        with open(config.NPC_STORAGE_BASE_PATH + f'agents/{agent_name}/memory/short_term.json', 'w', encoding='utf-8') as f:
+        file_path = config.NPC_STORAGE_BASE_PATH + f'agents/{convert_name2id(agent_name)}/memory/short_term.json'
+        with open(file_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
-            data['current_status'] = status
+        
+        data['current_status'] = status
+        
+        with open(file_path, 'w', encoding='utf-8') as f:
             json.dump(data, f, ensure_ascii=False, indent=4)
+
         return status
     
     def get_agent_current_status(self, agent_name: str) -> Dict[str, Any]:
