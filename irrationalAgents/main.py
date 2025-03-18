@@ -1,13 +1,17 @@
 from API.unity import UnityServer
-from config.config import load_config_to_env
+from config import config
+from config.logger_config import convert_log_level
+import uvicorn
 
 def main():
-    unity_server = UnityServer()
-    
-    if unity_server.run():
-        unity_server.keep_alive()
+    server = UnityServer()
+    uvicorn.run(
+        server.app,
+        host="0.0.0.0",
+        port=8080,
+        log_level=convert_log_level(config.LOG_LEVEL, 'uvicorn')
+    )
 
 if __name__ == '__main__':
 
-    load_config_to_env()
     main() 

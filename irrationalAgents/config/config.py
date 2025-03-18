@@ -5,10 +5,7 @@ LOG_LEVEL = 'DEBUG'
 
 # Websocket Configuration
 SOCKET_URL = "https://orange-cliff-0b3a9151e.5.azurestaticapps.net:8080"
-WORK_DIR = '/Users/wangyifei/code/Agents-Sim/irrationalAgents'
-META_FILE_PATH = os.path.join(WORK_DIR, "../storage/meta.data")
-SPAWN_FILE_PATH = os.path.join(WORK_DIR, "../storage/sample_data/spawn.json")
-NPC_STORAGE_BASE_PATH = os.path.join(WORK_DIR, "../storage/sample_data")
+WORK_DIR = '$PATH/irrationalAgents'
 
 # Action configuration
 AVAILABLE_ACTIONS = ["moving", "interacting", "thinking", "sleeping"]
@@ -49,7 +46,6 @@ def load_config_to_env():
         name: value for name, value in globals().items()
         if not name.startswith('_') and name.isupper()
     }
-    
     # 处理每个配置项
     for name, default_value in config_items.items():
         env_name = name.upper()
@@ -57,6 +53,7 @@ def load_config_to_env():
         # 如果环境变量存在，使用环境变量的值
         if env_name in os.environ:
             env_value = os.environ[env_name]
+            print(env_value)
             globals()[name] = _convert_value(env_value, default_value)
         else:
             # 环境变量不存在，使用默认值
@@ -109,3 +106,9 @@ def get_config(key: str, default: Any = None) -> Any:
             
     except Exception as e:
         return default
+
+load_config_to_env()
+
+META_FILE_PATH = os.path.join(WORK_DIR, "../storage/meta.data")
+SPAWN_FILE_PATH = os.path.join(WORK_DIR, "../storage/sample_data/spawn.json")
+NPC_STORAGE_BASE_PATH = os.path.join(WORK_DIR, "../storage/sample_data")

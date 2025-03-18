@@ -12,8 +12,9 @@ from agents_modules.personality.emotion import *
 from agents_modules.personality.personality import *
 from typing import Dict, Any
 from config.logger_config import setup_logger
-from config.meta_manager import MetaManager
-from config.config import *
+from config import config
+from config.common_method import convert_name2id
+
 logger = setup_logger('Agent')
 
 
@@ -106,21 +107,20 @@ class AgentManager:
             meta_config_path: meta.json的路径
         """
         self.agents: Dict[str, Agent] = {}
-        
-        self.meta_manager = MetaManager()
-
         self.load_agents()
         
     def load_agents(self):
         """spawn配置文件加载所有agent"""
         try:
-            with open(SPAWN_FILE_PATH, 'r', encoding='utf-8') as f:
+            with open(config.SPAWN_FILE_PATH, 'r', encoding='utf-8') as f:
                 spawn_data = json.load(f)
 
             for agent_name, agent_data in spawn_data.items():
                 if isinstance(agent_data, dict):  # 跳过非agent的配置项
-                    self.agents[agent_name] = self.create_agent(agent_name)
-                    logger.info(f"Agent {agent_name} 已创建")
+                    agent_data = self.create_agent(agent_name)
+                    if agent_data:
+                        self.agents[agent_name] = agent_data
+                        logger.info(f"Agent {agent_name} 已创建")
                     
         except Exception as e:
             logger.error(f"加载agents时出错: {str(e)}")
@@ -135,7 +135,7 @@ class AgentManager:
             
     def _get_agent_info_by_name(self, name):
         
-        root_dir = os.path.join(NPC_STORAGE_BASE_PATH, f'agents/{name}')
+        root_dir = os.path.join(config.NPC_STORAGE_BASE_PATH, f'agents/{convert_name2id(name)}')
         
         if not os.path.exists(root_dir):
             logger.error(f"agent {name} not exists!")
@@ -160,7 +160,7 @@ class AgentManager:
         """
         写入agent的status
         """
-        with open(NPC_STORAGE_BASE_PATH + f'agents/{agent_name}/memory/short_term.json', 'w', encoding='utf-8') as f:
+        with open(config.NPC_STORAGE_BASE_PATH + f'agents/{agent_name}/memory/short_term.json', 'w', encoding='utf-8') as f:
             data = json.load(f)
             data['current_status'] = status
             json.dump(data, f, ensure_ascii=False, indent=4)
@@ -170,7 +170,7 @@ class AgentManager:
         """
         获取指定agent的当前状态
         """
-        with open(NPC_STORAGE_BASE_PATH + f'agents/{agent_name}/memory/short_term.json', 'r', encoding='utf-8') as f:
+        with open(config.NPC_STORAGE_BASE_PATH + f'agents/{agent_name}/memory/short_term.json', 'r', encoding='utf-8') as f:
             data = json.load(f)
             return data['current_status']
     
@@ -207,7 +207,7 @@ class AgentManager:
         """
         # 删除spawn.json中的agent
          # 删除spawn.json中的agent
-        with open(SPAWN_FILE_PATH, 'r', encoding='utf-8') as f:
+        with open(config.SPAWN_FILE_PATH, 'r', encoding='utf-8') as f:
             spawn_data = json.load(f)
         
         # 从数据中移除agent
@@ -215,7 +215,7 @@ class AgentManager:
             spawn_data.pop(agent_name)
         
         # 将修改后的数据写回文件
-        with open(SPAWN_FILE_PATH, 'w', encoding='utf-8') as f:
+        with open(config.SPAWN_FILE_PATH, 'w', encoding='utf-8') as f:
             json.dump(spawn_data, f, ensure_ascii=False, indent=4)
         
         # 从内存中移除agent

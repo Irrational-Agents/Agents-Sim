@@ -5,6 +5,24 @@ from pprint import pformat
 from logging.handlers import RotatingFileHandler
 from config.config import LOG_LEVEL
 
+def convert_log_level(level: str, to_format: str = 'standard') -> str:
+    # 标准日志级别映射
+    level_mapping = {
+        'DEBUG': 'debug',
+        'INFO': 'info',
+        'WARNING': 'warning',
+        'ERROR': 'error',
+        'CRITICAL': 'critical'
+    }
+    
+    # 统一转换为大写以便查找
+    level = level.upper()
+    
+    if to_format == 'uvicorn':
+        return level_mapping.get(level, 'info')  # 默认返回 'info'
+    else:  # standard format (大写)
+        return level
+
 class DictFormatterFilter(logging.Filter):
     def filter(self, record):
         # 检查 args 中是否有字典或列表需要格式化
@@ -21,7 +39,7 @@ def setup_logger(name):
     logger = logging.getLogger(name)
     # 禁用继承
     logger.propagate = False
-    logger.setLevel(LOG_LEVEL)
+    logger.setLevel(convert_log_level(LOG_LEVEL))
     
     # 如果logger已经有handlers,不再添加，避免重复
     if logger.handlers:

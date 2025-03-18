@@ -17,7 +17,7 @@ class UnityHandlers:
         self.world = None
         
     def handle_map_data(self, data: Dict[str, Any]):
-        logger.debug(f"map_data: {data}")
+        logger.debug(f"map_data received")
         self.map_data = data
 
     async def update(self, data: Dict[str, Any]):
