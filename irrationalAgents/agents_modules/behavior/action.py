@@ -1,6 +1,9 @@
 from prompt.llm_command_list import *
 from config.common_method import *
 from agents_modules.personality.emotion import *
+from config.logger_config import setup_logger
+
+logger = setup_logger(__name__)
 
 def action(agent, next_action):
     action_type = next_action['action']
@@ -31,15 +34,13 @@ def handle_think(agent, description):
     }
     
     agent.short_memory.add_short_memory(new_entry)
-    print(new_entry)
+    logger.info(f"{agent.name} Thought new entry: {new_entry}")
     return f"Thought about: {description}"
 
 def handle_chat(agent, description, recent_events_text):
     advance_time, advance_date = advance_time_by_15_minutes(agent.short_memory.curr_time, agent.short_memory.curr_date)
     
     conv = generate_conversation(agent.name, agent.formed_profile, get_complex_mood(agent.short_memory.emotion_memory[-1]), description, recent_events_text, advance_time, advance_date)
-
-    
     new_entry = {
         "time": advance_time,
         "date": advance_date,
@@ -47,8 +48,8 @@ def handle_chat(agent, description, recent_events_text):
         "description": f"{conv[0]} chatted with {conv[1]}: {conv[2]}",
         "emotion": agent.short_memory.emotion_memory[-1]
     }
-    print(get_complex_mood(agent.short_memory.emotion_memory[-1]))
     agent.short_memory.add_short_memory([new_entry])
+    logger.info(f"{agent.name} Chatted with new entry: {new_entry}")
     return conv
 
 def handle_interact(agent, description):
@@ -76,7 +77,7 @@ def handle_interact(agent, description):
     }
     
     agent.short_memory.add_short_memory([new_entry])
-    print(new_entry)
+    logger.info(f"{agent.name} Interacted with {new_entry}")
     return f"Interacted with {description}"
 
 def handle_move(agent, description):
@@ -104,7 +105,7 @@ def handle_move(agent, description):
     }
     
     agent.short_memory.add_short_memory([new_entry])
-    print(new_entry)
+    logger.info(f"{agent.name} Moved to new entry: {new_entry}")
     return f"Moved to {description}"
 
 def handle_unknown_action(agent, action_type, description):
@@ -120,6 +121,6 @@ def handle_unknown_action(agent, action_type, description):
     }
     
     agent.short_memory.add_short_memory([new_entry])
-    print(new_entry)
+    logger.info(f"{agent.name} Attempted unknown action: {new_entry}")
     return f"Attempted unknown action: {action_type} - {description}"
 

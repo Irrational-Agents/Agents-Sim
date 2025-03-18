@@ -1,6 +1,8 @@
-from config import *
-import logging
-logger = logging.getLogger(__name__)
+from config.config import *
+from config.logger_config import setup_logger
+
+logger = setup_logger(__name__)
+
 
 def emotion(self):
     self.current_state = {emotion: 0 for emotion in EMOTION_TYPES}

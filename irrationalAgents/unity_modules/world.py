@@ -1,7 +1,5 @@
 import os
-import asyncio
-from concurrent.futures import ThreadPoolExecutor
-from typing import Dict, Any, List, Tuple
+from typing import Dict, Any, List
 from unity_modules.map import Map
 from unity_modules.tools import *
 from agents_modules.agent import AgentManager
@@ -9,6 +7,8 @@ from config.logger_config import setup_logger
 from config.meta_manager import MetaManager
 from config.common_method import advance_time_by_15_minutes
 from unity_modules.path_planner import PathPlanner
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
 logger = setup_logger('World')
 
 class WorldState:
@@ -17,7 +17,6 @@ class WorldState:
         self.agent_manager = AgentManager()
         self.meta_manager = MetaManager()
        # self.path_planner = PathPlanner(self.map)
-        return
         self.global_time = self.meta_manager.get_start_datetime()
         self.map_translator = None
         # 创建线程池
@@ -39,6 +38,8 @@ class WorldState:
             # 1， 地图信息需要同步到agent的spawn信息 ✅ or
             # 2， agent的spawn信息需要同步到地图信息
             if npc_name in self.agent_manager.agents:
+                logger.info(f"update_agent_positions: {npc_name} {pos}")
+
                 self.agent_manager.agents[npc_name].short_memory.current_status['spawn'] = pos
                 self.agent_manager.agents[npc_name].short_memory.current_status['next_spawn'] = pos
                 self.agent_manager.write_agent_status(npc_name, self.agent_manager.agents[npc_name].short_memory.current_status)
@@ -61,12 +62,17 @@ class WorldState:
             # 2. 创建所有agent更新任务
             update_tasks = []
             for agent_name, env_info in environment_info.items():
-                task = self._update_agent(agent_name, env_info)
+                task = self.thread_pool.submit(self._update_agent_sync, agent_name, env_info)
                 update_tasks.append(task)
             
             # 3. 并发执行所有更新任务
-            results = await asyncio.gather(*update_tasks)
-            
+            for future in as_completed(update_tasks):
+                try:
+                    result = future.result()
+                    logger.debug(f"Agent update result: {result}")
+                except Exception as e:
+                    logger.error(f"更新Agent时出错: {str(e)}")
+   
             # 4. 更新世界时间
             advanced_time, advanced_date = advance_time_by_15_minutes(self.global_time)            
             # 更新MetaManager中的时间, 用于后续断点恢复
@@ -94,13 +100,7 @@ class WorldState:
             # 构建环境刺激
             stimuli =  self._build_stimuli(env_info)
             
-            loop = asyncio.get_event_loop()
-            action, move_description = await loop.run_in_executor(
-                self.thread_pool,
-                agent.move,
-                self.global_time,
-                stimuli
-            )
+            action, move_description = await agent.move(self.global_time, stimuli)
             status = self.gen_npc_current_status(agent_name, action, move_description)
             self.agent_manager.write_agent_status_agent_status(agent_name, action, status)
 

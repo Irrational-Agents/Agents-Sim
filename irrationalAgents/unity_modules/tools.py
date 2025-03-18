@@ -32,7 +32,7 @@ def get_npcs(params: Dict) -> Dict:
         else:
             with open(META_FILE_PATH, 'r', encoding='utf-8') as f:
                 data = json.load(f)
-                names = list(data.get('npc_names', {}).keys())
+                names = list(data.get('npc_names'))
       
         npcs = []
         for npc_name in names:

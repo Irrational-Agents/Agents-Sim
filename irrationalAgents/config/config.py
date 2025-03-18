@@ -5,7 +5,7 @@ LOG_LEVEL = 'DEBUG'
 
 # Websocket Configuration
 SOCKET_URL = "https://orange-cliff-0b3a9151e.5.azurestaticapps.net:8080"
-WORK_DIR = '$PATH/irrationalAgents'
+WORK_DIR = '$PATH/irrationalAgents/'
 
 # langchain configuration
 LANGCHAIN_TRACING_V2 = "true"
@@ -117,3 +117,5 @@ load_config_to_env()
 META_FILE_PATH = os.path.join(WORK_DIR, "../storage/meta.data")
 SPAWN_FILE_PATH = os.path.join(WORK_DIR, "../storage/sample_data/spawn.json")
 NPC_STORAGE_BASE_PATH = os.path.join(WORK_DIR, "../storage/sample_data/")
+
+PROMPT_FILE_PATH = os.path.join(WORK_DIR, "prompt/prompt_templates/")

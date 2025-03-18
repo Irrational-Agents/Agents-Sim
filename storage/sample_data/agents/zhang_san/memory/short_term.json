@@ -1,173 +1,188 @@
 {
-    "age": 27,
-    "current_status": {
+  "age": 27,
+  "current_status": {
         "spawn": {
-            "x": 123,
-            "y": 57,
-            "direction": "down"
-        },
-        "next_spawn": {
-            "x": 123,
-            "y": 57,
+            "x": 127,
+            "y": 46,
             "direction": "down"
         },
         "action": null,
         "description": null,
         "location": null,
-        "room": null
-    },
-    "short_term_goal_capacity": 3,
-    "short_term_goal": [
-        {
-            "description": "Complete the 3D model for the seaside hotel suite design",
-            "deadline": "2024-09-25"
+        "room": null,
+        "next_spawn": {
+            "x": 127,
+            "y": 46,
+            "direction": "down"
         }
-    ],
-    "short_memory_capacity": 30,
-    "short_memory_for_plan": [],
-    "daily_plan_req": [
-        {
-            "time": "10:00",
-            "activity": "Wake up and enjoy a light stretch",
-            "moccupying": 1
-        },
-        {
-            "time": "10:15",
-            "activity": "Feed Bobo and Langley",
-            "moccupying": 1
-        },
-        {
-            "time": "10:30",
-            "activity": "Have breakfast, typically a smoothie or toast",
-            "moccupying": 2
-        },
-        {
-            "time": "11:00",
-            "activity": "Personal hygiene routine",
-            "moccupying": 2
-        },
-        {
-            "time": "11:30",
-            "activity": "Spend some time sketching or brainstorming design ideas",
-            "moccupying": 4
-        },
-        {
-            "time": "12:30",
-            "activity": "Lunch, often focusing on healthy options",
-            "moccupying": 2
-        },
-        {
-            "time": "13:00",
-            "activity": "Review ongoing design projects for the seaside hotel",
-            "moccupying": 4
-        },
-        {
-            "time": "14:00",
-            "activity": "Attend an online seminar or workshop on design trends",
-            "moccupying": 6
-        },
-        {
-            "time": "15:30",
-            "activity": "Work on design software for current projects",
-            "moccupying": 4
-        },
-        {
-            "time": "16:30",
-            "activity": "Break for tea and relax with Bobo and Langley",
-            "moccupying": 2
-        },
-        {
-            "time": "17:00",
-            "activity": "Continue working on the hotel suite designs",
-            "moccupying": 6
-        },
-        {
-            "time": "18:30",
-            "activity": "Wrap up work for the day and organize the workspace",
-            "moccupying": 2
-        },
-        {
-            "time": "19:00",
-            "activity": "Dinner, experimentation with new recipes",
-            "moccupying": 4
-        },
-        {
-            "time": "20:00",
-            "activity": "Connect with university classmates over video call",
-            "moccupying": 4
-        },
-        {
-            "time": "21:00",
-            "activity": "Relaxing walk in the neighborhood, enjoying the fresh air",
-            "moccupying": 4
-        },
-        {
-            "time": "22:00",
-            "activity": "Engage in a personal hobby such as reading or art",
-            "moccupying": 6
-        },
-        {
-            "time": "23:30",
-            "activity": "Prepare for sleep, including unwinding activities",
-            "moccupying": -92
-        },
-        {
-            "time": "00:30",
-            "activity": "Spend time planning surfing trip with Li Si",
-            "moccupying": 2
-        },
-        {
-            "time": "01:00",
-            "activity": "Reflect on the day and set goals for tomorrow",
-            "moccupying": 2
-        },
-        {
-            "time": "01:30",
-            "activity": "Go to bed",
-            "moccupying": 90
-        }
-    ],
-    "short_memory": [
-        {
-            "time": "00:00",
-            "date": "2024-09-16",
-            "moccupying": 3,
-            "description": "Feeling bored, which may dampen the current happiness."
-        },
-        {
-            "time": "00:00",
-            "date": "2024-09-16",
-            "moccupying": 1,
-            "description": "Feeling hungry"
-        },
-        {
-            "time": "00:00",
-            "date": "2024-09-16",
-            "moccupying": 1,
-            "description": "Ordered food"
-        }
-    ],
-    "basic_needs": {
-        "fullness": 6,
-        "social": 7,
-        "fun": 5,
-        "health": 8,
-        "energy": 7
     },
-    "temporary_personality_changes": {
-        "openness": 0.3,
-        "conscientiousness": 0.2,
-        "extraversion": 0,
-        "agreeableness": 0.1,
-        "neuroticism": -0.2
+  "current_location": null,
+  "short_term_goal_capacity": 3,
+  "short_term_goal": [
+    {
+      "description": "Complete the 3D model for the seaside hotel suite design",
+      "deadline": "2024-09-25"
+    }
+  ],
+  "short_memory_capacity": 30,
+  "short_memory_for_plan": [],
+  "daily_plan_req": [
+    {
+      "time": "00:00",
+      "activity": "Leisure reading about modern minimalist interior design",
+      "moccupying": 1,
+      "intervals": 4
     },
-    "emotion": [
-        6,
-        0,
-        0,
-        0,
-        1,
-        0,
-        3
-    ]
+    {
+      "time": "01:00",
+      "activity": "Watch a documentary about oceanic themes in architecture",
+      "moccupying": 1,
+      "intervals": 4
+    },
+    {
+      "time": "02:00",
+      "activity": "Wind down and prepare for bed",
+      "moccupying": 1,
+      "intervals": 32
+    },
+    {
+      "time": "10:00",
+      "activity": "Wake up and enjoy a cup of coffee",
+      "moccupying": 1,
+      "intervals": 2
+    },
+    {
+      "time": "10:30",
+      "activity": "Personal hygiene (shower, grooming)",
+      "moccupying": 1,
+      "intervals": 2
+    },
+    {
+      "time": "11:00",
+      "activity": "Breakfast while listening to design podcasts",
+      "moccupying": 2,
+      "intervals": 2
+    },
+    {
+      "time": "11:30",
+      "activity": "Play with Bobo and Langley, enjoy some bonding time",
+      "moccupying": 2,
+      "intervals": 2
+    },
+    {
+      "time": "12:00",
+      "activity": "Work on design project for high-end seaside hotel",
+      "moccupying": 3,
+      "intervals": 4
+    },
+    {
+      "time": "13:00",
+      "activity": "Lunch break",
+      "moccupying": 1,
+      "intervals": 2
+    },
+    {
+      "time": "13:30",
+      "activity": "Continue working on the design project",
+      "moccupying": 3,
+      "intervals": 8
+    },
+    {
+      "time": "15:30",
+      "activity": "Take a short break and check social media for design inspiration",
+      "moccupying": 1,
+      "intervals": 2
+    },
+    {
+      "time": "16:00",
+      "activity": "Attend an online industry seminar",
+      "moccupying": 2,
+      "intervals": 6
+    },
+    {
+      "time": "17:30",
+      "activity": "Wrap up work for the day, send updates to clients",
+      "moccupying": 1,
+      "intervals": 2
+    },
+    {
+      "time": "18:00",
+      "activity": "Dinner with Wang Wu to catch up on life and work",
+      "moccupying": 2,
+      "intervals": 6
+    },
+    {
+      "time": "19:30",
+      "activity": "Relax at home and watch a movie",
+      "moccupying": 1,
+      "intervals": 10
+    },
+    {
+      "time": "22:00",
+      "activity": "Plan weekend surfing trip with Li Si",
+      "moccupying": 2,
+      "intervals": 4
+    },
+    {
+      "time": "23:00",
+      "activity": "Evening yoga session to unwind",
+      "moccupying": 1,
+      "intervals": 2
+    },
+    {
+      "time": "23:30",
+      "activity": "Prepare for bed",
+      "moccupying": 1,
+      "intervals": 2
+    }
+  ],
+  "short_memory": [
+    {
+      "time": "00:00",
+      "date": "2024-09-16",
+      "moccupying": 1,
+      "description": "seeing items: [{'item': 'desk'}, {'item': 'bed'}]"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-09-16",
+      "moccupying": 1,
+      "description": "seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-09-16",
+      "moccupying": 1,
+      "description": "seeing events: [\"{\\'item\\': \\ 'desk\\'}\", None, None), (\"{\\'item\\': \\ 'bed\\'}\", None, None)]"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-09-16",
+      "moccupying": 2,
+      "description": "Feeling bored, which may dampen the current happiness. Feeling hungry. Ordered food."
+    }
+  ],
+  "basic_needs": {
+    "fullness": 6,
+    "social": 7,
+    "fun": 5,
+    "health": 8,
+    "energy": 7
+  },
+  "temporary_personality_changes": {
+    "openness": 0.3,
+    "conscientiousness": 0.2,
+    "extraversion": 0,
+    "agreeableness": 0.1,
+    "neuroticism": -0.2
+  },
+  "emotion": [
+    6,
+    0,
+    0,
+    0,
+    1,
+    0,
+    3
+  ]
 }
