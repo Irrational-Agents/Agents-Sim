@@ -14,6 +14,7 @@ def action(agent, next_action):
     elif action_type == "chat":
         return handle_chat(agent, description, agent.short_memory.recent_events)
     elif action_type == "interact":
+        #todo the description of interact is not correct, need to be revised in prompt
         return handle_interact(agent, description)
     elif action_type == "move":
         # @TODO: 需要结合计算路径 unity_modules/path_planner.py
@@ -77,7 +78,7 @@ def handle_interact(agent, description):
     
     agent.short_memory.add_short_memory([new_entry])
     logger.info(f"{agent.name} Interacted with {new_entry}")
-    return f"Interacted with {description}"
+    return f"{description}"
 
 def handle_move(agent, description):
     '''
