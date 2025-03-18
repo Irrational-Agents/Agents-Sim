@@ -57,7 +57,7 @@ def generate_plan(agent_name, agent_profile, current_emotion, recent_events, cur
     ) 
     response = generative_agent(system_content, prompt2)
 
-    logger.info(f"plan response: {response}")
+    logger.info(f"agent {agent_name} plan response: {response}")
     try:
         parsed_response = json.loads(response)
         return parsed_response
@@ -124,7 +124,7 @@ def generate_personality(traits):
         
         system_content = "You are an AI assistant specialized in creating concise and insightful personality profiles based on given personality traits."
         personality_profile = generative_agent(system_content, prompt)
-        logger.info(f"personality profile: {personality_profile}")
+        logger.debug(f"personality profile: {personality_profile}")
         return personality_profile
 
 @traceable(name="generate_short_memory")
@@ -143,6 +143,7 @@ def generate_short_memory(agent_name, current_emotion, personality_traits, relat
     system_content = "You are an AI assistant tasked with updating an agent's short-term memory and emotional state based on perceived events and context."
     response = generative_agent(system_content, prompt)
     logger.info(f"short memory response: {response}")
+    print(type(response))
     try:
         parsed_response = json.loads(response)
         return parsed_response

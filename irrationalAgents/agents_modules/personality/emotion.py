@@ -33,7 +33,7 @@ def get_emotion_levels(emotion):
 
 def get_complex_mood(emotion):
     levels = get_emotion_levels(emotion)
-    logger.info('mood: %s', levels)
+    logger.debug(f"emotion levels: {levels}")
     primary_emotion = max(levels, key=levels.get)
     primary_intensity = levels[primary_emotion]
 

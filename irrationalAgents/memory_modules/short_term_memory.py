@@ -1,6 +1,9 @@
 import datetime
 import json
 import sys
+from config.logger_config import setup_logger
+
+logger = setup_logger(__name__)
 
 from agents_modules.behavior.plan import *
 sys.path.append('../../')
@@ -71,6 +74,7 @@ class ShortTermMemory:
     def save(self, out_json):
         short_memory = {
             'age': self.age,
+            'current_status': self.current_status,
             'current_location': self.current_location,
             'short_term_goal_capacity': self.short_term_goal_capacity,
             'short_term_goal': self.short_term_goal,
@@ -187,7 +191,7 @@ def format_events_as_text(events):
         return ""
 
     formatted_events = []
-    print(events)
+    logger.debug(f"events: {events}")
     first_event = events[0]
     time_date = f"{first_event['time']} {first_event['date']}: "
     

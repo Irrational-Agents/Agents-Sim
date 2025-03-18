@@ -51,7 +51,7 @@ class WorldState:
                 if self.map.tiles[i][j]['npc'] != '_':
                     self.map.tiles[i][j]['npc'] = '_'
 
-    async def tick_world(self):
+    def tick_world(self):
         """
         并发更新世界状态
         """
@@ -61,9 +61,10 @@ class WorldState:
             
             # 2. 创建所有agent更新任务
             update_tasks = []
-            for agent_name, env_info in environment_info.items():
-                task = self.thread_pool.submit(self._update_agent_sync, agent_name, env_info)
-                update_tasks.append(task)
+            update_tasks = [
+                self.thread_pool.submit(self._update_agent, agent_name, env_info)
+                for agent_name, env_info in environment_info.items()
+            ]
             
             # 3. 并发执行所有更新任务
             for future in as_completed(update_tasks):
@@ -74,7 +75,7 @@ class WorldState:
                     logger.error(f"更新Agent时出错: {str(e)}")
    
             # 4. 更新世界时间
-            advanced_time, advanced_date = advance_time_by_15_minutes(self.global_time)            
+            advanced_time, advanced_date = advance_time_by_15_minutes(self.global_time.strftime("%H:%M"), self.global_time.strftime("%Y-%m-%d"))            
             # 更新MetaManager中的时间, 用于后续断点恢复
             self.meta_manager.set_curr_datetime(advanced_date, advanced_time)
             self.meta_manager.set_step(self.meta_manager.get('step') + 1)
@@ -86,7 +87,7 @@ class WorldState:
             logger.error(f"更新世界状态时出错: {str(e)}")
             raise
 
-    async def _update_agent(self, agent_name: str, env_info: Dict[str, Any]):
+    def _update_agent(self, agent_name: str, env_info: Dict[str, Any]):
         """
         异步更新单个agent
         
@@ -100,9 +101,9 @@ class WorldState:
             # 构建环境刺激
             stimuli =  self._build_stimuli(env_info)
             
-            action, move_description = await agent.move(self.global_time, stimuli)
+            action, move_description = agent.move(self.global_time, stimuli)
             status = self.gen_npc_current_status(agent_name, action, move_description)
-            self.agent_manager.write_agent_status_agent_status(agent_name, action, status)
+            self.agent_manager.write_agent_status(agent_name, action, status)
 
             logger.debug(f"Agent {agent_name} 更新完成")
             return agent_name, action, move_description

@@ -109,7 +109,7 @@ class UnityServer:
         self.start_background()
 
         logger.info("Waiting for client connection...")
-        if self.wait_for_connection(timeout=30): 
+        if self.wait_for_connection(timeout=120): 
             self.init() 
             logger.info("Client connected, sending map request...")
             self.unity_request.get_map_data()
