@@ -20,7 +20,7 @@ class UnityHandlers:
         logger.debug(f"map_data: {data}")
         self.map_data = data
 
-    async def update(self, data: Dict[str, Any]):
+    def update(self, data: Dict[str, Any]):
         """Handle updates from the client."""
         try:
             logger.debug(f"update: {data}")
@@ -36,7 +36,8 @@ class UnityHandlers:
                     self.unity_request.get_map_data()
                     # if return is 0 frame will not be updated
                     self.unity_request.send_server_tick(0)
-                return
+            else:
+                self.unity_request.send_server_tick(1)
             
             # MAIN LOOP
             # update agent positions
@@ -45,7 +46,7 @@ class UnityHandlers:
             # update tile according to agent information
             
             self.world.update_agent_positions(self.npc_pos)
-            results = await self.world.tick_world()
+            #results = await self.world.tick_world()
 
             self.unity_request.send_server_tick(1)
 
