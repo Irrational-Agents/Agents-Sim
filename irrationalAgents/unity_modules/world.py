@@ -133,7 +133,7 @@ class WorldState:
 
         stimuli.append(f"seeing items: {items}")
         stimuli.append(f"seeing npcs: {npcs}")
-        #stimuli.append(f"seeing events: {events}") temporary commented for parsing
+        stimuli.append(f"seeing events: {events}")
         logger.debug(f"stimuli: {stimuli}")
             
         return stimuli

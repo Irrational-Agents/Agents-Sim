@@ -111,13 +111,16 @@ class Map:
                         "space": spawn_data.get("space", "")
                     },
                     "events": set(), # events can be anything, like you can set events on tiles that sale is going on
+
                     "npc": '_' 
                 }
 
                 # Add default event for items
                 if tile_details["item"]:
-                    object_name = f"{tile_details['room']}:{tile_details['item']}"
-                    tile_details["events"].add((object_name, None, None))
+                    items_str = ','.join(set(tile_details["item"].values()))
+                    room = tile_details["room"] or "items"
+                    event_items = f'{room}:{items_str}'
+                    tile_details["events"].add((event_items, None, None))
 
                 row.append(tile_details)
             tiles.append(row)

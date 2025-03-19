@@ -35,7 +35,7 @@ def handle_think(agent, description):
     }
     agent.short_memory.add_short_memory([new_entry])
     logger.info(f"{agent.name} Thought new entry: {new_entry}")
-    return f"Thought about: {description}"
+    return f"{description}"
 
 def handle_chat(agent, description, recent_events_text):
     advance_time, advance_date = advance_time_by_15_minutes(agent.short_memory.curr_time, agent.short_memory.curr_date)
