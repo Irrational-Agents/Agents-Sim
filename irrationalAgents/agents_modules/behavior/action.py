@@ -24,7 +24,7 @@ def action(agent, next_action):
 
 def handle_think(agent, description):
     new_entry = {
-        "time": agent.short_memory.curr_date,
+        "time": agent.short_memory.curr_time,
         "date": agent.short_memory.curr_date,
         "moccupying": 1,
         "description": f"{agent.name} thought about: {description}",
@@ -94,7 +94,7 @@ def handle_move(agent, description):
     }
     '''
     new_entry = {
-        "time": agent.short_memory.curr_date,
+        "time": agent.short_memory.curr_time,
         "date": agent.short_memory.curr_date,
         "moccupying": 1,
         "description": f"{agent.name} moved: {description}",
@@ -110,7 +110,7 @@ def handle_move(agent, description):
 
 def handle_unknown_action(agent, action_type, description):
     new_entry = {
-        "time": agent.short_memory.curr_date,
+        "time": agent.short_memory.curr_time,
         "date": agent.short_memory.curr_date,
         "moccupying": 1,
         "description": f"{agent.name} did: {action_type} - {description}",
