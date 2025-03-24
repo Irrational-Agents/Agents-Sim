@@ -24,6 +24,8 @@ MOVEMENT_SPEEDS = {
     MovementType.IDLE: MovementConfig(tiles_per_time_unit=0)   # 静止不动
 }
 
+from collections import deque
+
 class PathPlanner:
     def __init__(self, map_instance):
         self.map = map_instance
@@ -38,26 +40,29 @@ class PathPlanner:
 
     def is_valid(self, x, y):
         """Check if a position is within bounds and not an obstacle."""
-        return 0 <= x < len(self.map.collision_maze) and \
-               0 <= y < len(self.map.collision_maze[0]) and \
-               not self.map.collision_maze[x][y]
+        vaild = (0 <= x < len(self.map.collision_maze) and
+                0 <= y < len(self.map.collision_maze[0]) and
+                self.map.collision_maze[x][y] != self.collision_wall)
+        return vaild
 
-    def create_path(self, start, end, start_direction):
+    def create_path(self, start, end, start_direction=None):
+        """Find the shortest path using BFS."""
         queue = deque([(start[0], start[1], [])])
         visited = set()
-        visited.add(start)
+        visited.add((start[0], start[1]))
 
         while queue:
             x, y, path = queue.popleft()
-            
+
             if (x, y) == end:
                 return path
-            
+
             for direction, (dx, dy) in self.directions.items():
                 new_x, new_y = x + dx, y + dy
-                
+
                 if self.is_valid(new_x, new_y) and (new_x, new_y) not in visited:
                     visited.add((new_x, new_y))
                     queue.append((new_x, new_y, path + [direction]))
-        
-        return ['down']  # No valid path found
+
+        return []  # No valid path found
+

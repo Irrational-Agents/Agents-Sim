@@ -8,12 +8,8 @@ from config.meta_manager import MetaManager
 from config.common_method import advance_time_by_15_minutes
 from unity_modules.path_planner import PathPlanner
 from concurrent.futures import ThreadPoolExecutor, as_completed
-<<<<<<< HEAD
 from API.request import UnityRequest
 import json
-=======
-from datetime import datetime
->>>>>>> 4e0d38f394b6d491181f24b407b176d8f228ccfb
 
 logger = setup_logger('World')
 
@@ -40,14 +36,15 @@ class WorldState:
         for npc_name, pos in npc_positions.items():
             if not all(k in pos for k in ('x', 'y', 'direction')):
                 raise ValueError(f"Invalid position data for {npc_name}: {pos}")
+            
+            path = self.path_planner.create_path(
+                (pos['x'], pos['y']), (77, 14), pos['direction']
+            )
 
-            direction = self.path_planner.create_path(
-                (pos['x'], pos['y']), (127, 50), pos['direction']
-            )[0]
-
-            self.unity_request.npc_navigate(json.dumps({
-                'npc_name': npc_name, 'speed': 2, 'direction': direction
-            }))
+            if len(path) > 0:
+                self.unity_request.npc_navigate(json.dumps({
+                    'npc_name': npc_name, 'speed': 2, 'direction': path[0]
+                }))
 
     def _clear_npc_positions(self):
         """清除地图上所有NPC的位置标记"""
