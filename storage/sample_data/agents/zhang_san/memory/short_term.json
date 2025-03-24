@@ -1,8 +1,8 @@
 {
     "age": 27,
     "current_status": {
-        "action": "interact",
-        "description": "Interacted with Organize and arrange the desk and bed in his apartment to create a more functional workspace and living area.",
+        "action": "think",
+        "description": "Spend some time sketching out modern minimalist interior design concepts for the seaside hotel suites.",
         "spawn": {
             "x": 123,
             "y": 57,
@@ -21,20 +21,86 @@
     "short_memory_for_plan": [],
     "daily_plan_req": [
         {
-            "time": "00:00",
-            "activity": "Wind down with a book on interior design",
+            "time": "10:00",
+            "activity": "Wake up and stretch",
             "moccupying": 1,
-            "intervals": 4
+            "intervals": 1
         },
         {
-            "time": "01:00",
-            "activity": "Meditate for 30 minutes to promote relaxation",
+            "time": "10:15",
+            "activity": "Personal hygiene",
             "moccupying": 1,
             "intervals": 2
         },
         {
+            "time": "10:45",
+            "activity": "Prepare and eat breakfast",
+            "moccupying": 1,
+            "intervals": 2
+        },
+        {
+            "time": "11:15",
+            "activity": "Play with Bobo and Langley",
+            "moccupying": 2,
+            "intervals": 2
+        },
+        {
+            "time": "11:45",
+            "activity": "Check emails and plan the day's tasks",
+            "moccupying": 1,
+            "intervals": 3
+        },
+        {
+            "time": "12:30",
+            "activity": "Research new design trends online",
+            "moccupying": 3,
+            "intervals": 4
+        },
+        {
+            "time": "13:30",
+            "activity": "Lunch break at a nearby café",
+            "moccupying": 2,
+            "intervals": 4
+        },
+        {
+            "time": "14:30",
+            "activity": "Work on current interior design project",
+            "moccupying": 1,
+            "intervals": 20
+        },
+        {
+            "time": "19:30",
+            "activity": "Wrap up work for the day and relax",
+            "moccupying": 1,
+            "intervals": 2
+        },
+        {
+            "time": "20:00",
+            "activity": "Dinner with Li Si",
+            "moccupying": 2,
+            "intervals": 6
+        },
+        {
+            "time": "21:30",
+            "activity": "Attend a design seminar or talk",
+            "moccupying": 2,
+            "intervals": 6
+        },
+        {
+            "time": "23:00",
+            "activity": "Skim through designs for inspiration",
+            "moccupying": 3,
+            "intervals": -92
+        },
+        {
+            "time": "00:00",
+            "activity": "Wind down, read a book or watch a movie",
+            "moccupying": 1,
+            "intervals": 6
+        },
+        {
             "time": "01:30",
-            "activity": "Prepare for bed and reflect on the day's accomplishments",
+            "activity": "Prepare for bed",
             "moccupying": 1,
             "intervals": 2
         },
@@ -42,85 +108,7 @@
             "time": "02:00",
             "activity": "Sleep",
             "moccupying": 1,
-            "intervals": 32
-        },
-        {
-            "time": "10:00",
-            "activity": "Wake up and take care of Bobo and Langley",
-            "moccupying": 1,
-            "intervals": 2
-        },
-        {
-            "time": "10:30",
-            "activity": "Morning hygiene routine",
-            "moccupying": 1,
-            "intervals": 2
-        },
-        {
-            "time": "11:00",
-            "activity": "Have breakfast while reviewing design magazines",
-            "moccupying": 1,
-            "intervals": 4
-        },
-        {
-            "time": "12:00",
-            "activity": "Work on interior design project for seaside hotel",
-            "moccupying": 1,
-            "intervals": 12
-        },
-        {
-            "time": "15:00",
-            "activity": "Take a break, go for a short walk in Chaoyang District",
-            "moccupying": 1,
-            "intervals": 2
-        },
-        {
-            "time": "15:30",
-            "activity": "Continue working on the seaside hotel design project",
-            "moccupying": 1,
-            "intervals": 6
-        },
-        {
-            "time": "17:00",
-            "activity": "Call Li Si to discuss weekend surfing plans",
-            "moccupying": 2,
-            "intervals": 2
-        },
-        {
-            "time": "17:30",
-            "activity": "Attend an industry seminar on modern minimalist design",
-            "moccupying": 3,
-            "intervals": 10
-        },
-        {
-            "time": "20:00",
-            "activity": "Dinner and relax at home",
-            "moccupying": 1,
-            "intervals": 4
-        },
-        {
-            "time": "21:00",
-            "activity": "Video call with university classmates Wang Wu and Zhao Liu",
-            "moccupying": 2,
-            "intervals": 4
-        },
-        {
-            "time": "22:00",
-            "activity": "Watch a design exhibition online",
-            "moccupying": 1,
-            "intervals": 6
-        },
-        {
-            "time": "23:30",
-            "activity": "Spend time playing with Bobo and Langley",
-            "moccupying": 1,
-            "intervals": -94
-        },
-        {
-            "time": "00:00",
-            "activity": "Journal about the day and plan tomorrow's activities",
-            "moccupying": 1,
-            "intervals": 96
+            "intervals": 88
         }
     ],
     "short_memory": [

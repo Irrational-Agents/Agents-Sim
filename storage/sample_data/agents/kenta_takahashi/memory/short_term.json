@@ -7,6 +7,11 @@
             "x": 73,
             "y": 14,
             "direction": "down"
+        },
+        "next_spawn": {
+            "x": 73,
+            "y": 14,
+            "direction": "down"
         }
     },
     "current_location": null,
