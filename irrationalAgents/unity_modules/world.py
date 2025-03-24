@@ -8,13 +8,16 @@ from config.meta_manager import MetaManager
 from config.common_method import advance_time_by_15_minutes
 from unity_modules.path_planner import PathPlanner
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from API.request import UnityRequest
+import json
 
 logger = setup_logger('World')
 
 
 class WorldState:
-    def __init__(self, map_data: Dict):
+    def __init__(self, map_data: Dict, unity_request):
         self.map = Map(map_data)
+        self.unity_request: UnityRequest = unity_request
         # self.agent_manager = AgentManager()
         self.meta_manager = MetaManager()
         self.path_planner = PathPlanner(self.map)
@@ -23,16 +26,24 @@ class WorldState:
         # 创建线程池
         self.thread_pool = ThreadPoolExecutor(max_workers=10)
 
-    def update_agent_positions(self, npc_positions: Dict[str, Dict[str, int]]):
+    def update_agent_positions(self, npc_positions: Dict[str, Dict[str, int]]) -> None:
         """
-        更新Agent在地图上的位置
+        Updates the positions of NPC agents on the map.
+
+        Args:
+            npc_positions (Dict[str, Dict[str, int]]): A dictionary mapping NPC names to their positions and directions.
         """
-        # 清除旧的NPC位置
-        #self._clear_npc_positions()
-        # 更新新的位置
         for npc_name, pos in npc_positions.items():
-            # 更新地图上的位置
-            
+            if not all(k in pos for k in ('x', 'y', 'direction')):
+                raise ValueError(f"Invalid position data for {npc_name}: {pos}")
+
+            direction = self.path_planner.create_path(
+                (pos['x'], pos['y']), (127, 50), pos['direction']
+            )[0]
+
+            self.unity_request.npc_navigate(json.dumps({
+                'npc_name': npc_name, 'speed': 2, 'direction': direction
+            }))
 
     def _clear_npc_positions(self):
         """清除地图上所有NPC的位置标记"""

@@ -60,4 +60,4 @@ class PathPlanner:
                     visited.add((new_x, new_y))
                     queue.append((new_x, new_y, path + [direction]))
         
-        return []  # No valid path found
+        return ['down']  # No valid path found
