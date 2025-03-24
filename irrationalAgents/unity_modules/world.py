@@ -8,6 +8,7 @@ from config.meta_manager import MetaManager
 from config.common_method import advance_time_by_15_minutes
 from unity_modules.path_planner import PathPlanner
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from datetime import datetime
 
 logger = setup_logger('World')
 
@@ -42,6 +43,7 @@ class WorldState:
 
                 self.agent_manager.agents[npc_name].short_memory.current_status['spawn'] = pos
                 self.agent_manager.agents[npc_name].short_memory.current_status['next_spawn'] = pos
+                self.agent_manager.agents[npc_name].short_memory.current_status['cur_datetime'] = self.global_time.isoformat() 
                 self.agent_manager.write_agent_status(npc_name, self.agent_manager.agents[npc_name].short_memory.current_status)
 
     def _clear_npc_positions(self):
