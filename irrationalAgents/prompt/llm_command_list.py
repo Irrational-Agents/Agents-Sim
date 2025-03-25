@@ -166,7 +166,7 @@ def extract_keywords_for_long_term_memory(description):
     )
 
     response = generative_agent(system_content, prompt)
-    print(response)
+    logger.debug(response)
     try:
         parsed_response = json.loads(response)
         if isinstance(parsed_response, list):
@@ -175,5 +175,5 @@ def extract_keywords_for_long_term_memory(description):
             # If it's not a list, return empty or handle accordingly
             return []
     except json.JSONDecodeError:
-        print("Error: Invalid JSON format in response.")
+        logger.error("Error: Invalid JSON format in response.")
         return []

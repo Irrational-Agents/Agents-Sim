@@ -1,13 +1,8 @@
 from datetime import datetime, timedelta
 import math
 import logging
-<<<<<<< HEAD
-from irrationalAgents.prompt.llm_command_list import *
-from irrationalAgents.agents_modules.personality.emotion import *
-=======
 from prompt.llm_command_list import *
 from agents_modules.personality.emotion import *
->>>>>>> 81cbe8af04df36294672062a0d14b8afff8cd420
 
 logger = logging.getLogger(__name__)
 
@@ -20,11 +15,7 @@ def plan(agent, new_day):
         agent.short_memory.daily_plan_req = agent.short_memory.intervals4plan(
             daily_plan)
     plan_list = create_plan(agent)
-<<<<<<< HEAD
-    logger.info(f"plan: {plan_list}")
-=======
     logger.info(f"{agent.name} plan: {plan_list}")
->>>>>>> 81cbe8af04df36294672062a0d14b8afff8cd420
     return plan_list
 
 

@@ -35,9 +35,6 @@ Agents Sim repository
 3. Entrence see test2.py (or you can make ur own)
    ```
    python test3.py
-<<<<<<< HEAD
-   ```
-=======
    ```
 
 
@@ -77,4 +74,3 @@ config.getBlockData.response
 
 chat.updateNPC
 ```
->>>>>>> 81cbe8af04df36294672062a0d14b8afff8cd420
