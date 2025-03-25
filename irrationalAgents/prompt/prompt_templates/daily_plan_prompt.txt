@@ -8,10 +8,7 @@ Based on the above information, generate a detailed daily routine plans for {age
 - Include basic daily routines such as waking up, personal hygiene, meals, and leisure activities.
 - Each activity lasts at least 15mins or more, without getting into excessive details, covering wake up and sleep, no duplicate time, day plans need starting at 00:00.
 - Strike a balance between productivity and rest, ensuring time is dedicated to work, hobbies, and relaxation.
-<<<<<<< HEAD
 - moccupying is activity type set to be peripheral:1, conversational:2 or inferential:3 information
-=======
->>>>>>> origin/sims-setup
 
 Make sure the plan accounts for {agent_name}’s emotional state, previously(if has), and their long-term and mid-term goals.
 

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 """Main"""
 import tornado.ioloop
 import tornado.web
@@ -61,3 +62,14 @@ if __name__ == "__main__":
     # subprocess.Popen(['python', 'test.py'])
     subprocess.Popen(['python', 'test2.py'])
     tornado.ioloop.IOLoop.current().start()
+=======
+from API.unity import UnityServer
+
+def main():
+    server = UnityServer()
+    if server.run():
+        server.keep_alive()
+
+if __name__ == '__main__':
+    main() 
+>>>>>>> 81cbe8af04df36294672062a0d14b8afff8cd420

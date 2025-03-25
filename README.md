@@ -21,11 +21,11 @@ Agents Sim repository
    2. https://smith.langchain.com/
    
     ```
-    "LANGCHAIN_TRACING_V2": "true",
-    "LANGCHAIN_ENDPOINT": "https://api.smith.langchain.com",
-    "LANGCHAIN_API_KEY": "YOUR KEY",
-    "LANGCHAIN_PROJECT": "IrationalAgents",
-    "OPENAI_API_KEY": "YOUR KEY"
+      OPENAI_API_KEY=""
+      SOCKET_URL="https://orange-cliff-0b3a9151e.5.azurestaticapps.net:8080"
+      WORK_DIR='{ur path}/irrationalAgents'
+      LOG_LEVEL='DEBUG'
+      LANGCHAIN_API_KEY=""
     ```
 2. install 
    ```
@@ -35,4 +35,46 @@ Agents Sim repository
 3. Entrence see test2.py (or you can make ur own)
    ```
    python test3.py
+<<<<<<< HEAD
    ```
+=======
+   ```
+
+
+### Dev
+
+#### QuickStart
+
+```
+cd irrationalAgents
+python main.py
+```
+
+~~APIs~~
+```
+ui.tick
+server.tick
+
+player.getInfo
+player.getInfo.response
+
+npc.getList
+npc.getList.response
+
+npc.getInfo
+npc.getInfo.response
+
+npc.navigate
+
+map.getTownData
+map.getTownData.response
+
+map.getSceneMetadata
+map.getSceneMetadata.response
+
+config.getBlockData
+config.getBlockData.response
+
+chat.updateNPC
+```
+>>>>>>> 81cbe8af04df36294672062a0d14b8afff8cd420
