@@ -50,3 +50,7 @@ class UnityRequest:
     def npc_chat_update(self, request_data: Optional[dict] = None) -> None:
         """Update NPC chat data."""
         self.emit("chat.updateNPC", request_data)
+
+    def npc_navigate(self, request_data: Optional[dict] = None) -> None:
+        """Send Server tick for frame to be updated."""
+        self.emit("npc.navigate", request_data)   

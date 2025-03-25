@@ -1,13 +1,7 @@
 {
     "age": 27,
     "current_status": {
-        "action": "think",
-        "description": "Continue leisure reading or watching a movie to relax and unwind after a busy week.",
-        "spawn": {
-            "x": 123,
-            "y": 57,
-            "direction": "down"
-        }
+       
     },
     "current_location": null,
     "short_term_goal_capacity": 3,
@@ -19,148 +13,8 @@
     ],
     "short_memory_capacity": 30,
     "short_memory_for_plan": [],
-    "daily_plan_req": [
-        {
-            "time": "00:00",
-            "activity": "Leisure reading or watching a movie",
-            "moccupying": 1,
-            "intervals": 8
-        },
-        {
-            "time": "02:00",
-            "activity": "Bedtime preparation",
-            "moccupying": 1,
-            "intervals": 1
-        },
-        {
-            "time": "02:15",
-            "activity": "Sleep",
-            "moccupying": 1,
-            "intervals": 31
-        },
-        {
-            "time": "10:00",
-            "activity": "Wake up and morning stretch",
-            "moccupying": 1,
-            "intervals": 1
-        },
-        {
-            "time": "10:15",
-            "activity": "Personal hygiene (shower, brush teeth, etc.)",
-            "moccupying": 1,
-            "intervals": 2
-        },
-        {
-            "time": "10:45",
-            "activity": "Breakfast with Bobo and Langley",
-            "moccupying": 1,
-            "intervals": 2
-        },
-        {
-            "time": "11:15",
-            "activity": "Check emails and industry news",
-            "moccupying": 1,
-            "intervals": 2
-        },
-        {
-            "time": "11:45",
-            "activity": "Design work on seaside hotel project",
-            "moccupying": 1,
-            "intervals": 8
-        },
-        {
-            "time": "13:45",
-            "activity": "Lunch",
-            "moccupying": 1,
-            "intervals": 2
-        },
-        {
-            "time": "14:15",
-            "activity": "Continue working on design project",
-            "moccupying": 1,
-            "intervals": 8
-        },
-        {
-            "time": "16:15",
-            "activity": "Attend online workshop or seminar",
-            "moccupying": 2,
-            "intervals": 4
-        },
-        {
-            "time": "17:15",
-            "activity": "Quick break with Bobo and Langley",
-            "moccupying": 1,
-            "intervals": 1
-        },
-        {
-            "time": "17:30",
-            "activity": "Call or text Li Si to catch up",
-            "moccupying": 2,
-            "intervals": 2
-        },
-        {
-            "time": "18:00",
-            "activity": "Prepare and have dinner",
-            "moccupying": 1,
-            "intervals": 4
-        },
-        {
-            "time": "19:00",
-            "activity": "Work on personal design projects or sketches",
-            "moccupying": 1,
-            "intervals": 8
-        },
-        {
-            "time": "21:00",
-            "activity": "Catch up with university friends Wang Wu and Zhao Liu",
-            "moccupying": 2,
-            "intervals": 2
-        },
-        {
-            "time": "21:30",
-            "activity": "Evening walk nearby or practicing mindfulness",
-            "moccupying": 1,
-            "intervals": 2
-        },
-        {
-            "time": "22:00",
-            "activity": "Leisure time (hobbies or watching design exhibitions online)",
-            "moccupying": 1,
-            "intervals": 6
-        },
-        {
-            "time": "23:30",
-            "activity": "Plan tasks for the next day",
-            "moccupying": 1,
-            "intervals": -94
-        },
-        {
-            "time": "00:00",
-            "activity": "Prepare for bed",
-            "moccupying": 1,
-            "intervals": 96
-        }
-    ],
-    "short_memory": [
-        {
-            "time": "00:00",
-            "date": "2024-09-16",
-            "moccupying": 1,
-            "description": "seeing items: [{'item': 'desk'}, {'item': 'bed'}]"
-        },
-        {
-            "time": "00:00",
-            "date": "2024-09-16",
-            "moccupying": 1,
-            "description": "seeing npcs: ['Zhang San']"
-        },
-        {
-            "time": "00:00",
-            "date": "2024-09-16",
-            "moccupying": 1,
-            "description": "seeing events: [('items:desk', None, None), ('items:bed', None, None)]"
-        }
-    ],
+    "daily_plan_req":[],
+    "short_memory": [],
     "basic_needs": {
         "fullness": 6,
         "social": 7,

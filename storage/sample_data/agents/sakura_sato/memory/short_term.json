@@ -2,7 +2,7 @@
     "age": null,
     "current_status": {
         "action": "think",
-        "description": "Continue writing on her short story themed around Japanese youth culture, harnessing her recent happiness to inspire creativity.",
+        "description": "Wake up and refresh the mind by reading a chapter of a contemporary literature book.",
         "spawn": {
             "x": 127,
             "y": 46,
@@ -28,13 +28,13 @@
         },
         {
             "time": "07:00",
-            "activity": "wake up and morning hygiene routine",
+            "activity": "wake up and personal hygiene",
             "moccupying": 1,
             "intervals": 2
         },
         {
             "time": "07:30",
-            "activity": "breakfast with family",
+            "activity": "have breakfast with family",
             "moccupying": 2,
             "intervals": 2
         },
@@ -42,95 +42,71 @@
             "time": "08:00",
             "activity": "commute to university",
             "moccupying": 1,
-            "intervals": 4
+            "intervals": 2
         },
         {
-            "time": "09:00",
+            "time": "08:30",
             "activity": "attend literary theory class",
-            "moccupying": 3,
+            "moccupying": 1,
             "intervals": 6
         },
         {
-            "time": "10:30",
-            "activity": "study session with Hanako in the library",
+            "time": "10:00",
+            "activity": "study in the library with Hanako",
             "moccupying": 2,
-            "intervals": 6
+            "intervals": 8
         },
         {
             "time": "12:00",
-            "activity": "lunch with Hanako and friends",
+            "activity": "lunch with friends",
             "moccupying": 2,
             "intervals": 4
         },
         {
             "time": "13:00",
             "activity": "creative writing practice class",
+            "moccupying": 1,
+            "intervals": 8
+        },
+        {
+            "time": "15:00",
+            "activity": "meet with the literary club for brainstorming",
+            "moccupying": 2,
+            "intervals": 8
+        },
+        {
+            "time": "17:00",
+            "activity": "write short story themed around Japanese youth culture",
             "moccupying": 3,
-            "intervals": 6
-        },
-        {
-            "time": "14:30",
-            "activity": "work on short story about Japanese youth culture",
-            "moccupying": 1,
-            "intervals": 6
-        },
-        {
-            "time": "16:00",
-            "activity": "meeting with the literary club members",
-            "moccupying": 2,
-            "intervals": 6
-        },
-        {
-            "time": "17:30",
-            "activity": "commute back home",
-            "moccupying": 1,
-            "intervals": 2
-        },
-        {
-            "time": "18:00",
-            "activity": "prepare and have dinner with family",
-            "moccupying": 2,
-            "intervals": 4
+            "intervals": 8
         },
         {
             "time": "19:00",
-            "activity": "personal reading time (Haruki Murakami's works)",
-            "moccupying": 1,
+            "activity": "dinner with family",
+            "moccupying": 2,
             "intervals": 4
         },
         {
             "time": "20:00",
-            "activity": "reflect on writing progress and emotional state",
-            "moccupying": 3,
-            "intervals": 2
-        },
-        {
-            "time": "20:30",
-            "activity": "video call with childhood friends Taro and Ichiro",
+            "activity": "call Taro and Ichiro to catch up",
             "moccupying": 2,
             "intervals": 4
         },
         {
-            "time": "21:30",
-            "activity": "relax with a favorite TV show",
-            "moccupying": 1,
-            "intervals": 4
+            "time": "21:00",
+            "activity": "read a book by Haruki Murakami",
+            "moccupying": 3,
+            "intervals": 6
         },
         {
             "time": "22:30",
-            "activity": "prepare for the next day (pack bag, plan tasks)",
-            "moccupying": 1,
-            "intervals": 2
-        },
-        {
-            "time": "23:00",
-            "activity": "wind down with journaling",
-            "moccupying": 1,
-            "intervals": 2
+            "activity": "relax with a creative hobby (drawing or journaling)",
+            "moccupying": 3,
+            "intervals": 4
         },
         {
             "time": "23:30",
-            "activity": "sleep",
+            "activity": "prepare for bed",
             "moccupying": 1,
             "intervals": 2
         }
@@ -146,7 +122,7 @@
             "time": "00:00",
             "date": "2024-09-16",
             "moccupying": 1,
-            "description": "seeing npcs: ['Sakura Sato']"
+            "description": "seeing npcs: []"
         },
         {
             "time": "00:00",

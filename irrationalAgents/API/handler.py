@@ -31,7 +31,7 @@ class UnityHandlers:
             if self.clock == 0:# initialize
                 logger.debug(f"initialize")
                 if self.map_data is not None:
-                    self.world = WorldState(self.map_data)
+                    self.world = WorldState(self.map_data, self.unity_request)
                     self.unity_request.send_server_tick(1)
                 else:
                     self.unity_request.get_map_data()
