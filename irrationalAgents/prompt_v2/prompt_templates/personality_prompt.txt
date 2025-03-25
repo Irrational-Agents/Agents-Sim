@@ -1,9 +1,0 @@
-Given the following list of personality traits:
-
-{traits}
-
-Create a concise personality profile that captures the essence of an individual with these traits. The profile should be a single paragraph of 1-3 sentences, focusing on the most prominent characteristics and their potential interactions. Avoid using the terms "strongly," "moderately," or "somewhat" directly, but reflect the intensity of traits in your description.
-
-Your response should be in the following format:
-
-"Personality is　[description]"
