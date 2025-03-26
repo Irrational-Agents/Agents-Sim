@@ -14,24 +14,26 @@ def plan_evaluation(agent, plan_list):
 
         # ここでプランの評価ロジックを実装します
         # 例: 最初のプランを選択する単純な実装
-        # a plan should be evaluated based on bias
-        best_plan = select_plan(bias=True) 
+        # a plan should be evaluated based on bias, Context (in this stage it should be personality)
+        p_context = agent.basic_info.get('personality_traits', {})
+        best_plan = select_plan(True, p_context) 
+        #@TODO decide_next_action(best_plan)
 
-
-        # decide_next_action(best_plan)
-
-        return best_plan
+        return plan_list[0]
 
     except Exception as e:
-        print(f"Error evaluating plans: {str(e)}")
+        logger.error(f"Error evaluating plans: {str(e)}")
         return None
 
 
-def select_plan(bias):
+def select_plan(baises, p_context):
     # this will return optimal response if no biases else it will send 
-   # biases = bias_module(bias)
-    baises = None
-    return gpt_selection_response_from_gpt(baises)
+    if baises:
+        #@TODO biases = bias_module(bias)
+        baises = None
+    logger.debug(f"baises: {baises} p_context: {p_context}")
+    #return gpt_selection_response_from_gpt(baises, p_context)
+    return None
 
 def decide_next_action(best_plan):
     # 最適なプランに基づいて次のアクションを決定するロジックをここに実装します

@@ -5,6 +5,11 @@ from config.logger_config import setup_logger
 
 logger = setup_logger(__name__)
 
+'''
+Notice: 
+Description format: Agent A 'action' B: detailes
+'''
+
 def action(agent, next_action):
     action_type = next_action['action']
     description = next_action['description']

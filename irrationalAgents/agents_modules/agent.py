@@ -88,8 +88,13 @@ class Agent:
         self.short_memory.curr_date = self.short_memory.curr_datetime.strftime('%Y-%m-%d')
 
         if new_day == "New day":
+            # 旧记忆衰退
+            logger.debug(f'new day')
             self.long_memory.update_all_freshness(
                 self.short_memory.curr_datetime)
+            #新记忆reflect
+            self.short_memory.organize_memory(self.long_memory)
+            self.short_memory.cleanup_short_memory()
             
         stimulus = self.stimulus(events)
         logger.info(f"{self.short_memory.curr_date}:{self.short_memory.curr_time} agent {self.name}")

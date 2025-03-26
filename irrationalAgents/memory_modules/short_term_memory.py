@@ -192,6 +192,9 @@ class ShortTermMemory:
         """
         short_memory_capacityに対して50%（self.memory_usage_threshold）以上使用している場合、
         moccupying == 1の古いイベントから削除して50%以下になるまで削除する。
+        Default: 
+            short_memory_capacity: 30
+            memory_usage_threshold: 0.5
         """
         if not self.short_memory_capacity:
             return  # short_memory_capacityが未設定なら何もしない
@@ -211,6 +214,7 @@ class ShortTermMemory:
 
             if remove_index is not None:
                 # 該当イベント削除
+                logger.debug(f"forget trivial event:{self.short_memory[remove_index]}")
                 del self.short_memory[remove_index]
             else:
                 # moccupying==1がもうない場合は削除を中断

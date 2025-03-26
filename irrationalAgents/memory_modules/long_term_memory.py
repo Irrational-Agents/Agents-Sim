@@ -1,7 +1,7 @@
 import json
 import datetime
 import math
-
+from functools import lru_cache
 class TimeNode:
     def __init__(self, time_id, timestamp):
         self.time_id = time_id
@@ -251,6 +251,7 @@ class LongTermMemory:
         else: 
             return False
 
+    @lru_cache(maxsize=1000)
     def retrieve_nodes_by_keywords(self, query_keywords, top_k=10, importance_threshold=0.5, freshness_threshold=0.5):
         if not isinstance(query_keywords, list):
             query_keywords = [query_keywords]

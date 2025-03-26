@@ -105,7 +105,7 @@ class WorldState:
 
         action, move_description = agent.move(self.global_time, stimuli)
         logger.info(
-            f"{agent_name} action: {action}, move_description: {move_description}")
+            f"{agent_name} action: {action}, description: {move_description}")
 
         status = self.gen_npc_current_status(
             agent_name, action, move_description)
@@ -135,11 +135,8 @@ class WorldState:
                 npcs.append(tile['npc'])
 
         # 处理当前位置的tile信息
-        # todo: 需要处理当前位置的tile信息，包括地址，房间，楼层，事件等
-
-        stimuli.append(f"seeing items: {items}")
-        stimuli.append(f"seeing npcs: {npcs}")
-        stimuli.append(f"seeing events: {events}")
+        # @TODO: 需要处理当前位置的tile信息，包括地址，房间，楼层，事件等. 需要强制保证每个items都有地址信息
+        stimuli.append(f"seeing events: {events}, {items}, {npcs}")
         logger.debug(f"stimuli: {stimuli}")
 
         return stimuli
@@ -187,8 +184,4 @@ class WorldState:
             'description': move_description,
             'spawn': pos
         }
-        # if action == 'move':
-        #     path = self.path_planner.plan_path_from_memory(move_description, pos)
-        #     if path:
-        #         status = {**path, **status}
         return status
