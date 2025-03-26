@@ -47,6 +47,8 @@ class ShortTermMemory:
         self.importance_ele_n = 0 
         self.thought_count = 5
 
+        self.memory_usage_threshold = 0.5
+
         if check_if_file_exists(short_memory_path):
             short_memory_load = json.load(open(short_memory_path, encoding='utf-8'))
 
@@ -185,6 +187,104 @@ class ShortTermMemory:
         curr_index += 1
 
         return curr_index
+    
+    def cleanup_short_memory(self):
+        """
+        short_memory_capacityに対して50%（self.memory_usage_threshold）以上使用している場合、
+        moccupying == 1の古いイベントから削除して50%以下になるまで削除する。
+        Default: 
+            short_memory_capacity: 30
+            memory_usage_threshold: 0.5
+        """
+        if not self.short_memory_capacity:
+            return  # short_memory_capacityが未設定なら何もしない
+
+        # 現在の使用率を計算
+        current_usage = len(self.short_memory) / self.short_memory_capacity
+
+        # 使用率がthresholdを超える間、moccupying==1の古いものから削除
+        # short_memoryは追加順で古いものが先頭にあると想定
+        while current_usage > self.memory_usage_threshold:
+            # moccupying==1の中で最も古いもの(リスト先頭から探す)
+            remove_index = None
+            for i, ev in enumerate(self.short_memory):
+                if ev.get('moccupying', 1) == 1:
+                    remove_index = i
+                    break
+
+            if remove_index is not None:
+                # 該当イベント削除
+                logger.debug(f"forget trivial event:{self.short_memory[remove_index]}")
+                del self.short_memory[remove_index]
+            else:
+                # moccupying==1がもうない場合は削除を中断
+                break
+
+            # 再計算
+            current_usage = len(self.short_memory) / self.short_memory_capacity
+
+    
+    def organize_memory(self, long_memory):
+        """
+        moccupyingが2以上のshort_memoryをLongTermMemoryへ移行し、moccupying=1に設定する。
+        node_typeはdescription内の最初の":"までにthought,chatted,interacted,movedが含まれるかで決定。
+        moccupying=3の場合はimportance=1.0、それ以外は0.5。
+        valence, arousal, S,P,O, poignancy, filling, expiration, embedding削除済み。
+        キーワード抽出はLLMを利用することを想定（extract_keywords_for_long_term_memory）。
+
+        """
+        for event in self.short_memory:
+            mocc = event.get('moccupying', 1)
+            if mocc >= 2:
+                description = event.get('description', '')
+                first_part = description.split(':', 1)[0].lower() if ':' in description else description.lower()
+
+                if 'thought' in first_part:
+                    node_type = 'thought'
+                elif 'chatted' in first_part:
+                    node_type = 'chat'
+                elif 'interacted' in first_part or 'moved' in first_part:
+                    node_type = 'event'
+                else:
+                    node_type = 'event'
+
+                importance = 1.0 if mocc == 3 else 0.5
+                freshness = 1.0
+
+                # LLMでキーワード抽出
+                keywords_list = extract_keywords_for_long_term_memory(description)
+                keywords = set(keywords_list)
+
+                current_time = self.curr_datetime if self.curr_datetime else datetime.datetime.now()
+
+                # node_typeに応じてLongTermMemoryに格納
+                if node_type == 'thought':
+                    long_memory.add_thought(
+                        created=current_time,
+                        description=description, 
+                        keywords=keywords, 
+                        importance=importance, 
+                        freshness=freshness
+                    )
+                elif node_type == 'chat':
+                    long_memory.add_chat(
+                        created=current_time,
+                        description=description, 
+                        keywords=keywords, 
+                        importance=importance, 
+                        freshness=freshness
+                    )
+                else:  # event
+                    long_memory.add_event(
+                        created=current_time,
+                        description=description, 
+                        keywords=keywords, 
+                        importance=importance, 
+                        freshness=freshness
+                    )
+
+                event['moccupying'] = 1
+
     
 def format_events_as_text(events):
     # Errors occur very frequently here.

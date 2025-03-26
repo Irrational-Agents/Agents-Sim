@@ -4,16 +4,13 @@ from prompt.llm_command_list import *
 
 def stimulus(agent, events):
 
-    # nearby_tiles = maze.get_nearby_tiles(persona.scratch.curr_tile, persona.scratch.vision_r)
-    # Get all the surrounding information from Unity here
-
     percept_events_set = set()
     percept_events_list = []
     
 
     for event in events:
         # todo: 
-        # if its new day, then no events wwill be triggered
+        # if its new day, then no events will be triggered
         # only need to append percept_object_list
         #description = f"Kenta Takahashi chatted with Sato Sakura:'{event}'"
         description = event

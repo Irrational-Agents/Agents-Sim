@@ -1,7 +1,6 @@
 import os
 from openai import OpenAI
 import json
-import logging
 from langsmith import traceable
 from langsmith.wrappers import wrap_openai
 from config.config import PROMPT_FILE_PATH
@@ -147,5 +146,34 @@ def generate_short_memory(agent_name, current_emotion, personality_traits, relat
         parsed_response = json.loads(response)
         return parsed_response
     except json.JSONDecodeError:
-        logger.error("Error: Invalid JSON format in response.")
+        print("Error: Invalid JSON format in response.")
         return None
+    
+@traceable(name="extract_keywords")
+def extract_keywords_for_long_term_memory(description):
+    with open('irrationalAgents/prompt/prompt_templates/extract_keywords_prompt.txt', 'r') as file:
+            prompt = file.read()
+    prompt = prompt.format(
+        description=description
+    )
+    system_content = (
+        "You are an AI assistant that extracts important information from text. "
+        "Your goal is to identify significant names, proper nouns, locations, organizations, "
+        "and other key words that might be useful for long-term memory indexing. "
+        "Do not include sentiment (valence, arousal) analysis. "
+        "Do not include common filler words. "
+        "Return the answer as a JSON list of strings."
+    )
+
+    response = generative_agent(system_content, prompt)
+    logger.debug(response)
+    try:
+        parsed_response = json.loads(response)
+        if isinstance(parsed_response, list):
+            return parsed_response
+        else:
+            # If it's not a list, return empty or handle accordingly
+            return []
+    except json.JSONDecodeError:
+        logger.error("Error: Invalid JSON format in response.")
+        return []
