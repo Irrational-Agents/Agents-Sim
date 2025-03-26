@@ -1,14 +1,6 @@
 {
     "age": null,
-    "current_status": {
-        "action": "think",
-        "description": "Wake up and refresh the mind by reading a chapter of a contemporary literature book.",
-        "spawn": {
-            "x": 127,
-            "y": 46,
-            "direction": "down"
-        }
-    },
+    "current_status": {},
     "current_location": null,
     "short_term_goal_capacity": 3,
     "short_term_goal": [
@@ -19,118 +11,8 @@
     ],
     "short_memory_capacity": 30,
     "short_memory_for_plan": [],
-    "daily_plan_req": [
-        {
-            "time": "00:00",
-            "activity": "sleep",
-            "moccupying": 1,
-            "intervals": 28
-        },
-        {
-            "time": "07:00",
-            "activity": "wake up and personal hygiene",
-            "moccupying": 1,
-            "intervals": 2
-        },
-        {
-            "time": "07:30",
-            "activity": "have breakfast with family",
-            "moccupying": 2,
-            "intervals": 2
-        },
-        {
-            "time": "08:00",
-            "activity": "commute to university",
-            "moccupying": 1,
-            "intervals": 2
-        },
-        {
-            "time": "08:30",
-            "activity": "attend literary theory class",
-            "moccupying": 1,
-            "intervals": 6
-        },
-        {
-            "time": "10:00",
-            "activity": "study in the library with Hanako",
-            "moccupying": 2,
-            "intervals": 8
-        },
-        {
-            "time": "12:00",
-            "activity": "lunch with friends",
-            "moccupying": 2,
-            "intervals": 4
-        },
-        {
-            "time": "13:00",
-            "activity": "creative writing practice class",
-            "moccupying": 1,
-            "intervals": 8
-        },
-        {
-            "time": "15:00",
-            "activity": "meet with the literary club for brainstorming",
-            "moccupying": 2,
-            "intervals": 8
-        },
-        {
-            "time": "17:00",
-            "activity": "write short story themed around Japanese youth culture",
-            "moccupying": 3,
-            "intervals": 8
-        },
-        {
-            "time": "19:00",
-            "activity": "dinner with family",
-            "moccupying": 2,
-            "intervals": 4
-        },
-        {
-            "time": "20:00",
-            "activity": "call Taro and Ichiro to catch up",
-            "moccupying": 2,
-            "intervals": 4
-        },
-        {
-            "time": "21:00",
-            "activity": "read a book by Haruki Murakami",
-            "moccupying": 3,
-            "intervals": 6
-        },
-        {
-            "time": "22:30",
-            "activity": "relax with a creative hobby (drawing or journaling)",
-            "moccupying": 3,
-            "intervals": 4
-        },
-        {
-            "time": "23:30",
-            "activity": "prepare for bed",
-            "moccupying": 1,
-            "intervals": 2
-        }
-    ],
-    "short_memory": [
-        {
-            "time": "00:00",
-            "date": "2024-09-16",
-            "moccupying": 1,
-            "description": "seeing items: [{'item': 'bed'}, {'item': 'bed'}, {'item': 'game console'}, {'item': 'game console'}]"
-        },
-        {
-            "time": "00:00",
-            "date": "2024-09-16",
-            "moccupying": 1,
-            "description": "seeing npcs: []"
-        },
-        {
-            "time": "00:00",
-            "date": "2024-09-16",
-            "moccupying": 1,
-            "description": "seeing events: [('items:bed', None, None), ('items:bed', None, None), ('items:game console', None, None), ('items:game console', None, None)]"
-        }
-    ],
+    "daily_plan_req": [],
+    "short_memory": [],
     "basic_needs": {
         "fullness": 6,
         "social": 7,

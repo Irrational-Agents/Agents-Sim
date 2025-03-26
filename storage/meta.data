@@ -1,15 +1,13 @@
 {
-    "start_date": "2024-09-16",
+    "start_date": "2024-04-01",
     "start_time": "00:00",
     "sec_per_step": 10,
     "map_name": null,
-    "step": 11,
+    "step": 0,
     "player_name": "Yuriko Yamamoto",
     "npc_names": [
         "Sakura Sato",
         "Kenta Takahashi",
         "Zhang San"
-    ],
-    "curr_time": "00:15",
-    "curr_date": "2024-09-16"
+    ]
 }
