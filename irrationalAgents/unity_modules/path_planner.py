@@ -1,6 +1,4 @@
-from typing import List, Tuple, Dict, Optional
 from collections import deque
-import heapq
 from enum import Enum
 from dataclasses import dataclass
 from config.logger_config import setup_logger
@@ -23,8 +21,6 @@ MOVEMENT_SPEEDS = {
     MovementType.RUN: MovementConfig(tiles_per_time_unit=5),   # 每15分钟跑5格
     MovementType.IDLE: MovementConfig(tiles_per_time_unit=0)   # 静止不动
 }
-
-from collections import deque
 
 class PathPlanner:
     def __init__(self, map_instance):

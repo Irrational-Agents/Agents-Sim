@@ -16,15 +16,17 @@ logger = setup_logger('World')
 
 class WorldState:
     def __init__(self, map_data: Dict, unity_request):
-        self.map = Map(map_data)
+        self.town_map = Map(map_data)
+        self.town_map.parse_map_to_dict()
         self.unity_request: UnityRequest = unity_request
-        self.agent_manager = AgentManager()
+        # self.agent_manager = AgentManager()
         self.meta_manager = MetaManager()
-        self.path_planner = PathPlanner(self.map)
+        #self.path_planner = PathPlanner(self.map)
         self.global_time = self.meta_manager.get_start_datetime()
         self.map_translator = None
         # 创建线程池
         self.thread_pool = ThreadPoolExecutor(max_workers=10)
+
 
     def update_agent_positions(self, npc_positions: Dict[str, Dict[str, int]]) -> None:
         """

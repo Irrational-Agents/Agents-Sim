@@ -1,10 +1,9 @@
-from typing import Dict, Any, List, Tuple
 import numpy as np
 from config.config import PERCEPTION_RANGE
 
 from config.logger_config import setup_logger
 
-logger = setup_logger('Map-translator')
+logger = setup_logger('Map')
 
 
 class Map:
@@ -29,21 +28,24 @@ class Map:
         self.sector_maze = self.parse_maze(map_data['sector_maze'])
         self.arena_maze = self.parse_maze(map_data['arena_maze'])
         self.game_object_maze = self.parse_maze(map_data['game_object_maze'])
-        self.spawning_location_maze = self.parse_maze(map_data['spawning_location_maze'])
+        self.spawning_location_maze = self.parse_maze(
+            map_data['spawning_location_maze'])
 
         self.arena_blocks = self.id_based_dict(block_data["arena_blocks"])
-        self.game_object_blocks = self.id_based_dict(block_data["game_object_blocks"])
+        self.game_object_blocks = self.id_based_dict(
+            block_data["game_object_blocks"])
         self.sector_blocks = self.id_based_dict(block_data["sector_blocks"])
-        self.spawning_location_blocks = self.id_based_dict(block_data["spawning_location_blocks"])
+        self.spawning_location_blocks = self.id_based_dict(
+            block_data["spawning_location_blocks"])
 
         self.tiles = self.initialize_tiles()
-        self.address_tiles = self.initialize_address_tiles()
+        self.address_tiles, self.map_details = self.initialize_address_tiles()
 
-
-    def id_based_dict(self,data):
+    def id_based_dict(self, data):
         """convert json to id"""
         return {
-            entry['id']: {key: str(value) for key, value in entry.items() if key != 'id'}
+            entry['id']: {key: str(value)
+                          for key, value in entry.items() if key != 'id'}
             for entry in data
         }
 
@@ -60,7 +62,8 @@ class Map:
         # Validate that the input matches the expected size
         expected_size = self.maze_height * self.maze_width
         if len(data) != expected_size:
-            raise ValueError(f"Input data size ({len(data)}) does not match the maze size ({expected_size}).")
+            raise ValueError(
+                f"Input data size ({len(data)}) does not match the maze size ({expected_size}).")
 
         # Fill the matrix row by row
         k = 0
@@ -70,7 +73,7 @@ class Map:
                 k += 1
 
         return maze_matrix
-    
+
     def add_npc_to_tile(self, npc_name, tile):
         x, y = tile
         if 0 <= y < self.maze_height and 0 <= x < self.maze_width:
@@ -79,7 +82,6 @@ class Map:
             logger.error(f"Invalid tile coordinate: {tile}")
             return None
 
-        
     def initialize_tiles(self):
         """
         Converts the raw maze data into a structured format with tile details.
@@ -93,34 +95,36 @@ class Map:
             row = []
             for j in range(self.maze_width):
                 # Retrieve maze block values
-                sector_data = self.sector_blocks.get(self.sector_maze[i][j], {})
+                sector_data = self.sector_blocks.get(
+                    self.sector_maze[i][j], {})
                 arena_data = self.arena_blocks.get(self.arena_maze[i][j], {})
-                spawn_data = self.spawning_location_blocks.get(self.spawning_location_maze[i][j], {})
-                item_value = self.game_object_blocks.get(self.game_object_maze[i][j], "")
+                spawn_data = self.spawning_location_blocks.get(
+                    self.spawning_location_maze[i][j], {})
+                item_value = self.game_object_blocks.get(
+                    self.game_object_maze[i][j], {}).get("item","")
 
                 # Build tile details
                 tile_details = {
                     "collision": self.collision_maze[i][j] != 0,
-                    "location": sector_data.get("location", ""),  # Previously sector
-                    "room": arena_data.get("room", ""),          # Previously arena
-                    "item": item_value,                          # Previously game_object
-                    "space": spawn_data.get("space", ""),        # spawn location detail
-                    "spawning_location": {
-                        "location": spawn_data.get("location", ""),
-                        "room": spawn_data.get("room", ""),
-                        "space": spawn_data.get("space", "")
-                    },
-                    "events": set(), # events can be anything, like you can set events on tiles that sale is going on
+                    # Previously sector
+                    "location": sector_data.get("location", ""),
+                    # Previously arena
+                    "room": arena_data.get("room", ""),
+                    # Previously game_object
+                    "item": item_value,                          
+                    # spawn location detail
+                    "space": spawn_data.get("space", ""),
+                    # events can be anything, like you can set events on tiles that sale is going on
+                    "events": set(),
 
-                    "npc": '_' 
+                    "npc": '_'
                 }
 
                 # Add default event for items
                 if tile_details["item"]:
-                    items_str = ','.join(set(tile_details["item"].values()))
-                    room = tile_details["room"] or "items"
-                    event_items = f'{room}:{items_str}'
-                    tile_details["events"].add((event_items, None, None))
+                    items_str = tile_details["item"]
+                    event_items = f'can_use:{items_str}'
+                    tile_details["events"].add((event_items))
 
                 row.append(tile_details)
             tiles.append(row)
@@ -130,12 +134,25 @@ class Map:
 
     def initialize_address_tiles(self):
         """
-        Creates a reverse mapping from addresses to tile coordinates.
+        Creates a reverse mapping from addresses to tile coordinates and 
+        organizes map details based on locations, rooms, items, and spaces.
 
         Returns:
-            dict: A dictionary mapping addresses to sets of tile coordinates.
+            tuple:
+                - dict: A dictionary mapping addresses (location, room, item, space) 
+                to sets of tile coordinates (x, y).
+                - dict: A hierarchical dictionary organizing map details:
+                    {
+                        "location": {
+                            "room": {
+                                "items": {item1, item2, ...},
+                                "spaces": {space1, space2, ...}
+                            }
+                        }
+                    }
         """
         address_tiles = {}
+        map_details = {}
 
         def add_address(address, x, y):
             """Helper to add an address and coordinate pair to the mapping."""
@@ -146,24 +163,43 @@ class Map:
         for i in range(self.maze_height):
             for j in range(self.maze_width):
                 tile = self.tiles[i][j]
-                
-                # Build addresses based on available data
+
+                # Extract attributes from the tile
                 location = tile.get("location", "")
                 room = tile.get("room", "")
                 item = tile.get("item", "")
-                spawning_location = tile.get("spawning_location", {}).get("location", "")
+                space = tile.get("space", "")
 
                 if location:
                     add_address(location, j, i)
+                    if location not in map_details:
+                        map_details[location] = {}
+
                 if room:
-                    add_address(f"{location}:{room}", j, i)
+                    address_key = f"{location}:{room}"
+                    add_address(address_key, j, i)
+                    if room not in map_details[location]:
+                        map_details[location][room] = {}
+
                 if item:
-                    add_address(f"{room}:{item}", j, i)
-                if spawning_location:
-                    add_address(f"<spawn_loc>{spawning_location}", j, i)
+                    address_key = f"{location}:{room}:{item}"
+                    add_address(address_key, j, i)
+                    if room in map_details[location]:
+                        if "items" not in map_details[location][room]:
+                            map_details[location][room]["items"] = set()
+                        map_details[location][room]["items"].add(item)
+
+                if space:
+                    address_key = f"{location}:{room}:{space}"
+                    add_address(address_key, j, i)
+                    if room in map_details[location]:
+                        if "spaces" not in map_details[location][room]:
+                            map_details[location][room]["spaces"] = set()
+                        map_details[location][room]["spaces"].add(space)
 
         logger.info("Address tiles initialized.")
-        return address_tiles
+        return address_tiles, map_details
+
 
     def get_tile_details(self, tile):
         """
@@ -200,7 +236,7 @@ class Map:
             for j in range(max(0, x - vision_r), min(self.maze_width, x + vision_r + 1)):
                 nearby_tiles.append((j, i))
         return nearby_tiles
-    
+
     def generate_visible_tiles(self, current_tile):
         """
         Retrieves all tiles within a given radius of a specified tile. 
@@ -208,11 +244,11 @@ class Map:
         """
         nearby_tiles = self.get_nearby_tiles(current_tile, PERCEPTION_RANGE)
         visible_tiles = []
-        for tile in nearby_tiles:                
+        for tile in nearby_tiles:
             # 这里把无关信息过滤掉。减少推理负担
             tile_data = self.tiles[tile[1]][tile[0]]
             tile_data['tile'] = tile
-            
+
             visible_tile = {
                 key: value for key, value in tile_data.items() if value
             }
