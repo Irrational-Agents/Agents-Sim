@@ -177,3 +177,33 @@ def extract_keywords_for_long_term_memory(description):
     except json.JSONDecodeError:
         logger.error("Error: Invalid JSON format in response.")
         return []
+
+@traceable(name="plans_selection")
+def plans_selection(plans, p_context,baises=None):
+    with open('irrationalAgents/prompt/prompt_templates/plans_selection_prompt.txt', 'r') as file:
+            prompt = file.read()
+    prompt = prompt.format(
+        plans=plans,
+        baises=baises,
+        context=p_context
+    )
+    system_content = (
+        """You are an AI assistant designed to mimic human decision-making. 
+        Your task is to choose the most appropriate decision from a set of given plans based on a detailed profile of a person, 
+        including their personality, past experiences, and biases."""
+
+    )
+
+    response = generative_agent(system_content, prompt)
+    logger.debug(response)
+    try:
+        parsed_response = json.loads(response)
+        if isinstance(parsed_response, str):
+            return parsed_response
+        else:
+            # If it's not a list, return empty or handle accordingly
+            logger.error("Error: Invalid JSON format in response. defaulting to first plan")
+            return plans[0]
+    except json.JSONDecodeError:
+        logger.error("Error: Invalid JSON format in response.")
+        return plans[0]
