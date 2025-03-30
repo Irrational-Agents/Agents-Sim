@@ -1,41 +1,155 @@
 {
-    "age": 27,
-    "current_status": {
-       
+  "age": 27,
+  "current_status": {},
+  "current_location": null,
+  "short_term_goal_capacity": 3,
+  "short_term_goal": [
+    {
+      "description": "Complete the 3D model for the seaside hotel suite design",
+      "deadline": "2024-09-25"
+    }
+  ],
+  "short_memory_capacity": 30,
+  "short_memory_for_plan": [],
+  "daily_plan_req": [
+    {
+      "time": "10:00",
+      "activity": "Wake up and enjoy morning tea while petting Bobo and Langley",
+      "moccupying": 1,
+      "intervals": 2
     },
-    "current_location": null,
-    "short_term_goal_capacity": 3,
-    "short_term_goal": [
-        {
-            "description": "Complete the 3D model for the seaside hotel suite design",
-            "deadline": "2024-09-25"
-        }
-    ],
-    "short_memory_capacity": 30,
-    "short_memory_for_plan": [],
-    "daily_plan_req":[],
-    "short_memory": [],
-    "basic_needs": {
-        "fullness": 6,
-        "social": 7,
-        "fun": 5,
-        "health": 8,
-        "energy": 7
+    {
+      "time": "10:30",
+      "activity": "Personal hygiene and shower",
+      "moccupying": 1,
+      "intervals": 2
     },
-    "temporary_personality_changes": {
-        "openness": 0.3,
-        "conscientiousness": 0.2,
-        "extraversion": 0,
-        "agreeableness": 0.1,
-        "neuroticism": 0.2
+    {
+      "time": "11:00",
+      "activity": "Prepare and have breakfast",
+      "moccupying": 1,
+      "intervals": 2
     },
-    "emotion": [
-        6,
-        0,
-        0,
-        0,
-        1,
-        0,
-        3
-    ]
+    {
+      "time": "11:30",
+      "activity": "Check emails and plan the day's tasks",
+      "moccupying": 1,
+      "intervals": 2
+    },
+    {
+      "time": "12:00",
+      "activity": "Work on interior design project for high-end seaside hotel",
+      "moccupying": 3,
+      "intervals": 6
+    },
+    {
+      "time": "13:30",
+      "activity": "Lunch break, relax with a book or design magazine",
+      "moccupying": 1,
+      "intervals": 2
+    },
+    {
+      "time": "14:00",
+      "activity": "Continue working on the design project",
+      "moccupying": 3,
+      "intervals": 6
+    },
+    {
+      "time": "15:30",
+      "activity": "Take a break and play with cats",
+      "moccupying": 1,
+      "intervals": 2
+    },
+    {
+      "time": "16:00",
+      "activity": "Attend online industry seminar or design exhibition",
+      "moccupying": 2,
+      "intervals": 6
+    },
+    {
+      "time": "17:30",
+      "activity": "Dinner preparation",
+      "moccupying": 1,
+      "intervals": 2
+    },
+    {
+      "time": "18:00",
+      "activity": "Have dinner while catching up with Wang Wu or Zhao Liu over video call",
+      "moccupying": 2,
+      "intervals": 6
+    },
+    {
+      "time": "19:30",
+      "activity": "Work on personal design sketches and ideas",
+      "moccupying": 3,
+      "intervals": 6
+    },
+    {
+      "time": "21:00",
+      "activity": "Go for an evening walk or visit a nearby café",
+      "moccupying": 1,
+      "intervals": 6
+    },
+    {
+      "time": "22:30",
+      "activity": "Relax and watch a movie or surf design websites",
+      "moccupying": 1,
+      "intervals": 5
+    },
+    {
+      "time": "23:45",
+      "activity": "Prepare for bed, briefly play with pets",
+      "moccupying": 1,
+      "intervals": -95
+    },
+    {
+      "time": "00:00",
+      "activity": "Read a book before sleeping",
+      "moccupying": 1,
+      "intervals": 8
+    },
+    {
+      "time": "02:00",
+      "activity": "Sleep",
+      "moccupying": 1,
+      "intervals": 88
+    }
+  ],
+  "short_memory": [
+    {
+      "time": "00:00",
+      "date": "2024-09-16",
+      "moccupying": 1,
+      "description": "seeing desk"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-09-16",
+      "moccupying": 1,
+      "description": "seeing TV"
+    }
+  ],
+  "basic_needs": {
+    "fullness": 6,
+    "social": 7,
+    "fun": 5,
+    "health": 8,
+    "energy": 7
+  },
+  "temporary_personality_changes": {
+    "openness": 0.3,
+    "conscientiousness": 0.2,
+    "extraversion": 0,
+    "agreeableness": 0.1,
+    "neuroticism": 0.2
+  },
+  "emotion": [
+    6,
+    0,
+    0,
+    0,
+    1,
+    0,
+    3
+  ]
 }

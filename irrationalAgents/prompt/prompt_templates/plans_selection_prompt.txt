@@ -5,13 +5,13 @@ To complete the task:
 4. Provide a reasoning for why this plan is the most suitable choice.
 
 Here is the person's profile:
-{{context}}
+{context}
 
 Here is the behavioral economical biases:
-{{biases}}
+{biases}
 
 Here are the proposed plans:
-{{plans}}
+{plans}
 
-Please choose the most suitable plan and Format your response as a string, where exactly the plan I give to you. Do not include any additional text, markdown formatting, or explanations outside the plan.
-
+Please return the exactly one with no explanation and format your response as a JSON strings, like this:
+{{"action":"action","description":"description"}}

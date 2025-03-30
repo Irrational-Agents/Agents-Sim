@@ -56,7 +56,7 @@ def generate_plan(agent_name, agent_profile, current_emotion, recent_events, cur
     ) 
     response = generative_agent(system_content, prompt2)
 
-    logger.info(f"agent {agent_name} plan response: {response}")
+    logger.debug(f"agent {agent_name} plan response: {response}")
     try:
         parsed_response = json.loads(response)
         return parsed_response
@@ -151,7 +151,7 @@ def generate_short_memory(agent_name, current_emotion, personality_traits, relat
     
 @traceable(name="extract_keywords")
 def extract_keywords_for_long_term_memory(description):
-    with open('irrationalAgents/prompt/prompt_templates/extract_keywords_prompt.txt', 'r') as file:
+    with open(PROMPT_FILE_PATH+ 'extract_keywords_prompt.txt', 'r') as file:
             prompt = file.read()
     prompt = prompt.format(
         description=description
@@ -179,31 +179,26 @@ def extract_keywords_for_long_term_memory(description):
         return []
 
 @traceable(name="plans_selection")
-def plans_selection(plans, p_context,baises=None):
-    with open('irrationalAgents/prompt/prompt_templates/plans_selection_prompt.txt', 'r') as file:
+def plans_selection(plans, p_context,biases=''):
+    with open(PROMPT_FILE_PATH + 'plans_selection_prompt.txt', 'r') as file:
             prompt = file.read()
     prompt = prompt.format(
         plans=plans,
-        baises=baises,
+        biases=biases,
         context=p_context
     )
     system_content = (
-        """You are an AI assistant designed to mimic human decision-making. 
-        Your task is to choose the most appropriate decision from a set of given plans based on a detailed profile of a person, 
-        including their personality, past experiences, and biases."""
+        """You are an AI assistant designed to mimic human decision-making.\
+            Your task is to choose the most appropriate decision from a set of \
+                given plans based on a detailed profile of a person, \
+                    including their personality, past experiences, and biases."""
 
     )
 
     response = generative_agent(system_content, prompt)
     logger.debug(response)
     try:
-        parsed_response = json.loads(response)
-        if isinstance(parsed_response, str):
-            return parsed_response
-        else:
-            # If it's not a list, return empty or handle accordingly
-            logger.error("Error: Invalid JSON format in response. defaulting to first plan")
-            return plans[0]
+        return json.loads(response)
     except json.JSONDecodeError:
         logger.error("Error: Invalid JSON format in response.")
         return plans[0]
