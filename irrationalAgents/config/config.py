@@ -43,6 +43,8 @@ MEMORY_DECAY_RATE = 0.99
 # Perception configuration
 PERCEPTION_RANGE = 2
 
+# experimental configuration
+AGENT_BIASES=False
 
 def load_config_to_env():
     """
