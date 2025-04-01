@@ -33,6 +33,9 @@ def get_npcs(params: Dict) -> Dict:
             with open(META_FILE_PATH, 'r', encoding='utf-8') as f:
                 data = json.load(f)
                 names = list(data.get('npc_names'))
+
+                if data.get("player_name") != '':
+                    names.append(data.get("player_name"))
       
         npcs = []
         for npc_name in names:
@@ -55,12 +58,6 @@ def get_npc_info(params: Dict) -> Dict:
     logger.debug(f"get agent {agent}")
     npc_data = {**agent, **status}
     return npc_data
-
-
-def get_spawns() -> Dict:
-    with open(SPAWN_FILE_PATH, 'r', encoding='utf-8') as f:
-        data = json.load(f)
-    return data
 
 def get_meta() -> Dict:
     with open(META_FILE_PATH, 'r', encoding='utf-8') as f:

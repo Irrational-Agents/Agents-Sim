@@ -30,6 +30,7 @@ class UnityHandlers:
 
             if self.clock == 0:  # initialize
                 logger.debug("initialize")
+                self.map_data = data['map_data']
                 if self.map_data is not None:
                     self.world = WorldState(self.map_data, self.unity_request)
                     self.unity_request.send_server_tick(1)
@@ -63,21 +64,3 @@ class UnityHandlers:
         except Exception as e:
             logger.error(f"Error getting NPCs: {str(e)}")
             return {'error': str(e)}
-
-    def handle_get_npc_info(self, params: Dict) -> Dict:
-        """Handle request to get specific NPC info"""
-        try:
-            logger.info(f"get_npc_info: {params}")
-            npc_data = get_npc_info(params)
-            self.unity_request.emit('npc.getInfo.response', {
-                                    'npc': npc_data})
-
-        except Exception as e:
-            logger.error(f"Error getting NPC info: {str(e)}")
-            return {'error': str(e)}
-
-    def handle_npc_navigate(self, params: Dict) -> Dict:
-        pass
-
-    def handle_chat(self, params: Dict) -> Dict:
-        pass

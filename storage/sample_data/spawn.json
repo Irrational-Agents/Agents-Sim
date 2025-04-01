@@ -1,21 +1,21 @@
 {
     "Sakura Sato" : {
         "pronunciation": "\ud83d\udca4",
-        "spawn_point": { "x": 127, "y": 46 },
+        "spawn_point": "Dorm for College:A room:sp-A",
         "character": "C001"
     },
    "Kenta Takahashi": {
-        "pronunciation": "\ud83d\ude34",
-        "spawn_point": { "x": 73, "y": 14 },
+        "pronunciation": "\ud83d\udca4",
+        "spawn_point": "apartment D:main room:sp-A",
         "character": "C002"
     },
     "Zhang San": {
-        "pronunciation": "\ud83d\ude34",
-        "spawn_point": { "x": 123, "y": 57 },
+        "pronunciation": "\ud83d\udca4",
+        "spawn_point": "co-living space:B room:sp-A",
         "character": "C003"
     },
     "Yuriko Yamamoto": {
-        "spawn_point": { "x": 75, "y": 14 },
+        "spawn_point": "apartment A:main room:sp-B",
         "character": "C004"
     }    
 }

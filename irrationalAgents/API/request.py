@@ -36,7 +36,7 @@ class UnityRequest:
 
     def send_init(self, request_data: Optional[dict] = None) -> None:
         """Send Init with npc data."""
-        self.emit("init", request_data)      
+        self.emit("init", request_data)
 
     def send_server_tick(self, request_data: Optional[dict] = None) -> None:
         """Send Server tick for frame to be updated."""
@@ -44,11 +44,11 @@ class UnityRequest:
 
     def get_map_data(self, request_data: Optional[dict] = None) -> None:
         """Request town map data."""
-        self.emit("map.getData", request_data)
+        self.emit("map.data", request_data)
 
-    def npc_chat_update(self, request_data: Optional[dict] = None) -> None:
+    def npc_update_emoji(self, request_data: Optional[dict] = None) -> None:
         """Update NPC chat data."""
-        self.emit("chat.updateNPC", request_data)
+        self.emit("npc.emoji", request_data)
 
     def npc_navigate(self, request_data: Optional[dict] = None) -> None:
         """Send Server tick for frame to be updated."""

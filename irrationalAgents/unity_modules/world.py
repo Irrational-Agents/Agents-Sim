@@ -17,7 +17,7 @@ logger = setup_logger('World')
 class WorldState:
     def __init__(self, map_data: Dict, unity_request):
         self.town_map = Map(map_data)
-        self.town_map.parse_map_to_dict()
+        logger.info(self.town_map.map_details)
         self.unity_request: UnityRequest = unity_request
         # self.agent_manager = AgentManager()
         self.meta_manager = MetaManager()

@@ -1,6 +1,8 @@
 {
   "name": "Sakura Sato",
   "birthday": "2002-04-15",
+  "spawn": "Dorm for College:A room:sp-A",
+  "character": "C002",
   "description": [
     "Sakura Sato is a second-year student majoring in Japanese Literature at the University of Tokyo",
     "Sakura is particularly interested in contemporary literature and enjoys exploring new forms and methods of literary expression",

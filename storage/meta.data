@@ -2,7 +2,7 @@
     "start_date": "2024-04-01",
     "start_time": "00:00",
     "sec_per_step": 10,
-    "map_name": null,
+    "map_name": "the_ville",
     "step": 1,
     "player_name": "Yuriko Yamamoto",
     "npc_names": [

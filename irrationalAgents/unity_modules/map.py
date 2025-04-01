@@ -41,6 +41,7 @@ class Map:
         self.tiles = self.initialize_tiles()
         self.address_tiles, self.map_details = self.initialize_address_tiles()
 
+
     def id_based_dict(self, data):
         """convert json to id"""
         return {

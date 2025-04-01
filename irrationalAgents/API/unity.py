@@ -27,11 +27,8 @@ class UnityServer:
         
         # Command mappings
         self.command_map = {
-            'player.getInfo': 'handle_get_player_info',
             'map.data': 'handle_map_data',
-            'ui.tick': 'update',
-            'chat.updateNPC': 'handle_chat',
-            'npc.navigate': 'handle_npc_navigate'
+            'ui.tick': 'update'
         }
         # Register event handlers
         self.register_event_handlers()
@@ -88,9 +85,8 @@ class UnityServer:
         logger.info("Initializing server...")
        
         sim_config = {'npcs': get_npcs({})}
-        npc_config = get_spawns()
         meta_config = get_meta()
-        self.unity_request.send_init(json.dumps({**sim_config, **npc_config, **meta_config}))
+        self.unity_request.send_init(json.dumps({**sim_config, **meta_config}))
 
 
     def start(self, host: str = '0.0.0.0', port: int = 8080):
@@ -111,8 +107,7 @@ class UnityServer:
         logger.info("Waiting for client connection...")
         if self.wait_for_connection(timeout=120): 
             self.init() 
-            logger.info("Client connected, sending map request...")
-            self.unity_request.get_map_data()
+            logger.info("Client connected")
             return True
         else:
             logger.error("Timeout waiting for client connection.")
