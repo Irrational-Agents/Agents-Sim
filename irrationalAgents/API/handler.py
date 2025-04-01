@@ -45,9 +45,11 @@ class UnityHandlers:
             # update world state
             # process events to npc
             # update tile according to agent information
-
+            self.world.update_status(self.npc_pos)
+            
             # self.world.update_agent_positions(self.npc_pos)
-            # results = self.world.tick_world()
+            
+            results = self.world.tick_world()
             self.unity_request.send_server_tick(1)
 
         except ValueError as e:

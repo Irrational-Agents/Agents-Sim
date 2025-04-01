@@ -86,25 +86,27 @@ class Agent:
         self.short_memory.curr_datetime = curr_time
         self.short_memory.curr_time = self.short_memory.curr_datetime.strftime('%H:%M')
         self.short_memory.curr_date = self.short_memory.curr_datetime.strftime('%Y-%m-%d')
-
-        if new_day == "New day":
-            # 旧记忆衰退
-            logger.debug(f'new day')
-            self.long_memory.update_all_freshness(
-                self.short_memory.curr_datetime)
+        if new_day:
+            logger.debug(f"Agent {self.name} old memory decaying")
+            self.long_memory.update_all_freshness(self.short_memory.curr_datetime)
             #新记忆reflect
+            logger.debug(f"Agent {self.name} new memory reflecting")
             self.short_memory.organize_memory(self.long_memory)
+            # if and only if
             self.short_memory.cleanup_short_memory()
-            
+        
         stimulus = self.stimulus(events)
-        logger.info(f"{self.short_memory.curr_date}:{self.short_memory.curr_time} agent {self.name}")
+        logger.debug(f"{self.short_memory.curr_date}:{self.short_memory.curr_time} agent {self.name}")
+        
         if stimulus == "sys2":
             return
         elif stimulus == "sys1":
             plan_list = self.plan(new_day)
-            logger.debug(f"{self.name} plan: {plan_list}")
+            logger.debug(f"{self.name} {self.short_memory.curr_date} plan: {plan_list}")
+            
             best_plan = self.plan_evaluation(plan_list)
-            logger.debug(f"{self.name} best_plan: {best_plan}")
+            logger.debug(f"{self.name}'s best_plan: {best_plan}")
+            
             self.short_memory.save(self.short_memory)
             description = self.action(best_plan)
             return best_plan.get('action', None), description

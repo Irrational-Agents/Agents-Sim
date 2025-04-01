@@ -1,6 +1,7 @@
 import json
 from prompt.llm_command_list import *
 from config.logger_config import setup_logger
+from config.config import AGENT_BIASES
 
 logger = setup_logger(__name__)
 
@@ -16,26 +17,28 @@ def plan_evaluation(agent, plan_list):
         # 例: 最初のプランを選択する単純な実装
         # a plan should be evaluated based on bias, Context (in this stage it should be personality)
         p_context = agent.basic_info.get('personality_traits', {})
-        best_plan = select_plan(True, p_context) 
-        #@TODO decide_next_action(best_plan)
+        best_plan = select_plan(plan_list, p_context) 
+        action = decide_next_action(best_plan)
 
-        return plan_list[0]
+        return action
 
     except Exception as e:
         logger.error(f"Error evaluating plans: {str(e)}")
-        return None
+        return plan_list[0]
 
 
-def select_plan(baises, p_context):
+def select_plan(plan_list, p_context):
     # this will return optimal response if no biases else it will send 
-    if baises:
+    # experimental part
+    biases=''
+    if AGENT_BIASES:
         #@TODO biases = bias_module(bias)
-        baises = None
-    logger.debug(f"baises: {baises} p_context: {p_context}")
-    #return gpt_selection_response_from_gpt(baises, p_context)
-    return None
+        biases = ''
+    logger.debug(f"biases: {biases} p_context: {p_context}")
+    plan = plans_selection(plan_list, p_context, biases)
+    return plan
 
 def decide_next_action(best_plan):
     # 最適なプランに基づいて次のアクションを決定するロジックをここに実装します
     # 例: プランの'action'フィールドを返す単純な実装
-    return best_plan.get('action', 'No action specified')
+    return best_plan

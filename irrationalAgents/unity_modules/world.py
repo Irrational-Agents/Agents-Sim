@@ -28,6 +28,27 @@ class WorldState:
         self.thread_pool = ThreadPoolExecutor(max_workers=10)
 
 
+    def update_status(self, npc_positions: Dict[str, Dict[str, int]]) -> None:
+        """
+        更新Agent在地图上的位置
+        """
+        # 清除旧的NPC位置
+        self._clear_npc_positions()
+        # 更新新的位置
+        for npc_name, pos in npc_positions.items():
+            # 更新地图上的位置
+            self.map.add_npc_to_tile(npc_name, (pos['x'], pos['y']))
+            
+            # 更新Agent管理器中的位置，考虑需要将当前spawn信息和地图信息同步 保留一处维护
+            # 暂时预留这个逻辑，
+            # 1， 地图信息需要同步到agent的spawn信息 ✅ or
+            # 2， agent的spawn信息需要同步到地图信息
+            if npc_name in self.agent_manager.agents:
+                self.agent_manager.agents[npc_name].short_memory.current_status['spawn'] = pos
+                self.agent_manager.agents[npc_name].short_memory.current_status['next_spawn'] = pos
+                self.agent_manager.write_agent_status(npc_name, self.agent_manager.agents[npc_name].short_memory.current_status)
+
+
     def update_agent_positions(self, npc_positions: Dict[str, Dict[str, int]]) -> None:
         """
         Updates the positions of NPC agents on the map.
