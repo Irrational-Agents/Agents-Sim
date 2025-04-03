@@ -1,6 +1,17 @@
 {
     "age": null,
-    "current_status": {},
+    "current_status": {
+        "spawn": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        },
+        "next_spawn": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
     "current_location": null,
     "short_term_goal_capacity": 3,
     "short_term_goal": [

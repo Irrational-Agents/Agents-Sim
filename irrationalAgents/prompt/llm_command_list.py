@@ -91,7 +91,7 @@ def generate_daily_plan(agent_name, agent_profile, current_emotion, previous, cu
 def generate_conversation(agent_name, agent_profile, current_emotion, plan, recent_events, current_time, current_date):
     with open(PROMPT_FILE_PATH + 'conv_prompt.txt', 'r') as file:
         prompt_template = file.read()
-    # here may stuck in infinite conversation loop
+    # @TODO here may stuck in infinite conversation loop
     prompt = prompt_template.format(
         agent_name=agent_name,
         agent_profile=agent_profile,
@@ -111,7 +111,31 @@ def generate_conversation(agent_name, agent_profile, current_emotion, plan, rece
     except json.JSONDecodeError:
         logger.error("Error: Invalid JSON format in response.")
         return None
-
+    
+@traceable(name="generate_thought")
+def generate_thought(agent_name, agent_profile, current_emotion, plan, recent_events, current_time, current_date):
+    with open(PROMPT_FILE_PATH + 'think_prompt.txt', 'r') as file:
+        prompt_template = file.read()
+    prompt = prompt_template.format(
+        agent_name=agent_name,
+        agent_profile=agent_profile,
+        current_emotion=current_emotion,
+        plan=plan,
+        recent_events=recent_events,
+        current_time=current_time,
+        current_date=current_date
+    )
+    
+    system_content = "You are an AI assistant tasked with analyzing given plans and events to generate thoughtful insights or suggestions."
+    response = generative_agent(system_content, prompt)
+    logger.info(f"thinking response: {response}")
+    try:
+        parsed_response = json.loads(response)
+        return parsed_response
+    except json.JSONDecodeError:
+        logger.error("Error: Invalid JSON format in response.")
+        return None
+    
 @traceable(name="generate_personality")
 def generate_personality(traits):    
         with open(PROMPT_FILE_PATH + 'personality_prompt.txt', 'r') as file:

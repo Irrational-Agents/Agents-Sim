@@ -102,10 +102,10 @@ class Agent:
             return
         elif stimulus == "sys1":
             plan_list = self.plan(new_day)
-            logger.debug(f"{self.name} {self.short_memory.curr_date} plan: {plan_list}")
+            logger.info(f"{self.name} {self.short_memory.curr_date} plan: {plan_list}")
             
             best_plan = self.plan_evaluation(plan_list)
-            logger.debug(f"{self.name}'s best_plan: {best_plan}")
+            logger.info(f"{self.name}'s best_plan: {best_plan}")
             
             self.short_memory.save(self.short_memory)
             description = self.action(best_plan)

@@ -1,0 +1,16 @@
+Agent: {agent_name}
+Agent profile: {agent_profile}
+Current emotion: {current_emotion}
+Plan: {plan}
+Recent Events: {recent_events}
+Current Time: {current_time}
+Current Date: {current_date}
+
+Based on the information above, generate a realistic thought in any aspect. The thought should:
+
+1. Follow the given plan and take into account the Recent Events.
+2. Consider the agent's personality and current emotion.
+3. Be natural, engaging, and no longer than 20 words.
+
+Please format the conversation as follows:
+"{{thought}}" 

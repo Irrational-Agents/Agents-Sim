@@ -19,9 +19,9 @@ class WorldState:
         self.town_map = Map(map_data)
         logger.info(self.town_map.map_details)
         self.unity_request: UnityRequest = unity_request
-        # self.agent_manager = AgentManager()
+        self.agent_manager = AgentManager()
         self.meta_manager = MetaManager()
-        #self.path_planner = PathPlanner(self.map)
+        self.path_planner = PathPlanner(self.town_map)
         self.global_time = self.meta_manager.get_start_datetime()
         self.map_translator = None
         # 创建线程池
@@ -32,12 +32,14 @@ class WorldState:
         """
         更新Agent在地图上的位置
         """
+        if npc_positions == None:
+            return
         # 清除旧的NPC位置
         self._clear_npc_positions()
         # 更新新的位置
         for npc_name, pos in npc_positions.items():
             # 更新地图上的位置
-            self.map.add_npc_to_tile(npc_name, (pos['x'], pos['y']))
+            self.town_map.add_npc_to_tile(npc_name, (pos['x'], pos['y']))
             
             # 更新Agent管理器中的位置，考虑需要将当前spawn信息和地图信息同步 保留一处维护
             # 暂时预留这个逻辑，
@@ -51,7 +53,7 @@ class WorldState:
 
     def update_agent_positions(self, npc_positions: Dict[str, Dict[str, int]]) -> None:
         """
-        Updates the positions of NPC agents on the map.
+        Updates the positions of NPC agents on the town_map.
 
         Args:
             npc_positions (Dict[str, Dict[str, int]]): A dictionary mapping NPC names to their positions and directions.
@@ -71,10 +73,10 @@ class WorldState:
 
     def _clear_npc_positions(self):
         """清除地图上所有NPC的位置标记"""
-        for i in range(self.map.maze_height):
-            for j in range(self.map.maze_width):
-                if self.map.tiles[i][j]['npc'] != '_':
-                    self.map.tiles[i][j]['npc'] = '_'
+        for i in range(self.town_map.maze_height):
+            for j in range(self.town_map.maze_width):
+                if self.town_map.tiles[i][j]['npc'] != '_':
+                    self.town_map.tiles[i][j]['npc'] = '_'
 
     def tick_world(self):
         """
@@ -98,7 +100,7 @@ class WorldState:
                     result = future.result()
                     logger.debug(f"Agent update result: {result}")
                 except Exception as e:
-                    logger.error(f"更新Agent时出错: {str(e)}")
+                    logger.error(f"An error occurred while updating Agent: {str(e)}")
                     raise e
             # 4. 更新世界时间
             advanced_time, advanced_date = advance_time_by_15_minutes(
@@ -109,10 +111,10 @@ class WorldState:
             self.meta_manager.write_meta()
             self.global_time = self.meta_manager.get_datetime()
 
-            logger.info("所有Agent更新完成")
+            logger.info("All agents updated")
 
         except Exception as e:
-            logger.error(f"更新世界状态时出错: {str(e)}")
+            logger.error(f"An error occurred while updating World: {str(e)}")
             raise
 
     def _update_agent(self, agent_name: str, env_info: Dict[str, Any]):
@@ -135,7 +137,7 @@ class WorldState:
         logger.debug(f"{agent_name} status: {status}")
         self.agent_manager.write_agent_status(agent_name, status)
 
-        logger.debug(f"Agent {agent_name} 更新完成")
+        logger.debug(f"Agent {agent_name} update completed")
         return agent_name, action, move_description
 
     def _build_stimuli(self, env_info: Dict[str, Any]) -> List[str]:
@@ -172,7 +174,8 @@ class WorldState:
         positions = self.agent_manager.get_all_agents_positions()
         if len(positions) != len(self.agent_manager.agents):
             logger.error(
-                f"NPC位置信息与Agent管理器中的数量不匹配, positions: {positions}, agents: {self.agent_manager.agents.keys()}")
+                f"NPC location information does not match the number in the Agent Manage,\
+                      positions: {positions}, agents: {self.agent_manager.agents.keys()}")
 
         for agent_name, _ in self.agent_manager.agents.items():
             try:
@@ -183,15 +186,15 @@ class WorldState:
 
                 # 收集周围环境信息
                 nearby_info = {
-                    "nearby_tiles": self.map.generate_visible_tiles(
+                    "nearby_tiles": self.town_map.generate_visible_tiles(
                         (pos['x'], pos['y'])
                     )
                 }
                 environment_info[agent_name] = nearby_info
-                logger.debug(f"已收集 {agent_name} 的环境信息")
+                logger.debug(f"Collected {agent_name}'s environments")
 
             except Exception as e:
-                logger.error(f"收集 {agent_name} 的环境信息时出错: {str(e)}")
+                logger.error(f"An error occurred while collecting environment information for {agent_name}: {str(e)}")
                 continue
 
         return environment_info

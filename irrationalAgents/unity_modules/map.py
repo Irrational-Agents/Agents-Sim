@@ -253,7 +253,6 @@ class Map:
             visible_tile = {
                 key: value for key, value in tile_data.items() if value
             }
-            visible_tile.pop('spawning_location')
             if visible_tile['npc'] == '_':
                 visible_tile.pop('npc')
             if visible_tile:

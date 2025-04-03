@@ -19,7 +19,7 @@ def action(agent, next_action):
     elif action_type == "chat":
         return handle_chat(agent, description, agent.short_memory.recent_events)
     elif action_type == "interact":
-        #todo the description of interact is not correct, need to be revised in prompt
+        #@TODO the description of interact is not correct, need to be revised in prompt
         return handle_interact(agent, description)
     elif action_type == "move":
         # @TODO: 需要结合计算路径 unity_modules/path_planner.py
@@ -27,12 +27,14 @@ def action(agent, next_action):
     else:
         return handle_unknown_action(agent, action_type, description)
 
-def handle_think(agent, description):
+def handle_think(agent, description, recent_events_text):
+    thoughts = generate_thought(agent.name, agent.formed_profile, get_complex_mood(agent.short_memory.emotion_memory[-1]), description, recent_events_text, agent.short_memory.curr_time, agent.short_memory.curr_date)
+
     new_entry = {
         "time": agent.short_memory.curr_time,
         "date": agent.short_memory.curr_date,
         "moccupying": 1,
-        "description": f"{agent.name} thought about: {description}",
+        "description": f"{agent.name} thought about: {thoughts}",
         "emotion": {
             "type": "contemplative",
             "intensity": 4
@@ -43,22 +45,24 @@ def handle_think(agent, description):
     return f"{description}"
 
 def handle_chat(agent, description, recent_events_text):
-    advance_time, advance_date = advance_time_by_15_minutes(agent.short_memory.curr_time, agent.short_memory.curr_date)
+    #advance_time, advance_date = advance_time_by_15_minutes(agent.short_memory.curr_time, agent.short_memory.curr_date)
     
-    conv = generate_conversation(agent.name, agent.formed_profile, get_complex_mood(agent.short_memory.emotion_memory[-1]), description, recent_events_text, advance_time, advance_date)
+    conv = generate_conversation(agent.name, agent.formed_profile, get_complex_mood(agent.short_memory.emotion_memory[-1]), description, recent_events_text, agent.short_memory.curr_time, agent.short_memory.curr_date)
     new_entry = {
-        "time": advance_time,
-        "date": advance_date,
+        "time": agent.short_memory.curr_time,
+        "date": agent.short_memory.curr_date,
         "moccupying": 1,
-        "description": f"{conv[0]} chatted with {conv[1]}: {conv[2]}",
+        "description": f"{conv[0]} chatting with {conv[1]}: {conv[2]}",
         "emotion": agent.short_memory.emotion_memory[-1]
     }
     agent.short_memory.add_short_memory([new_entry])
-    logger.info(f"{agent.name} Chatted with new entry: {new_entry}")
+    logger.info(f"{agent.name} Chatting with new entry: {new_entry}")
     return conv
 
 def handle_interact(agent, description):
     '''
+    An agent can interact with items or event.
+    
     new_entry = {
         "time": agent.short_memory.curr_date,
         "date": agent.short_memory.curr_date,
