@@ -136,6 +136,30 @@ def generate_thought(agent_name, agent_profile, current_emotion, plan, recent_ev
         logger.error("Error: Invalid JSON format in response.")
         return None
     
+@traceable(name="generate_move")
+def generate_move(agent_name, agent_profile, current_emotion, plan, current_time, current_date, world_context):
+    with open(PROMPT_FILE_PATH + 'move_prompt.txt', 'r') as file:
+        prompt_template = file.read()
+    prompt = prompt_template.format(
+        agent_name=agent_name,
+        agent_profile=agent_profile,
+        current_emotion=current_emotion,
+        plan=plan,
+        current_time=current_time,
+        current_date=current_date,
+        world_context=world_context
+    )
+    
+    system_content = "You are an AI assistant tasked with generating the best destination based on the given plan and events."
+    response = generative_agent(system_content, prompt)
+    logger.info(f"thinking response: {response}")
+    try:
+        parsed_response = json.loads(response)
+        return parsed_response
+    except json.JSONDecodeError:
+        logger.error("Error: Invalid JSON format in response.")
+        return None
+    
 @traceable(name="generate_personality")
 def generate_personality(traits):    
         with open(PROMPT_FILE_PATH + 'personality_prompt.txt', 'r') as file:

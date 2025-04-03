@@ -42,7 +42,7 @@ def handle_think(agent, description, recent_events_text):
     }
     agent.short_memory.add_short_memory([new_entry])
     logger.info(f"{agent.name} Thought new entry: {new_entry}")
-    return f"{description}"
+    return f"{thoughts}"
 
 def handle_chat(agent, description, recent_events_text):
     #advance_time, advance_date = advance_time_by_15_minutes(agent.short_memory.curr_time, agent.short_memory.curr_date)
@@ -102,11 +102,14 @@ def handle_move(agent, description):
         }
     }
     '''
+    #Using LLM obtains the destination in natural language form.
+    destination = generate_move(agent.name, agent.formed_profile, get_complex_mood(agent.short_memory.emotion_memory[-1]), description, agent.short_memory.curr_time, agent.short_memory.curr_date)
+
     new_entry = {
         "time": agent.short_memory.curr_time,
         "date": agent.short_memory.curr_date,
         "moccupying": 1,
-        "description": f"{agent.name} moved: {description}",
+        "description": f"{agent.name} moved: {destination}",
         "emotion": {
             "type": "neutral",
             "intensity": 3
@@ -115,7 +118,7 @@ def handle_move(agent, description):
     
     agent.short_memory.add_short_memory([new_entry])
     logger.info(f"{agent.name} Moved to new entry: {new_entry}")
-    return f"Moved to {description}"
+    return f"{destination}"
 
 def handle_unknown_action(agent, action_type, description):
     new_entry = {
