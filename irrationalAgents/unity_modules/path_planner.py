@@ -2,6 +2,7 @@ from collections import deque
 from enum import Enum
 from dataclasses import dataclass
 from config.logger_config import setup_logger
+from unity_modules.map import Map
 
 logger = setup_logger('PathPlanner')
 
@@ -23,7 +24,7 @@ MOVEMENT_SPEEDS = {
 }
 
 class PathPlanner:
-    def __init__(self, map_instance):
+    def __init__(self, map_instance: Map):
         self.map = map_instance
         self.directions = {
             "up": (-1, 0),
@@ -32,14 +33,11 @@ class PathPlanner:
             "right": (0, 1)
         }
         self.reverse_directions = {v: k for k, v in self.directions.items()}
-        self.collision_wall = 32125
 
     def is_valid(self, x, y):
         """Check if a position is within bounds and not an obstacle."""
-        vaild = (0 <= x < len(self.map.collision_maze) and
-                0 <= y < len(self.map.collision_maze[0]) and
-                self.map.collision_maze[x][y] != self.collision_wall)
-        return vaild
+        valid = not self.map.get_tile_details((x, y))['collision']
+        return valid
 
     def create_path(self, start, end, start_direction=None):
         """Find the shortest path using BFS."""
