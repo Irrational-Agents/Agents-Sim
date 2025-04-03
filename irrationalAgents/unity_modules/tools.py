@@ -3,7 +3,7 @@ import json
 from typing import Dict
 from config.logger_config import setup_logger
 from config.common_method import *
-from config.config import NPC_STORAGE_BASE_PATH, SPAWN_FILE_PATH, META_FILE_PATH
+from config.config import NPC_STORAGE_BASE_PATH, META_FILE_PATH
 
 logger = setup_logger('tools')
 

@@ -4,6 +4,7 @@ from config.common_method import *
 from API.request import UnityRequest
 from unity_modules.tools import *
 from unity_modules.world import WorldState
+from agents_modules.agent import AgentManager
 logger = setup_logger('API-unity-handler')
 
 
@@ -12,9 +13,10 @@ class UnityHandlers:
         self.unity_request: UnityRequest = None
         self.map_data = None
         self.clock = 0
-        self.npc_pos = None
-        self.player_pos = None
+        self.npc_status = None
+        self.player_status = None
         self.world = None
+        self.agent_manager = None
 
     def handle_map_data(self, data: Dict[str, Any]):
         logger.debug("map_data received")
@@ -23,34 +25,43 @@ class UnityHandlers:
     def update(self, data: Dict[str, Any]):
         """Handle updates from the client."""
         try:
-            logger.debug(f"ui-tick: {data}")
             self.clock = int(data['clock'])
-            self.npc_pos = data['npc_pos']
-            self.player_pos = data['player_pos']
+            self.npc_status = data['npc_status']
+            self.player_status = data['player_status']
 
             if self.clock == 0:  # initialize
                 logger.debug("initialize")
                 self.map_data = data['map_data']
                 if self.map_data is not None:
                     self.world = WorldState(self.map_data, self.unity_request)
-                    self.unity_request.send_server_tick(1)
+
+                    #self.agent_manager = AgentManager()
+                    # for name,agent in self.agent_manager.agents.items():
+                    #     logger.info(f"Generating plan for {name}")
+                    #     agent.plan(new_day=True)
+
+                    #x,y = self.world.town_map.get_address_tiles('house F:second bedroom:sp-B')
+                    
+
+                    res = {
+                        "clock" : 1,
+                        "updates": {
+                            "Kenta Takahashi": {
+                                "activity": "move",
+                                "path": self.world.path_planner.create_path(
+                                    (53,14),[94, 74])
+                            }
+                        }
+                    }
+
+                    self.unity_request.send_server_tick(res)
                 else:
                     self.unity_request.get_map_data()
-                    # if return is 0 frame will not be updated
-                    self.unity_request.send_server_tick(0)
+                    self.unity_request.send_server_tick(1)
                     return
-
-            # MAIN LOOP
-            # update agent positions
-            # update world state
-            # process events to npc
-            # update tile according to agent information
-            self.world.update_status(self.npc_pos)
-            
-            # self.world.update_agent_positions(self.npc_pos)
-            
-            results = self.world.tick_world()
-            self.unity_request.send_server_tick(1)
+            else:
+               self.unity_request.send_server_tick({
+                        "clock" : 0})
 
         except ValueError as e:
             logger.error(

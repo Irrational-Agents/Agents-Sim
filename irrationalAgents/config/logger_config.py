@@ -55,7 +55,7 @@ def setup_logger(name):
     
     # 创建并配置 console handler
     console_handler = logging.StreamHandler()
-    console_handler.setLevel(logging.DEBUG)
+    console_handler.setLevel(logging.INFO)
     console_handler.setFormatter(formatter)
     console_handler.addFilter(dict_formatter)  # 添加过滤器
     logger.addHandler(console_handler)

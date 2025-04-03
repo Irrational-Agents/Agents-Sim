@@ -1,15 +1,11 @@
-import os
-from typing import Dict, Any, List
+from concurrent.futures import ThreadPoolExecutor
 from unity_modules.map import Map
+from unity_modules.path_planner import PathPlanner
 from unity_modules.tools import *
-from agents_modules.agent import AgentManager
 from config.logger_config import setup_logger
 from config.meta_manager import MetaManager
 from config.common_method import advance_time_by_15_minutes
-from unity_modules.path_planner import PathPlanner
-from concurrent.futures import ThreadPoolExecutor, as_completed
 from API.request import UnityRequest
-import json
 
 logger = setup_logger('World')
 
@@ -17,16 +13,17 @@ logger = setup_logger('World')
 class WorldState:
     def __init__(self, map_data: Dict, unity_request):
         self.town_map = Map(map_data)
-        logger.info(self.town_map.map_details)
         self.unity_request: UnityRequest = unity_request
+<<<<<<< HEAD
         self.agent_manager = AgentManager()
+=======
+>>>>>>> 439053bfeef0b1b238df26a50b8449d8f72c6604
         self.meta_manager = MetaManager()
         self.path_planner = PathPlanner(self.town_map)
         self.global_time = self.meta_manager.get_start_datetime()
-        self.map_translator = None
-        # 创建线程池
         self.thread_pool = ThreadPoolExecutor(max_workers=10)
 
+<<<<<<< HEAD
 
     def update_status(self, npc_positions: Dict[str, Dict[str, int]]) -> None:
         """
@@ -211,3 +208,6 @@ class WorldState:
             'spawn': pos
         }
         return status
+=======
+        # Store previous positions of NPCs
+>>>>>>> 439053bfeef0b1b238df26a50b8449d8f72c6604
