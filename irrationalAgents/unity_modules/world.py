@@ -1,4 +1,4 @@
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from unity_modules.map import Map
 from unity_modules.path_planner import PathPlanner
 from unity_modules.tools import *
@@ -33,6 +33,7 @@ class WorldState:
         # 更新新的位置
         for npc_name, pos in npc_positions.items():
             # 更新地图上的位置
+            # @TODO: 更新地图上的其他交互信息
             self.town_map.add_npc_to_tile(npc_name, (pos['x'], pos['y']))
             
             # 更新Agent管理器中的位置，考虑需要将当前spawn信息和地图信息同步 保留一处维护
@@ -89,27 +90,54 @@ class WorldState:
             ]
 
             # 3. 并发执行所有更新任务
+            results = []
             for future in as_completed(update_tasks):
                 try:
                     result = future.result()
+                    results.append(result)
                     logger.debug(f"Agent update result: {result}")
                 except Exception as e:
                     logger.error(f"An error occurred while updating Agent: {str(e)}")
                     raise e
+           
             # 4. 更新世界时间
             advanced_time, advanced_date = advance_time_by_15_minutes(
                 self.global_time.strftime("%H:%M"), self.global_time.strftime("%Y-%m-%d"))
-            # 更新MetaManager中的时间, 用于后续断点恢复
+            
+                # 更新MetaManager中的时间, 用于后续断点恢复
             self.meta_manager.set_curr_datetime(advanced_date, advanced_time)
             self.meta_manager.set_step(self.meta_manager.get('step') + 1)
             self.meta_manager.write_meta()
             self.global_time = self.meta_manager.get_datetime()
 
             logger.info("All agents updated")
+            # 5. response
+            return self._after_tick(results)
 
         except Exception as e:
             logger.error(f"An error occurred while updating World: {str(e)}")
             raise
+    
+    def _after_tick(self, results):
+        for result in results:
+            if len(result) != 3:
+                logger.error('')
+                continue
+            agent_name, action, desc = result
+
+        x,y = self.world.town_map.get_address_tiles('house F:second bedroom:sp-B')
+                    
+        res = {
+            "clock" : 1,
+            "updates": {
+                "Kenta Takahashi": {
+                    "activity": "move",
+                    "path": self.world.path_planner.create_path(
+                        (53,14),[94, 74])
+                }
+            }
+        }
+        pass
 
     def _update_agent(self, agent_name: str, env_info: Dict[str, Any]):
         """        
@@ -125,7 +153,6 @@ class WorldState:
         action, move_description = agent.move(self.global_time, stimuli)
         logger.info(
             f"{agent_name} action: {action}, description: {move_description}")
-
         status = self.gen_npc_current_status(
             agent_name, action, move_description)
         logger.debug(f"{agent_name} status: {status}")

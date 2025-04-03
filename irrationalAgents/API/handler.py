@@ -25,44 +25,30 @@ class UnityHandlers:
     def update(self, data: Dict[str, Any]):
         """Handle updates from the client."""
         try:
+            logger.debug(f"ui-tick: {data}")
             self.clock = int(data['clock'])
-            self.npc_status = data['npc_status']
-            self.player_status = data['player_status']
+            self.npc_pos = data['npc_pos']
+            self.player_pos = data['player_pos']
 
-            if self.clock == 0:  # initialize
-                logger.debug("initialize")
-                self.map_data = data['map_data']
+            if self.clock == 0:# initialize
+                logger.debug(f"initialize")
                 if self.map_data is not None:
                     self.world = WorldState(self.map_data, self.unity_request)
-
-                    #self.agent_manager = AgentManager()
-                    # for name,agent in self.agent_manager.agents.items():
-                    #     logger.info(f"Generating plan for {name}")
-                    #     agent.plan(new_day=True)
-
-                    #x,y = self.world.town_map.get_address_tiles('house F:second bedroom:sp-B')
-                    
-
-                    res = {
-                        "clock" : 1,
-                        "updates": {
-                            "Kenta Takahashi": {
-                                "activity": "move",
-                                "path": self.world.path_planner.create_path(
-                                    (53,14),[94, 74])
-                            }
-                        }
-                    }
-
-                    self.unity_request.send_server_tick(res)
+                    self.unity_request.send_server_tick(1)
                 else:
                     self.unity_request.get_map_data()
-                    self.unity_request.send_server_tick(1)
+                    self.unity_request.send_server_tick(0)   # if return is 0 frame will not be updated
                     return
-            else:
-               self.unity_request.send_server_tick({
-                        "clock" : 0})
-
+                
+            # MAIN LOOP
+            # update agent positions
+            # update world state
+            # process events to npc
+            # update tile according to agent information
+            self.world.update_status(self.npc_pos)
+            results = self.world.tick_world()
+            self.unity_request.send_server_tick(results)
+            
         except ValueError as e:
             logger.error(
                 f"Invalid data received for update: {data}. Error: {e}")

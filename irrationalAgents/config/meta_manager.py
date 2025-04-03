@@ -10,7 +10,6 @@ logger = setup_logger('MetaManager')
 class MetaManager:
     """
     元数据管理器，支持从环境变量和配置文件加载配置
-    使用单例模式确保全局只有一个实例
     """
     _instance = None
     
