@@ -25,8 +25,8 @@ def convert_log_level(level: str, to_format: str = 'standard') -> str:
 class TruncateMessageFilter(logging.Filter):
     # TL, DR
     def filter(self, record):
-        if len(record.msg) > 200:
-            record.msg = record.msg[:97] + '...'
+        if len(record.msg) > 500:
+            record.msg = record.msg[:500] + '...'
         return True
     
 class DictFormatterFilter(logging.Filter):
@@ -51,8 +51,6 @@ def setup_logger(name):
     if logger.handlers:
         return logger
     
-
-
     # 修改formatter，添加文件名、函数名和行号
     formatter = logging.Formatter(
         '%(asctime)s - %(name)s - %(levelname)s - [%(filename)s:%(lineno)d] - %(message)s'
@@ -64,7 +62,8 @@ def setup_logger(name):
     
     # 创建并配置 console handler
     console_handler = logging.StreamHandler()
-    console_handler.setLevel(logging.INFO)
+    #console_handler.setLevel(logging.INFO)
+    console_handler.setLevel(convert_log_level(LOG_LEVEL))
     console_handler.setFormatter(formatter)
     console_handler.addFilter(dict_formatter)  # 添加过滤器
     console_handler.addFilter(truncate_filter)

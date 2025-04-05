@@ -15,7 +15,7 @@ def action(agent, next_action):
     description = next_action['description']
     
     if action_type == "think":
-        return handle_think(agent, description)
+        return handle_think(agent, description, agent.short_memory.recent_events)
     elif action_type == "chat":
         return handle_chat(agent, description, agent.short_memory.recent_events)
     elif action_type == "interact":

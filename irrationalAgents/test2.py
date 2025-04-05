@@ -1,4 +1,3 @@
-from ast import While
 from agents_modules.agent import Agent
 import json
 import os
@@ -12,6 +11,7 @@ def main():
     
     
     sakura = create_agent(input("name: "))
+    
     curr_time = datetime.strptime(f"{meta['start_date']} {meta['curr_time']}", "%Y-%m-%d %H:%M")
     
     # 動作確認
@@ -19,7 +19,7 @@ def main():
     while(True):
         
         event = input("Shota(User):  ") # should type wake up when new day
-        sakura.move(meta['agents_list'], curr_time, event)
+        sakura.move(curr_time, event)
         print(sakura.short_memory.short_memory[-1])
         curr_time = curr_time + timedelta(minutes=15)
 

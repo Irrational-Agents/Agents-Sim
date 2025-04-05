@@ -29,7 +29,6 @@ class UnityHandlers:
             self.clock = int(data['clock'])
             self.npc_pos = data['npc_pos']
             self.player_pos = data['player_pos']
-
             if self.clock == 0:# initialize
                 logger.debug(f"initialize")
                 if self.map_data is not None:
@@ -48,7 +47,7 @@ class UnityHandlers:
             self.world.update_status(self.npc_pos)
             results = self.world.tick_world()
             self.unity_request.send_server_tick(results)
-            
+
         except ValueError as e:
             logger.error(
                 f"Invalid data received for update: {data}. Error: {e}")

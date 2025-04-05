@@ -7,6 +7,7 @@ from config.meta_manager import MetaManager
 from agents_modules.agent import AgentManager
 from config.common_method import advance_time_by_15_minutes
 from API.request import UnityRequest
+from typing_extensions import Any, Dict, List
 
 logger = setup_logger('World')
 
