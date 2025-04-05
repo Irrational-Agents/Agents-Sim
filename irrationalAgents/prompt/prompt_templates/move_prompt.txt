@@ -5,9 +5,11 @@ Plan: {plan}
 Recent Events: {recent_events}
 Current Time: {current_time}
 Current Date: {current_date}
-World Context: {world_context}
+World Context: {_context}
 
 You need to choose a destination to go to based on the plan and world context. The destination could be anywhere, from as far as a building to as close as within a room. You need to specify it within the given world context and do not make it up.
 
 The output example: 
 "{{house F:second bedroom:sp-B}}" 
+"{{Cafe:cafe}}"
+"{{College:library}}"

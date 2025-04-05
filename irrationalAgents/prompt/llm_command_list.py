@@ -13,7 +13,7 @@ client = wrap_openai(OpenAI(api_key=api_key))
 
 
 def _load_background(type_):
-    with open(PROMPT_FILE_PATH + + f'map_{type_}.txt', 'r', encoding='utf-8') as f:
+    with open(PROMPT_FILE_PATH + f'map_{type_}.txt', 'r', encoding='utf-8') as f:
         map = f.read()
     return map
 
@@ -145,7 +145,7 @@ def generate_thought(agent_name, agent_profile, current_emotion, plan, recent_ev
         return None
     
 @traceable(name="generate_move")
-def generate_move(agent_name, agent_profile, current_emotion, plan, current_time, current_date, world_context):
+def generate_move(agent_name, agent_profile, current_emotion,recent_events, plan, current_time, current_date):
     with open(PROMPT_FILE_PATH + 'move_prompt.txt', 'r') as file:
         prompt_template = file.read()
     prompt = prompt_template.format(
@@ -153,14 +153,15 @@ def generate_move(agent_name, agent_profile, current_emotion, plan, current_time
         agent_profile=agent_profile,
         current_emotion=current_emotion,
         plan=plan,
+        recent_events=recent_events,
         current_time=current_time,
         current_date=current_date,
-        world_context=world_context
+        _context=_load_background('context')
     )
     
     system_content = "You are an AI assistant tasked with generating the best destination based on the given plan and events."
     response = generative_agent(system_content, prompt)
-    logger.info(f"thinking response: {response}")
+    logger.info(f"move response: {response}")
     try:
         parsed_response = json.loads(response)
         return parsed_response
