@@ -1,8 +1,7 @@
 To complete the task:
 1. Analyze the provided profile of the individual.
-2. Carefully review each of the proposed plans.
+2. Carefully review each of the proposed plans. Consider the continuity of events.
 3. Select the plan that best aligns with the individual's personality, past experiences, and biases.
-4. Provide a reasoning for why this plan is the most suitable choice.
 
 Here is the person's profile:
 {context}
@@ -12,6 +11,9 @@ Here is the behavioral economical biases:
 
 Here are the proposed plans:
 {plans}
+
+Here are the recent events:
+{events}
 
 Please return the exactly one with no explanation and format your response as a JSON strings, like this:
 {{"action":"action","description":"description"}}

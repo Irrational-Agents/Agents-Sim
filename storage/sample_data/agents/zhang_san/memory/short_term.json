@@ -1,39 +1,227 @@
 {
-    "age": 27,
-    "current_location": null,
-    "short_term_goal_capacity": 3,
-    "short_term_goal": [
-        {
-            "description": "Complete the 3D model for the seaside hotel suite design",
-            "deadline": "2024-09-25"
-        }
-    ],
-    "short_memory_capacity": 30,
-    "short_memory_for_plan": [],
-    "daily_plan_req": [],
-    "short_memory": [
-    ],
-    "basic_needs": {
-        "fullness": 6,
-        "social": 7,
-        "fun": 5,
-        "health": 8,
-        "energy": 7
+  "age": 27,
+  "current_status": null,
+  "current_location": null,
+  "short_term_goal_capacity": 3,
+  "short_term_goal": [
+    {
+      "description": "Complete the 3D model for the seaside hotel suite design",
+      "deadline": "2024-09-25"
+    }
+  ],
+  "short_memory_capacity": 30,
+  "short_memory_for_plan": [],
+  "daily_plan_req": [
+    {
+      "time": "10:00",
+      "activity": "Wake up and stretch",
+      "moccupying": 1,
+      "intervals": 1
     },
-    "temporary_personality_changes": {
-        "openness": 0.3,
-        "conscientiousness": 0.2,
-        "extraversion": 0,
-        "agreeableness": 0.1,
-        "neuroticism": 0.2
+    {
+      "time": "10:15",
+      "activity": "Personal hygiene",
+      "moccupying": 1,
+      "intervals": 2
     },
-    "emotion": [
-        6,
+    {
+      "time": "10:45",
+      "activity": "Prepare and have breakfast",
+      "moccupying": 1,
+      "intervals": 2
+    },
+    {
+      "time": "11:15",
+      "activity": "Spend time with Bobo and Langley (play and feed)",
+      "moccupying": 2,
+      "intervals": 3
+    },
+    {
+      "time": "12:00",
+      "activity": "Review design trends online",
+      "moccupying": 3,
+      "intervals": 4
+    },
+    {
+      "time": "13:00",
+      "activity": "Lunch break",
+      "moccupying": 1,
+      "intervals": 2
+    },
+    {
+      "time": "13:30",
+      "activity": "Work on interior designs for the seaside hotel",
+      "moccupying": 3,
+      "intervals": 10
+    },
+    {
+      "time": "16:00",
+      "activity": "Attend a virtual industry seminar",
+      "moccupying": 2,
+      "intervals": 6
+    },
+    {
+      "time": "17:30",
+      "activity": "Connect with classmates Wang Wu and Zhao Liu",
+      "moccupying": 2,
+      "intervals": 2
+    },
+    {
+      "time": "18:00",
+      "activity": "Dinner preparation and eating",
+      "moccupying": 1,
+      "intervals": 4
+    },
+    {
+      "time": "19:00",
+      "activity": "Relax and watch design documentaries",
+      "moccupying": 1,
+      "intervals": 4
+    },
+    {
+      "time": "20:00",
+      "activity": "Work on establishing design studio plans",
+      "moccupying": 3,
+      "intervals": 8
+    },
+    {
+      "time": "22:00",
+      "activity": "Plan next surfing trip with Li Si",
+      "moccupying": 2,
+      "intervals": 4
+    },
+    {
+      "time": "23:00",
+      "activity": "Wind down with a book about interior design",
+      "moccupying": 1,
+      "intervals": -92
+    },
+    {
+      "time": "00:00",
+      "activity": "Groom Bobo and Langley",
+      "moccupying": 2,
+      "intervals": 4
+    },
+    {
+      "time": "01:00",
+      "activity": "Reflect on daily achievements and goals",
+      "moccupying": 3,
+      "intervals": 4
+    },
+    {
+      "time": "02:00",
+      "activity": "Go to sleep",
+      "moccupying": 1,
+      "intervals": 88
+    }
+  ],
+  "short_memory": [
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "cold"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 2,
+      "description": "Zhang San chatted with Li Si: Hey! How about a video call tomorrow to finalize our Hainan plans? I'm so excited!"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 2,
+      "description": "Zhang San interacted with others: Play with Bobo and Langley, enhancing their playtime experience as a way to relax and enjoy company."
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San set up a comfortable spot for the video call with Li Si, ensuring good lighting and minimal distractions."
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San chatting with Li Si: Hey! I've gathered notes on the best surfing spots. Let's finalize everything during our call tomorrow!",
+      "emotion": [
+        4,
         0,
         0,
         0,
         1,
         0,
+        5
+      ]
+    },
+    {
+      "time": "00:15",
+      "date": "2024-04-01",
+      "moccupying": 2,
+      "description": "Zhang San chatted with Li Si: Hey! I've gathered notes on the best surfing spots. Let's finalize everything during our call tomorrow!"
+    },
+    {
+      "time": "00:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San is thinking about the excitement and preparations for the upcoming surfing adventure with Li Si."
+    },
+    {
+      "time": "00:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San chatting with Li Si: Can’t wait for our call! I think we’ll find some amazing spots to surf together.",
+      "emotion": [
+        5,
+        1,
+        0,
+        0,
+        1,
+        0,
         3
-    ]
+      ]
+    },
+    {
+      "time": "00:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "cold"
+    },
+    {
+      "time": "00:30",
+      "date": "2024-04-01",
+      "moccupying": 2,
+      "description": "Zhang San chatted with Li Si: Hey! I've gathered notes on the best surfing spots. Let's finalize everything during our call tomorrow!"
+    },
+    {
+      "time": "00:30",
+      "date": "2024-04-01",
+      "moccupying": 2,
+      "description": "Zhang San is thinking about the excitement and preparations for the upcoming surfing adventure with Li Si."
+    }
+  ],
+  "basic_needs": {
+    "fullness": 6,
+    "social": 7,
+    "fun": 5,
+    "health": 8,
+    "energy": 7
+  },
+  "temporary_personality_changes": {
+    "openness": 0.3,
+    "conscientiousness": 0.2,
+    "extraversion": 0,
+    "agreeableness": 0.1,
+    "neuroticism": 0.2
+  },
+  "emotion": [
+    6,
+    0,
+    0,
+    0,
+    1,
+    0,
+    3
+  ]
 }

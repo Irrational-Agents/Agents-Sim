@@ -11,6 +11,12 @@ logger = setup_logger(__name__)
 api_key = os.getenv('OPENAI_API_KEY')
 client = wrap_openai(OpenAI(api_key=api_key))
 
+
+def _load_background(type_):
+    with open(PROMPT_FILE_PATH + + f'map_{type_}.txt', 'r', encoding='utf-8') as f:
+        map = f.read()
+    return map
+
 @traceable(name="generative_agent")
 def generative_agent(system_content, user_content, max_retries=3):
     try:
@@ -46,7 +52,8 @@ def generate_plan(agent_name, agent_profile, current_emotion, recent_events, cur
         recent_events=recent_events,
         current_time=current_time,
         current_date=current_date,
-        daily_plan=daily_plan
+        daily_plan=daily_plan,
+        _context=_load_background('context')
     )
     
     system_content = "You are an AI assistant tasked with creating plans based on recent events and current context."
@@ -74,7 +81,8 @@ def generate_daily_plan(agent_name, agent_profile, current_emotion, previous, cu
         agent_profile=agent_profile,
         current_emotion=current_emotion,
         previous=previous,
-        current_date=current_date
+        current_date=current_date,
+        _context=_load_background('context')
     )
 
     system_content = "You are an AI assistant tasked with generating a character's daily schedule by combining given information."
@@ -126,7 +134,31 @@ def generate_thought(agent_name, agent_profile, current_emotion, plan, recent_ev
         current_date=current_date
     )
     
-    system_content = "You are an AI assistant tasked with analyzing given plans and events to generate thoughtful insights or suggestions."
+    system_content = "You are an AI assistant tasked with generating the thought process for an NPC based on a given plan."
+    response = generative_agent(system_content, prompt)
+    logger.info(f"thinking response: {response}")
+    try:
+        parsed_response = json.loads(response)
+        return parsed_response
+    except json.JSONDecodeError:
+        logger.error("Error: Invalid JSON format in response.")
+        return None
+    
+@traceable(name="generate_move")
+def generate_move(agent_name, agent_profile, current_emotion, plan, current_time, current_date, world_context):
+    with open(PROMPT_FILE_PATH + 'move_prompt.txt', 'r') as file:
+        prompt_template = file.read()
+    prompt = prompt_template.format(
+        agent_name=agent_name,
+        agent_profile=agent_profile,
+        current_emotion=current_emotion,
+        plan=plan,
+        current_time=current_time,
+        current_date=current_date,
+        world_context=world_context
+    )
+    
+    system_content = "You are an AI assistant tasked with generating the best destination based on the given plan and events."
     response = generative_agent(system_content, prompt)
     logger.info(f"thinking response: {response}")
     try:
@@ -203,12 +235,13 @@ def extract_keywords_for_long_term_memory(description):
         return []
 
 @traceable(name="plans_selection")
-def plans_selection(plans, p_context,biases=''):
+def plans_selection(plans, p_context, recent_events, biases=''):
     with open(PROMPT_FILE_PATH + 'plans_selection_prompt.txt', 'r') as file:
             prompt = file.read()
     prompt = prompt.format(
         plans=plans,
         biases=biases,
+        events=recent_events,
         context=p_context
     )
     system_content = (
