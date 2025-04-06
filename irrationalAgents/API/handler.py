@@ -4,7 +4,7 @@ from config.common_method import *
 from API.request import UnityRequest
 from unity_modules.tools import *
 from unity_modules.world import WorldState
-from agents_modules.agent import AgentManager
+
 logger = setup_logger('API-unity-handler')
 
 
@@ -18,37 +18,48 @@ class UnityHandlers:
         self.world = None
         self.agent_manager = None
 
-    def handle_map_data(self, data: Dict[str, Any]):
-        logger.debug("map_data received")
-        self.map_data = data
-
     def update(self, data: Dict[str, Any]):
         """Handle updates from the client."""
         try:
-            logger.debug(f"ui-tick: {data}")
             self.clock = int(data['clock'])
-            self.npc_pos = data['npc_pos']
-            self.player_pos = data['player_pos']
+            self.npc_status = data['npc_status']
+            self.player_status = data['player_status']
 
-            if self.clock == 0:# initialize
-                logger.debug(f"initialize")
-                if self.map_data is not None:
-                    self.world = WorldState(self.map_data, self.unity_request)
-                    self.unity_request.send_server_tick(1)
-                else:
-                    self.unity_request.get_map_data()
-                    self.unity_request.send_server_tick(0)   # if return is 0 frame will not be updated
-                    return
-                
+            if self.clock == 0:  # initialize
+                logger.debug("initialize")
+                self.map_data = data['map_data']
+                self.world = WorldState(self.map_data)
+                self.unity_request.send_server_tick(1, None)
+                return
+
             # MAIN LOOP
             # update agent positions
             # update world state
             # process events to npc
             # update tile according to agent information
-            self.world.update_status(self.npc_pos)
-            results = self.world.tick_world()
-            self.unity_request.send_server_tick(results)
-            
+            # self.world.update_status(self.npc_pos)
+
+            updates = {
+                "Kenta Takahashi": {
+                    "activity": "move",
+                    "path": self.world.path_planner.create_path(
+                        (53, 14), (93, 74))
+                }
+            }
+
+            updates_c = {
+                "Kenta Takahashi": {
+                    "activity": "move",
+                }
+            }
+
+            if "Kenta Takahashi" in self.npc_status:
+                if self.npc_status["Kenta Takahashi"]['activity'] == "move":
+                    self.unity_request.send_server_tick(1, updates_c)
+                    return
+
+            self.unity_request.send_server_tick(1, updates)
+
         except ValueError as e:
             logger.error(
                 f"Invalid data received for update: {data}. Error: {e}")
