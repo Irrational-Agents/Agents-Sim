@@ -2,6 +2,7 @@ Agent name: {agent_name}
 Agent profile: {agent_profile}
 Current emotion: {current_emotion}
 Previously: {previous}
+World Context: {_context}
 
 Based on the above information, generate a detailed daily routine plans for {agent_name}, day plans need starting at 00:00. The plan should:
 - Reflect {agent_name}’s work, personal life, and socizhaal interactions.
