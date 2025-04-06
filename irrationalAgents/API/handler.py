@@ -44,17 +44,25 @@ class UnityHandlers:
                     "activity": "move",
                     "path": self.world.path_planner.create_path(
                         (53, 14), (93, 74))
+                },
+                "Sakura Sato": {
+                    "activity": "move",
+                    "path": self.world.path_planner.create_path(
+                        (126, 46), (93, 74))
                 }
             }
 
             updates_c = {
                 "Kenta Takahashi": {
                     "activity": "move",
+                },
+                "Sakura Sato": {
+                    "activity": "move",
                 }
             }
 
             if "Kenta Takahashi" in self.npc_status:
-                if self.npc_status["Kenta Takahashi"]['activity'] == "move":
+                if self.npc_status["Kenta Takahashi"]['state']['activity'] == "move":
                     self.unity_request.send_server_tick(1, updates_c)
                     return
 
