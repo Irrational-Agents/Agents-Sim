@@ -6,7 +6,7 @@ Current Time: {current_time}
 Current Date: {current_date}
 Daily Plans: {daily_plan}
 world_context: {_context}
-Based on the Recent Events, Daily Plans in Current Time. Consider the continuity of events. create 5 possible plans for {agent_name}'s next actions and description. Each plan should be a brief description of an action.
+Based on the Recent Events, Daily Plans in Current Time. Consider the continuity of events and being realistic in give world context. create 5 possible plans for {agent_name}'s next actions and description. Each plan should be a brief description of an action.
 Please format your response as a JSON list of strings, like below. Do not include any additional text, markdown formatting, or explanations outside the JSON array:
 
 [

@@ -100,44 +100,40 @@ class WorldState:
                 except Exception as e:
                     logger.error(f"An error occurred while updating Agent: {str(e)}")
                     raise e
-           
-            # 4. 更新世界时间
-            advanced_time, advanced_date = advance_time_by_15_minutes(
-                self.global_time.strftime("%H:%M"), self.global_time.strftime("%Y-%m-%d"))
-            
-                # 更新MetaManager中的时间, 用于后续断点恢复
-            self.meta_manager.set_curr_datetime(advanced_date, advanced_time)
-            self.meta_manager.set_step(self.meta_manager.get('step') + 1)
-            self.meta_manager.write_meta()
-            self.global_time = self.meta_manager.get_datetime()
-
+                
             logger.info("All agents updated")
             # 5. response
-            return self._after_tick(results)
+            return  self._after_tick(results)
 
         except Exception as e:
             logger.error(f"An error occurred while updating World: {str(e)}")
             raise
     
     def _after_tick(self, results):
+        # 4. 更新世界时间
+        advanced_time, advanced_date = advance_time_by_15_minutes(
+            self.global_time.strftime("%H:%M"), self.global_time.strftime("%Y-%m-%d"))   
+        # 更新MetaManager中的时间, 用于后续断点恢复
+        self.meta_manager.set_curr_datetime(advanced_date, advanced_time)
+        self.meta_manager.set_step(self.meta_manager.get('step') + 1)
+        self.meta_manager.write_meta()
+        self.global_time = self.meta_manager.get_datetime()
+
+        dict_results = {}
         for result in results:
             if len(result) != 3:
                 logger.error('')
                 continue
             agent_name, action, desc = result
+            
+            dict_results[agent_name] = {
+                'action': action,
+                'description': desc,
+                'extra': {}
+            }
 
         x,y = self.world.town_map.get_address_tiles('house F:second bedroom:sp-B')
                     
-        res = {
-            "clock" : 1,
-            "updates": {
-                "Kenta Takahashi": {
-                    "activity": "move",
-                    "path": self.world.path_planner.create_path(
-                        (53,14),[94, 74])
-                }
-            }
-        }
         pass
 
     def _update_agent(self, agent_name: str, env_info: Dict[str, Any]):
@@ -152,12 +148,18 @@ class WorldState:
         stimuli = self._build_stimuli(env_info)
 
         action, move_description = agent.move(self.global_time, stimuli)
-        logger.info(
+        
+        logger.debug(
             f"{agent_name} action: {action}, description: {move_description}")
+        
         status = self.gen_npc_current_status(
             agent_name, action, move_description)
-        logger.debug(f"{agent_name} status: {status}")
+        
+        logger.info(f"{agent_name} status: {status}")
         self.agent_manager.write_agent_status(agent_name, status)
+
+        if action == 'move':
+            pass
 
         logger.debug(f"Agent {agent_name} update completed")
         return agent_name, action, move_description
