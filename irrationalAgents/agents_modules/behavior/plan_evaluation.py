@@ -34,7 +34,7 @@ def select_plan(plan_list, p_context, recent_events):
     if AGENT_BIASES:
         #@TODO biases = bias_module(bias)
         biases = ''
-    logger.debug(f"biases: {biases} p_context: {p_context}")
+    logger.debug(f"biases: {biases} p_context: {p_context}, recent events: {recent_events}")
     plan = plans_selection(plan_list, p_context, recent_events, biases)
     return plan
 
