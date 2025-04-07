@@ -57,7 +57,7 @@ class WorldState:
         if npc_name in self.agent_manager.agents:
             agent = self.agent_manager.agents[npc_name]
             logger.info(agent.short_memory.current_status)
-            agent.short_memory.current_status.append(status)
+            agent.short_memory.current_status = status
             self.agent_manager.write_agent_status(
                 npc_name, agent.short_memory.current_status)
 
@@ -92,7 +92,6 @@ class WorldState:
 
             logger.info("World tick completed successfully")
             return self._generate_world_updates(results)
-
         except Exception as e:
             logger.error(f"World tick failed: {str(e)}", exc_info=True)
             raise
@@ -144,19 +143,16 @@ class WorldState:
             Dictionary containing world state updates
         """
         updates = {}
-        for agent_name, action, desc in results:
+        for agent_name, action, _ in results:
             if action == "move":
-                x, y = self.town_map.get_address_tiles(
-                    'house F:second bedroom:sp-B')
+                x = self.agent_manager.agents[agent_name].short_memory.current_status['position'].x
+                y = self.agent_manager.agents[agent_name].short_memory.current_status['position'].y
                 updates[agent_name] = {
                     "activity": action,
-                    "path": self.path_planner.create_path((53, 14), [94, 74])
+                    "path": self.path_planner.create_path((x, y), [94, 74])
                 }
 
-        return {
-            "clock": 1,
-            "updates": updates
-        }
+        return updates
 
     def _update_agent(self, agent_name: str, env_info: Dict[str, Any]) -> Tuple[str, str, str]:
         """
@@ -268,11 +264,11 @@ class WorldState:
         if not agent:
             raise ValueError(f"Agent {agent_name} not found")
 
-        pos = agent.short_memory.current_status.get('spawn', {})
+        pos = agent.short_memory.current_status.get('position', {})
 
         return {
             'action': action,
             'description': description,
-            'spawn': pos,
+            'position': pos,
             'timestamp': self.global_time.isoformat()
         }
