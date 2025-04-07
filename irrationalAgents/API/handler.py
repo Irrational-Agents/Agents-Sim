@@ -20,6 +20,7 @@ class UnityHandlers:
 
     def update(self, data: Dict[str, Any]):
         """Handle updates from the client."""
+        logger.info(f"ui-tick: {data}")
         try:
             self.clock = int(data['clock'])
             self.npc_status = data['npc_status']
@@ -39,6 +40,11 @@ class UnityHandlers:
             # update tile according to agent information
             # self.world.update_status(self.npc_pos)
 
+            # self.world.update_status(self.npc_pos)
+            # results = self.world.tick_world()
+            # self.unity_request.send_server_tick(results)
+
+            self.world.update_status(self.npc_status)
             updates = {
                 "Kenta Takahashi": {
                     "activity": "move",
@@ -65,20 +71,8 @@ class UnityHandlers:
                 if self.npc_status["Kenta Takahashi"]['state']['activity'] == "move":
                     self.unity_request.send_server_tick(1, updates_c)
                     return
-
             self.unity_request.send_server_tick(1, updates)
 
         except ValueError as e:
             logger.error(
                 f"Invalid data received for update: {data}. Error: {e}")
-
-    def handle_get_npcs(self, params: Dict) -> Dict:
-        """Handle request to get all NPCs"""
-        try:
-            logger.info(f"get_npcs: {params}")
-            npcs = get_npcs(params)
-            self.unity_request.emit('npc.getList.response', {
-                                    'npcs': npcs})
-        except Exception as e:
-            logger.error(f"Error getting NPCs: {str(e)}")
-            return {'error': str(e)}
