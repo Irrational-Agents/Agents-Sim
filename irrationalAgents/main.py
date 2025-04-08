@@ -5,5 +5,5 @@ def main():
     if server.run():
         server.keep_alive()
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()

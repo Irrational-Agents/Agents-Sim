@@ -62,7 +62,6 @@ def generate_plan(agent_name, agent_profile, current_emotion, recent_events, cur
         description_list=json.loads(response)
     ) 
     response = generative_agent(system_content, prompt2)
-
     logger.debug(f"agent {agent_name} plan response: {response}")
     try:
         parsed_response = json.loads(response)
