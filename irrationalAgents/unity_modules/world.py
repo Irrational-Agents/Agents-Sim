@@ -1,7 +1,7 @@
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Dict, Any, List, Tuple
 from datetime import datetime
-
+from config.config import DEFAULT_SPEED
 from unity_modules.map import Map
 from unity_modules.path_planner import PathPlanner
 from unity_modules.tools import advance_time_by_15_minutes
@@ -65,6 +65,8 @@ class WorldState:
         """Clear all NPC position markers from the map."""
         for i in range(self.town_map.maze_height):
             for j in range(self.town_map.maze_width):
+                # @TODO erase the event info
+                # self.town_map.tiles[i][j]['event'] = set()
                 if self.town_map.tiles[i][j]['npc'] != '_':
                     self.town_map.tiles[i][j]['npc'] = '_'
 
@@ -87,8 +89,8 @@ class WorldState:
             # 2. Update all agents concurrently
             results = self._update_all_agents(environment_info)
 
-            # 3. Advance world time
-            self._advance_world_time()
+            # 3. Refresh world time
+            self._advance_world_time(self)
 
             logger.info("World tick completed successfully")
             return self._generate_world_updates(results)
@@ -141,17 +143,40 @@ class WorldState:
 
         Returns:
             Dictionary containing world state updates
+
+        {
+            "clock" : 1,
+            "updates": {
+                "Kenta Takahashi": {
+                    "action": "move",
+                    "description": "Dorm for College:A room:spaces:sp-A",
+                    "move_extra": {}
+                },
+                "Zhang San": {
+                    'action': "chat",
+                    "description": "Hi"
+                }
+            }
+        }
         """
         updates = {}
-        for agent_name, action, _ in results:
+        for agent_name, action, description in results:
+            updates[agent_name] = {
+                "action": action,
+                "description": description,
+                "time": self.global_time.isoformat(),
+                "step": self.meta_manager.get('step')
+            }
             if action == "move":
                 x = self.agent_manager.agents[agent_name].short_memory.current_status['position'].x
                 y = self.agent_manager.agents[agent_name].short_memory.current_status['position'].y
-                updates[agent_name] = {
-                    "activity": action,
-                    "path": self.path_planner.create_path((x, y), [94, 74])
+                updates['move_extra'] = {
+                    "path": self.path_planner.create_path((x, y), [94, 74]),
+                    "speed": DEFAULT_SPEED
                 }
 
+        #@TODO: storage
+          
         return updates
 
     def _update_agent(self, agent_name: str, env_info: Dict[str, Any]) -> Tuple[str, str, str]:
@@ -205,6 +230,7 @@ class WorldState:
                 npcs.append(tile['npc'])
 
         if events or items or npcs:
+            # @TODO refien the expression
             stimuli.append(
                 f"seeing events: {events}, items: {items}, npcs: {npcs}")
 

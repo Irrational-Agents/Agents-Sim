@@ -105,7 +105,7 @@ class WorldState:
             advanced_time, advanced_date = advance_time_by_15_minutes(
                 self.global_time.strftime("%H:%M"), self.global_time.strftime("%Y-%m-%d"))
             
-                # 更新MetaManager中的时间, 用于后续断点恢复
+            # 更新MetaManager中的时间, 用于后续断点恢复
             self.meta_manager.set_curr_datetime(advanced_date, advanced_time)
             self.meta_manager.set_step(self.meta_manager.get('step') + 1)
             self.meta_manager.write_meta()

@@ -30,9 +30,7 @@ class UnityHandlers:
                 logger.debug("initialize")
                 self.map_data = data['map_data']
                 self.world = WorldState(self.map_data)
-                self.unity_request.send_server_tick(1, None)
-                return
-
+                
             # MAIN LOOP
             # update agent positions
             # update world state
@@ -41,33 +39,9 @@ class UnityHandlers:
 
             self.world.update_status(self.npc_status)
             updates = self.world.tick_world()
-            updates = {
-                "Kenta Takahashi": {
-                    "activity": "move",
-                    "path": self.world.path_planner.create_path(
-                        (53, 14), (93, 74))
-                },
-                "Sakura Sato": {
-                    "activity": "move",
-                    "path": self.world.path_planner.create_path(
-                        (126, 46), (93, 74))
-                }
-            }
-
-            updates_c = {
-                "Kenta Takahashi": {
-                    "activity": "move",
-                },
-                "Sakura Sato": {
-                    "activity": "move",
-                }
-            }
-
-            if "Kenta Takahashi" in self.npc_status:
-                if self.npc_status["Kenta Takahashi"]['state']['activity'] == "move":
-                    self.unity_request.send_server_tick(1, updates_c)
-                    return
-            self.unity_request.send_server_tick(1, updates)
+            
+            self.clock += 1
+            self.unity_request.send_server_tick(self.clock, updates)
 
         except ValueError as e:
             logger.error(

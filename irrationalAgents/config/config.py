@@ -42,6 +42,7 @@ MEMORY_DECAY_RATE = 0.99
 
 # Perception configuration
 PERCEPTION_RANGE = 2
+DEFAULT_SPEED=3
 
 # experimental configuration
 AGENT_BIASES=False
