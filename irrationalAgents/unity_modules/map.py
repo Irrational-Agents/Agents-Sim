@@ -41,7 +41,6 @@ class Map:
         self.tiles = self.initialize_tiles()
         self.address_tiles, self.map_details = self.initialize_address_tiles()
 
-
     def id_based_dict(self, data):
         """convert json to id"""
         return {
@@ -102,7 +101,7 @@ class Map:
                 spawn_data = self.spawning_location_blocks.get(
                     self.spawning_location_maze[i][j], {})
                 item_value = self.game_object_blocks.get(
-                    self.game_object_maze[i][j], {}).get("item","")
+                    self.game_object_maze[i][j], {}).get("item", "")
 
                 # Build tile details
                 tile_details = {
@@ -112,7 +111,7 @@ class Map:
                     # Previously arena
                     "room": arena_data.get("room", ""),
                     # Previously game_object
-                    "item": item_value,                          
+                    "item": item_value,
                     # spawn location detail
                     "space": spawn_data.get("space", ""),
                     # events can be anything, like you can set events on tiles that sale is going on
@@ -200,7 +199,6 @@ class Map:
 
         logger.info("Address tiles initialized.")
         return address_tiles, map_details
-
 
     def get_tile_details(self, tile):
         """

@@ -1,237 +1,274 @@
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from typing import Dict, Any, List, Tuple
+from datetime import datetime
+
 from unity_modules.map import Map
 from unity_modules.path_planner import PathPlanner
-from unity_modules.tools import *
+from unity_modules.tools import advance_time_by_15_minutes
 from config.logger_config import setup_logger
 from config.meta_manager import MetaManager
 from agents_modules.agent import AgentManager
-from config.common_method import advance_time_by_15_minutes
-from API.request import UnityRequest
-from typing_extensions import Any, Dict, List
 
 logger = setup_logger('World')
 
 
 class WorldState:
-    def __init__(self, map_data: Dict, unity_request):
+    def __init__(self, map_data: Dict[str, Any]):
+        """Initialize the world state with map data and core components."""
         self.town_map = Map(map_data)
-        self.unity_request: UnityRequest = unity_request
-        self.agent_manager = AgentManager()
         self.meta_manager = MetaManager()
         self.path_planner = PathPlanner(self.town_map)
         self.global_time = self.meta_manager.get_start_datetime()
         self.thread_pool = ThreadPoolExecutor(max_workers=10)
+        self.agent_manager = AgentManager()
+        self._validate_initial_state()
 
+    def _validate_initial_state(self) -> None:
+        """Validate the initial state of the world."""
+        if not isinstance(self.global_time, datetime):
+            raise ValueError("Global time must be a datetime object")
+        if len(self.agent_manager.agents) == 0:
+            logger.warning("No agents initialized in the world")
 
-    def update_status(self, npc_positions: Dict[str, Dict[str, int]]) -> None:
+    def update_status(self, npc_status: Dict[str, Dict[str, int]]) -> None:
         """
-        更新Agent在地图上的位置
-        """
-        if npc_positions == None:
-            return
-        # 清除旧的NPC位置
-        self._clear_npc_positions()
-        # 更新新的位置
-        for npc_name, pos in npc_positions.items():
-            # 更新地图上的位置
-            # @TODO: 更新地图上的其他交互信息
-            self.town_map.add_npc_to_tile(npc_name, (pos['x'], pos['y']))
-            
-            # 更新Agent管理器中的位置，考虑需要将当前spawn信息和地图信息同步 保留一处维护
-            # 暂时预留这个逻辑，
-            # 1， 地图信息需要同步到agent的spawn信息 ✅ or
-            # 2， agent的spawn信息需要同步到地图信息
-            if npc_name in self.agent_manager.agents:
-                self.agent_manager.agents[npc_name].short_memory.current_status['spawn'] = pos
-                self.agent_manager.agents[npc_name].short_memory.current_status['next_spawn'] = pos
-                self.agent_manager.write_agent_status(npc_name, self.agent_manager.agents[npc_name].short_memory.current_status)
-
-
-    def update_agent_positions(self, npc_positions: Dict[str, Dict[str, int]]) -> None:
-        """
-        Updates the positions of NPC agents on the town_map.
+        Update agent positions on the map and in the agent manager.
 
         Args:
-            npc_positions (Dict[str, Dict[str, int]]): A dictionary mapping NPC names to their positions and directions.
+            npc_positions: Dictionary mapping NPC names to their positions (x, y)
+
+        Raises:
+            ValueError: If npc_positions is empty or invalid
         """
-        for npc_name, pos in npc_positions.items():
-            if not all(k in pos for k in ('x', 'y', 'direction')):
-                raise ValueError(f"Invalid position data for {npc_name}: {pos}")
-            
-            path = self.path_planner.create_path(
-                (pos['x'], pos['y']), (77, 14), pos['direction']
-            )
+        if not npc_status:
+            logger.warning("Received empty npc_positions in update_status")
+            return
 
-            if len(path) > 0:
-                self.unity_request.npc_navigate(json.dumps({
-                    'npc_name': npc_name, 'speed': 2, 'direction': path[0]
-                }))
+        self._clear_npc_positions()
 
-    def _clear_npc_positions(self):
-        """清除地图上所有NPC的位置标记"""
+        for npc_name, status in npc_status.items():
+            self._update_agent_position(npc_name, status)
+
+    def _update_agent_position(self, npc_name: str, status: Dict[str, int]) -> None:
+        """Update position for a single agent."""
+        tile_position = (status['position']['x'], status['position']['y'])
+        self.town_map.add_npc_to_tile(npc_name, tile_position)
+
+        if npc_name in self.agent_manager.agents:
+            agent = self.agent_manager.agents[npc_name]
+            logger.info(agent.short_memory.current_status)
+            agent.short_memory.current_status = status
+            self.agent_manager.write_agent_status(
+                npc_name, agent.short_memory.current_status)
+
+    def _clear_npc_positions(self) -> None:
+        """Clear all NPC position markers from the map."""
         for i in range(self.town_map.maze_height):
             for j in range(self.town_map.maze_width):
                 if self.town_map.tiles[i][j]['npc'] != '_':
                     self.town_map.tiles[i][j]['npc'] = '_'
 
-    def tick_world(self):
+    def tick_world(self) -> Dict[str, Any]:
         """
-        并发更新世界状态
+        Update the world state concurrently for all agents.
+
+        Returns:
+            Dictionary containing world updates after the tick
+
+        Raises:
+            Exception: If any error occurs during world update
         """
         try:
-            # 1. 收集环境信息
+            # 1. Collect environment information
             environment_info = self._collect_env_info()
+            if not environment_info:
+                logger.warning("No environment info collected for tick")
 
-            # 2. 创建所有agent更新任务
-            update_tasks = []
-            update_tasks = [
-                self.thread_pool.submit(
-                    self._update_agent, agent_name, env_info)
-                for agent_name, env_info in environment_info.items()
-            ]
+            # 2. Update all agents concurrently
+            results = self._update_all_agents(environment_info)
 
-            # 3. 并发执行所有更新任务
-            results = []
-            for future in as_completed(update_tasks):
-                try:
-                    result = future.result()
-                    results.append(result)
-                    logger.debug(f"Agent update result: {result}")
-                except Exception as e:
-                    logger.error(f"An error occurred while updating Agent: {str(e)}")
-                    raise e
-                
-            logger.info("All agents updated")
-            # 5. response
-            return  self._after_tick(results)
+            # 3. Advance world time
+            self._advance_world_time()
 
+            logger.info("World tick completed successfully")
+            return self._generate_world_updates(results)
         except Exception as e:
-            logger.error(f"An error occurred while updating World: {str(e)}")
+            logger.error(f"World tick failed: {str(e)}", exc_info=True)
             raise
-    
-    def _after_tick(self, results):
-        # 4. 更新世界时间
+
+    def _update_all_agents(self, environment_info: Dict[str, Any]) -> List[Tuple[str, str, str]]:
+        """Update all agents concurrently and return results."""
+        update_tasks = [
+            self.thread_pool.submit(
+                self._update_agent,
+                agent_name,
+                env_info
+            )
+            for agent_name, env_info in environment_info.items()
+        ]
+
+        results = []
+        for future in as_completed(update_tasks):
+            try:
+                result = future.result()
+                results.append(result)
+                logger.debug(f"Agent update result: {result}")
+            except Exception as e:
+                logger.error(f"Agent update failed: {str(e)}")
+                raise
+
+        return results
+
+    def _advance_world_time(self) -> None:
+        """Advance the world time by 15 minutes."""
         advanced_time, advanced_date = advance_time_by_15_minutes(
-            self.global_time.strftime("%H:%M"), self.global_time.strftime("%Y-%m-%d"))   
-        # 更新MetaManager中的时间, 用于后续断点恢复
+            self.global_time.strftime("%H:%M"),
+            self.global_time.strftime("%Y-%m-%d")
+        )
+
         self.meta_manager.set_curr_datetime(advanced_date, advanced_time)
         self.meta_manager.set_step(self.meta_manager.get('step') + 1)
         self.meta_manager.write_meta()
         self.global_time = self.meta_manager.get_datetime()
+        logger.debug(f"World time advanced to {self.global_time}")
 
-        dict_results = {}
-        for result in results:
-            if len(result) != 3:
-                logger.error('')
-                continue
-            agent_name, action, desc = result
-            
-            dict_results[agent_name] = {
-                'action': action,
-                'description': desc,
-                'extra': {}
-            }
-
-        x,y = self.world.town_map.get_address_tiles('house F:second bedroom:sp-B')
-                    
-        pass
-
-    def _update_agent(self, agent_name: str, env_info: Dict[str, Any]):
-        """        
-        Args:
-            agent_name: agent的名称
-            env_info: 环境信息
+    def _generate_world_updates(self, results: List[Tuple[str, str, str]]) -> Dict[str, Any]:
         """
-        agent = self.agent_manager.agents[agent_name]
+        Generate world updates after all agents have been updated.
 
-        # 构建环境刺激
+        Args:
+            results: List of agent update results (name, action, description)
+
+        Returns:
+            Dictionary containing world state updates
+        """
+        updates = {}
+        for agent_name, action, _ in results:
+            if action == "move":
+                x = self.agent_manager.agents[agent_name].short_memory.current_status['position'].x
+                y = self.agent_manager.agents[agent_name].short_memory.current_status['position'].y
+                updates[agent_name] = {
+                    "activity": action,
+                    "path": self.path_planner.create_path((x, y), [94, 74])
+                }
+
+        return updates
+
+    def _update_agent(self, agent_name: str, env_info: Dict[str, Any]) -> Tuple[str, str, str]:
+        """
+        Update a single agent's state.
+
+        Args:
+            agent_name: Name of the agent to update
+            env_info: Environment information for the agent
+
+        Returns:
+            Tuple containing (agent_name, action, description)
+        """
+        agent = self.agent_manager.agents.get(agent_name)
+        if not agent:
+            raise ValueError(f"Agent {agent_name} not found")
+
         stimuli = self._build_stimuli(env_info)
-
         action, move_description = agent.move(self.global_time, stimuli)
-        
-        logger.debug(
+
+        logger.info(
             f"{agent_name} action: {action}, description: {move_description}")
-        
-        status = self.gen_npc_current_status(
+
+        status = self._generate_agent_status(
             agent_name, action, move_description)
-        
-        logger.info(f"{agent_name} status: {status}")
         self.agent_manager.write_agent_status(agent_name, status)
 
-        if action == 'move':
-            pass
-
-        logger.debug(f"Agent {agent_name} update completed")
         return agent_name, action, move_description
 
     def _build_stimuli(self, env_info: Dict[str, Any]) -> List[str]:
         """
-        处理环境信息，生成刺激列表
+        Process environment information to generate stimuli list.
+
+        Args:
+            env_info: Dictionary containing environment information
+
+        Returns:
+            List of stimulus strings
         """
         stimuli = []
         items = []
         npcs = []
         events = []
 
-        # 处理周围的tile信息
-        for tile in env_info['nearby_tiles']:
+        for tile in env_info.get('nearby_tiles', []):
             if tile.get('events'):
-                for event in tile['events']:
-                    events.append(event)
+                events.extend(tile['events'])
             if tile.get('item'):
                 items.append(tile['item'])
             if tile.get('npc'):
                 npcs.append(tile['npc'])
 
-        # 处理当前位置的tile信息
-        # @TODO: 需要处理当前位置的tile信息，包括地址，房间，楼层，事件等. 需要强制保证每个items都有地址信息
-        stimuli.append(f"seeing events: {events}, {items}, {npcs}")
-        logger.debug(f"stimuli: {stimuli}")
+        if events or items or npcs:
+            stimuli.append(
+                f"seeing events: {events}, items: {items}, npcs: {npcs}")
 
+        logger.debug(f"Generated stimuli: {stimuli}")
         return stimuli
 
-    def _collect_env_info(self) -> Dict[str, Dict]:
+    def _collect_env_info(self) -> Dict[str, Dict[str, Any]]:
         """
-        收集每个NPC周围的环境信息
+        Collect environment information for all agents.
+
+        Returns:
+            Dictionary mapping agent names to their environment info
         """
         environment_info = {}
         positions = self.agent_manager.get_all_agents_positions()
+
         if len(positions) != len(self.agent_manager.agents):
-            logger.error(
-                f"NPC location information does not match the number in the Agent Manage,\
-                      positions: {positions}, agents: {self.agent_manager.agents.keys()}")
+            logger.warning(
+                f"Position count mismatch. Agents: {len(self.agent_manager.agents)}, "
+                f"Positions: {len(positions)}"
+            )
 
-        for agent_name, _ in self.agent_manager.agents.items():
+        for agent_name, agent in self.agent_manager.agents.items():
+            pos = positions.get(agent_name)
+            if not pos:
+                logger.warning(f"No position found for agent {agent_name}")
+                continue
+
             try:
-                # 获取NPC当前位置
-                pos = positions.get(agent_name)
-                if not pos:
-                    continue
-
-                # 收集周围环境信息
-                nearby_info = {
-                    "nearby_tiles": self.town_map.generate_visible_tiles(
-                        (pos['x'], pos['y'])
-                    )
+                nearby_tiles = self.town_map.generate_visible_tiles(
+                    (pos['x'], pos['y']))
+                environment_info[agent_name] = {
+                    "nearby_tiles": nearby_tiles,
+                    "current_position": pos
                 }
-                environment_info[agent_name] = nearby_info
-                logger.debug(f"Collected {agent_name}'s environments")
-
+                logger.debug(f"Collected environment for {agent_name}")
             except Exception as e:
-                logger.error(f"An error occurred while collecting environment information for {agent_name}: {str(e)}")
+                logger.error(
+                    f"Failed to collect environment for {agent_name}: {str(e)}")
                 continue
 
         return environment_info
 
-    def gen_npc_current_status(self, agent_name: str, action: str, move_description: str) -> Dict[str, Any]:
+    def _generate_agent_status(self, agent_name: str, action: str, description: str) -> Dict[str, Any]:
         """
-        生成NPC的当前状态
+        Generate status dictionary for an agent.
+
+        Args:
+            agent_name: Name of the agent
+            action: Current action of the agent
+            description: Description of the action
+
+        Returns:
+            Dictionary containing agent status
         """
-        # todo: map_translator: translate from pos to location, room etc
-        pos = self.agent_manager.agents[agent_name].short_memory.current_status['spawn']
-        status = {
+        agent = self.agent_manager.agents.get(agent_name)
+        if not agent:
+            raise ValueError(f"Agent {agent_name} not found")
+
+        pos = agent.short_memory.current_status.get('position', {})
+
+        return {
             'action': action,
-            'description': move_description,
-            'spawn': pos
+            'description': description,
+            'position': pos,
+            'timestamp': self.global_time.isoformat()
         }
-        return status
