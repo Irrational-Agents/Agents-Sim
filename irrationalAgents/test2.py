@@ -16,12 +16,18 @@ def main():
     
     # 動作確認
     print(f"test agent: {sakura.basic_info['name']}")
-    while(True):
+    count = 5
+    while(count):
         
-        event = input("Shota(User):  ") # should type wake up when new day
-        sakura.move(curr_time, event)
-        print(sakura.short_memory.short_memory[-1])
+        #event = input("Shota(User):  ")
+        sakura.move(curr_time, "")
+        print(sakura.short_memory.short_memory)
         curr_time = curr_time + timedelta(minutes=15)
+        count -= 1
+
+        print('after', sakura.short_memory.short_memory)
+    sakura.short_memory.save(sakura.short_memory)
+    
 
 
 def create_agent(name):

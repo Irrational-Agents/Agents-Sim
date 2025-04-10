@@ -17,7 +17,7 @@ Tasks:
     Example: [4,2,0,0,1,0,3]
     The sum of all values should equal 10.
 
-3. Create new short-term memory entries.
+3. Create new short-term memory entries only for Perceived Events not including Recent Short-Term Memories.
 
 Please format your response as a JSON list of strings, like this:
 {{

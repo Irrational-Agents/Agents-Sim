@@ -129,7 +129,6 @@ class Agent:
             best_plan = self.plan_evaluation(plan_list)
             logger.info(f"{self.name}'s best_plan: {best_plan}")
 
-            self.short_memory.save(self.short_memory)
             description = self.action(best_plan)
             return best_plan.get('action', None), description
 
