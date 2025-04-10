@@ -168,12 +168,18 @@ class WorldState:
                 "step": self.meta_manager.get('step')
             }
             if action == "move":
-                x = self.agent_manager.agents[agent_name].short_memory.current_status['position'].x
-                y = self.agent_manager.agents[agent_name].short_memory.current_status['position'].y
-                updates['move_extra'] = {
-                    "path": self.path_planner.create_path((x, y), [94, 74]),
-                    "speed": DEFAULT_SPEED
-                }
+                try:
+                    x = self.agent_manager.agents[agent_name].short_memory.current_status['position'].x
+                    y = self.agent_manager.agents[agent_name].short_memory.current_status['position'].y
+                    co_destination = self.map.get_address_tiles(description.split(':')[-1])
+                    updates['move_extra'] = {
+                        "path": self.path_planner.create_path((x, y), co_destination),
+                        "speed": DEFAULT_SPEED
+                    }
+                except Exception as e:
+                    logger.error(f"Error creating path: {str(e)}")
+                
+            
 
         #@TODO: storage
           

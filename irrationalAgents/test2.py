@@ -20,7 +20,7 @@ def main():
     while(count):
         
         #event = input("Shota(User):  ")
-        sakura.move(curr_time, "")
+        sakura.move(curr_time, "want to go to bathroom")
         print(sakura.short_memory.short_memory)
         curr_time = curr_time + timedelta(minutes=15)
         count -= 1
