@@ -81,7 +81,7 @@ def handle_interact(agent, description):
     }
     '''
     new_entry = {
-        "time": agent.short_memory.curr_date,
+        "time": agent.short_memory.curr_time,
         "date": agent.short_memory.curr_date,
         "moccupying": 1,
         "description": f"{agent.name} interacted with other: {description}",

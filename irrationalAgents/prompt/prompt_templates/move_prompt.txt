@@ -5,11 +5,9 @@ Plan: {plan}
 Recent Events: {recent_events}
 Current Time: {current_time}
 Current Date: {current_date}
-World Context: {_context}
 
-You need to choose a destination to go to based on the plan and world context. The destination could be anywhere, from as far as a building to as close as within a room. You need to specify it within the given world context and follow its format, do not make it up.
+Please select the most suitable location from the following list that best matches the given plan, and return the complete path of that location (e.g., "apartment A:bathroom"). Each location is separated by \n. Make your selection based on the nature of the planned activity, space requirements, and functional compatibility.
 
-The output example: 
-"{{house F:second bedroom:sp-B}}" 
-"{{Cafe:cafe}}"
-"{{College:library}}"
+First analyze the requirements of the plan, then identify the most appropriate location from the list. If there are multiple potential options, please select the one that best meets the requirements. Provide just the complete location path with no additional explanation.
+
+Location list: {_context}

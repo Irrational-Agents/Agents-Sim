@@ -9,8 +9,8 @@ Current Date: {current_date}
 Based on the information above, generate a realistic and engaging thought process for the NPC. The thought process should:
 1. Follow the given plan.
 2. Take into account the NPC's personality and current emotion.
-3. Be natural and engaging.
-3. No longer than 20 words.
+3. The content of the output is objective and neutral.
+4. No longer than 20 words.
 
 Please format the conversation as follows:
 "{{thought}}" 
