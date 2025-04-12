@@ -10,3 +10,6 @@ Requirements:
 - Include only meaningful terms (people names, places, organizations, objects of significance).
 - Do not include sentiment words or filler.
 - If no keywords found, return an empty JSON array [].
+
+output example:
+["key word", "key word"]

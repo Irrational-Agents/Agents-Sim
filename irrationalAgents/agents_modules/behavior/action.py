@@ -43,8 +43,8 @@ def handle_think(agent, description, recent_events_text):
             "intensity": 4
         }
     }
-    agent.short_memory.add_short_memory([new_entry])
-    logger.info(f"{agent.name} Thought new entry: {new_entry}")
+    agent.short_memory.add_short_memory_4_plan([new_entry])
+    logger.info(f"{agent.name} thought new entry: {new_entry}")
     return f"{thoughts}"
 
 
@@ -60,8 +60,8 @@ def handle_chat(agent, description, recent_events_text):
         "description": f"{conv[0]} chatting with {conv[1]}: {conv[2]}",
         "emotion": agent.short_memory.emotion_memory[-1]
     }
-    agent.short_memory.add_short_memory([new_entry])
-    logger.info(f"{agent.name} Chatting with new entry: {new_entry}")
+    agent.short_memory.add_short_memory_4_plan([new_entry])
+    logger.info(f"{agent.name} chatted with {conv[2]} new entry: {new_entry}")
     return conv
 
 
@@ -91,7 +91,7 @@ def handle_interact(agent, description):
         }
     }
 
-    agent.short_memory.add_short_memory([new_entry])
+    agent.short_memory.add_short_memory_4_plan([new_entry])
     logger.info(f"{agent.name} Interacted with {new_entry}")
     return f"{description}"
 
@@ -124,7 +124,7 @@ def handle_move(agent, description):
         }
     }
 
-    agent.short_memory.add_short_memory([new_entry])
+    agent.short_memory.add_short_memory_4_plan([new_entry])
     logger.info(f"{agent.name} Moved to new entry: {new_entry}")
     return f"{destination}"
 
@@ -141,6 +141,6 @@ def handle_unknown_action(agent, action_type, description):
         }
     }
 
-    agent.short_memory.add_short_memory([new_entry])
+    agent.short_memory.add_short_memory_4_plan([new_entry])
     logger.info(f"{agent.name} Attempted unknown action: {new_entry}")
     return f"Attempted unknown action: {action_type} - {description}"

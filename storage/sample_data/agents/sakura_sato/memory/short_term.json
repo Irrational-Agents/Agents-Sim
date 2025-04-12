@@ -22,7 +22,7 @@
             "deadline": "2024-09-20"
         }
     ],
-    "short_memory_capacity": 30,
+    "short_memory_capacity": 150,
     "short_memory_for_plan": [],
     "daily_plan_req": [
         {
