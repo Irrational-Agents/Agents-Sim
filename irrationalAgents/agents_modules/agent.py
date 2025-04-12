@@ -3,13 +3,13 @@ import os
 from typing import Dict, Any, Optional, Tuple, List
 
 from memory_modules.long_term_memory import LongTermMemory
-from memory_modules.short_term_memory import ShortTermMemory
+from memory_modules.short_term_memory import ShortTermMemory, form_short_memory
 from config.common_method import convert_name2id, profile_to_narrative
 from agents_modules.stimulus import stimulus
 from agents_modules.behavior.plan import plan
 from agents_modules.behavior.plan_evaluation import plan_evaluation
 from agents_modules.behavior.action import action
-from agents_modules.personality.cognition import cognition
+from agents_modules.personality.cognition import cognition, growth
 from agents_modules.personality.emotion import emotion
 from agents_modules.personality.personality import generate_personality
 from config.logger_config import setup_logger
@@ -74,9 +74,8 @@ class Agent:
     def cognition(self) -> Dict[str, Any]:
         """Perform cognitive processing."""
         return cognition(self)
-
-    def growth(self) -> None:
-        """Handle agent growth and development."""
+    
+    def growth(self) -> Dict[str, Any]:
         return growth(self)
 
     def move(self, curr_time: Any, event: Any) -> Optional[Tuple[Any, str]]:
@@ -95,10 +94,7 @@ class Agent:
 
         # Handle new day logic
         new_day = False
-        if not self.short_memory.curr_datetime:
-            new_day = "First day"
-            self.short_memory.short_memory = []
-        elif (self.short_memory.curr_datetime.strftime('%A %B %d') != 
+        if not self.short_memory.curr_datetime or (self.short_memory.curr_datetime.strftime('%A %B %d') != 
               curr_time.strftime('%A %B %d')):
             new_day = "New day"
 
@@ -109,11 +105,17 @@ class Agent:
 
         # Handle new day memory operations
         if new_day:
-            logger.debug(f"Agent {self.name} old memory decaying")
-            self.long_memory.update_all_freshness(curr_time)
+            logger.debug(f"Agent {self.name} new day")
+            
+            self.short_memory.add_short_memory(form_short_memory(self))
+            self.short_memory.save(self.short_memory)
+            self.short_memory.short_memory_for_plan = []
             logger.debug(f"Agent {self.name} new memory reflecting")
+
+            self.long_memory.update_all_freshness(curr_time)
             self.short_memory.organize_memory(self.long_memory)
             self.short_memory.cleanup_short_memory()
+            #self.growth(self.cognition())
 
         # Process stimulus
         stimulus_result = self.stimulus(events)
@@ -131,7 +133,8 @@ class Agent:
 
             description = self.action(best_plan)
             return best_plan.get('action', None), description
-
+        
+        #self.growth(self.cognition())
         return None
 
 

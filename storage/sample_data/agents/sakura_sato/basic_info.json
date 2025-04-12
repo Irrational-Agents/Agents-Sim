@@ -4,16 +4,16 @@
   "spawn": "Dorm for College:A room:sp-A",
   "character": "C002",
   "description": [
-    "Sakura Sato is a second-year student majoring in Japanese Literature at the University of Tokyo",
+    "Sakura Sato is a second-year student majoring in Japanese Literature at the local college",
     "Sakura is particularly interested in contemporary literature and enjoys exploring new forms and methods of literary expression",
-    "Currently, Sakura is writing a short story themed around Japanese youth culture",
+    "Currently, Sakura is writing a short story themed around youth culture for her creative writing class",
     "Sakura is taking classes in both literary theory and creative writing practice",
-    "Sakura lives in an apartment in Tokyo with her parents and younger sister",
-    "Sakura's best friend, Hanako Tanaka, is also studying in the same department, and they often study together in the library",
-    "Sakura enjoys Hanako Tanaka's sense of humor and intellectual conversations",
-    "Sakura is a member of the university's literary club, where she has made many friends",
-    "Sakura still occasionally keeps in touch with her childhood friends, Taro Yamada and Ichiro Suzuki",
-    "Sakura's dream is to become a famous writer in the future and bring a fresh perspective to Japanese literature"
+    "Sakura lives in the college dormitory, sharing space with other students",
+    "Sakura's friend from her literature class often studies with her in the college library",
+    "Sakura enjoys intellectual conversations and discussing literary themes with her peers",
+    "Sakura is a member of the college's literary club, where she has made many friends",
+    "Sakura occasionally visits the campus cafe to write and find inspiration",
+    "Sakura's dream is to become a published writer and bring fresh perspectives to literature"
   ],
   "personality_traits": {
     "openness": 9,
@@ -42,17 +42,12 @@
     }
   ],
   "social_relationships": {
-    "Kenta Takahashi": { "relationship": "Boyfriend", "closeness": 4 },
-    "Kenta Sato": { "relationship": "Father", "closeness": 4 },
-    "Misaki Sato": { "relationship": "Mother", "closeness": 5 },
-    "Yuri Sato": { "relationship": "Younger Sister", "closeness": 4 },
-    "Taro Yamada": { "relationship": "Childhood Friend", "closeness": 3 },
-    "Ichiro Suzuki": { "relationship": "Childhood Friend", "closeness": 3 }
+    "Kenta Takahashi": { "relationship": "Boyfriend", "closeness": 8 },
+    "Yuriko Yamamoto": { "relationship": "Stranger", "closeness": 1 },
+    "Zhang San": { "relationship": "Language exchange partner", "closeness": 5 }
   },
   "important_memories": {
     "favorite_author": "Haruki Murakami",
-    "favorite_genre": "Contemporary Literature",
-    "college_name": "University of Tokyo",
-    "home_address": "7-3-1 Hongo, Bunkyo-ku, Tokyo"
+    "favorite_genre": "Contemporary Literature"
   }
 }

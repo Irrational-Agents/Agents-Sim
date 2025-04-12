@@ -219,6 +219,8 @@ class LongTermMemory:
         return node
 
     def get_summarized_latest_events(self, retention): 
+        if retention > len(self.seq_event):
+            retention = len(self.seq_event)
         ret_set = set()
         # SPO削除したため、説明テキストなどを用いる場合は適宜修正
         # ここではdescriptionをまとめることにするか、あるいはそのままret_setに入れないか検討

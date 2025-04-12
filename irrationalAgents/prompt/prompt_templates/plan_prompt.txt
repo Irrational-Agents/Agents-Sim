@@ -6,8 +6,22 @@ Current Time: {current_time}
 Current Date: {current_date}
 Daily Plans: {daily_plan}
 world_context: {_context}
-Based on the Recent Events, Daily Plans in Current Time. Consider the continuity of events. create 5 possible plans for {agent_name}'s next actions and description. Each plan should be a brief description of an action.
-Please format your response as a JSON list of strings, like below. Do not include any additional text, markdown formatting, or explanations outside the JSON array:
+
+Follow Daily Plans as the PRIMARY guide. Each action description MUST be a specific, observable physical action or state - not ambiguous activities.
+
+For sleep activities:
+- Use ONLY concrete physical descriptions such as: "Continue sleeping deeply", "Turn to the right side while sleeping", "Sleep in a fetal position", "Breathe steadily while in deep sleep", "Remain motionless in REM sleep phase"
+- AVOID subjective internal states like "dream about X" or "think about Y while sleeping"
+
+Each action description must:
+1. Be physically observable by someone in the same room
+2. Use present tense for current actions
+3. Describe a SINGLE specific action or state, not multiple actions
+4. Avoid ambiguity or interpretations that could have multiple meanings
+
+For example, instead of "Dream about the vibrant studio you'll create", use "Sleep peacefully in bed with regular breathing patterns".
+
+Please format your response as a JSON list of strings, exactly as shown below. Do not include any additional text outside the JSON array:
 
 [
   {{"description": "action description"}},

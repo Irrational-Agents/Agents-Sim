@@ -10,7 +10,9 @@ def cognition(self):
     self.knowledge_base = {}
     self.decision_history = []
     
-    learnings = gpt_analyze_memory(self.basic_info['goals'], self.recent_memories)
-    self.growth(learnings)
-    return "OK"
+    learnings = gpt_analyze_memory(self.basic_info['goals'], self.short_memory.recent_events)
+    return learnings
+
+def growth(self):
+    pass
     

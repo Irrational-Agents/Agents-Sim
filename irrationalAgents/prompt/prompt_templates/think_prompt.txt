@@ -5,12 +5,11 @@ Plan: {plan}
 Recent Events: {recent_events}
 Current Time: {current_time}
 Current Date: {current_date}
+Generate a single thought that reflects the agent’s current mental focus, using the plan and recent events. The output must:
+Is objective, neutral, and impersonal — no subjects or perspectives.
+Uses no more than 10 words.
+Reflects the plan and emotion.
+Reuses exact phrasing from Recent Events when possible.
+Avoids any verbs like “continue”, “will”, “might”, or first-person phrasing.
 
-Based on the information above, generate a realistic and engaging thought process for the NPC. The thought process should:
-1. Follow the given plan.
-2. Take into account the NPC's personality and current emotion.
-3. The content of the output is objective and neutral.
-4. No longer than 20 words.
-
-Please format the conversation as follows:
-"{{thought}}" 
+output string

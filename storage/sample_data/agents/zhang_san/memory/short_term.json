@@ -9,155 +9,51 @@
       "deadline": "2024-09-25"
     }
   ],
-  "short_memory_capacity": 30,
-  "short_memory_for_plan": [],
-  "daily_plan_req": [
+  "short_memory_capacity": 50,
+  "short_memory_for_plan": [
     {
       "time": "00:00",
-      "activity": "Wind down with a book or light music",
+      "date": "2024-04-02",
       "moccupying": 1,
-      "intervals": 4
-    },
-    {
-      "time": "01:00",
-      "activity": "Go to sleep",
-      "moccupying": 1,
-      "intervals": 28
-    },
-    {
-      "time": "08:00",
-      "activity": "Wake up and stretch",
-      "moccupying": 1,
-      "intervals": 1
-    },
-    {
-      "time": "08:15",
-      "activity": "Personal hygiene (shower, brush teeth)",
-      "moccupying": 1,
-      "intervals": 2
-    },
-    {
-      "time": "08:45",
-      "activity": "Prepare and enjoy breakfast",
-      "moccupying": 1,
-      "intervals": 2
-    },
-    {
-      "time": "09:15",
-      "activity": "Play with Bobo and Langley",
-      "moccupying": 2,
-      "intervals": 2
-    },
-    {
-      "time": "09:45",
-      "activity": "Review interior design project details",
-      "moccupying": 3,
-      "intervals": 3
-    },
-    {
-      "time": "10:30",
-      "activity": "Attend a design webinar or virtual conference",
-      "moccupying": 3,
-      "intervals": 6
-    },
-    {
-      "time": "12:00",
-      "activity": "Lunch and relaxation time",
-      "moccupying": 1,
-      "intervals": 2
-    },
-    {
-      "time": "12:30",
-      "activity": "Check emails and respond to clients",
-      "moccupying": 3,
-      "intervals": 2
-    },
-    {
-      "time": "13:00",
-      "activity": "Work on seaside hotel project",
-      "moccupying": 3,
-      "intervals": 12
-    },
-    {
-      "time": "16:00",
-      "activity": "Team brainstorming session for design ideas",
-      "moccupying": 2,
-      "intervals": 6
-    },
-    {
-      "time": "17:30",
-      "activity": "Wrap up work and plan for tomorrow",
-      "moccupying": 3,
-      "intervals": 2
-    },
-    {
-      "time": "18:00",
-      "activity": "Go diving with friends or groups",
-      "moccupying": 2,
-      "intervals": 8
-    },
-    {
-      "time": "20:00",
-      "activity": "Dinner preparation and meal",
-      "moccupying": 1,
-      "intervals": 2
-    },
-    {
-      "time": "20:30",
-      "activity": "Relax and watch a movie or series",
-      "moccupying": 1,
-      "intervals": 6
-    },
-    {
-      "time": "22:00",
-      "activity": "Organize design studio plans and goals",
-      "moccupying": 3,
-      "intervals": 4
-    },
-    {
-      "time": "23:00",
-      "activity": "Play with pets and unwind",
-      "moccupying": 2,
-      "intervals": -92
+      "description": ""
     },
     {
       "time": "00:00",
-      "activity": "Go to sleep",
+      "date": "2024-04-02",
       "moccupying": 1,
-      "intervals": 96
-    }
-  ],
-  "short_memory": [
-    {
-      "time": "00:00",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "Zhang San interacted with other: Listen to soothing music while sketching out ideas for the beachfront villa-studio.",
+      "description": "Zhang San thought about: Gather design materials for the common room project.",
       "emotion": {
-        "type": "engaged",
-        "intensity": 5
+        "type": "contemplative",
+        "intensity": 4
       }
     },
     {
       "time": "00:15",
-      "date": "2024-04-01",
+      "date": "2024-04-02",
       "moccupying": 1,
-      "description": "Zhang San chatting with design group chat: Hey everyone! I just sketched some ideas for my beachfront villa-studio. I'd love your feedback!",
-      "emotion": [
-        5,
-        0,
-        0,
-        0,
-        0,
-        0,
-        5
-      ]
+      "description": ""
+    },
+    {
+      "time": "00:15",
+      "date": "2024-04-02",
+      "moccupying": 1,
+      "description": "Zhang San thought about: Gather design materials for the common room project.",
+      "emotion": {
+        "type": "contemplative",
+        "intensity": 4
+      }
     },
     {
       "time": "00:30",
-      "date": "2024-04-01",
+      "date": "2024-04-02",
       "moccupying": 1,
-      "description": "Zhang San thought about: I'll review client feedback carefully to enhance my design before finalizing the project and seeking further input.",
+      "description": ""
+    },
+    {
+      "time": "00:30",
+      "date": "2024-04-02",
+      "moccupying": 1,
+      "description": "Zhang San thought about: Sleep peacefully in bed with regular breathing patterns.",
       "emotion": {
         "type": "contemplative",
         "intensity": 4
@@ -165,23 +61,149 @@
     },
     {
       "time": "00:45",
-      "date": "2024-04-01",
+      "date": "2024-04-02",
       "moccupying": 1,
-      "description": "Zhang San thought about: I'll carefully assess the client feedback to refine my designs and ensure they align with their vision.",
-      "emotion": {
-        "type": "contemplative",
-        "intensity": 4
-      }
+      "description": ""
     },
     {
-      "time": "01:00",
-      "date": "2024-04-01",
+      "time": "00:45",
+      "date": "2024-04-02",
       "moccupying": 1,
-      "description": "Zhang San thought about: Time to wake up and enjoy a calm morning while reflecting on the design feedback.",
+      "description": "Zhang San thought about: Sleep peacefully in bed with regular breathing patterns.",
       "emotion": {
         "type": "contemplative",
         "intensity": 4
       }
+    }
+  ],
+  "daily_plan_req": [
+    {
+      "time": "00:00",
+      "activity": "Sleep",
+      "moccupying": 1,
+      "intervals": 28
+    },
+    {
+      "time": "07:00",
+      "activity": "Wake up and morning stretch",
+      "moccupying": 1,
+      "intervals": 2
+    },
+    {
+      "time": "07:30",
+      "activity": "Personal hygiene",
+      "moccupying": 1,
+      "intervals": 2
+    },
+    {
+      "time": "08:00",
+      "activity": "Breakfast with Bobo and Langley",
+      "moccupying": 2,
+      "intervals": 4
+    },
+    {
+      "time": "09:00",
+      "activity": "Diving at the park's artificial lake with local hobby group",
+      "moccupying": 2,
+      "intervals": 8
+    },
+    {
+      "time": "11:00",
+      "activity": "Work on design ideas for the common room in Dorm for College",
+      "moccupying": 1,
+      "intervals": 6
+    },
+    {
+      "time": "12:30",
+      "activity": "Lunch",
+      "moccupying": 1,
+      "intervals": 2
+    },
+    {
+      "time": "13:00",
+      "activity": "Work (Redesigning co-living and dorm interiors)",
+      "moccupying": 1,
+      "intervals": 20
+    },
+    {
+      "time": "18:00",
+      "activity": "End work and socialize with colleagues",
+      "moccupying": 2,
+      "intervals": 4
+    },
+    {
+      "time": "19:00",
+      "activity": "Dinner at a café",
+      "moccupying": 2,
+      "intervals": 4
+    },
+    {
+      "time": "20:00",
+      "activity": "Visit the Dorm garden with Bobo and Langley",
+      "moccupying": 1,
+      "intervals": 4
+    },
+    {
+      "time": "21:00",
+      "activity": "Research and plan for boutique design studio launch",
+      "moccupying": 1,
+      "intervals": 6
+    },
+    {
+      "time": "22:30",
+      "activity": "Leisure reading or creative brainstorming",
+      "moccupying": 1,
+      "intervals": 4
+    },
+    {
+      "time": "23:30",
+      "activity": "Wind down and prepare for bed",
+      "moccupying": 1,
+      "intervals": 2
+    }
+  ],
+  "short_memory": [
+    {
+      "time": "00:00",
+      "date": "2024-04-02",
+      "moccupying": 1,
+      "description": "I thought about: Sleep peacefully in bed with regular breathing patterns."
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-02",
+      "moccupying": 1,
+      "description": "I interacted with: Gently pet Bobo and Langley who are lounging nearby."
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-02",
+      "moccupying": 1,
+      "description": "I thought about: Enjoy the morning sun while relaxing in the garden."
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-02",
+      "moccupying": 1,
+      "description": "I thought about: Gather design materials for the common room project."
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-02",
+      "moccupying": 1,
+      "description": "I chatted with Fellow Designer: What do you think about using some reclaimed wood for the accent wall in the common room?"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-02",
+      "moccupying": 1,
+      "description": "I interacted with: Sit on the couch in the common room with Bobo and Langley."
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-02",
+      "moccupying": 1,
+      "description": "I thought about: Check the time to ensure timely departure for diving practice."
     }
   ],
   "basic_needs": {

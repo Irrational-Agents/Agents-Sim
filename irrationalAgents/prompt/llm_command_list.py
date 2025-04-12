@@ -59,7 +59,8 @@ def generate_plan(agent_name, agent_profile, current_emotion, recent_events, cur
     system_content = "You are an AI assistant tasked with creating plans based on recent events and current context."
     response = generative_agent(system_content, prompt1)
     prompt2 = prompt_template2.format(
-        description_list=json.loads(response)
+        description_list=json.loads(response),
+        recent_events=recent_events
     ) 
     response = generative_agent(system_content, prompt2)
     logger.debug(f"agent {agent_name} plan response: {response}")
@@ -136,12 +137,7 @@ def generate_thought(agent_name, agent_profile, current_emotion, plan, recent_ev
     system_content = "You are an AI assistant tasked with generating the thought process for an NPC based on a given plan."
     response = generative_agent(system_content, prompt)
     logger.info(f"thinking response: {response}")
-    try:
-        parsed_response = json.loads(response)
-        return parsed_response
-    except json.JSONDecodeError:
-        logger.error("Error: Invalid JSON format in response.")
-        return None
+    return response
     
 @traceable(name="generate_move")
 def generate_move(agent_name, agent_profile, current_emotion,recent_events, plan, current_time, current_date):
@@ -161,12 +157,7 @@ def generate_move(agent_name, agent_profile, current_emotion,recent_events, plan
     system_content = "You are an AI assistant tasked with generating the best destination based on the given plan and events."
     response = generative_agent(system_content, prompt)
     logger.info(f"move response: {response}")
-    try:
-        parsed_response = json.loads(response)
-        return parsed_response
-    except json.JSONDecodeError:
-        logger.error("Error: Invalid JSON format in response.")
-        return None
+    return response
     
 @traceable(name="generate_personality")
 def generate_personality(traits):    
@@ -183,7 +174,7 @@ def generate_personality(traits):
         return personality_profile
 
 @traceable(name="generate_short_memory")
-def generate_short_memory(agent_name, current_emotion, personality_traits, relationships, past_memories, perceived_events):
+def generate_short_memory(agent_name, current_emotion, personality_traits, relationships, past_memories):
     with open(PROMPT_FILE_PATH + 'short_memory_prompt.txt', 'r') as file:
         prompt_template = file.read()
     prompt = prompt_template.format(
@@ -191,8 +182,7 @@ def generate_short_memory(agent_name, current_emotion, personality_traits, relat
         current_emotion=current_emotion, 
         personality_traits=personality_traits,
         relationships=relationships,
-        past_short_term_memories=past_memories,
-        perceived_events=perceived_events
+        past_short_term_memories=past_memories
     )
     
     system_content = "You are an AI assistant tasked with updating an agent's short-term memory and emotional state based on perceived events and context."
@@ -259,3 +249,6 @@ def plans_selection(plans, p_context, recent_events, biases=''):
     except json.JSONDecodeError:
         logger.error("Error: Invalid JSON format in response.")
         return plans[0]
+
+def gpt_analyze_memory(goals, memories):
+    pass
