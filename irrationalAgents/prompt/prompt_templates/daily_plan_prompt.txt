@@ -12,4 +12,3 @@ Based on the above information, generate a detailed daily routine plans for {age
 - moccupying is activity type set to be peripheral:1, conversational:2 or inferential:3 information
 
 Make sure the plan accounts for {agent_name}’s emotional state, previously(if has), and their long-term and mid-term goals.
-

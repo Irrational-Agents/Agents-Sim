@@ -36,9 +36,17 @@ def call_openai(system_content, user_content, function):
                 "function": {
                     **function,
                     "strict": True
-                }
+                },
             }]
             chat_kwargs["tools"] = tools
+            chat_kwargs["tool_choice"] = {
+                "type": "function",
+                "function": {
+                    "name": function["name"]
+                }
+            }
+
+
         completion = client.chat.completions.create(
             **chat_kwargs
         )
@@ -60,21 +68,22 @@ def run_prompt_task(task_name, **variables):
 
     templates = _load_prompt_files(config["files"])
     system_content = config["system"]
-    function_schema = config.get("function_schema", None)
+    function_schemas = config.get(
+        "function_schema", [None for _ in range(len(templates))])
 
-    for t in templates:
+    for t, function_schema in zip(templates, function_schemas):
         user_prompt = render_prompt(t, variables)
         result = call_openai(system_content, user_prompt, function_schema)
-        logger.debug(f"[{task_name}] result: {result}") 
+        logger.debug(f"[{task_name}] result: {result}")
         if config["type"] == "json":
             try:
                 result = json.loads(result).get("resp")
             except Exception:
-                logger.error(f"[{task_name}] JSON 格式解析失败: {result}")
+                logger.error(f"[{task_name}] JSON decoding error: {result}")
                 return None
 
         if config.get('stream'):
-            variables = {**variables, config['stream'][0]: result} #先暂时写死
+            variables = {**variables, config['stream'][0]: result}  # 先暂时写死
             logger.debug(f"[{task_name}] stream result: {result}")
     logger.info(f"[{task_name}] result: {result}")
     return result
