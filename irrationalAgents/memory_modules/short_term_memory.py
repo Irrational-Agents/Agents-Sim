@@ -118,9 +118,9 @@ class ShortTermMemory:
             self.recent_events = new_events_text
     
     def add_short_memory(self, memory):
-
         self.short_memory.extend(memory)
         self.recent_events = format_events_as_text(memory)
+        logger.debug(f"short term memory: {self.short_memory}, recent events: {self.recent_events}")
 
     def update_basic_need(self, need, value):
         if need in self.basic_needs:
@@ -244,7 +244,7 @@ class ShortTermMemory:
                 description = event.get('description', '')
                 first_part = description.split(':', 1)[0].lower(
                 ) if ':' in description else description.lower()
-
+                logger.debug(f"first part: {first_part}, description: {description}")
                 if 'thought' in first_part:
                     node_type = 'thought'
                 elif 'chatted' in first_part:
@@ -257,14 +257,12 @@ class ShortTermMemory:
                 importance = 1.0 if mocc == 3 else 0.5
                 freshness = 1.0
 
-                # LLMでキーワード抽出
                 keywords_list = extract_keywords_for_long_term_memory(
                     description)
                 keywords = set(keywords_list)
 
                 current_time = self.curr_datetime if self.curr_datetime else datetime.datetime.now()
 
-                # node_typeに応じてLongTermMemoryに格納
                 if node_type == 'thought':
                     long_memory.add_thought(
                         created=current_time,
@@ -311,19 +309,19 @@ def format_events_as_text(events):
 
 
 def form_short_memory(agent):
-    short_memory_list = generate_short_memory(agent.name, get_complex_mood(agent.short_memory.emotion_memory[-1]), agent.short_memory.personality_text, agent.relationships, agent.short_memory.recent_events)
+    short_memory_list = generate_short_memory(agent.name, get_complex_mood(agent.short_memory.emotion_memory[-1]), agent.short_memory.personality_text, agent.relationships, agent.short_memory.short_memory_for_plan)
     if not short_memory_list:
         return []
     
     new_entries = []
-
+    logger.info(f"short_memory_list: {short_memory_list}")
     for short_memory in short_memory_list['new_entries']:
 
         new_entry = {
-            "time": agent.short_memory.curr_time,
-            "date": agent.short_memory.curr_date,
+            "time": short_memory['time'], 
+            "date": short_memory['date'],
             "moccupying": short_memory['type'], 
-            "description": short_memory['description'],
+            "description": short_memory['description']
         }
         new_entries.append(new_entry)
     if new_entries:
