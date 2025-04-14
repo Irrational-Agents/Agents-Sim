@@ -20,7 +20,7 @@ def main():
     print(f"test agent: {agent.basic_info['name']}")
     count = 1
     try:
-        while(count <= 100):
+        while(count <= 1):
             print(f'loop {count}')
             #event = input("Shota(User):  ")
             agent.move(curr_time, "")

@@ -2,6 +2,9 @@ import json
 import datetime
 import math
 from functools import lru_cache
+from config.logger_config import setup_logger
+logger = setup_logger('long-term-memory')
+
 class TimeNode:
     def __init__(self, time_id, timestamp):
         self.time_id = time_id
@@ -64,6 +67,7 @@ class LongTermMemory:
 
         # TimeNode管理辞書
         self.time_nodes = dict()
+        self.long_memory_path = long_memory_path
 
         nodes_load = json.load(open(long_memory_path + "/nodes.json"))
 
@@ -129,18 +133,20 @@ class LongTermMemory:
                 r[node_id]["timestamp"] = time_node.timestamp.strftime('%Y-%m-%d %H:%M:%S')
             else:
                 r[node_id]["timestamp"] = None
-
+        
+        out_json = self.long_memory_path
         with open(out_json+"/nodes.json", "w") as outfile:
-            json.dump(r, outfile)
+            json.dump(r, outfile, ensure_ascii=False, indent=2)
 
         r = dict()
         r["kw_strength_event"] = self.kw_strength_event
         r["kw_strength_thought"] = self.kw_strength_thought
         with open(out_json+"/kw_strength.json", "w") as outfile:
-            json.dump(r, outfile)
+            json.dump(r, outfile, ensure_ascii=False, indent=2)
 
 
     def add_event(self, created, description, keywords, importance=0.0, freshness=1.0, time_id=None):
+        logger.debug(f"created: {created}, description: {description}, keywords: {keywords}, importance: {importance}, freshness: {freshness}, time_id: {time_id}")   
         node_count = len(self.id_to_node.keys()) + 1
         type_count = len(self.seq_event) + 1
         node_type = "event"
@@ -169,6 +175,7 @@ class LongTermMemory:
         return node
 
     def add_thought(self, created, description, keywords, importance=0.0, freshness=1.0, time_id=None):
+        logger.debug(f"created: {created}, description: {description}, keywords: {keywords}, importance: {importance}, freshness: {freshness}, time_id: {time_id}")   
         node_count = len(self.id_to_node.keys()) + 1
         type_count = len(self.seq_thought) + 1
         node_type = "thought"
@@ -197,6 +204,7 @@ class LongTermMemory:
         return node
 
     def add_chat(self, created, description, keywords, importance=0.0, freshness=1.0, time_id=None): 
+        logger.debug(f"created: {created}, description: {description}, keywords: {keywords}, importance: {importance}, freshness: {freshness}, time_id: {time_id}")   
         node_count = len(self.id_to_node.keys()) + 1
         type_count = len(self.seq_chat) + 1
         node_type = "chat"

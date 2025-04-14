@@ -1,15 +1,15 @@
-Given the following text, extract all important names, proper nouns, and keywords that should be stored in long-term memory.
+Your task is to identify and extract key terms from the following text. Focus on:
+ - Proper nouns (names of people, places, organizations, objects of importance)
+ - Unique keywords that are essential for understanding the context
 
-Text:
-"""
-{description}
-"""
+Strictly exclude:
+ - Sentiment-related words (e.g., happy, sad, excited)
+ - Common filler words (e.g., the, is, very, just)
 
-Requirements:
-- Return a JSON array of strings, each being a single keyword or named entity.
-- Include only meaningful terms (people names, places, organizations, objects of significance).
-- Do not include sentiment words or filler.
-- If no keywords found, return an empty JSON array [].
+Instructions:
+ - Output a JSON array of strings, with each string being a single, meaningful keyword or named entity
+ - No duplicates
+ - If no valid keywords are found, return an empty array []
 
-output example:
+Output example:
 ["key word", "key word"]

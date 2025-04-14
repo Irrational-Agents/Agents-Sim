@@ -96,25 +96,24 @@ class Agent:
         new_day = False
         if not self.short_memory.curr_datetime or (self.short_memory.curr_datetime.strftime('%A %B %d') != 
               curr_time.strftime('%A %B %d')):
-            new_day = "New day"
+            new_day = True
 
         # Update time tracking
         self.short_memory.curr_datetime = curr_time
         self.short_memory.curr_time = curr_time.strftime('%H:%M')
         self.short_memory.curr_date = curr_time.strftime('%Y-%m-%d')
-
-        # Handle new day memory operations
+        # Handle new day operations for cognitive growth
         if new_day:
-            logger.debug(f"Agent {self.name} new day")
+            logger.debug(f"Day {new_day} for Agent {self.name}")
             
             self.short_memory.add_short_memory(form_short_memory(self))
             self.short_memory.save(self.short_memory)
             self.short_memory.short_memory_for_plan = []
-            logger.debug(f"Agent {self.name} new memory reflecting")
 
             self.long_memory.update_all_freshness(curr_time)
             self.short_memory.organize_memory(self.long_memory)
             self.short_memory.cleanup_short_memory()
+            self.long_memory.save(self.long_memory)
             #self.growth(self.cognition())
 
         # Process stimulus

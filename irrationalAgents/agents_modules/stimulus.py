@@ -23,27 +23,6 @@ def stimulus(agent, events):
 def incident():
     return
 
-def form_short_memory(agent, events_list):
-    short_memory_list = generate_short_memory(agent.name, get_complex_mood(agent.short_memory.emotion_memory[-1]), agent.short_memory.personality_text, agent.relationships, agent.short_memory.recent_events)
-    if not short_memory_list:
-        return []
-    
-    agent.short_memory.emotion_memory.append(short_memory_list['new_emotion'])
-    new_entries = []
-
-    for short_memory in short_memory_list['new_entries']:
-
-        new_entry = {
-            "time": agent.short_memory.curr_time,
-            "date": agent.short_memory.curr_date,
-            "moccupying": short_memory['type'], 
-            "description": short_memory['description'],
-        }
-        new_entries.append(new_entry)
-    
-    return new_entries
-
-
     
 def retrieve(agent, perceived): 
     retrieved = dict()

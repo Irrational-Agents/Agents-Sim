@@ -12,6 +12,9 @@ Description format: Agent A 'action' B: detailes
 
 
 def action(agent, next_action):
+    if not next_action:
+        logger.error(f"No next action for agent {agent.name}")
+        return
     action_type = next_action['action']
     description = next_action['description']
 
