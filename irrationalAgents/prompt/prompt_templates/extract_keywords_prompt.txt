@@ -1,4 +1,6 @@
-Your task is to identify and extract key terms from the following text. Focus on:
+text: {text}
+
+Your task is to identify and extract key terms from the text. Focus on:
  - Proper nouns (names of people, places, organizations, objects of importance)
  - Unique keywords that are essential for understanding the context
 

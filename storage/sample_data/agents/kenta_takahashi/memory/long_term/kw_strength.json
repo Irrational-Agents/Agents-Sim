@@ -1,12 +1,6 @@
 {
   "kw_strength_event": {
-    "organizations": 2,
-    "places": 2,
-    "objects of importance": 2,
-    "unique keywords": 2,
-    "proper nouns": 2,
-    "names of people": 2,
-    "context": 2
+
   },
   "kw_strength_thought": {}
 }

@@ -1,19 +1,5 @@
 {
   "age": null,
-  "current_status": {
-    "action": "chat",
-    "description": [
-      "Sakura Sato",
-      "Hanako Tanaka",
-      "I was thinking about exploring how social media shapes youth identity. What do you think?"
-    ],
-    "position": {
-      "x": 127,
-      "y": 46,
-      "direction": "right"
-    },
-    "timestamp": "2024-04-01T00:15:00"
-  },
   "current_location": "Dorm for College:A room:sp-A",
   "short_term_goal_capacity": 3,
   "short_term_goal": [

@@ -39,7 +39,7 @@ Tasks:
       "type": 1 | 2 | 3,
       "description": "I [thought/chatted/interacted/moved] about/with: [content]",
       "time": "00:00",
-      "date": "2025 0401"
+      "date": "2024-04-01"
     }}
   ]
 }}

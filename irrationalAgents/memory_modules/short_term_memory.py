@@ -18,7 +18,6 @@ class ShortTermMemory:
         self.recent_events = ""
         self.personality_text = ""
         self.emotion_memory = []
-        self.current_status = {}
 
         # WORLD INFORMATION
         self.curr_datetime = None
@@ -52,7 +51,6 @@ class ShortTermMemory:
             # Load data from JSON
             self.age = short_memory_load.get("age")
             self.curr_datetime = short_memory_load.get("curr_datetime")
-            self.current_status = short_memory_load.get("current_status")
             self.current_location = short_memory_load.get("current_location")
             self.short_term_goal_capacity = short_memory_load.get(
                 "short_term_goal_capacity")
@@ -79,7 +77,6 @@ class ShortTermMemory:
     def save(self, out_json):
         short_memory = {
             'age': self.age,
-            'current_status': self.current_status,
             'current_location': self.current_location,
             'short_term_goal_capacity': self.short_term_goal_capacity,
             'short_term_goal': self.short_term_goal,

@@ -7,7 +7,7 @@ from unity_modules.path_planner import PathPlanner
 from unity_modules.tools import advance_time_by_15_minutes
 from config.logger_config import setup_logger
 from config.meta_manager import MetaManager
-from agents_modules.agent import AgentManager
+from agents_modules.agent import init_agent_manager, get_agent_manager
 
 logger = setup_logger('World')
 
@@ -36,7 +36,8 @@ class WorldState:
         self.path_planner = PathPlanner(self.town_map)
         self.global_time = self.meta_manager.get_start_datetime()
         self.thread_pool = ThreadPoolExecutor(max_workers=10)
-        self.agent_manager = AgentManager()
+        init_agent_manager()
+        self.agent_manager = get_agent_manager()
         self._validate_initial_state()
 
     def _validate_initial_state(self) -> None:
@@ -101,6 +102,10 @@ class WorldState:
     def tick_world(self, npc_status: Dict[str, Dict[str, int]]) -> Dict[str, Any]:
         """
         Update the world state concurrently for all agents.
+            # update agent positions
+            # update world state
+            # process events to npc
+            # update tile according to agent information
 
         Returns:
             Dictionary containing world updates after the tick
@@ -237,9 +242,6 @@ class WorldState:
 
         stimuli = self._build_stimuli(env_info)
         action, move_description = agent.move(self.global_time, stimuli)
-
-        logger.info(
-            f"{agent_name} action: {action}, description: {move_description}")
 
         return agent_name, action, move_description
 

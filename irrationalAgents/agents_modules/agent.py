@@ -17,6 +17,7 @@ from config import config
 
 logger = setup_logger('Agent')
 
+agent_manager  = None
 
 class Agent:
     def __init__(self, basic_info: Dict[str, Any], memory_folder_path: Optional[str] = None):
@@ -183,7 +184,11 @@ class AgentManager:
         except Exception as e:
             logger.error(f"Error loading agent {name} info: {str(e)}")
             return None, None
-        
+
+    def save_agents(self, agent: Agent) -> None:
+        for _, agent in self.agents.items():
+            agent.short_memory.save(agent.short_memory)  
+    
     def generate_agent_snapshot(self, agent, action=None, description=None, step=None, position=None, time=None, location=None, **kwargs):
         if time is None:
             time = agent.short_memory.curr_datetime
@@ -218,7 +223,7 @@ class AgentManager:
         """Update agent's status in storage."""
         file_path = os.path.join(
             config.NPC_STORAGE_BASE_PATH,
-            f'agents/{convert_name2id(agent_name)}/snapshots/{file_path}'
+            f'agents/{convert_name2id(agent_name)}/snapshots/{file_path}.json'
         )
         data = {}
         if os.path.exists(file_path):
@@ -243,7 +248,7 @@ class AgentManager:
         """Get current status of specified agent."""
         file_path = os.path.join(
             config.NPC_STORAGE_BASE_PATH,
-            f'agents/{convert_name2id(agent_name)}/snapshots/{file_path}'
+            f'agents/{convert_name2id(agent_name)}/snapshots/{file_path}.json'
         )
         
         try:
@@ -292,3 +297,12 @@ class AgentManager:
         if storage:
             # TODO: Implement storage cleanup
             pass
+
+
+
+def init_agent_manager():
+    global agent_manager
+    agent_manager = AgentManager()
+
+def get_agent_manager():
+    return agent_manager

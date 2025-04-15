@@ -6,7 +6,7 @@ import eventlet
 from API.handler import UnityHandlers
 from API.request import UnityRequest
 from unity_modules.tools import *
-
+from agents_modules.agent import get_agent_manager
 
 from config.logger_config import setup_logger
 
@@ -58,7 +58,12 @@ class UnityServer:
             self.current_client_sid = None
             self.unity_request = None
             self.handlers.unity_request = None
-            logger.info(f"Client disconnected: {sid}")
+
+        am = get_agent_manager()
+        if hasattr(am, "save_agents"):
+            logger.info("Saving agents and other data...")
+            am.save_agents()
+        logger.info(f"Client disconnected: {sid}")
 
     def on_restart(self, sid):
         logger.info("Restart command received. Restarting server...")
@@ -94,6 +99,10 @@ class UnityServer:
             while True:
                 eventlet.sleep(1)
         except KeyboardInterrupt:
+            am = get_agent_manager()
+            if hasattr(am, "save_agents"):
+                logger.info("Saving agents and other data...")
+                am.save_agents()
             logger.info("Shutting down server...")
 
     def run(self):

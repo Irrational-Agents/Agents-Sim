@@ -107,7 +107,7 @@ def generate_short_memory(agent_name, current_emotion, personality_traits, relat
 @traceable(name="extract_keywords")
 def extract_keywords_for_long_term_memory(description):
     return run_prompt_task('extract_keywords',
-        description=description
+        text=description
     )
    
 @traceable(name="plans_selection")

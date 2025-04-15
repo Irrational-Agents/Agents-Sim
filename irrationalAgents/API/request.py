@@ -29,7 +29,7 @@ class UnityRequest:
     def emit(self, event_name: str, data: Optional[dict] = None) -> None:
         try:
             self.sio.emit(event_name, data, to=self.current_client_sid)
-            logger.debug(
+            logger.info(
                 f"Emitted event '{event_name}' to client {self.current_client_sid}. Data: {data}")
         except Exception as e:
             logger.error(f"Error emitting event '{event_name}': {str(e)}")
@@ -40,6 +40,7 @@ class UnityRequest:
 
     def send_server_tick(self, clock, updates: None) -> None:
         """Send Server tick for frame to be updated."""
+        logger.info(f"Sending server tick: {clock}")
         self.emit("server.tick", {
             "clock": clock,
             "updates": updates

@@ -53,6 +53,7 @@ def call_openai(system_content, user_content, function):
 
         message = completion.choices[0].message
         if function and hasattr(message, "function_call"):
+            logger.debug(f"Function call: {getattr(message, 'function_call')}")
             return message.tool_calls[0].function.arguments
         else:
             return message.content

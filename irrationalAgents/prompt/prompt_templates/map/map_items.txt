@@ -8,8 +8,6 @@ apartment D:main room:items:blackboard
 apartment D:main room:items:cooking area
 apartment D:main room:items:kitchen sink
 apartment D:main room:items:bed
-apartment D:main room:spaces:sp-A
-apartment D:main room:spaces:sp-B
 apartment E:bathroom:items:shower
 apartment E:bathroom:items:bathroom sink
 apartment E:bathroom:items:toilet
@@ -19,16 +17,12 @@ apartment E:main room:items:desk
 apartment E:main room:items:cooking area
 apartment E:main room:items:kitchen sink
 apartment E:main room:items:bed
-apartment E:main room:spaces:sp-A
-apartment E:main room:spaces:sp-B
 apartment A:main room:items:refrigerator
 apartment A:main room:items:closet
 apartment A:main room:items:desk
 apartment A:main room:items:shelf
 apartment A:main room:items:bed
 apartment A:main room:items:guitar
-apartment A:main room:spaces:sp-A
-apartment A:main room:spaces:sp-B
 apartment A:bathroom:items:shower
 apartment A:bathroom:items:bathroom sink
 apartment A:bathroom:items:toilet
@@ -41,15 +35,11 @@ apartment B:main room:items:computer desk
 apartment B:main room:items:cooking area
 apartment B:main room:items:kitchen sink
 apartment B:main room:items:bed
-apartment B:main room:spaces:sp-A
-apartment B:main room:spaces:sp-B
 apartment C:main room:items:refrigerator
 apartment C:main room:items:closet
 apartment C:main room:items:desk
 apartment C:main room:items:shelf
 apartment C:main room:items:bed
-apartment C:main room:spaces:sp-A
-apartment C:main room:spaces:sp-B
 apartment C:bathroom:items:shower
 apartment C:bathroom:items:bathroom sink
 apartment C:bathroom:items:toilet
@@ -57,7 +47,6 @@ co-living space:A room:items:desk
 co-living space:A room:items:bed
 co-living space:A room:items:shelf
 co-living space:A room:items:closet
-co-living space:A room:spaces:sp-A
 co-living space:A bathroom:items:shower
 co-living space:A bathroom:items:bathroom sink
 co-living space:A bathroom:items:toilet
@@ -65,15 +54,12 @@ co-living space:B room:items:bed
 co-living space:B room:items:guitar
 co-living space:B room:items:easel
 co-living space:B room:items:closet
-co-living space:B room:spaces:sp-A
-co-living space:B room:spaces:sp-B
 co-living space:B bathroom:items:shower
 co-living space:B bathroom:items:bathroom sink
 co-living space:B bathroom:items:toilet
 co-living space:C room:items:desk
 co-living space:C room:items:bed
 co-living space:C room:items:closet
-co-living space:C room:spaces:sp-A
 co-living space:C bathroom:items:shower
 co-living space:C bathroom:items:bathroom sink
 co-living space:C bathroom:items:toilet
@@ -87,7 +73,6 @@ co-living space:D room:items:bed
 co-living space:D room:items:closet
 co-living space:D room:items:easel
 co-living space:D room:items:shelf
-co-living space:D room:spaces:sp-A
 co-living space:D bathroom:items:shower
 co-living space:D bathroom:items:bathroom sink
 co-living space:D bathroom:items:toilet
@@ -95,7 +80,6 @@ co-living space:E room:items:desk
 co-living space:E room:items:bed
 co-living space:E room:items:easel
 co-living space:E room:items:closet
-co-living space:E room:spaces:sp-A
 co-living space:E bathroom:items:shower
 co-living space:E bathroom:items:bathroom sink
 co-living space:E bathroom:items:toilet
@@ -123,8 +107,6 @@ Dorm for College:A room:items:game console
 Dorm for College:A room:items:bed
 Dorm for College:A room:items:desk
 Dorm for College:A room:items:closet
-Dorm for College:A room:spaces:sp-A
-Dorm for College:A room:spaces:sp-B
 Dorm for College:kitchen:items:toaster
 Dorm for College:kitchen:items:refrigerator
 Dorm for College:kitchen:items:cooking area
@@ -143,19 +125,15 @@ Dorm for College:B room:items:desk
 Dorm for College:B room:items:blackboard
 Dorm for College:B room:items:computer
 Dorm for College:B room:items:bed
-Dorm for College:B room:spaces:sp-A
 Dorm for College:D room:items:game console
 Dorm for College:D room:items:closet
 Dorm for College:D room:items:desk
 Dorm for College:D room:items:lifting weight
 Dorm for College:D room:items:bed
-Dorm for College:D room:spaces:sp-A
 Dorm for College:C room:items:desk
 Dorm for College:C room:items:bed
 Dorm for College:C room:items:closet
 Dorm for College:C room:items:shelf
-Dorm for College:C room:spaces:sp-A
-Dorm for College:C room:spaces:sp-B
 Park:park:items:park garden
 Supply Store:supply store:items:supply store product shelf
 Supply Store:supply store:items:behind the supply store counter
@@ -172,8 +150,6 @@ house A:main room:items:desk
 house A:main room:items:cooking area
 house A:main room:items:kitchen sink
 house A:main room:items:bed
-house A:main room:spaces:sp-A
-house A:main room:spaces:sp-B
 house A:bathroom:items:shower
 house A:bathroom:items:bathroom sink
 house A:bathroom:items:toilet
@@ -184,8 +160,6 @@ house B:main room:items:shelf
 house B:main room:items:cooking area
 house B:main room:items:kitchen sink
 house B:main room:items:bed
-house B:main room:spaces:sp-A
-house B:main room:spaces:sp-B
 house B:bathroom:items:shower
 house B:bathroom:items:bathroom sink
 house B:bathroom:items:toilet
@@ -196,8 +170,6 @@ house C:main room:items:cooking area
 house C:main room:items:kitchen sink
 house C:main room:items:common room sofa
 house C:main room:items:bed
-house C:main room:spaces:sp-A
-house C:main room:spaces:sp-B
 house C:bathroom:items:shower
 house C:bathroom:items:bathroom sink
 house C:bathroom:items:toilet
@@ -212,13 +184,9 @@ house D:bathroom:items:toilet
 house D:main room:items:desk
 house D:main room:items:bed
 house D:main room:items:closet
-house D:main room:spaces:sp-A
-house D:main room:spaces:sp-B
 house D:second room:items:bed
 house D:second room:items:guitar
 house D:second room:items:closet
-house D:second room:spaces:sp-A
-house D:second room:spaces:sp-B
 house D:garden:items:house garden
 house E:common room:items:common room table
 house E:common room:items:harp
@@ -232,13 +200,9 @@ house E:bathroom:items:toilet
 house E:main bedroom:items:desk
 house E:main bedroom:items:bed
 house E:main bedroom:items:closet
-house E:main bedroom:spaces:sp-A
-house E:main bedroom:spaces:sp-B
 house E:empty bedroom:items:bed
 house E:empty bedroom:items:guitar
 house E:empty bedroom:items:closet
-house E:empty bedroom:spaces:sp-A
-house E:empty bedroom:spaces:sp-B
 house E:garden:items:garden chair
 house E:garden:items:house garden
 house F:common room:items:common room table
@@ -252,11 +216,7 @@ house F:bathroom:items:toilet
 house F:main bedroom:items:desk
 house F:main bedroom:items:bed
 house F:main bedroom:items:closet
-house F:main bedroom:spaces:sp-A
-house F:main bedroom:spaces:sp-B
 house F:second bedroom:items:desk
 house F:second bedroom:items:bed
 house F:second bedroom:items:closet
-house F:second bedroom:spaces:sp-A
-house F:second bedroom:spaces:sp-B
 house F:garden:items:house garden
