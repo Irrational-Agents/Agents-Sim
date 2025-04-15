@@ -6,7 +6,7 @@ from unity_modules.map import Map
 from unity_modules.path_planner import PathPlanner
 from unity_modules.tools import advance_time_by_15_minutes
 from config.logger_config import setup_logger
-from config.meta_manager import MetaManager
+from config.meta_manager import meta_manager
 from agents_modules.agent import init_agent_manager, get_agent_manager
 
 logger = setup_logger('World')
@@ -32,7 +32,7 @@ class WorldState:
     def __init__(self, map_data: Dict[str, Any]):
         """Initialize the world state with map data and core components."""
         self.town_map = Map(map_data)
-        self.meta_manager = MetaManager()
+        self.meta_manager = meta_manager
         self.path_planner = PathPlanner(self.town_map)
         self.global_time = self.meta_manager.get_start_datetime()
         self.thread_pool = ThreadPoolExecutor(max_workers=10)
@@ -84,12 +84,14 @@ class WorldState:
             status = self.agent_manager.generate_agent_snapshot(
                 agent,
                 **status,
+                action=status['state'].get('activity'),
+                description=status['state'].get('description'),
                 step=self.meta_manager.get('step'),
                 time=self.global_time.isoformat(),
             )
 
             self.agent_manager.write_agent_status(
-                npc_name, self.global_time.strftime('%Y-%m-%d'), self.meta_manager.get('step'), status)
+                npc_name, self.global_time, status)
 
     def _clear_npc_positions(self) -> None:
         """Clear all NPC position markers from the map."""
@@ -208,8 +210,8 @@ class WorldState:
 
             if action == "move":
                 try:
-                    x = self.agent_manager.agents[agent_name].short_memory.current_status['position'].x
-                    y = self.agent_manager.agents[agent_name].short_memory.current_status['position'].y
+                    x = npc_status[agent_name]['position']['x']
+                    y = npc_status[agent_name]['position']['y']
                     co_destination = self.map.get_address_tiles(
                         description.split(':')[-1])
                     updates['state']['move_extra'] = {
@@ -221,8 +223,7 @@ class WorldState:
 
             self.agent_manager.write_agent_status(
                 agent_name,
-                self.global_time.strftime('%Y-%m-%d'),
-                self.meta_manager.get('step'), updates[agent_name])
+                self.global_time, updates[agent_name])
         return updates
 
     def _update_agent(self, agent_name: str, env_info: Dict[str, Any]) -> Tuple[str, str, str]:
@@ -284,8 +285,7 @@ class WorldState:
             Dictionary mapping agent names to their environment info
         """
         environment_info = {}
-        positions = self.agent_manager.get_all_agents_positions(
-            self.global_time.strftime('%Y-%m-%d'), self.meta_manager.get('step'))
+        positions = self.agent_manager.get_all_agents_positions(self.global_time)
 
         if len(positions) != len(self.agent_manager.agents):
             logger.warning(

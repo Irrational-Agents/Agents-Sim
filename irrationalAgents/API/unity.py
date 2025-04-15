@@ -62,7 +62,7 @@ class UnityServer:
         am = get_agent_manager()
         if hasattr(am, "save_agents"):
             logger.info("Saving agents and other data...")
-            am.save_agents()
+            am.save_agents()  
         logger.info(f"Client disconnected: {sid}")
 
     def on_restart(self, sid):

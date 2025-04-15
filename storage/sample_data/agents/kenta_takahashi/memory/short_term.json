@@ -9,9 +9,230 @@
     }
   ],
   "short_memory_capacity": 150,
-  "short_memory_for_plan": [],
-  "daily_plan_req":[],
+  "short_memory_for_plan": [
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'guitar', 'bed', 'refrigerator'}, npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:guitar: playing guitar to relax and ease fear",
+      "emotion": [
+        0,
+        0,
+        0,
+        8,
+        0,
+        2,
+        0
+      ]
+    },
+    {
+      "time": "00:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'guitar', 'bed', 'refrigerator'}, npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "00:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:guitar: playing guitar to ease fear",
+      "emotion": [
+        0,
+        0,
+        0,
+        8,
+        0,
+        2,
+        0
+      ]
+    },
+    {
+      "time": "00:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'guitar', 'bed', 'refrigerator'}, npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "00:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:guitar: playing guitar to relax and ease fear",
+      "emotion": [
+        0,
+        0,
+        0,
+        8,
+        0,
+        2,
+        0
+      ]
+    },
+    {
+      "time": "00:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'guitar', 'bed', 'refrigerator'}, npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "00:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:guitar: playing guitar to relax",
+      "emotion": [
+        0,
+        0,
+        0,
+        8,
+        0,
+        2,
+        0
+      ]
+    },
+    {
+      "time": "01:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'guitar', 'bed', 'refrigerator'}, npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "01:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:guitar: strumming guitar to soothe fears",
+      "emotion": [
+        0,
+        0,
+        0,
+        8,
+        0,
+        2,
+        0
+      ]
+    }
+  ],
+  "daily_plan_req": [
+    {
+      "time": "00:00",
+      "activity": "Sleep",
+      "moccupying": 1,
+      "intervals": "420.0 minutes"
+    },
+    {
+      "time": "07:00",
+      "activity": "Wake up and morning hygiene (shower, brush teeth, etc.)",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "07:30",
+      "activity": "Breakfast (healthy meal with fruits)",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "08:00",
+      "activity": "Study session on AI concepts (focus on chatbot development)",
+      "moccupying": 3,
+      "intervals": "120.0 minutes"
+    },
+    {
+      "time": "10:00",
+      "activity": "Meeting with Hiroshi to discuss project progress",
+      "moccupying": 2,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "11:00",
+      "activity": "Continue working on AI chatbot project",
+      "moccupying": 3,
+      "intervals": "120.0 minutes"
+    },
+    {
+      "time": "13:00",
+      "activity": "Lunch break",
+      "moccupying": 1,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "14:00",
+      "activity": "Collaborative brainstorming session for Tech Night",
+      "moccupying": 2,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "15:00",
+      "activity": "Complete coding tasks for the day",
+      "moccupying": 3,
+      "intervals": "120.0 minutes"
+    },
+    {
+      "time": "17:00",
+      "activity": "Short break (snack, relax)",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "17:30",
+      "activity": "Prepare materials for Tech Night event",
+      "moccupying": 2,
+      "intervals": "90.0 minutes"
+    },
+    {
+      "time": "19:00",
+      "activity": "Tech Night event (share ideas and collaborate)",
+      "moccupying": 2,
+      "intervals": "120.0 minutes"
+    },
+    {
+      "time": "21:00",
+      "activity": "Dinner with roommates",
+      "moccupying": 1,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "22:00",
+      "activity": "Leisure activity (play guitar or read a book)",
+      "moccupying": 1,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "23:00",
+      "activity": "Reflect on the day and plan for tomorrow",
+      "moccupying": 2,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "23:30",
+      "activity": "Wind down and prepare for bed",
+      "moccupying": 1,
+      "intervals": "-1410.0 minutes"
+    },
+    {
+      "time": "00:00",
+      "activity": "Sleep",
+      "moccupying": 1,
+      "intervals": "1440.0 minutes"
+    }
+  ],
   "short_memory": [
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I practiced guitar to relax before sleep."
+    },
+    {
+      "time": "00:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I interacted with: playing guitar to relax, before sleep, and to ease fear"
+    }
   ],
   "basic_needs": {
     "fullness": 7,

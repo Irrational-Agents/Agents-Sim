@@ -185,9 +185,9 @@ class AgentManager:
             logger.error(f"Error loading agent {name} info: {str(e)}")
             return None, None
 
-    def save_agents(self, agent: Agent) -> None:
+    def save_agents(self) -> None:
         for _, agent in self.agents.items():
-            agent.short_memory.save(agent.short_memory)  
+            agent.short_memory.save(agent.short_memory)
     
     def generate_agent_snapshot(self, agent, action=None, description=None, step=None, position=None, time=None, location=None, **kwargs):
         if time is None:
@@ -209,7 +209,9 @@ class AgentManager:
         logger.debug(f"Agent {agent.name} snapshot: {ret}")
         return ret
 
-    def get_all_agents_positions(self, file_path, index_) -> Dict[str, Any]:
+    def get_all_agents_positions(self, global_time) -> Dict[str, Any]:
+        file_path = global_time.strftime('%Y-%m-%d')
+        index_ = global_time.strftime('%H:%M:%S')
         """Get current positions of all agents."""
         status_dict = {}
         for agent_name, _ in self.agents.items():
@@ -219,8 +221,11 @@ class AgentManager:
 
         return status_dict
 
-    def write_agent_status(self, agent_name: str, file_path, index_, status: Dict[str, Any]) -> Dict[str, Any]:
+    def write_agent_status(self, agent_name: str, global_time, status: Dict[str, Any]) -> Dict[str, Any]:
         """Update agent's status in storage."""
+        file_path = global_time.strftime('%Y-%m-%d')
+        index_ = global_time.strftime('%H:%M:%S')
+
         file_path = os.path.join(
             config.NPC_STORAGE_BASE_PATH,
             f'agents/{convert_name2id(agent_name)}/snapshots/{file_path}.json'

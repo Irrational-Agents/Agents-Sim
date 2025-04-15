@@ -9,9 +9,231 @@
     }
   ],
   "short_memory_capacity": 30,
-  "short_memory_for_plan": [],
-  "daily_plan_req": [],
-  "short_memory": [],
+  "short_memory_for_plan": [
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'bed', 'closet'}, npcs: ['Zhang San']"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San thought about: Go to sleep immediately in bed.",
+      "emotion": [
+        7,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2
+      ]
+    },
+    {
+      "time": "00:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'bed', 'closet'}, npcs: ['Zhang San']"
+    },
+    {
+      "time": "00:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San thought about: Go to sleep immediately in bed.",
+      "emotion": [
+        7,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2
+      ]
+    },
+    {
+      "time": "00:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'bed', 'closet'}, npcs: ['Zhang San']"
+    },
+    {
+      "time": "00:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with apartment D:bathroom:items:shower: taking a refreshing shower before bed",
+      "emotion": [
+        7,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2
+      ]
+    },
+    {
+      "time": "00:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'bed', 'closet'}, npcs: ['Zhang San']"
+    },
+    {
+      "time": "00:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with apartment D:bathroom:items:shower: enjoying a refreshing shower before bed",
+      "emotion": [
+        7,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2
+      ]
+    },
+    {
+      "time": "01:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'bed', 'closet'}, npcs: ['Zhang San']"
+    },
+    {
+      "time": "01:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with apartment D:bathroom:items:shower: taking a refreshing shower, enjoying the moment",
+      "emotion": [
+        7,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2
+      ]
+    }
+  ],
+  "daily_plan_req": [
+    {
+      "time": "00:00",
+      "activity": "Sleep",
+      "moccupying": 1,
+      "intervals": "420.0 minutes"
+    },
+    {
+      "time": "07:00",
+      "activity": "Wake up and Morning Hygiene (brush teeth, shower, etc.)",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "07:30",
+      "activity": "Breakfast (light meal, possibly with Bobo and Langley)",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "08:00",
+      "activity": "Playtime with cats in the garden",
+      "moccupying": 2,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "08:30",
+      "activity": "Creative brainstorming for dorm redesign project",
+      "moccupying": 3,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "09:30",
+      "activity": "Work on design sketches for the common room",
+      "moccupying": 3,
+      "intervals": "90.0 minutes"
+    },
+    {
+      "time": "11:00",
+      "activity": "Visit local market (grocery shopping)",
+      "moccupying": 2,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "12:00",
+      "activity": "Lunchtime (prepare and enjoy a meal)",
+      "moccupying": 1,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "13:00",
+      "activity": "Work on redesigning co-living and dorm interiors",
+      "moccupying": 3,
+      "intervals": "300.0 minutes"
+    },
+    {
+      "time": "18:00",
+      "activity": "Wrap up work and plan goals for the next day",
+      "moccupying": 2,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "18:30",
+      "activity": "Dinner (possibly with friends or fellow designers)",
+      "moccupying": 2,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "19:30",
+      "activity": "Attend hobby group meeting for diving preparation",
+      "moccupying": 2,
+      "intervals": "90.0 minutes"
+    },
+    {
+      "time": "21:00",
+      "activity": "Leisure time (reading or playing guitar)",
+      "moccupying": 1,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "22:00",
+      "activity": "Relax with cats (watching TV or playing)",
+      "moccupying": 2,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "23:00",
+      "activity": "Reflection on day and preparation for tomorrow",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "23:30",
+      "activity": "Sleep preparation",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    }
+  ],
+  "short_memory": [
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I thought about: Go to sleep immediately in bed."
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I thought about: Go to sleep immediately in bed."
+    },
+    {
+      "time": "00:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I moved about: Dorm for College:A room:spaces:sp-A."
+    }
+  ],
   "basic_needs": {
     "fullness": 6,
     "social": 7,

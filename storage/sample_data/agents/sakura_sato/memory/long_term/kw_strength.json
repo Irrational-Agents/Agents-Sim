@@ -1,4 +1,17 @@
 {
-  "kw_strength_event": {},
-  "kw_strength_thought": {}
+  "kw_strength_event": {
+    "friends": 1,
+    "video games": 1,
+    "game console": 1,
+    "writing": 1,
+    "creatively": 1,
+    "inspired": 1,
+    "desk": 1
+  },
+  "kw_strength_thought": {
+    "contentment": 1,
+    "sleeping": 1,
+    "bed": 1,
+    "happiness": 1
+  }
 }
