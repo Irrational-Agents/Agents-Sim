@@ -30,6 +30,9 @@ class UnityHandlers:
                 logger.debug("initialize")
                 self.map_data = data['map_data']
                 self.world = WorldState(self.map_data)
+                self.clock += 1
+                self.unity_request.send_server_tick(1, None)
+                return
                 
             # MAIN LOOP
             # update agent positions
@@ -41,7 +44,7 @@ class UnityHandlers:
             updates = self.world.tick_world()
             
             self.clock += 1
-            self.unity_request.send_server_tick(self.clock, updates)
+            self.unity_request.send_server_tick(1, updates)
 
         except ValueError as e:
             logger.error(
