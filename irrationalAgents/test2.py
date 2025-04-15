@@ -20,10 +20,10 @@ def main():
     print(f"test agent: {agent.basic_info['name']}")
     count = 1
     try:
-        while(count <= 1):
+        while(count <= 3):
             print(f'loop {count}')
             #event = input("Shota(User):  ")
-            agent.move(curr_time, "")
+            agent.move(curr_time, "wanting to take a shower")
             # if count % 4 == 0:
             #     agent.short_memory.short_memory = form_short_memory(agent)
             curr_time = curr_time + timedelta(minutes=15)
@@ -51,5 +51,5 @@ def create_agent(name):
     agent = Agent(basic_info, memory_folder_path)
     return agent
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()

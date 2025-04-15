@@ -13,7 +13,7 @@ api_key = os.getenv('OPENAI_API_KEY')
 client = wrap_openai(OpenAI(api_key=api_key))
 
 def load_background(type_):
-    with open(PROMPT_FILE_PATH + f'map_{type_}.txt', 'r', encoding='utf-8') as f:
+    with open(PROMPT_FILE_PATH + f'map/map_{type_}.txt', 'r', encoding='utf-8') as f:
         map = f.read()
     return map
 
@@ -27,7 +27,7 @@ def generate_plan(agent_name, agent_profile, current_emotion, recent_events, cur
         current_time=current_time,
         current_date=current_date,
         daily_plan=daily_plan,
-        _context=load_background('context'))
+        _context=load_background('details'))
 
 @traceable(name="generate_daily_plan")
 def generate_daily_plan(agent_name, agent_profile, current_emotion, previous, current_date):
@@ -37,7 +37,7 @@ def generate_daily_plan(agent_name, agent_profile, current_emotion, previous, cu
         current_emotion=current_emotion,
         previous=previous,
         current_date=current_date,
-        _context=load_background('context'))
+        _context=load_background('details'))
 
 @traceable(name="generate_conversation")
 def generate_conversation(agent_name, agent_profile, current_emotion, plan, recent_events, current_time, current_date):
@@ -73,7 +73,20 @@ def generate_move(agent_name, agent_profile, current_emotion,recent_events, plan
         recent_events=recent_events,
         current_time=current_time,
         current_date=current_date,
-        _context=load_background('context')
+        _context=load_background('spaces')
+    )
+
+@traceable(name="generate_interaction")
+def generate_interaction(agent_name, agent_profile, current_emotion,recent_events, plan, current_time, current_date):
+    return run_prompt_task('generate_interaction',
+        agent_name=agent_name,
+        agent_profile=agent_profile,
+        current_emotion=current_emotion,
+        plan=plan,
+        recent_events=recent_events,
+        current_time=current_time,
+        current_date=current_date,
+        _context=load_background('items')
     )
     
 @traceable(name="generate_personality")

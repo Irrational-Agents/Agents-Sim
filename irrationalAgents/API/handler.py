@@ -21,6 +21,7 @@ class UnityHandlers:
     def update(self, data: Dict[str, Any]):
         """Handle updates from the client."""
         logger.info(f"ui-tick: {data}")
+        
         try:
             self.clock = int(data['clock'])
             self.npc_status = data['npc_status']
@@ -30,18 +31,19 @@ class UnityHandlers:
                 logger.debug("initialize")
                 self.map_data = data['map_data']
                 self.world = WorldState(self.map_data)
+                self.clock += 1
+                self.unity_request.send_server_tick(1, None)
+                return
                 
             # MAIN LOOP
             # update agent positions
             # update world state
             # process events to npc
             # update tile according to agent information
-
-            self.world.update_status(self.npc_status)
-            updates = self.world.tick_world()
+            updates = self.world.tick_world(self.npc_status)
             
             self.clock += 1
-            self.unity_request.send_server_tick(self.clock, updates)
+            #
 
         except ValueError as e:
             logger.error(

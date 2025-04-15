@@ -1,201 +1,52 @@
 {
-    "age": null,
-    "current_status": {
-        "action": "chat",
-        "description": [
-            "Sakura Sato",
-            "Hanako Tanaka",
-            "I was thinking about exploring how social media shapes youth identity. What do you think?"
-        ],
-        "position": {
-            "x": 127,
-            "y": 46,
-            "direction": "right"
-        },
-        "timestamp": "2024-04-01T00:15:00"
-    },
-    "current_location": null,
-    "short_term_goal_capacity": 3,
-    "short_term_goal": [
-        {
-            "description": "Complete the first draft of this week's short story",
-            "deadline": "2024-09-20"
-        }
+  "age": null,
+  "current_status": {
+    "action": "chat",
+    "description": [
+      "Sakura Sato",
+      "Hanako Tanaka",
+      "I was thinking about exploring how social media shapes youth identity. What do you think?"
     ],
-    "short_memory_capacity": 150,
-    "short_memory_for_plan": [],
-    "daily_plan_req": [
-        {
-            "time": "00:00",
-            "activity": "go to sleep",
-            "moccupying": 1,
-            "intervals": 28
-        },
-        {
-            "time": "07:00",
-            "activity": "wake up and stretch",
-            "moccupying": 1,
-            "intervals": 1
-        },
-        {
-            "time": "07:15",
-            "activity": "personal hygiene (shower, brush teeth)",
-            "moccupying": 1,
-            "intervals": 2
-        },
-        {
-            "time": "07:45",
-            "activity": "breakfast with family",
-            "moccupying": 2,
-            "intervals": 2
-        },
-        {
-            "time": "08:15",
-            "activity": "review notes for morning class",
-            "moccupying": 3,
-            "intervals": 3
-        },
-        {
-            "time": "09:00",
-            "activity": "attend Japanese Literature class",
-            "moccupying": 1,
-            "intervals": 6
-        },
-        {
-            "time": "10:30",
-            "activity": "participate in literary theory discussion",
-            "moccupying": 2,
-            "intervals": 6
-        },
-        {
-            "time": "12:00",
-            "activity": "lunch with Hanako Tanaka",
-            "moccupying": 2,
-            "intervals": 4
-        },
-        {
-            "time": "13:00",
-            "activity": "write short story draft",
-            "moccupying": 1,
-            "intervals": 6
-        },
-        {
-            "time": "14:30",
-            "activity": "study in the library",
-            "moccupying": 3,
-            "intervals": 6
-        },
-        {
-            "time": "16:00",
-            "activity": "meet friends from the literary club",
-            "moccupying": 2,
-            "intervals": 8
-        },
-        {
-            "time": "18:00",
-            "activity": "dinner at home",
-            "moccupying": 2,
-            "intervals": 4
-        },
-        {
-            "time": "19:00",
-            "activity": "read contemporary literature (Haruki Murakami)",
-            "moccupying": 1,
-            "intervals": 6
-        },
-        {
-            "time": "20:30",
-            "activity": "work on creative writing practice assignments",
-            "moccupying": 1,
-            "intervals": 6
-        },
-        {
-            "time": "22:00",
-            "activity": "relax with a casual chat or internet browsing",
-            "moccupying": 2,
-            "intervals": 4
-        },
-        {
-            "time": "23:00",
-            "activity": "prepare for bed (personal hygiene, setting outfit for tomorrow)",
-            "moccupying": 1,
-            "intervals": 4
-        }
-    ],
-    "short_memory": [
-        {
-            "time": "00:00",
-            "date": "2024-04-01",
-            "moccupying": 1,
-            "description": "seeing events: ['can_use:bed', 'can_use:bed', 'can_use:game console'], items: ['bed', 'bed', 'game console'], npcs: ['Sakura Sato']"
-        },
-        {
-            "time": "00:00",
-            "date": "2024-04-01",
-            "moccupying": 2,
-            "description": "Sakura Sato chatting with Hanako Tanaka: Hey Hanako! I can’t wait to brainstorm and mix our ideas together for our stories!"
-        },
-        {
-            "time": "00:00",
-            "date": "2024-04-01",
-            "moccupying": 2,
-            "description": "Sakura Sato chatting with Hanako Tanaka: I’m excited to weave our ideas together! Let’s capture the essence of youth culture beautifully!"
-        },
-        {
-            "time": "00:00",
-            "date": "2024-04-01",
-            "moccupying": 1,
-            "description": "Sakura Sato chatting with Hanako Tanaka: Let’s start with our favorite youth culture themes! I have a few ideas buzzing already.",
-            "emotion": [
-                5,
-                1,
-                0,
-                0,
-                1,
-                1,
-                2
-            ]
-        },
-        {
-            "time": "00:15",
-            "date": "2024-04-01",
-            "moccupying": 1,
-            "description": "seeing events: ['can_use:bed', 'can_use:bed', 'can_use:game console', 'can_use:game console'], items: ['bed', 'bed', 'game console', 'game console'], npcs: ['Sakura Sato']"
-        },
-        {
-            "time": "00:15",
-            "date": "2024-04-01",
-            "moccupying": 2,
-            "description": "Sakura Sato chatting with Hanako Tanaka: Let’s start with our favorite youth culture themes! I have a few ideas buzzing already."
-        },
-        {
-            "time": "00:15",
-            "date": "2024-04-01",
-            "moccupying": 2,
-            "description": "Sakura Sato chatting with Hanako Tanaka: I’m excited to weave our ideas together! Let’s capture the essence of youth culture beautifully!"
-        }
-    ],
-    "basic_needs": {
-        "fullness": 6,
-        "social": 7,
-        "fun": 5,
-        "health": 8,
-        "energy": 7
+    "position": {
+      "x": 127,
+      "y": 46,
+      "direction": "right"
     },
-    "temporary_personality_changes": {
-        "openness": 0.3,
-        "conscientiousness": 0.2,
-        "extraversion": 0,
-        "agreeableness": 0.1,
-        "neuroticism": -0.2
-    },
-    "emotion": [
-        6,
-        0,
-        0,
-        0,
-        1,
-        0,
-        3
-    ]
+    "timestamp": "2024-04-01T00:15:00"
+  },
+  "current_location": "Dorm for College:A room:sp-A",
+  "short_term_goal_capacity": 3,
+  "short_term_goal": [
+    {
+      "description": "Complete the first draft of this week's short story",
+      "deadline": "2024-09-20"
+    }
+  ],
+  "short_memory_capacity": 150,
+  "short_memory_for_plan": [],
+  "daily_plan_req": [],
+  "short_memory": [],
+  "basic_needs": {
+    "fullness": 6,
+    "social": 7,
+    "fun": 5,
+    "health": 8,
+    "energy": 7
+  },
+  "temporary_personality_changes": {
+    "openness": 0.3,
+    "conscientiousness": 0.2,
+    "extraversion": 0,
+    "agreeableness": 0.1,
+    "neuroticism": -0.2
+  },
+  "emotion": [
+    6,
+    0,
+    0,
+    0,
+    1,
+    0,
+    3
+  ]
 }

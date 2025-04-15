@@ -127,6 +127,27 @@ PROMPT_CONFIG = {
             }
         }]
     },
+     "generate_interaction": {
+        "files": ["interaction_prompt.txt"],
+        "system": "Y",
+        "type": "json",
+        "function_schema": [{
+            "name": "generate_interaction_schema",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "resp": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "required": ["resp"],
+                "additionalProperties": False
+            }
+        }]
+    },
     "generate_thought": {
         "files": ["think_prompt.txt"],
         "system": "You are an AI assistant tasked with generating the thought process for an NPC based on a given plan.",

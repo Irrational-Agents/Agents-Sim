@@ -12,6 +12,22 @@ from agents_modules.agent import AgentManager
 logger = setup_logger('World')
 
 
+"""
+ {
+            "position" :{
+                'x': status['position']['x'],
+                'y': status['position']['y'],
+                'direction': status['position']['direction']
+            },
+            "location": status['location'],
+            "action": "move",
+            "description": "Dorm for College:A room:spaces:sp-A",
+            "move_extra": {
+            }
+        }
+"""
+
+
 class WorldState:
     def __init__(self, map_data: Dict[str, Any]):
         """Initialize the world state with map data and core components."""
@@ -30,7 +46,7 @@ class WorldState:
         if len(self.agent_manager.agents) == 0:
             logger.warning("No agents initialized in the world")
 
-    def update_status(self, npc_status: Dict[str, Dict[str, int]]) -> None:
+    def refresh_status(self, npc_status: Dict[str, Dict[str, int]]) -> None:
         """
         Update agent positions on the map and in the agent manager.
 
@@ -52,25 +68,37 @@ class WorldState:
     def _update_agent_position(self, npc_name: str, status: Dict[str, int]) -> None:
         """Update position for a single agent."""
         tile_position = (status['position']['x'], status['position']['y'])
-        self.town_map.add_npc_to_tile(npc_name, tile_position)
 
         if npc_name in self.agent_manager.agents:
             agent = self.agent_manager.agents[npc_name]
-            logger.info(agent.short_memory.current_status)
-            agent.short_memory.current_status = status
+
+            if not tile_position:
+                tile_position = self.town_map.get_address_tiles(
+                    agent.short_memory.current_location)
+
+            self.town_map.add_npc_to_tile(npc_name, tile_position)
+            tile = self.town_map.get_tile_details(tile_position)
+            agent.short_memory.current_location = f"{tile['location']}:{tile['room']}:{tile['space']}"
+
+            status = self.agent_manager.generate_agent_snapshot(
+                agent,
+                **status,
+                step=self.meta_manager.get('step'),
+                time=self.global_time.isoformat(),
+            )
+
             self.agent_manager.write_agent_status(
-                npc_name, agent.short_memory.current_status)
+                npc_name, self.global_time.strftime('%Y-%m-%d'), self.meta_manager.get('step'), status)
 
     def _clear_npc_positions(self) -> None:
         """Clear all NPC position markers from the map."""
         for i in range(self.town_map.maze_height):
             for j in range(self.town_map.maze_width):
-                # @TODO erase the event info
-                # self.town_map.tiles[i][j]['event'] = set()
+                # Erase the event info
                 if self.town_map.tiles[i][j]['npc'] != '_':
                     self.town_map.tiles[i][j]['npc'] = '_'
 
-    def tick_world(self) -> Dict[str, Any]:
+    def tick_world(self, npc_status: Dict[str, Dict[str, int]]) -> Dict[str, Any]:
         """
         Update the world state concurrently for all agents.
 
@@ -81,6 +109,8 @@ class WorldState:
             Exception: If any error occurs during world update
         """
         try:
+            self.refresh_status(npc_status)
+
             # 1. Collect environment information
             environment_info = self._collect_env_info()
             if not environment_info:
@@ -90,10 +120,14 @@ class WorldState:
             results = self._update_all_agents(environment_info)
 
             # 3. Refresh world time
-            self._advance_world_time(self)
+            self._advance_world_time()
+            snapshots = self._generate_npc_snapshot(results, npc_status)
 
-            logger.info("World tick completed successfully")
-            return self._generate_world_updates(results)
+            self._add_world_info(snapshots)
+            logger.info(
+                f"World tick completed for step {self.meta_manager.get('step')}, time {self.global_time}, snapshots: {snapshots}")
+
+            return snapshots
         except Exception as e:
             logger.error(f"World tick failed: {str(e)}", exc_info=True)
             raise
@@ -134,7 +168,18 @@ class WorldState:
         self.global_time = self.meta_manager.get_datetime()
         logger.debug(f"World time advanced to {self.global_time}")
 
-    def _generate_world_updates(self, results: List[Tuple[str, str, str]]) -> Dict[str, Any]:
+    def _add_world_info(self, infos) -> None:
+        world_info = set()
+        self.town_map.remove_all_event_from_tiles()
+        for npc, info in infos.items():
+            if info.get('activity', None) in ['chat', 'interact']:
+                world_info.add(
+                    (info['position']['x'], info['position']['y'], info['description']))
+                self.town_map.add_event_to_tile(
+                    (info['position']['x'], info['position']['y']). info['description'])
+        return world_info
+
+    def _generate_npc_snapshot(self, results: List[Tuple[str, str, str]], npc_status) -> Dict[str, Any]:
         """
         Generate world updates after all agents have been updated.
 
@@ -143,46 +188,36 @@ class WorldState:
 
         Returns:
             Dictionary containing world state updates
-
-        {
-            "clock" : 1,
-            "updates": {
-                "Kenta Takahashi": {
-                    "action": "move",
-                    "description": "Dorm for College:A room:spaces:sp-A",
-                    "move_extra": {}
-                },
-                "Zhang San": {
-                    'action': "chat",
-                    "description": "Hi"
-                }
-            }
-        }
         """
         updates = {}
         for agent_name, action, description in results:
-            updates[agent_name] = {
-                "action": action,
-                "description": description,
-                "time": self.global_time.isoformat(),
-                "step": self.meta_manager.get('step')
-            }
+            updates[agent_name] = self.agent_manager.generate_agent_snapshot(
+                self.agent_manager.agents[agent_name],
+                **npc_status[agent_name],
+                action=action,
+                description=description,
+                time=self.global_time.isoformat(),
+                step=self.meta_manager.get('step'),
+                location=self.agent_manager.agents[agent_name].short_memory.current_location
+            )
+
             if action == "move":
                 try:
                     x = self.agent_manager.agents[agent_name].short_memory.current_status['position'].x
                     y = self.agent_manager.agents[agent_name].short_memory.current_status['position'].y
-                    co_destination = self.map.get_address_tiles(description.split(':')[-1])
-                    updates['move_extra'] = {
+                    co_destination = self.map.get_address_tiles(
+                        description.split(':')[-1])
+                    updates['state']['move_extra'] = {
                         "path": self.path_planner.create_path((x, y), co_destination),
                         "speed": DEFAULT_SPEED
                     }
                 except Exception as e:
                     logger.error(f"Error creating path: {str(e)}")
-                
-            
 
-        #@TODO: storage
-          
+            self.agent_manager.write_agent_status(
+                agent_name,
+                self.global_time.strftime('%Y-%m-%d'),
+                self.meta_manager.get('step'), updates[agent_name])
         return updates
 
     def _update_agent(self, agent_name: str, env_info: Dict[str, Any]) -> Tuple[str, str, str]:
@@ -205,10 +240,6 @@ class WorldState:
 
         logger.info(
             f"{agent_name} action: {action}, description: {move_description}")
-
-        status = self._generate_agent_status(
-            agent_name, action, move_description)
-        self.agent_manager.write_agent_status(agent_name, status)
 
         return agent_name, action, move_description
 
@@ -238,7 +269,7 @@ class WorldState:
         if events or items or npcs:
             # @TODO refien the expression
             stimuli.append(
-                f"seeing events: {events}, items: {items}, npcs: {npcs}")
+                f"seeing events: {events}, items: {set(items)}, npcs: {npcs}")
 
         logger.debug(f"Generated stimuli: {stimuli}")
         return stimuli
@@ -251,7 +282,8 @@ class WorldState:
             Dictionary mapping agent names to their environment info
         """
         environment_info = {}
-        positions = self.agent_manager.get_all_agents_positions()
+        positions = self.agent_manager.get_all_agents_positions(
+            self.global_time.strftime('%Y-%m-%d'), self.meta_manager.get('step'))
 
         if len(positions) != len(self.agent_manager.agents):
             logger.warning(
@@ -279,28 +311,3 @@ class WorldState:
                 continue
 
         return environment_info
-
-    def _generate_agent_status(self, agent_name: str, action: str, description: str) -> Dict[str, Any]:
-        """
-        Generate status dictionary for an agent.
-
-        Args:
-            agent_name: Name of the agent
-            action: Current action of the agent
-            description: Description of the action
-
-        Returns:
-            Dictionary containing agent status
-        """
-        agent = self.agent_manager.agents.get(agent_name)
-        if not agent:
-            raise ValueError(f"Agent {agent_name} not found")
-
-        pos = agent.short_memory.current_status.get('position', {})
-
-        return {
-            'action': action,
-            'description': description,
-            'position': pos,
-            'timestamp': self.global_time.isoformat()
-        }

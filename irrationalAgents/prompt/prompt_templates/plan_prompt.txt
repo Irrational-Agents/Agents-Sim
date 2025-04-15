@@ -5,28 +5,34 @@ Recent Events: {recent_events}
 Current Time: {current_time}
 Current Date: {current_date}
 Daily Plans: {daily_plan}
-world_context: {_context}
+World Map: {_context}
 
-Follow Daily Plans as the PRIMARY guide. Each action description MUST be a specific, observable physical action or state - not ambiguous activities.
+Generate independent plan options that represent ALTERNATIVE possibilities for the character given their Daily Plans, Recent Events, and world map. 
+Each plan should: 
+1. Represent a DISTINCT possible response to the current situation 
+2. Be influenced by Daily Plans, Recent Events and personality.
+3. Respect world map constraints and character location 
+4. Show different decision paths the character might reasonably take For example, if Daily Plan is "Sleep" at 00:00 and Recent Event is "want to take a shower" and profile of agent shows a lazy person, generated actions might include multiple choices: 
+  - One plan showing the character deciding to sleep immediately despite wanting a shower 
+  - Another plan showing the character going to take a shower before sleeping 
+  - Another plan showing the character setting an alarm to take a shower early morning instead 
+  - Another plan showing not to take a show
 
-For sleep activities:
-- Use ONLY concrete physical descriptions such as: "Continue sleeping deeply", "Turn to the right side while sleeping", "Sleep in a fetal position", "Breathe steadily while in deep sleep", "Remain motionless in REM sleep phase"
-- AVOID subjective internal states like "dream about X" or "think about Y while sleeping"
-
-Each action description must:
-1. Be physically observable by someone in the same room
-2. Use present tense for current actions
-3. Describe a SINGLE specific action or state, not multiple actions
-4. Avoid ambiguity or interpretations that could have multiple meanings
-
-For example, instead of "Dream about the vibrant studio you'll create", use "Sleep peacefully in bed with regular breathing patterns".
+Each plan must be: 
+- A standalone, physically observable behavior 
+- A complete alternative rather than sequential steps 
+- Realistic for the character and situation 
+- Specific to current time, location, and context Present these as distinct alternative possibilities rather than as sequential steps in a single storyline. These alternatives represent different choices the character might make at this exact moment. 
+-  Expressed in minimalist language (3-6 words when possible) 
+- No adverbs, minimal adjectives 
+- No explanations of reasoning or motivation. Just the core physical plan in simplest form
 
 Please format your response as a JSON list of strings, exactly as shown below. Do not include any additional text outside the JSON array:
 
 [
-  {{"description": "action description"}},
-  {{"description": "action description"}},
-  {{"description": "action description"}},
-  {{"description": "action description"}},
-  {{"description": "action description"}}
+  {{"description": "plan description"}},
+  {{"description": "plan description"}},
+  {{"description": "plan description"}},
+  {{"description": "plan description"}},
+  {{"description": "plan description"}}
 ]

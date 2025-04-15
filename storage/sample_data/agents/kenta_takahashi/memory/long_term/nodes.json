@@ -1,1 +1,44 @@
-{}
+{
+  "node_2": {
+    "node_count": 2,
+    "type_count": 2,
+    "type": "event",
+    "depth": 0,
+    "created": "2024-04-01 00:00:00",
+    "description": "Kenta Takahashi wakes up and prepares for a productive day, indicating a desire to be active and engaged even amidst mixed emotions.",
+    "keywords": [
+      "unique keywords",
+      "organizations",
+      "proper nouns",
+      "places",
+      "objects of importance",
+      "names of people",
+      "context"
+    ],
+    "importance": 0.5,
+    "freshness": 1.0,
+    "time_id": null,
+    "timestamp": null
+  },
+  "node_1": {
+    "node_count": 1,
+    "type_count": 1,
+    "type": "event",
+    "depth": 0,
+    "created": "2024-04-01 00:00:00",
+    "description": "Kenta Takahashi wakes up and prepares for a productive day, indicating a desire to be active and engaged even amidst mixed emotions.",
+    "keywords": [
+      "Unique keywords",
+      "Proper nouns",
+      "organizations",
+      "places",
+      "objects of importance",
+      "names of people",
+      "context"
+    ],
+    "importance": 0.5,
+    "freshness": 1.0,
+    "time_id": null,
+    "timestamp": null
+  }
+}

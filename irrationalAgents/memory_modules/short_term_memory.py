@@ -154,7 +154,9 @@ class ShortTermMemory:
             duration_minutes = duration.total_seconds() / 60
             intervals = math.ceil(duration_minutes / 15)
 
-            plan["intervals"] = intervals
+            #plan["intervals"] = intervals
+            plan["intervals"] = f'{duration_minutes} minutes'
+
 
         return plans
 
