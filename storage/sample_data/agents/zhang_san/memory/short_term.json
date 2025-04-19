@@ -1,7 +1,6 @@
 {
   "age": 27,
-  "current_status": null,
-  "current_location": null,
+  "current_location": "co-living space:B room:sp-B",
   "short_term_goal_capacity": 3,
   "short_term_goal": [
     {
@@ -10,109 +9,209 @@
     }
   ],
   "short_memory_capacity": 30,
-  "short_memory_for_plan": [],
-  "daily_plan_req": [
+  "short_memory_for_plan": [
     {
-      "time": "10:00",
-      "activity": "Wake up and stretch",
+      "time": "00:00",
+      "date": "2024-04-01",
       "moccupying": 1,
-      "intervals": 1
-    },
-    {
-      "time": "10:15",
-      "activity": "Personal hygiene",
-      "moccupying": 1,
-      "intervals": 2
-    },
-    {
-      "time": "10:45",
-      "activity": "Prepare and have breakfast",
-      "moccupying": 1,
-      "intervals": 2
-    },
-    {
-      "time": "11:15",
-      "activity": "Spend time with Bobo and Langley (play and feed)",
-      "moccupying": 2,
-      "intervals": 3
-    },
-    {
-      "time": "12:00",
-      "activity": "Review design trends online",
-      "moccupying": 3,
-      "intervals": 4
-    },
-    {
-      "time": "13:00",
-      "activity": "Lunch break",
-      "moccupying": 1,
-      "intervals": 2
-    },
-    {
-      "time": "13:30",
-      "activity": "Work on interior designs for the seaside hotel",
-      "moccupying": 3,
-      "intervals": 10
-    },
-    {
-      "time": "16:00",
-      "activity": "Attend a virtual industry seminar",
-      "moccupying": 2,
-      "intervals": 6
-    },
-    {
-      "time": "17:30",
-      "activity": "Connect with classmates Wang Wu and Zhao Liu",
-      "moccupying": 2,
-      "intervals": 2
-    },
-    {
-      "time": "18:00",
-      "activity": "Dinner preparation and eating",
-      "moccupying": 1,
-      "intervals": 4
-    },
-    {
-      "time": "19:00",
-      "activity": "Relax and watch design documentaries",
-      "moccupying": 1,
-      "intervals": 4
-    },
-    {
-      "time": "20:00",
-      "activity": "Work on establishing design studio plans",
-      "moccupying": 3,
-      "intervals": 8
-    },
-    {
-      "time": "22:00",
-      "activity": "Plan next surfing trip with Li Si",
-      "moccupying": 2,
-      "intervals": 4
-    },
-    {
-      "time": "23:00",
-      "activity": "Wind down with a book about interior design",
-      "moccupying": 1,
-      "intervals": -92
+      "description": "seeing events: [], items: {'bed', 'closet'}, npcs: ['Zhang San']"
     },
     {
       "time": "00:00",
-      "activity": "Groom Bobo and Langley",
-      "moccupying": 2,
-      "intervals": 4
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San thought about: Go to sleep immediately in bed.",
+      "emotion": [
+        7,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2
+      ]
+    },
+    {
+      "time": "00:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'bed', 'closet'}, npcs: ['Zhang San']"
+    },
+    {
+      "time": "00:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San thought about: Go to sleep immediately in bed.",
+      "emotion": [
+        7,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2
+      ]
+    },
+    {
+      "time": "00:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'bed', 'closet'}, npcs: ['Zhang San']"
+    },
+    {
+      "time": "00:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with apartment D:bathroom:items:shower: taking a refreshing shower before bed",
+      "emotion": [
+        7,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2
+      ]
+    },
+    {
+      "time": "00:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'bed', 'closet'}, npcs: ['Zhang San']"
+    },
+    {
+      "time": "00:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with apartment D:bathroom:items:shower: enjoying a refreshing shower before bed",
+      "emotion": [
+        7,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2
+      ]
     },
     {
       "time": "01:00",
-      "activity": "Reflect on daily achievements and goals",
-      "moccupying": 3,
-      "intervals": 4
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'bed', 'closet'}, npcs: ['Zhang San']"
     },
     {
-      "time": "02:00",
-      "activity": "Go to sleep",
+      "time": "01:00",
+      "date": "2024-04-01",
       "moccupying": 1,
-      "intervals": 88
+      "description": "Zhang San interacted with apartment D:bathroom:items:shower: taking a refreshing shower, enjoying the moment",
+      "emotion": [
+        7,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2
+      ]
+    }
+  ],
+  "daily_plan_req": [
+    {
+      "time": "00:00",
+      "activity": "Sleep",
+      "moccupying": 1,
+      "intervals": "420.0 minutes"
+    },
+    {
+      "time": "07:00",
+      "activity": "Wake up and Morning Hygiene (brush teeth, shower, etc.)",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "07:30",
+      "activity": "Breakfast (light meal, possibly with Bobo and Langley)",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "08:00",
+      "activity": "Playtime with cats in the garden",
+      "moccupying": 2,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "08:30",
+      "activity": "Creative brainstorming for dorm redesign project",
+      "moccupying": 3,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "09:30",
+      "activity": "Work on design sketches for the common room",
+      "moccupying": 3,
+      "intervals": "90.0 minutes"
+    },
+    {
+      "time": "11:00",
+      "activity": "Visit local market (grocery shopping)",
+      "moccupying": 2,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "12:00",
+      "activity": "Lunchtime (prepare and enjoy a meal)",
+      "moccupying": 1,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "13:00",
+      "activity": "Work on redesigning co-living and dorm interiors",
+      "moccupying": 3,
+      "intervals": "300.0 minutes"
+    },
+    {
+      "time": "18:00",
+      "activity": "Wrap up work and plan goals for the next day",
+      "moccupying": 2,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "18:30",
+      "activity": "Dinner (possibly with friends or fellow designers)",
+      "moccupying": 2,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "19:30",
+      "activity": "Attend hobby group meeting for diving preparation",
+      "moccupying": 2,
+      "intervals": "90.0 minutes"
+    },
+    {
+      "time": "21:00",
+      "activity": "Leisure time (reading or playing guitar)",
+      "moccupying": 1,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "22:00",
+      "activity": "Relax with cats (watching TV or playing)",
+      "moccupying": 2,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "23:00",
+      "activity": "Reflection on day and preparation for tomorrow",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "23:30",
+      "activity": "Sleep preparation",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
     }
   ],
   "short_memory": [
@@ -120,85 +219,19 @@
       "time": "00:00",
       "date": "2024-04-01",
       "moccupying": 1,
-      "description": "cold"
-    },
-    {
-      "time": "00:00",
-      "date": "2024-04-01",
-      "moccupying": 2,
-      "description": "Zhang San chatted with Li Si: Hey! How about a video call tomorrow to finalize our Hainan plans? I'm so excited!"
-    },
-    {
-      "time": "00:00",
-      "date": "2024-04-01",
-      "moccupying": 2,
-      "description": "Zhang San interacted with others: Play with Bobo and Langley, enhancing their playtime experience as a way to relax and enjoy company."
+      "description": "I thought about: Go to sleep immediately in bed."
     },
     {
       "time": "00:00",
       "date": "2024-04-01",
       "moccupying": 1,
-      "description": "Zhang San set up a comfortable spot for the video call with Li Si, ensuring good lighting and minimal distractions."
-    },
-    {
-      "time": "00:00",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "Zhang San chatting with Li Si: Hey! I've gathered notes on the best surfing spots. Let's finalize everything during our call tomorrow!",
-      "emotion": [
-        4,
-        0,
-        0,
-        0,
-        1,
-        0,
-        5
-      ]
-    },
-    {
-      "time": "00:15",
-      "date": "2024-04-01",
-      "moccupying": 2,
-      "description": "Zhang San chatted with Li Si: Hey! I've gathered notes on the best surfing spots. Let's finalize everything during our call tomorrow!"
+      "description": "I thought about: Go to sleep immediately in bed."
     },
     {
       "time": "00:15",
       "date": "2024-04-01",
       "moccupying": 1,
-      "description": "Zhang San is thinking about the excitement and preparations for the upcoming surfing adventure with Li Si."
-    },
-    {
-      "time": "00:15",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "Zhang San chatting with Li Si: Can’t wait for our call! I think we’ll find some amazing spots to surf together.",
-      "emotion": [
-        5,
-        1,
-        0,
-        0,
-        1,
-        0,
-        3
-      ]
-    },
-    {
-      "time": "00:30",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "cold"
-    },
-    {
-      "time": "00:30",
-      "date": "2024-04-01",
-      "moccupying": 2,
-      "description": "Zhang San chatted with Li Si: Hey! I've gathered notes on the best surfing spots. Let's finalize everything during our call tomorrow!"
-    },
-    {
-      "time": "00:30",
-      "date": "2024-04-01",
-      "moccupying": 2,
-      "description": "Zhang San is thinking about the excitement and preparations for the upcoming surfing adventure with Li Si."
+      "description": "I moved about: Dorm for College:A room:spaces:sp-A."
     }
   ],
   "basic_needs": {

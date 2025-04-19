@@ -5,14 +5,14 @@ Plan: {plan}
 Recent Events: {recent_events}
 Current Time: {current_time}
 Current Date: {current_date}
-Based on the information above, generate a realistic conversation between {agent_name} and others. The conversation should:
+Based on the information above, generate a realistic conversation between {agent_name} and others(who agent can see). The conversation should:
 
-Follow the given plan and make the conversation 
+Follow the given plan and make only one conversation 
 If you had a conversation 15 minutes ago in Recent Event, please answer in a way that naturally connects to that conversation
 Take into account the personality and emotion
 Be natural and engaging and no longer than 20 words
 
-Please format the conversation as follows:
+Please format the a conversation as follows:
 [
     "{agent_name}",
     "[The person or thing the action is directed towards]",

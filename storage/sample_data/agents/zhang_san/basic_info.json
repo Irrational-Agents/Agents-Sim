@@ -4,11 +4,11 @@
   "spawn": "co-living space:B room:sp-B",
   "character": "C019",
   "description": [
-    "Interior architect specializing in oceanic minimalist designs",
-    "Night owl who works 13:00-18:00 on seaside hotel projects",
-    "Owner of two Maine Coon cats (Bobo & Langley)",
-    "Regular diving with groups",
-    "Dreams of a Hainan beachfront villa-studio"
+    "Interior architect specializing in cozy shared living spaces and adaptive reuse",
+    "Work 13:00-18:00 redesigning co-living and dorm interiors for young professionals",
+    "Owner of two Maine Coon cats (Bobo & Langley), often seen in the dorm garden",
+    "Enjoys diving at the nearby park's artificial lake with local hobby groups",
+    "Dreams of transforming an old dorm wing into a modern creative studio-home"
   ],
   "personality_traits": {
     "openness": 9,
@@ -85,12 +85,12 @@
   ],
   "goals": [
     {
-      "long_term": "Oceanfront live-work villa"   
+      "long_term": "Oceanfront live-work villa"
     },
     {
       "mid_term": [
         {
-          "description": "Launch boutique design studioLaunch boutique design studio",
+          "description": "Launch boutique design studio in the co-living district",
           "deadline": "2027-07-31"
         }
       ]
@@ -99,21 +99,21 @@
   "social_relationships": {
     "social_relationships": {
       "Kenta Takahashi": {
-        "relationship": "Design collaborator",
-        "closeness": 6
+        "relationship": "Community activity partner",
+        "closeness": 7
       },
       "Sakura Sato": {
         "relationship": "Language exchange partner",
-        "closeness": 3
+        "closeness": 4
       },
-      "yuriko_yamamoto": {
+      "Yuriko Yamamoto": {
         "relationship": "Stranger",
         "closeness": 1
       }
     }
   },
   "important_memories": {
-    "first_design_project": "Completing his first independent interior design project, with the client praising his use of ocean elements",
-    "cats_arrival": "Adopting two Maine Coon cats, Bobo and Langley, from a shelter, bringing life to his apartment"
-     }
+    "first_design_project": "Redesigning the common room in Dorm for College with reclaimed wood and soft lighting",
+    "cats_arrival": "Adopting two Maine Coon cats, Bobo and Langley, who now love lounging in the dorm's garden"
+  }
 }

@@ -5,7 +5,7 @@ import datetime, os, json
 from collections import defaultdict
 
 class LongTermMemory:
-    def __init__(self, store_path=""):
+    def __init__(self, store_path="rag_vector_store"):
         self.store_path = store_path
         self.embedding_model = OpenAIEmbeddings()
         self.keyword_strength = defaultdict(int)
@@ -102,11 +102,13 @@ class LongTermMemory:
             doc for doc in all_docs
             if doc.metadata.get("type") == "event" and "created" in doc.metadata
         ]
+        # 转换为 datetime 排序
         events.sort(
             key=lambda d: datetime.datetime.strptime(d.metadata["created"], "%Y-%m-%d %H:%M:%S"),
             reverse=True
         )
         return set([doc.page_content for doc in events[:retention]])
+
 
     def dump_all_documents(self):
         return self.vector_store.similarity_search("all", k=1000)

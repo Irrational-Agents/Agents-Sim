@@ -4,20 +4,16 @@ from prompt.llm_command_list import *
 
 def stimulus(agent, events):
 
-    percept_events_set = set()
-    percept_events_list = []
-    
+    for description in events:
 
-    for event in events:
-        # todo: 
-        # if its new day, then no events will be triggered
-        # only need to append percept_object_list
-        #description = f"Kenta Takahashi chatted with Sato Sakura:'{event}'"
-        description = event
-        percept_events_list.append(description)
-
-    # form short memory and add memory to short memory stream
-    agent.short_memory.add_short_memory(form_short_memory(agent, percept_events_list))
+        # form short memory and add memory to short memory stream
+        percept_entry = {
+            "time": agent.short_memory.curr_time,
+            "date": agent.short_memory.curr_date,
+            "moccupying": 1,
+            "description": description
+        }
+        agent.short_memory.add_short_memory_4_plan([percept_entry])
     
     # determine_thinking_system()
     return "sys1"
@@ -26,27 +22,6 @@ def stimulus(agent, events):
 
 def incident():
     return
-
-def form_short_memory(agent, percept_events_list):
-    short_memory_list = generate_short_memory(agent.name, get_complex_mood(agent.short_memory.emotion_memory[-1]), agent.short_memory.personality_text, agent.relationships, agent.short_memory.recent_events, percept_events_list)
-    if not short_memory_list:
-        return []
-    
-    agent.short_memory.emotion_memory.append(short_memory_list['new_emotion'])
-    new_entries = []
-
-    for short_memory in short_memory_list['new_entries']:
-
-        new_entry = {
-            "time": agent.short_memory.curr_time,
-            "date": agent.short_memory.curr_date,
-            "moccupying": short_memory['type'], 
-            "description": short_memory['description'],
-        }
-        new_entries.append(new_entry)
-    
-    return new_entries
-
 
     
 def retrieve(agent, perceived): 

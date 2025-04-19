@@ -12,7 +12,3 @@ Based on the above information, generate a detailed daily routine plans for {age
 - moccupying is activity type set to be peripheral:1, conversational:2 or inferential:3 information
 
 Make sure the plan accounts for {agent_name}’s emotional state, previously(if has), and their long-term and mid-term goals.
-
-Please format your response as a JSON list of strings, like below. Do not include any additional text, markdown formatting, or explanations outside the JSON array:
-
-[{{"time": "16:00","activity": "an activity example","moccupying": 1}}]

@@ -12,6 +12,9 @@ Description format: Agent A 'action' B: detailes
 
 
 def action(agent, next_action):
+    if not next_action:
+        logger.error(f"No next action for agent {agent.name}")
+        return
     action_type = next_action['action']
     description = next_action['description']
 
@@ -38,13 +41,10 @@ def handle_think(agent, description, recent_events_text):
         "date": agent.short_memory.curr_date,
         "moccupying": 1,
         "description": f"{agent.name} thought about: {thoughts}",
-        "emotion": {
-            "type": "contemplative",
-            "intensity": 4
-        }
+         "emotion": agent.short_memory.emotion_memory[-1]
     }
-    agent.short_memory.add_short_memory([new_entry])
-    logger.info(f"{agent.name} Thought new entry: {new_entry}")
+    agent.short_memory.add_short_memory_4_plan([new_entry])
+    logger.info(f"{agent.name} thought new entry: {new_entry}")
     return f"{thoughts}"
 
 
@@ -60,8 +60,8 @@ def handle_chat(agent, description, recent_events_text):
         "description": f"{conv[0]} chatting with {conv[1]}: {conv[2]}",
         "emotion": agent.short_memory.emotion_memory[-1]
     }
-    agent.short_memory.add_short_memory([new_entry])
-    logger.info(f"{agent.name} Chatting with new entry: {new_entry}")
+    agent.short_memory.add_short_memory_4_plan([new_entry])
+    logger.info(f"{agent.name} chatted with {conv[2]} new entry: {new_entry}")
     return conv
 
 
@@ -80,20 +80,20 @@ def handle_interact(agent, description):
         }
     }
     '''
+    interaction = generate_interaction(agent.name, agent.formed_profile, get_complex_mood(
+        agent.short_memory.emotion_memory[-1]), agent.short_memory.recent_events, description, agent.short_memory.curr_time, agent.short_memory.curr_date)
+
     new_entry = {
-        "time": agent.short_memory.curr_date,
+        "time": agent.short_memory.curr_time,
         "date": agent.short_memory.curr_date,
         "moccupying": 1,
-        "description": f"{agent.name} interacted with other: {description}",
-        "emotion": {
-            "type": "engaged",
-            "intensity": 5
-        }
+        "description": f"{agent.name} interacted with {interaction[1]}: {interaction[2]}",
+        "emotion": agent.short_memory.emotion_memory[-1]
     }
 
-    agent.short_memory.add_short_memory([new_entry])
-    logger.info(f"{agent.name} Interacted with {new_entry}")
-    return f"{description}"
+    agent.short_memory.add_short_memory_4_plan([new_entry])
+    logger.info(f"{agent.name} interacted with {interaction[1]}: new entry: {new_entry}")
+    return f"{interaction}"
 
 
 def handle_move(agent, description):
@@ -103,10 +103,7 @@ def handle_move(agent, description):
         "date": agent.short_memory.curr_date,
         "moccupying": 1,
         "description": f"{agent.name} moved to {description}",
-        "emotion": {
-            "type": "neutral",
-            "intensity": 3
-        }
+        "emotion": agent.short_memory.emotion_memory[-1]
     }
     '''
     # Using LLM obtains the destination in natural language form.
@@ -118,13 +115,10 @@ def handle_move(agent, description):
         "date": agent.short_memory.curr_date,
         "moccupying": 1,
         "description": f"{agent.name} moved: {destination}",
-        "emotion": {
-            "type": "neutral",
-            "intensity": 3
-        }
+        "emotion": agent.short_memory.emotion_memory[-1]
     }
 
-    agent.short_memory.add_short_memory([new_entry])
+    agent.short_memory.add_short_memory_4_plan([new_entry])
     logger.info(f"{agent.name} Moved to new entry: {new_entry}")
     return f"{destination}"
 
@@ -135,12 +129,9 @@ def handle_unknown_action(agent, action_type, description):
         "date": agent.short_memory.curr_date,
         "moccupying": 1,
         "description": f"{agent.name} did: {action_type} - {description}",
-        "emotion": {
-            "type": "confused",
-            "intensity": 4
-        }
+        "emotion": agent.short_memory.emotion_memory[-1]
     }
 
-    agent.short_memory.add_short_memory([new_entry])
+    agent.short_memory.add_short_memory_4_plan([new_entry])
     logger.info(f"{agent.name} Attempted unknown action: {new_entry}")
     return f"Attempted unknown action: {action_type} - {description}"

@@ -16,11 +16,11 @@ class UnityHandlers:
         self.npc_status = None
         self.player_status = None
         self.world = None
-        self.agent_manager = None
-
+        
     def update(self, data: Dict[str, Any]):
         """Handle updates from the client."""
         logger.info(f"ui-tick: {data}")
+        
         try:
             self.clock = int(data['clock'])
             self.npc_status = data['npc_status']
@@ -30,43 +30,14 @@ class UnityHandlers:
                 logger.debug("initialize")
                 self.map_data = data['map_data']
                 self.world = WorldState(self.map_data)
+                self.clock += 1
                 self.unity_request.send_server_tick(1, None)
                 return
-
+                
             # MAIN LOOP
-            # update agent positions
-            # update world state
-            # process events to npc
-            # update tile according to agent information
-
-            self.world.update_status(self.npc_status)
-            updates = self.world.tick_world()
-            updates = {
-                "Kenta Takahashi": {
-                    "activity": "move",
-                    "path": self.world.path_planner.create_path(
-                        (53, 14), (93, 74))
-                },
-                "Sakura Sato": {
-                    "activity": "move",
-                    "path": self.world.path_planner.create_path(
-                        (126, 46), (93, 74))
-                }
-            }
-
-            updates_c = {
-                "Kenta Takahashi": {
-                    "activity": "move",
-                },
-                "Sakura Sato": {
-                    "activity": "move",
-                }
-            }
-
-            if "Kenta Takahashi" in self.npc_status:
-                if self.npc_status["Kenta Takahashi"]['state']['activity'] == "move":
-                    self.unity_request.send_server_tick(1, updates_c)
-                    return
+            updates = self.world.tick_world(self.npc_status)
+            
+            self.clock += 1
             self.unity_request.send_server_tick(1, updates)
 
         except ValueError as e:

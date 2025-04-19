@@ -3,13 +3,13 @@ import os
 from typing import Dict, Any, Optional, Tuple, List
 
 from memory_modules.long_term_memory import LongTermMemory
-from memory_modules.short_term_memory import ShortTermMemory
+from memory_modules.short_term_memory import ShortTermMemory, form_short_memory
 from config.common_method import convert_name2id, profile_to_narrative
 from agents_modules.stimulus import stimulus
 from agents_modules.behavior.plan import plan
 from agents_modules.behavior.plan_evaluation import plan_evaluation
 from agents_modules.behavior.action import action
-from agents_modules.personality.cognition import cognition
+from agents_modules.personality.cognition import cognition, growth
 from agents_modules.personality.emotion import emotion
 from agents_modules.personality.personality import generate_personality
 from config.logger_config import setup_logger
@@ -17,6 +17,7 @@ from config import config
 
 logger = setup_logger('Agent')
 
+agent_manager  = None
 
 class Agent:
     def __init__(self, basic_info: Dict[str, Any], memory_folder_path: Optional[str] = None):
@@ -74,9 +75,8 @@ class Agent:
     def cognition(self) -> Dict[str, Any]:
         """Perform cognitive processing."""
         return cognition(self)
-
-    def growth(self) -> None:
-        """Handle agent growth and development."""
+    
+    def growth(self) -> Dict[str, Any]:
         return growth(self)
 
     def move(self, curr_time: Any, event: Any) -> Optional[Tuple[Any, str]]:
@@ -95,25 +95,27 @@ class Agent:
 
         # Handle new day logic
         new_day = False
-        if not self.short_memory.curr_datetime:
-            new_day = "First day"
-            self.short_memory.short_memory = []
-        elif (self.short_memory.curr_datetime.strftime('%A %B %d') != 
+        if not self.short_memory.curr_datetime or (self.short_memory.curr_datetime.strftime('%A %B %d') != 
               curr_time.strftime('%A %B %d')):
-            new_day = "New day"
+            new_day = True
 
         # Update time tracking
         self.short_memory.curr_datetime = curr_time
         self.short_memory.curr_time = curr_time.strftime('%H:%M')
         self.short_memory.curr_date = curr_time.strftime('%Y-%m-%d')
-
-        # Handle new day memory operations
+        # Handle new day operations for cognitive growth
         if new_day:
-            logger.debug(f"Agent {self.name} old memory decaying")
+            logger.debug(f"New day for Agent {self.name}")
+            
+            self.short_memory.add_short_memory(form_short_memory(self))
+            self.short_memory.save(self.short_memory)
+            self.short_memory.short_memory_for_plan = []
+
             self.long_memory.update_all_freshness(curr_time)
-            logger.debug(f"Agent {self.name} new memory reflecting")
             self.short_memory.organize_memory(self.long_memory)
             self.short_memory.cleanup_short_memory()
+            self.long_memory.save(self.long_memory)
+            #self.growth(self.cognition())
 
         # Process stimulus
         stimulus_result = self.stimulus(events)
@@ -129,10 +131,10 @@ class Agent:
             best_plan = self.plan_evaluation(plan_list)
             logger.info(f"{self.name}'s best_plan: {best_plan}")
 
-            self.short_memory.save(self.short_memory)
             description = self.action(best_plan)
             return best_plan.get('action', None), description
-
+        
+        #self.growth(self.cognition())
         return None
 
 
@@ -183,49 +185,83 @@ class AgentManager:
             logger.error(f"Error loading agent {name} info: {str(e)}")
             return None, None
 
-    def get_all_agents_positions(self) -> Dict[str, Any]:
-        """Get current positions of all agents."""
-        return {
-            agent_name: agent.short_memory.current_status.get('position')
-            for agent_name, agent in self.agents.items()
-            if agent.short_memory.current_status.get('position')
+    def save_agents(self) -> None:
+        for _, agent in self.agents.items():
+            agent.short_memory.save(agent.short_memory)
+    
+    def generate_agent_snapshot(self, agent, action=None, description=None, step=None, position=None, time=None, location=None, **kwargs):
+        if time is None:
+            time = agent.short_memory.curr_datetime
+        if location is None:
+            location = agent.short_memory.current_location
+
+        ret =   {
+            "state": {
+                    "activity": action,
+                    "description": description
+                },
+            "time": time,
+            "step": step,
+            "location": location,
+            "position": position
         }
 
-    def write_agent_status(self, agent_name: str, status: Dict[str, Any]) -> Dict[str, Any]:
+        logger.debug(f"Agent {agent.name} snapshot: {ret}")
+        return ret
+
+    def get_all_agents_positions(self, global_time) -> Dict[str, Any]:
+        file_path = global_time.strftime('%Y-%m-%d')
+        index_ = global_time.strftime('%H:%M:%S')
+        """Get current positions of all agents."""
+        status_dict = {}
+        for agent_name, _ in self.agents.items():
+            status = self.get_agent_current_status(agent_name, file_path, index_)
+            if status:
+                status_dict[agent_name] = status.get('position')
+
+        return status_dict
+
+    def write_agent_status(self, agent_name: str, global_time, status: Dict[str, Any]) -> Dict[str, Any]:
         """Update agent's status in storage."""
+        file_path = global_time.strftime('%Y-%m-%d')
+        index_ = global_time.strftime('%H:%M:%S')
+
         file_path = os.path.join(
             config.NPC_STORAGE_BASE_PATH,
-            f'agents/{convert_name2id(agent_name)}/memory/short_term.json'
+            f'agents/{convert_name2id(agent_name)}/snapshots/{file_path}.json'
         )
+        data = {}
+        if os.path.exists(file_path):
+            try:
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+            except json.JSONDecodeError:
+                data = {}
+        else:
+            data = {}
 
-        try:
-            with open(file_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
+        if not isinstance(data, dict):
+            data = {}
 
-            data['current_status'] = status
+        data[index_] = status
 
-            with open(file_path, 'w', encoding='utf-8') as f:
-                json.dump(data, f, ensure_ascii=False, indent=4)
+        # 写入更新后的数据
+        with open(file_path, 'w', encoding='utf-8') as f:
+            json.dump(data, f, ensure_ascii=False, indent=4)
 
-            return status
-        except Exception as e:
-            logger.error(f"Error writing status for agent {agent_name}: {str(e)}")
-            raise
-
-    def get_agent_current_status(self, agent_name: str) -> Dict[str, Any]:
+    def get_agent_current_status(self, agent_name: str, file_path, index_) -> Dict[str, Any]:
         """Get current status of specified agent."""
         file_path = os.path.join(
             config.NPC_STORAGE_BASE_PATH,
-            f'agents/{agent_name}/memory/short_term.json'
+            f'agents/{convert_name2id(agent_name)}/snapshots/{file_path}.json'
         )
         
         try:
             with open(file_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
-                return data['current_status']
+                return data.get(str(index_), {})
         except Exception as e:
             logger.error(f"Error getting status for agent {agent_name}: {str(e)}")
-            raise
 
     def get_agent_psychological_status(self, agent_name: str) -> Optional[Dict[str, Any]]:
         """Get psychological status of specified agent."""
@@ -266,3 +302,12 @@ class AgentManager:
         if storage:
             # TODO: Implement storage cleanup
             pass
+
+
+
+def init_agent_manager():
+    global agent_manager
+    agent_manager = AgentManager()
+
+def get_agent_manager():
+    return agent_manager

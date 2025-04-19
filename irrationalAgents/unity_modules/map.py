@@ -120,11 +120,11 @@ class Map:
                     "npc": '_'
                 }
 
-                # Add default event for items
-                if tile_details["item"]:
-                    items_str = tile_details["item"]
-                    event_items = f'can_use:{items_str}'
-                    tile_details["events"].add((event_items))
+                # Add default event for items No need
+                # if tile_details["item"]:
+                #     items_str = tile_details["item"]
+                #     event_items = f'can_use:{items_str}'
+                #     tile_details["events"].add((event_items))
 
                 row.append(tile_details)
             tiles.append(row)
@@ -275,6 +275,11 @@ class Map:
             logger.info(f"Event {event} added to tile {tile}.")
         else:
             logger.error(f"Invalid tile coordinate: {tile}")
+
+    def remove_all_event_from_tiles(self):
+        for x in range(self.maze_height):
+            for y in range(self.maze_width):
+                self.tiles[x][y]["events"] = set()
 
     def remove_event_from_tile(self, tile, event):
         """

@@ -1,0 +1,36 @@
+Agent: {agent_name}
+Agent profile: {agent_profile}
+Current emotion: {current_emotion}
+Plan: {plan}
+Recent Events: {recent_events}
+Current Time: {current_time}
+Current Date: {current_date}
+
+Please select the most suitable item from the following list that best matches the given plan, and return the complete path of that item (e.g., "apartment E:bathroom:items:bathroom sink"). Each item is separated by \n. Make your selection based on the nature of the planned activity, space requirements, and functional compatibility.
+
+Items List: {{items}}
+
+First analyze the requirements of the plan, then identify the most appropriate item from the list. If there are multiple potential options, please select the one that best meets the requirements. Provide just the complete item path with no additional explanation.
+
+
+Based on the information above, generate a interaction between {agent_name} and {_context}. The interaction should:
+
+Follow the given plan and make only one interaction 
+Take into account the personality and emotion
+Be natural and engaging and no longer than 10 words
+
+Please format the a conversation as follows:
+[
+    "{agent_name}",
+    "[The item you choose]",
+    "[Brief description of the interaction in an objective and observable manner, maximum 10 words]"
+]
+
+output examples:
+
+[
+    "{agent_name}",
+    "house E:empty bedroom:items:guitar",
+    "playing guitar for fun"
+]
+

@@ -3,49 +3,23 @@ from openai import OpenAI
 import json
 from langsmith import traceable
 from langsmith.wrappers import wrap_openai
-from config.config import PROMPT_FILE_PATH
 from config.logger_config import setup_logger
+from config.config import PROMPT_FILE_PATH
+from prompt.prompt_runner import run_prompt_task
 
 logger = setup_logger(__name__)
 
 api_key = os.getenv('OPENAI_API_KEY')
 client = wrap_openai(OpenAI(api_key=api_key))
 
-
-def _load_background(type_):
-    with open(PROMPT_FILE_PATH + f'map_{type_}.txt', 'r', encoding='utf-8') as f:
+def load_background(type_):
+    with open(PROMPT_FILE_PATH + f'map/map_{type_}.txt', 'r', encoding='utf-8') as f:
         map = f.read()
     return map
 
-@traceable(name="generative_agent")
-def generative_agent(system_content, user_content, max_retries=3):
-    try:
-        completion = client.chat.completions.create(
-            model="gpt-4o-mini-2024-07-18",
-            messages=[
-                {
-                "role": "system",
-                "content": system_content
-                },
-                {
-                "role": "user",
-                "content": user_content
-                }
-            ]
-        )
-        return completion.choices[0].message.content
-    except Exception as e:
-        logger.error(f"Error in generative_agent: {e}")
-        return None
-
 @traceable(name="generate_plan")
 def generate_plan(agent_name, agent_profile, current_emotion, recent_events, current_time, current_date, daily_plan=None):
-    with open(PROMPT_FILE_PATH + 'plan_prompt.txt', 'r') as file:
-        prompt_template1 = file.read()
-    with open(PROMPT_FILE_PATH + 'action_prompt.txt', 'r') as file:
-        prompt_template2 = file.read()
-
-    prompt1 = prompt_template1.format(
+    return run_prompt_task("generate_plan",
         agent_name=agent_name,
         agent_profile=agent_profile,
         current_emotion=current_emotion,
@@ -53,53 +27,21 @@ def generate_plan(agent_name, agent_profile, current_emotion, recent_events, cur
         current_time=current_time,
         current_date=current_date,
         daily_plan=daily_plan,
-        _context=_load_background('context')
-    )
-    
-    system_content = "You are an AI assistant tasked with creating plans based on recent events and current context."
-    response = generative_agent(system_content, prompt1)
-    prompt2 = prompt_template2.format(
-        description_list=json.loads(response)
-    ) 
-    response = generative_agent(system_content, prompt2)
-    logger.debug(f"agent {agent_name} plan response: {response}")
-    try:
-        parsed_response = json.loads(response)
-        return parsed_response
-    except json.JSONDecodeError:
-        logger.error("Error: Invalid JSON format in response.")
-        return None
+        _context=load_background('details'))
 
 @traceable(name="generate_daily_plan")
 def generate_daily_plan(agent_name, agent_profile, current_emotion, previous, current_date):
-    with open(PROMPT_FILE_PATH + 'daily_plan_prompt.txt', 'r') as file:
-        prompt_template = file.read()
-
-    prompt = prompt_template.format(
+    return run_prompt_task("generate_daily_plan",
         agent_name=agent_name,
         agent_profile=agent_profile,
         current_emotion=current_emotion,
         previous=previous,
         current_date=current_date,
-        _context=_load_background('context')
-    )
-
-    system_content = "You are an AI assistant tasked with generating a character's daily schedule by combining given information."
-    response = generative_agent(system_content, prompt)
-    logger.info(f"daily plan response: {response}")
-    try:
-        parsed_response = json.loads(response)
-        return parsed_response
-    except json.JSONDecodeError:
-        logger.error("Error: Invalid JSON format in response.")
-        return None
+        _context=load_background('details'))
 
 @traceable(name="generate_conversation")
 def generate_conversation(agent_name, agent_profile, current_emotion, plan, recent_events, current_time, current_date):
-    with open(PROMPT_FILE_PATH + 'conv_prompt.txt', 'r') as file:
-        prompt_template = file.read()
-    # @TODO here may stuck in infinite conversation loop
-    prompt = prompt_template.format(
+    return run_prompt_task('generate_conversation',
         agent_name=agent_name,
         agent_profile=agent_profile,
         current_emotion=current_emotion,
@@ -108,22 +50,10 @@ def generate_conversation(agent_name, agent_profile, current_emotion, plan, rece
         current_time=current_time,
         current_date=current_date
     )
-    
-    system_content = "You are an AI assistant tasked with generating brief, context-appropriate actions or conversations based on given plans and events."
-    response = generative_agent(system_content, prompt)
-    logger.info(f"conversation response: {response}")
-    try:
-        parsed_response = json.loads(response)
-        return parsed_response
-    except json.JSONDecodeError:
-        logger.error("Error: Invalid JSON format in response.")
-        return None
     
 @traceable(name="generate_thought")
 def generate_thought(agent_name, agent_profile, current_emotion, plan, recent_events, current_time, current_date):
-    with open(PROMPT_FILE_PATH + 'think_prompt.txt', 'r') as file:
-        prompt_template = file.read()
-    prompt = prompt_template.format(
+    return run_prompt_task('generate_thought',
         agent_name=agent_name,
         agent_profile=agent_profile,
         current_emotion=current_emotion,
@@ -133,21 +63,9 @@ def generate_thought(agent_name, agent_profile, current_emotion, plan, recent_ev
         current_date=current_date
     )
     
-    system_content = "You are an AI assistant tasked with generating the thought process for an NPC based on a given plan."
-    response = generative_agent(system_content, prompt)
-    logger.info(f"thinking response: {response}")
-    try:
-        parsed_response = json.loads(response)
-        return parsed_response
-    except json.JSONDecodeError:
-        logger.error("Error: Invalid JSON format in response.")
-        return None
-    
 @traceable(name="generate_move")
 def generate_move(agent_name, agent_profile, current_emotion,recent_events, plan, current_time, current_date):
-    with open(PROMPT_FILE_PATH + 'move_prompt.txt', 'r') as file:
-        prompt_template = file.read()
-    prompt = prompt_template.format(
+    return run_prompt_task('generate_move',
         agent_name=agent_name,
         agent_profile=agent_profile,
         current_emotion=current_emotion,
@@ -155,107 +73,51 @@ def generate_move(agent_name, agent_profile, current_emotion,recent_events, plan
         recent_events=recent_events,
         current_time=current_time,
         current_date=current_date,
-        _context=_load_background('context')
+        _context=load_background('spaces')
     )
-    
-    system_content = "You are an AI assistant tasked with generating the best destination based on the given plan and events."
-    response = generative_agent(system_content, prompt)
-    logger.info(f"move response: {response}")
-    try:
-        parsed_response = json.loads(response)
-        return parsed_response
-    except json.JSONDecodeError:
-        logger.error("Error: Invalid JSON format in response.")
-        return None
+
+@traceable(name="generate_interaction")
+def generate_interaction(agent_name, agent_profile, current_emotion,recent_events, plan, current_time, current_date):
+    return run_prompt_task('generate_interaction',
+        agent_name=agent_name,
+        agent_profile=agent_profile,
+        current_emotion=current_emotion,
+        plan=plan,
+        recent_events=recent_events,
+        current_time=current_time,
+        current_date=current_date,
+        _context=load_background('items')
+    )
     
 @traceable(name="generate_personality")
 def generate_personality(traits):    
-        with open(PROMPT_FILE_PATH + 'personality_prompt.txt', 'r') as file:
-            prompt_template = file.read()
+        traits_str = json.dumps(traits, indent=2) 
+        return run_prompt_task('generate_personality', traits=traits_str)
         
-        traits_str = json.dumps(traits, indent=2)
-        
-        prompt = prompt_template.format(traits=traits_str)
-        
-        system_content = "You are an AI assistant specialized in creating concise and insightful personality profiles based on given personality traits."
-        personality_profile = generative_agent(system_content, prompt)
-        logger.debug(f"personality profile: {personality_profile}")
-        return personality_profile
-
 @traceable(name="generate_short_memory")
-def generate_short_memory(agent_name, current_emotion, personality_traits, relationships, past_memories, perceived_events):
-    with open(PROMPT_FILE_PATH + 'short_memory_prompt.txt', 'r') as file:
-        prompt_template = file.read()
-    prompt = prompt_template.format(
+def generate_short_memory(agent_name, current_emotion, personality_traits, relationships, past_memories):
+    return run_prompt_task('generate_short_memory',
         agent_name=agent_name,
         current_emotion=current_emotion, 
         personality_traits=personality_traits,
         relationships=relationships,
-        past_short_term_memories=past_memories,
-        perceived_events=perceived_events
+        past_short_term_memories=past_memories
     )
-    
-    system_content = "You are an AI assistant tasked with updating an agent's short-term memory and emotional state based on perceived events and context."
-    response = generative_agent(system_content, prompt)
-    logger.info(f"agent {agent_name} short memory response: {response}")
-    try:
-        parsed_response = json.loads(response)
-        return parsed_response
-    except json.JSONDecodeError:
-        print("Error: Invalid JSON format in response.")
-        return None
     
 @traceable(name="extract_keywords")
 def extract_keywords_for_long_term_memory(description):
-    with open(PROMPT_FILE_PATH+ 'extract_keywords_prompt.txt', 'r') as file:
-            prompt = file.read()
-    prompt = prompt.format(
-        description=description
+    return run_prompt_task('extract_keywords',
+        text=description
     )
-    system_content = (
-        "You are an AI assistant that extracts important information from text. "
-        "Your goal is to identify significant names, proper nouns, locations, organizations, "
-        "and other key words that might be useful for long-term memory indexing. "
-        "Do not include sentiment (valence, arousal) analysis. "
-        "Do not include common filler words. "
-        "Return the answer as a JSON list of strings."
-    )
-
-    response = generative_agent(system_content, prompt)
-    logger.debug(response)
-    try:
-        parsed_response = json.loads(response)
-        if isinstance(parsed_response, list):
-            return parsed_response
-        else:
-            # If it's not a list, return empty or handle accordingly
-            return []
-    except json.JSONDecodeError:
-        logger.error("Error: Invalid JSON format in response.")
-        return []
-
+   
 @traceable(name="plans_selection")
 def plans_selection(plans, p_context, recent_events, biases=''):
-    with open(PROMPT_FILE_PATH + 'plans_selection_prompt.txt', 'r') as file:
-            prompt = file.read()
-    prompt = prompt.format(
+    return run_prompt_task('plans_selection',
         plans=plans,
         biases=biases,
         events=recent_events,
         context=p_context
     )
-    system_content = (
-        """You are an AI assistant designed to mimic human decision-making.\
-            Your task is to choose the most appropriate decision from a set of \
-                given plans based on a detailed profile of a person, \
-                    including their personality, past experiences, and biases."""
 
-    )
-
-    response = generative_agent(system_content, prompt)
-    logger.debug(response)
-    try:
-        return json.loads(response)
-    except json.JSONDecodeError:
-        logger.error("Error: Invalid JSON format in response.")
-        return plans[0]
+def gpt_analyze_memory(goals, memories):
+    pass
