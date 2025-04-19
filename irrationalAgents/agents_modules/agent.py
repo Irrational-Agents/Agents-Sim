@@ -9,7 +9,7 @@ from agents_modules.stimulus import stimulus
 from agents_modules.behavior.plan import plan
 from agents_modules.behavior.plan_evaluation import plan_evaluation
 from agents_modules.behavior.action import action
-from agents_modules.personality.cognition import cognition, growth
+from agents_modules.personality.cognition import cognition, growth, reflection
 from agents_modules.personality.emotion import emotion
 from agents_modules.personality.personality import generate_personality
 from config.logger_config import setup_logger
@@ -78,6 +78,9 @@ class Agent:
     
     def growth(self) -> Dict[str, Any]:
         return growth(self)
+    
+    def reflection(self, action: str, description: str) -> Dict[str, Any]:
+        return reflection(self, action, description)
 
     def move(self, curr_time: Any, event: Any) -> Optional[Tuple[Any, str]]:
         """
@@ -111,10 +114,12 @@ class Agent:
             self.short_memory.save(self.short_memory)
             self.short_memory.short_memory_for_plan = []
 
-            self.long_memory.update_all_freshness(curr_time)
+            if self.long_memory.vector_store is not None:
+                logger.debug(f"long term memory: {self.long_memory.vector_store}")
+                self.long_memory.update_all_freshness(curr_time)
+                
             self.short_memory.organize_memory(self.long_memory)
             self.short_memory.cleanup_short_memory()
-            self.long_memory.save(self.long_memory)
             #self.growth(self.cognition())
 
         # Process stimulus
@@ -132,10 +137,11 @@ class Agent:
             logger.info(f"{self.name}'s best_plan: {best_plan}")
 
             description = self.action(best_plan)
-            return best_plan.get('action', None), description
         
-        #self.growth(self.cognition())
-        return None
+        needs = self.reflection(best_plan.get('action', None), description)
+        logger.info(f"{self.name}'s reflection: {needs}")
+        return best_plan.get('action', None), description
+        
 
 
 class AgentManager:

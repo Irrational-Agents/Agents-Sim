@@ -13,8 +13,4 @@ Take into account the personality and emotion
 Be natural and engaging and no longer than 20 words
 
 Please format the a conversation as follows:
-[
-    "{agent_name}",
-    "[The person or thing the action is directed towards]",
-    "[Brief conversation, maximum 20 words]"
-]
+{{"person":"[The person for chatting]","description":"Brief conversation, maximum 20 words"}}

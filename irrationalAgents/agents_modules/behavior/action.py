@@ -41,7 +41,8 @@ def handle_think(agent, description, recent_events_text):
         "date": agent.short_memory.curr_date,
         "moccupying": 1,
         "description": f"{agent.name} thought about: {thoughts}",
-         "emotion": agent.short_memory.emotion_memory[-1]
+        "emotion": agent.short_memory.emotion_memory[-1],
+        "basic_needs": agent.short_memory.basic_needs
     }
     agent.short_memory.add_short_memory_4_plan([new_entry])
     logger.info(f"{agent.name} thought new entry: {new_entry}")
@@ -53,15 +54,17 @@ def handle_chat(agent, description, recent_events_text):
 
     conv = generate_conversation(agent.name, agent.formed_profile, get_complex_mood(
         agent.short_memory.emotion_memory[-1]), description, recent_events_text, agent.short_memory.curr_time, agent.short_memory.curr_date)
+
     new_entry = {
         "time": agent.short_memory.curr_time,
         "date": agent.short_memory.curr_date,
         "moccupying": 1,
-        "description": f"{conv[0]} chatting with {conv[1]}: {conv[2]}",
-        "emotion": agent.short_memory.emotion_memory[-1]
+        "description": f"{agent.name} is chatting with {conv['object']}: {conv['description']}",
+        "emotion": agent.short_memory.emotion_memory[-1],
+        "basic_needs": agent.short_memory.basic_needs
     }
     agent.short_memory.add_short_memory_4_plan([new_entry])
-    logger.info(f"{agent.name} chatted with {conv[2]} new entry: {new_entry}")
+    logger.info(f"{agent.name} chatted with {conv['object']} new entry: {new_entry}")
     return conv
 
 
@@ -87,12 +90,13 @@ def handle_interact(agent, description):
         "time": agent.short_memory.curr_time,
         "date": agent.short_memory.curr_date,
         "moccupying": 1,
-        "description": f"{agent.name} interacted with {interaction[1]}: {interaction[2]}",
-        "emotion": agent.short_memory.emotion_memory[-1]
+        "description": f"{agent.name} interacted with {interaction['item']}: {interaction['description']}",
+        "emotion": agent.short_memory.emotion_memory[-1],
+        "basic_needs": agent.short_memory.basic_needs
     }
 
     agent.short_memory.add_short_memory_4_plan([new_entry])
-    logger.info(f"{agent.name} interacted with {interaction[1]}: new entry: {new_entry}")
+    logger.info(f"{agent.name} interacted with {interaction['item']}: new entry: {new_entry}")
     return f"{interaction}"
 
 
@@ -115,7 +119,8 @@ def handle_move(agent, description):
         "date": agent.short_memory.curr_date,
         "moccupying": 1,
         "description": f"{agent.name} moved: {destination}",
-        "emotion": agent.short_memory.emotion_memory[-1]
+        "emotion": agent.short_memory.emotion_memory[-1],
+        "basic_needs": agent.short_memory.basic_needs
     }
 
     agent.short_memory.add_short_memory_4_plan([new_entry])

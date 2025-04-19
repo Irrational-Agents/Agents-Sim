@@ -110,16 +110,26 @@ PROMPT_CONFIG = {
         "files": ["conv_prompt.txt"],
         "system": "You are an AI assistant tasked with generating brief, context-appropriate actions or conversations based on given plans and events.",
         "type": "json",
-        "function_schema": [{
+         "function_schema": [{
             "name": "generate_conversation_schema",
             "parameters": {
                 "type": "object",
                 "properties": {
                     "resp": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        }
+                        "type": "object",
+                        "properties": {
+                            "person": {
+                                "type": "string"
+                            },
+                            "description": {
+                                "type": "string"
+                            }
+                        },
+                        "additionalProperties": False,
+                        "required": [
+                            "person",
+                            "description"
+                        ]
                     }
                 },
                 "required": ["resp"],
@@ -131,16 +141,26 @@ PROMPT_CONFIG = {
         "files": ["interaction_prompt.txt"],
         "system": "Y",
         "type": "json",
-        "function_schema": [{
-            "name": "generate_interaction_schema",
+          "function_schema": [{
+            "name": "generate_conversation_schema",
             "parameters": {
                 "type": "object",
                 "properties": {
                     "resp": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        }
+                        "type": "object",
+                        "properties": {
+                            "item": {
+                                "type": "string"
+                            },
+                            "description": {
+                                "type": "string"
+                            }
+                        },
+                        "additionalProperties": False,
+                        "required": [
+                            "item",
+                            "description"
+                        ]
                     }
                 },
                 "required": ["resp"],
@@ -272,5 +292,48 @@ PROMPT_CONFIG = {
                 "additionalProperties": False
             }
         }]
-    }
+    },
+    "gpt_analyze_needs":{
+        "files": ["gpt_analyze_needs.txt"],
+        "system": "You are an AI assistant designed to analyze how activities affect a human's basic needs.",
+        "type": "json",
+        "function_schema": [{
+            "name": "gpt_analyze_needs_schema",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "resp": {
+                        "type": "object",
+                        "properties": {
+                            "fullness": {
+                                "type": "number"
+                            },
+                            "social": {
+                                "type": "number"
+                            },
+                            "fun": {
+                                "type": "number"
+                            },
+                            "health": {
+                                "type": "number"
+                            },
+                            "energy": {
+                                "type": "number"
+                            }
+                        },
+                        "additionalProperties": False,
+                        "required": [
+                            "fullness",
+                            "social",
+                            "fun",
+                            "health",
+                            "energy"
+                        ]
+                    }
+                },
+                "required": ["resp"],
+                "additionalProperties": False
+            }
+        }]
+    },
 }

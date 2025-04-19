@@ -1,22 +1,34 @@
-from langchain.docstore.document import Document
-from langchain.vectorstores.faiss import FAISS
-from langchain.embeddings import OpenAIEmbeddings
+from langchain_core.documents import Document
+from langchain_community.vectorstores import FAISS
+from langchain_openai import OpenAIEmbeddings
 import datetime, os, json
 from collections import defaultdict
+from config.logger_config import setup_logger
+from functools import partial
+
+logger = setup_logger(__name__)
 
 class LongTermMemory:
     def __init__(self, store_path="rag_vector_store"):
         self.store_path = store_path
         self.embedding_model = OpenAIEmbeddings()
         self.keyword_strength = defaultdict(int)
+        self.vector_store = None
 
-        if os.path.exists(store_path):
-            self.vector_store = FAISS.load_local(store_path, self.embedding_model)
+        def _has_faiss_files(path):
+            return os.path.exists(os.path.join(path, "index.faiss"))
+
+        if os.path.exists(store_path) and _has_faiss_files(store_path):
+            self.vector_store = FAISS.load_local(
+                store_path,
+                self.embedding_model,
+                allow_dangerous_deserialization=True
+            )
             self._load_keyword_strength()
-        else:
-            self.vector_store = FAISS.from_documents([], self.embedding_model)
-            self._save_keyword_strength()
-            self.vector_store.save_local(store_path)
+
+        self.add_event = partial(self._add_node, "event")
+        self.add_thought = partial(self._add_node, "thought")
+        self.add_chat = partial(self._add_node, "chat")
 
     def _to_document(self, node_type, description, created, keywords=None,
                      importance=0.5, freshness=1.0, time_id=None, moccupying=1):
@@ -64,6 +76,18 @@ class LongTermMemory:
         self.vector_store.save_local(self.store_path)
         self._save_keyword_strength()
 
+    def _add_node(self, node_type, created, description, keywords=None,
+              importance=0.5, freshness=1.0, time_id=None, moccupying=1):
+        doc = self._to_document(node_type, description, created, keywords, importance, freshness, time_id, moccupying)
+
+        if self.vector_store is None:
+            self.vector_store = FAISS.from_documents([doc], self.embedding_model)
+        else:
+            self.vector_store.add_documents([doc])
+
+        self.vector_store.save_local(self.store_path)
+        self._save_keyword_strength()
+
     def update_all_freshness(self, current_time=None, decay_rate=0.95):
         docs = self.vector_store.similarity_search("all", k=1000)
         updated_docs = []
@@ -97,6 +121,9 @@ class LongTermMemory:
         return filtered[:top_k]
 
     def get_summarized_latest_events(self, retention):
+        if self.vector_store is None:
+            return set()
+
         all_docs = self.vector_store.similarity_search("all", k=1000)
         events = [
             doc for doc in all_docs
@@ -107,6 +134,8 @@ class LongTermMemory:
             key=lambda d: datetime.datetime.strptime(d.metadata["created"], "%Y-%m-%d %H:%M:%S"),
             reverse=True
         )
+        if len(events) < retention:
+            return set([doc.page_content for doc in events])    
         return set([doc.page_content for doc in events[:retention]])
 
 

@@ -1,0 +1,32 @@
+You will receive:
+1. A dictionary of the character’s current basic needs.
+2. A brief description of the activity the person just completed.
+3. Personality traits or tendencies of the person (e.g. introverted, athletic, sleepy, sensitive).
+4. Optionally, the duration of the activity (in minutes or hours).
+
+Your task:
+- Adjust the basic needs based on the activity and personality.
+- Always return a **modified version** of basic_needs.
+- Output must be in **strict JSON** format, with 5 keys and updated values.
+
+Needs include:
+- **fullness**: internal psychological satisfaction or meaning
+- **social**: sense of connection, companionship, emotional closeness
+- **fun**: stimulation, joy, creative pleasure
+- **health**: physical wellbeing, movement, or wellness
+- **energy**: physical/mental stamina and rest
+
+Rules:
+- You **must** adjust at least **two** values by ±0.1–0.3 each.
+- If the activity has any creative, emotional, or physical relevance, adjust related needs accordingly.
+- Never return the exact same values as the input.
+- All values must remain > 0.
+- Output only a modified JSON dictionary like this (with floats):
+
+{{
+  "fullness": 7.2,
+  "social": 6.9,
+  "fun": 5.8,
+  "health": 7.1,
+  "energy": 6.5
+}}

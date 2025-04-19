@@ -37,7 +37,7 @@ Tasks:
   "new_entries": [
     {{
       "type": 1 | 2 | 3,
-      "description": "I [thought/chatted/interacted/moved] about/with: [content]",
+      "description": "I [thought/chatted/interacted/moved] about/with: [content], I felt [one word to describe the feeling]",
       "time": "00:00",
       "date": "2024-04-01"
     }}

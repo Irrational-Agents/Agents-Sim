@@ -12,108 +12,9 @@
   "short_memory_for_plan": [
     {
       "time": "00:00",
-      "date": "2024-04-01",
+      "date": "2024-04-02",
       "moccupying": 1,
-      "description": "seeing events: [], items: {'bed', 'closet'}, npcs: ['Zhang San']"
-    },
-    {
-      "time": "00:00",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "Zhang San thought about: Go to sleep immediately in bed.",
-      "emotion": [
-        7,
-        0,
-        0,
-        0,
-        1,
-        0,
-        2
-      ]
-    },
-    {
-      "time": "00:15",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "seeing events: [], items: {'bed', 'closet'}, npcs: ['Zhang San']"
-    },
-    {
-      "time": "00:15",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "Zhang San thought about: Go to sleep immediately in bed.",
-      "emotion": [
-        7,
-        0,
-        0,
-        0,
-        1,
-        0,
-        2
-      ]
-    },
-    {
-      "time": "00:30",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "seeing events: [], items: {'bed', 'closet'}, npcs: ['Zhang San']"
-    },
-    {
-      "time": "00:30",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "Zhang San interacted with apartment D:bathroom:items:shower: taking a refreshing shower before bed",
-      "emotion": [
-        7,
-        0,
-        0,
-        0,
-        1,
-        0,
-        2
-      ]
-    },
-    {
-      "time": "00:45",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "seeing events: [], items: {'bed', 'closet'}, npcs: ['Zhang San']"
-    },
-    {
-      "time": "00:45",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "Zhang San interacted with apartment D:bathroom:items:shower: enjoying a refreshing shower before bed",
-      "emotion": [
-        7,
-        0,
-        0,
-        0,
-        1,
-        0,
-        2
-      ]
-    },
-    {
-      "time": "01:00",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "seeing events: [], items: {'bed', 'closet'}, npcs: ['Zhang San']"
-    },
-    {
-      "time": "01:00",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "Zhang San interacted with apartment D:bathroom:items:shower: taking a refreshing shower, enjoying the moment",
-      "emotion": [
-        7,
-        0,
-        0,
-        0,
-        1,
-        0,
-        2
-      ]
+      "description": ""
     }
   ],
   "daily_plan_req": [
@@ -125,93 +26,99 @@
     },
     {
       "time": "07:00",
-      "activity": "Wake up and Morning Hygiene (brush teeth, shower, etc.)",
+      "activity": "Wake up and personal hygiene routine (bathroom, shower, etc.)",
       "moccupying": 1,
       "intervals": "30.0 minutes"
     },
     {
       "time": "07:30",
-      "activity": "Breakfast (light meal, possibly with Bobo and Langley)",
+      "activity": "Breakfast (light meal at home)",
       "moccupying": 1,
       "intervals": "30.0 minutes"
     },
     {
       "time": "08:00",
-      "activity": "Playtime with cats in the garden",
+      "activity": "Spend time with Bobo & Langley in the garden",
       "moccupying": 2,
       "intervals": "30.0 minutes"
     },
     {
       "time": "08:30",
-      "activity": "Creative brainstorming for dorm redesign project",
-      "moccupying": 3,
-      "intervals": "60.0 minutes"
-    },
-    {
-      "time": "09:30",
-      "activity": "Work on design sketches for the common room",
+      "activity": "Work on design inspirations for the common room project",
       "moccupying": 3,
       "intervals": "90.0 minutes"
     },
     {
-      "time": "11:00",
-      "activity": "Visit local market (grocery shopping)",
+      "time": "10:00",
+      "activity": "Visit the park for diving and meeting with hobby group",
       "moccupying": 2,
-      "intervals": "60.0 minutes"
+      "intervals": "120.0 minutes"
     },
     {
       "time": "12:00",
-      "activity": "Lunchtime (prepare and enjoy a meal)",
-      "moccupying": 1,
+      "activity": "Lunch at a nearby cafe",
+      "moccupying": 2,
       "intervals": "60.0 minutes"
     },
     {
       "time": "13:00",
-      "activity": "Work on redesigning co-living and dorm interiors",
-      "moccupying": 3,
+      "activity": "Work: Redesign co-living and dorm interiors (meeting with clients)",
+      "moccupying": 2,
       "intervals": "300.0 minutes"
     },
     {
       "time": "18:00",
-      "activity": "Wrap up work and plan goals for the next day",
-      "moccupying": 2,
+      "activity": "Finish work and review the day’s accomplishments",
+      "moccupying": 1,
       "intervals": "30.0 minutes"
     },
     {
       "time": "18:30",
-      "activity": "Dinner (possibly with friends or fellow designers)",
-      "moccupying": 2,
+      "activity": "Prepare and have dinner (cooking at home)",
+      "moccupying": 1,
+      "intervals": "45.0 minutes"
+    },
+    {
+      "time": "19:15",
+      "activity": "Relax and play guitar or sketch design ideas",
+      "moccupying": 1,
+      "intervals": "45.0 minutes"
+    },
+    {
+      "time": "20:00",
+      "activity": "Plan future projects and set goals towards boutique design studio",
+      "moccupying": 3,
       "intervals": "60.0 minutes"
     },
     {
-      "time": "19:30",
-      "activity": "Attend hobby group meeting for diving preparation",
-      "moccupying": 2,
-      "intervals": "90.0 minutes"
-    },
-    {
       "time": "21:00",
-      "activity": "Leisure time (reading or playing guitar)",
-      "moccupying": 1,
+      "activity": "Social time with friends (chat or video calls)",
+      "moccupying": 2,
       "intervals": "60.0 minutes"
     },
     {
       "time": "22:00",
-      "activity": "Relax with cats (watching TV or playing)",
-      "moccupying": 2,
+      "activity": "Personal reading or learning about design trends",
+      "moccupying": 3,
       "intervals": "60.0 minutes"
     },
     {
       "time": "23:00",
-      "activity": "Reflection on day and preparation for tomorrow",
+      "activity": "Wind down and leisure time (relaxing activities)",
       "moccupying": 1,
       "intervals": "30.0 minutes"
     },
     {
       "time": "23:30",
-      "activity": "Sleep preparation",
+      "activity": "Prepare for bed",
       "moccupying": 1,
-      "intervals": "30.0 minutes"
+      "intervals": "-1410.0 minutes"
+    },
+    {
+      "time": "00:00",
+      "activity": "Sleep",
+      "moccupying": 1,
+      "intervals": "1440.0 minutes"
     }
   ],
   "short_memory": [
@@ -219,27 +126,39 @@
       "time": "00:00",
       "date": "2024-04-01",
       "moccupying": 1,
-      "description": "I thought about: Go to sleep immediately in bed."
-    },
-    {
-      "time": "00:00",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "I thought about: Go to sleep immediately in bed."
+      "description": "I moved: Dorm for College:garden, I felt happy"
     },
     {
       "time": "00:15",
       "date": "2024-04-01",
       "moccupying": 1,
-      "description": "I moved about: Dorm for College:A room:spaces:sp-A."
+      "description": "I thought about: Sleep immediately in bed after moving to the garden, I felt happy"
+    },
+    {
+      "time": "01:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I thought about: Enjoy stargazing in garden after moving to the garden, I felt happy"
+    },
+    {
+      "time": "08:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I thought about: Sketch ideas for common room in Dorm for College, I felt happy."
+    },
+    {
+      "time": "23:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I interacted with Dorm for College:common room:items:common room table: enjoying tea in the cozy common room, I felt happy"
     }
   ],
   "basic_needs": {
-    "fullness": 6,
-    "social": 7,
-    "fun": 5,
-    "health": 8,
-    "energy": 7
+    "fullness": 5.5,
+    "social": 7.0,
+    "fun": 6.0,
+    "health": 6.5,
+    "energy": 5.8
   },
   "temporary_personality_changes": {
     "openness": 0.3,

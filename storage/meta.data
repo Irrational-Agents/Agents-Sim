@@ -3,13 +3,13 @@
     "start_time": "00:00",
     "sec_per_step": 1,
     "map_name": "the_ville",
-    "step": 10,
+    "step": 285,
     "player_name": "Yuriko Yamamoto",
     "npc_names": [
         "Sakura Sato",
         "Kenta Takahashi",
         "Zhang San"
     ],
-    "curr_date": "2024-04-01",
-    "curr_time": "01:15"
+    "curr_date": "2024-04-02",
+    "curr_time": "00:00"
 }
