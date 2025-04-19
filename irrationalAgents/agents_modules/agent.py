@@ -17,6 +17,7 @@ from config import config
 
 logger = setup_logger('Agent')
 
+agent_manager  = None
 
 class Agent:
     def __init__(self, basic_info: Dict[str, Any], memory_folder_path: Optional[str] = None):
@@ -104,7 +105,7 @@ class Agent:
         self.short_memory.curr_date = curr_time.strftime('%Y-%m-%d')
         # Handle new day operations for cognitive growth
         if new_day:
-            logger.debug(f"Day {new_day} for Agent {self.name}")
+            logger.debug(f"New day for Agent {self.name}")
             
             self.short_memory.add_short_memory(form_short_memory(self))
             self.short_memory.save(self.short_memory)
@@ -184,49 +185,83 @@ class AgentManager:
             logger.error(f"Error loading agent {name} info: {str(e)}")
             return None, None
 
-    def get_all_agents_positions(self) -> Dict[str, Any]:
-        """Get current positions of all agents."""
-        return {
-            agent_name: agent.short_memory.current_status.get('position')
-            for agent_name, agent in self.agents.items()
-            if agent.short_memory.current_status.get('position')
+    def save_agents(self) -> None:
+        for _, agent in self.agents.items():
+            agent.short_memory.save(agent.short_memory)
+    
+    def generate_agent_snapshot(self, agent, action=None, description=None, step=None, position=None, time=None, location=None, **kwargs):
+        if time is None:
+            time = agent.short_memory.curr_datetime
+        if location is None:
+            location = agent.short_memory.current_location
+
+        ret =   {
+            "state": {
+                    "activity": action,
+                    "description": description
+                },
+            "time": time,
+            "step": step,
+            "location": location,
+            "position": position
         }
 
-    def write_agent_status(self, agent_name: str, status: Dict[str, Any]) -> Dict[str, Any]:
+        logger.debug(f"Agent {agent.name} snapshot: {ret}")
+        return ret
+
+    def get_all_agents_positions(self, global_time) -> Dict[str, Any]:
+        file_path = global_time.strftime('%Y-%m-%d')
+        index_ = global_time.strftime('%H:%M:%S')
+        """Get current positions of all agents."""
+        status_dict = {}
+        for agent_name, _ in self.agents.items():
+            status = self.get_agent_current_status(agent_name, file_path, index_)
+            if status:
+                status_dict[agent_name] = status.get('position')
+
+        return status_dict
+
+    def write_agent_status(self, agent_name: str, global_time, status: Dict[str, Any]) -> Dict[str, Any]:
         """Update agent's status in storage."""
+        file_path = global_time.strftime('%Y-%m-%d')
+        index_ = global_time.strftime('%H:%M:%S')
+
         file_path = os.path.join(
             config.NPC_STORAGE_BASE_PATH,
-            f'agents/{convert_name2id(agent_name)}/memory/short_term.json'
+            f'agents/{convert_name2id(agent_name)}/snapshots/{file_path}.json'
         )
+        data = {}
+        if os.path.exists(file_path):
+            try:
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+            except json.JSONDecodeError:
+                data = {}
+        else:
+            data = {}
 
-        try:
-            with open(file_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
+        if not isinstance(data, dict):
+            data = {}
 
-            data['current_status'] = status
+        data[index_] = status
 
-            with open(file_path, 'w', encoding='utf-8') as f:
-                json.dump(data, f, ensure_ascii=False, indent=4)
+        # 写入更新后的数据
+        with open(file_path, 'w', encoding='utf-8') as f:
+            json.dump(data, f, ensure_ascii=False, indent=4)
 
-            return status
-        except Exception as e:
-            logger.error(f"Error writing status for agent {agent_name}: {str(e)}")
-            raise
-
-    def get_agent_current_status(self, agent_name: str) -> Dict[str, Any]:
+    def get_agent_current_status(self, agent_name: str, file_path, index_) -> Dict[str, Any]:
         """Get current status of specified agent."""
         file_path = os.path.join(
             config.NPC_STORAGE_BASE_PATH,
-            f'agents/{agent_name}/memory/short_term.json'
+            f'agents/{convert_name2id(agent_name)}/snapshots/{file_path}.json'
         )
         
         try:
             with open(file_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
-                return data['current_status']
+                return data.get(str(index_), {})
         except Exception as e:
             logger.error(f"Error getting status for agent {agent_name}: {str(e)}")
-            raise
 
     def get_agent_psychological_status(self, agent_name: str) -> Optional[Dict[str, Any]]:
         """Get psychological status of specified agent."""
@@ -267,3 +302,12 @@ class AgentManager:
         if storage:
             # TODO: Implement storage cleanup
             pass
+
+
+
+def init_agent_manager():
+    global agent_manager
+    agent_manager = AgentManager()
+
+def get_agent_manager():
+    return agent_manager

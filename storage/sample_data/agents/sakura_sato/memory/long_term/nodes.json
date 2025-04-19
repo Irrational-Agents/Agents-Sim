@@ -1,1 +1,55 @@
-{}
+{
+  "node_3": {
+    "node_count": 3,
+    "type_count": 2,
+    "type": "event",
+    "depth": 0,
+    "created": "2024-04-01 00:00:00",
+    "description": "I interacted with: my desk while writing creatively, feeling happy and inspired.",
+    "keywords": [
+      "writing",
+      "creatively",
+      "inspired",
+      "desk"
+    ],
+    "importance": 1.0,
+    "freshness": 1.0,
+    "time_id": null,
+    "timestamp": null
+  },
+  "node_2": {
+    "node_count": 2,
+    "type_count": 1,
+    "type": "event",
+    "depth": 0,
+    "created": "2024-04-01 00:00:00",
+    "description": "I interacted with: my game console, excitedly playing video games with friends.",
+    "keywords": [
+      "friends",
+      "video games",
+      "game console"
+    ],
+    "importance": 0.5,
+    "freshness": 1.0,
+    "time_id": null,
+    "timestamp": null
+  },
+  "node_1": {
+    "node_count": 1,
+    "type_count": 1,
+    "type": "thought",
+    "depth": 1,
+    "created": "2024-04-01 00:00:00",
+    "description": "I thought about: sleeping in bed brings happiness and contentment.",
+    "keywords": [
+      "contentment",
+      "bed",
+      "happiness",
+      "sleeping"
+    ],
+    "importance": 1.0,
+    "freshness": 1.0,
+    "time_id": null,
+    "timestamp": null
+  }
+}

@@ -1,0 +1,222 @@
+apartment D:bathroom:items:shower
+apartment D:bathroom:items:bathroom sink
+apartment D:bathroom:items:toilet
+apartment D:main room:items:refrigerator
+apartment D:main room:items:closet
+apartment D:main room:items:desk
+apartment D:main room:items:blackboard
+apartment D:main room:items:cooking area
+apartment D:main room:items:kitchen sink
+apartment D:main room:items:bed
+apartment E:bathroom:items:shower
+apartment E:bathroom:items:bathroom sink
+apartment E:bathroom:items:toilet
+apartment E:main room:items:refrigerator
+apartment E:main room:items:closet
+apartment E:main room:items:desk
+apartment E:main room:items:cooking area
+apartment E:main room:items:kitchen sink
+apartment E:main room:items:bed
+apartment A:main room:items:refrigerator
+apartment A:main room:items:closet
+apartment A:main room:items:desk
+apartment A:main room:items:shelf
+apartment A:main room:items:bed
+apartment A:main room:items:guitar
+apartment A:bathroom:items:shower
+apartment A:bathroom:items:bathroom sink
+apartment A:bathroom:items:toilet
+apartment B:bathroom:items:shower
+apartment B:bathroom:items:bathroom sink
+apartment B:bathroom:items:toilet
+apartment B:main room:items:refrigerator
+apartment B:main room:items:closet
+apartment B:main room:items:computer desk
+apartment B:main room:items:cooking area
+apartment B:main room:items:kitchen sink
+apartment B:main room:items:bed
+apartment C:main room:items:refrigerator
+apartment C:main room:items:closet
+apartment C:main room:items:desk
+apartment C:main room:items:shelf
+apartment C:main room:items:bed
+apartment C:bathroom:items:shower
+apartment C:bathroom:items:bathroom sink
+apartment C:bathroom:items:toilet
+co-living space:A room:items:desk
+co-living space:A room:items:bed
+co-living space:A room:items:shelf
+co-living space:A room:items:closet
+co-living space:A bathroom:items:shower
+co-living space:A bathroom:items:bathroom sink
+co-living space:A bathroom:items:toilet
+co-living space:B room:items:bed
+co-living space:B room:items:guitar
+co-living space:B room:items:easel
+co-living space:B room:items:closet
+co-living space:B bathroom:items:shower
+co-living space:B bathroom:items:bathroom sink
+co-living space:B bathroom:items:toilet
+co-living space:C room:items:desk
+co-living space:C room:items:bed
+co-living space:C room:items:closet
+co-living space:C bathroom:items:shower
+co-living space:C bathroom:items:bathroom sink
+co-living space:C bathroom:items:toilet
+co-living space:kitchen:items:toaster
+co-living space:kitchen:items:cooking area
+co-living space:kitchen:items:kitchen sink
+co-living space:kitchen:items:refrigerator
+co-living space:common room:items:common room sofa
+co-living space:common room:items:common room table
+co-living space:D room:items:bed
+co-living space:D room:items:closet
+co-living space:D room:items:easel
+co-living space:D room:items:shelf
+co-living space:D bathroom:items:shower
+co-living space:D bathroom:items:bathroom sink
+co-living space:D bathroom:items:toilet
+co-living space:E room:items:desk
+co-living space:E room:items:bed
+co-living space:E room:items:easel
+co-living space:E room:items:closet
+co-living space:E bathroom:items:shower
+co-living space:E bathroom:items:bathroom sink
+co-living space:E bathroom:items:toilet
+Cafe:cafe:items:refrigerator
+Cafe:cafe:items:piano
+Cafe:cafe:items:cooking area
+Cafe:cafe:items:kitchen sink
+Cafe:cafe:items:cafe customer seating
+Cafe:cafe:items:behind the cafe counter
+Pub:pub:items:refrigerator
+Pub:pub:items:shelf
+Pub:pub:items:cooking area
+Pub:pub:items:kitchen sink
+Pub:pub:items:microphone
+Pub:pub:items:bar customer seating
+Pub:pub:items:behind the bar counter
+College:classroom:items:blackboard
+College:classroom:items:classroom student seating
+College:classroom:items:classroom podium
+College:library:items:library sofa
+College:library:items:bookshelf
+College:library:items:library table
+Dorm for College:garden:items:dorm garden
+Dorm for College:A room:items:game console
+Dorm for College:A room:items:bed
+Dorm for College:A room:items:desk
+Dorm for College:A room:items:closet
+Dorm for College:kitchen:items:toaster
+Dorm for College:kitchen:items:refrigerator
+Dorm for College:kitchen:items:cooking area
+Dorm for College:kitchen:items:kitchen sink
+Dorm for College:common room:items:common room sofa
+Dorm for College:common room:items:common room table
+Dorm for College:common room:items:pool table
+"Dorm for College:mans bathroom:items:shower"
+"Dorm for College:mans bathroom:items:bathroom sink"
+"Dorm for College:mans bathroom:items:toilet"
+"Dorm for College:womans bathroom:items:shower"
+"Dorm for College:womans bathroom:items:bathroom sink"
+"Dorm for College:womans bathroom:items:toilet"
+Dorm for College:B room:items:closet
+Dorm for College:B room:items:desk
+Dorm for College:B room:items:blackboard
+Dorm for College:B room:items:computer
+Dorm for College:B room:items:bed
+Dorm for College:D room:items:game console
+Dorm for College:D room:items:closet
+Dorm for College:D room:items:desk
+Dorm for College:D room:items:lifting weight
+Dorm for College:D room:items:bed
+Dorm for College:C room:items:desk
+Dorm for College:C room:items:bed
+Dorm for College:C room:items:closet
+Dorm for College:C room:items:shelf
+Park:park:items:park garden
+Supply Store:supply store:items:supply store product shelf
+Supply Store:supply store:items:behind the supply store counter
+Supply Store:supply store:items:supply store counter
+Market and Pharmacy:store:items:pharmacy store shelf
+Market and Pharmacy:store:items:behind the pharmacy counter
+Market and Pharmacy:store:items:pharmacy store counter
+Market and Pharmacy:store:items:grocery store counter
+Market and Pharmacy:store:items:grocery store shelf
+Market and Pharmacy:store:items:behind the grocery counter
+house A:main room:items:refrigerator
+house A:main room:items:closet
+house A:main room:items:desk
+house A:main room:items:cooking area
+house A:main room:items:kitchen sink
+house A:main room:items:bed
+house A:bathroom:items:shower
+house A:bathroom:items:bathroom sink
+house A:bathroom:items:toilet
+house B:main room:items:refrigerator
+house B:main room:items:closet
+house B:main room:items:desk
+house B:main room:items:shelf
+house B:main room:items:cooking area
+house B:main room:items:kitchen sink
+house B:main room:items:bed
+house B:bathroom:items:shower
+house B:bathroom:items:bathroom sink
+house B:bathroom:items:toilet
+house C:main room:items:refrigerator
+house C:main room:items:closet
+house C:main room:items:desk
+house C:main room:items:cooking area
+house C:main room:items:kitchen sink
+house C:main room:items:common room sofa
+house C:main room:items:bed
+house C:bathroom:items:shower
+house C:bathroom:items:bathroom sink
+house C:bathroom:items:toilet
+house D:common room:items:common room table
+house D:common room:items:shelf
+house D:kitchen:items:refrigerator
+house D:kitchen:items:cooking area
+house D:kitchen:items:kitchen sink
+house D:bathroom:items:shower
+house D:bathroom:items:bathroom sink
+house D:bathroom:items:toilet
+house D:main room:items:desk
+house D:main room:items:bed
+house D:main room:items:closet
+house D:second room:items:bed
+house D:second room:items:guitar
+house D:second room:items:closet
+house D:garden:items:house garden
+house E:common room:items:common room table
+house E:common room:items:harp
+house E:common room:items:shelf
+house E:kitchen:items:refrigerator
+house E:kitchen:items:cooking area
+house E:kitchen:items:kitchen sink
+house E:bathroom:items:shower
+house E:bathroom:items:bathroom sink
+house E:bathroom:items:toilet
+house E:main bedroom:items:desk
+house E:main bedroom:items:bed
+house E:main bedroom:items:closet
+house E:empty bedroom:items:bed
+house E:empty bedroom:items:guitar
+house E:empty bedroom:items:closet
+house E:garden:items:garden chair
+house E:garden:items:house garden
+house F:common room:items:common room table
+house F:common room:items:shelf
+house F:kitchen:items:refrigerator
+house F:kitchen:items:cooking area
+house F:kitchen:items:kitchen sink
+house F:bathroom:items:shower
+house F:bathroom:items:bathroom sink
+house F:bathroom:items:toilet
+house F:main bedroom:items:desk
+house F:main bedroom:items:bed
+house F:main bedroom:items:closet
+house F:second bedroom:items:desk
+house F:second bedroom:items:bed
+house F:second bedroom:items:closet
+house F:garden:items:house garden

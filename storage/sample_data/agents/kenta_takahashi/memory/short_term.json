@@ -1,180 +1,260 @@
 {
-    "age": null,
-    "current_status": {
-        "action": "think",
-        "description": "I need to focus on my data structures notes; I can't let my emotions distract me from the big conference.",
-        "position": {
-            "x": 54,
-            "y": 14,
-            "direction": "right"
-        },
-        "timestamp": "2024-04-01T00:15:00"
+  "age": null,
+  "current_location": "apartment A:main room:sp-A",
+  "short_term_goal_capacity": 3,
+  "short_term_goal": [
+    {
+      "description": "Debug and optimize the natural language processing module of the AI chatbot",
+      "deadline": "2024-09-20"
+    }
+  ],
+  "short_memory_capacity": 150,
+  "short_memory_for_plan": [
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'guitar', 'bed', 'refrigerator'}, npcs: ['Kenta Takahashi']"
     },
-    "current_location": null,
-    "short_term_goal_capacity": 3,
-    "short_term_goal": [
-        {
-            "description": "Debug and optimize the natural language processing module of the AI chatbot",
-            "deadline": "2024-09-20"
-        }
-    ],
-    "short_memory_capacity": 150,
-    "short_memory_for_plan": [],
-    "daily_plan_req": [
-        {
-            "time": "00:00",
-            "activity": "sleep",
-            "moccupying": 1,
-            "intervals": 28
-        },
-        {
-            "time": "07:00",
-            "activity": "wake up and personal hygiene",
-            "moccupying": 1,
-            "intervals": 2
-        },
-        {
-            "time": "07:30",
-            "activity": "breakfast",
-            "moccupying": 1,
-            "intervals": 2
-        },
-        {
-            "time": "08:00",
-            "activity": "review AI project progress",
-            "moccupying": 3,
-            "intervals": 4
-        },
-        {
-            "time": "09:00",
-            "activity": "attend data structures class",
-            "moccupying": 2,
-            "intervals": 6
-        },
-        {
-            "time": "10:30",
-            "activity": "study algorithms in the library",
-            "moccupying": 3,
-            "intervals": 6
-        },
-        {
-            "time": "12:00",
-            "activity": "lunch with Hiroshi",
-            "moccupying": 2,
-            "intervals": 4
-        },
-        {
-            "time": "13:00",
-            "activity": "attend neural networks class",
-            "moccupying": 2,
-            "intervals": 6
-        },
-        {
-            "time": "14:30",
-            "activity": "work on AI chatbot project",
-            "moccupying": 3,
-            "intervals": 6
-        },
-        {
-            "time": "16:00",
-            "activity": "meet with Hiroshi for project collaboration",
-            "moccupying": 2,
-            "intervals": 6
-        },
-        {
-            "time": "17:30",
-            "activity": "exercise at the park",
-            "moccupying": 1,
-            "intervals": 4
-        },
-        {
-            "time": "18:30",
-            "activity": "dinner and relax",
-            "moccupying": 1,
-            "intervals": 4
-        },
-        {
-            "time": "19:30",
-            "activity": "work on coding for chatbot",
-            "moccupying": 3,
-            "intervals": 6
-        },
-        {
-            "time": "21:00",
-            "activity": "video call with Yuki and Kenji",
-            "moccupying": 2,
-            "intervals": 4
-        },
-        {
-            "time": "22:00",
-            "activity": "wind down with a book or music",
-            "moccupying": 1,
-            "intervals": 4
-        },
-        {
-            "time": "23:00",
-            "activity": "prepare for bed",
-            "moccupying": 1,
-            "intervals": 2
-        },
-        {
-            "time": "23:30",
-            "activity": "sleep",
-            "moccupying": 1,
-            "intervals": 2
-        }
-    ],
-    "short_memory": [
-        {
-            "time": "00:00",
-            "date": "2024-04-01",
-            "moccupying": 1,
-            "description": "seeing events: ['can_use:bed', 'can_use:bed', 'can_use:refrigerator', 'can_use:guitar'], items: ['bed', 'bed', 'refrigerator', 'guitar'], npcs: ['Kenta Takahashi']"
-        },
-        {
-            "time": "2024-04-01",
-            "date": "2024-04-01",
-            "moccupying": 1,
-            "description": "Kenta Takahashi interacted with other: Wake up around 8 AM and make breakfast using the refrigerator to fuel up for a productive day.",
-            "emotion": {
-                "type": "engaged",
-                "intensity": 5
-            }
-        },
-        {
-            "time": "00:15",
-            "date": "2024-04-01",
-            "moccupying": 1,
-            "description": "seeing events: ['can_use:bed', 'can_use:bed', 'can_use:refrigerator', 'can_use:closet', 'can_use:guitar'], items: ['bed', 'bed', 'refrigerator', 'closet', 'guitar'], npcs: ['Kenta Takahashi']"
-        },
-        {
-            "time": "00:15",
-            "date": "2024-04-01",
-            "moccupying": 2,
-            "description": "Kenta Takahashi wakes up and prepares for a productive day, indicating a desire to be active and engaged even amidst mixed emotions."
-        }
-    ],
-    "basic_needs": {
-        "fullness": 7,
-        "social": 6,
-        "fun": 5,
-        "health": 8,
-        "energy": 6
-    },
-    "temporary_personality_changes": {
-        "openness": 0.2,
-        "conscientiousness": 0.3,
-        "extraversion": 0.1,
-        "agreeableness": 0,
-        "neuroticism": -0.1
-    },
-    "emotion": [
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:guitar: playing guitar to relax and ease fear",
+      "emotion": [
         0,
         0,
-        1,
-        7,
+        0,
+        8,
         0,
         2,
         0
-    ]
+      ]
+    },
+    {
+      "time": "00:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'guitar', 'bed', 'refrigerator'}, npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "00:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:guitar: playing guitar to ease fear",
+      "emotion": [
+        0,
+        0,
+        0,
+        8,
+        0,
+        2,
+        0
+      ]
+    },
+    {
+      "time": "00:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'guitar', 'bed', 'refrigerator'}, npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "00:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:guitar: playing guitar to relax and ease fear",
+      "emotion": [
+        0,
+        0,
+        0,
+        8,
+        0,
+        2,
+        0
+      ]
+    },
+    {
+      "time": "00:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'guitar', 'bed', 'refrigerator'}, npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "00:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:guitar: playing guitar to relax",
+      "emotion": [
+        0,
+        0,
+        0,
+        8,
+        0,
+        2,
+        0
+      ]
+    },
+    {
+      "time": "01:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'guitar', 'bed', 'refrigerator'}, npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "01:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:guitar: strumming guitar to soothe fears",
+      "emotion": [
+        0,
+        0,
+        0,
+        8,
+        0,
+        2,
+        0
+      ]
+    }
+  ],
+  "daily_plan_req": [
+    {
+      "time": "00:00",
+      "activity": "Sleep",
+      "moccupying": 1,
+      "intervals": "420.0 minutes"
+    },
+    {
+      "time": "07:00",
+      "activity": "Wake up and morning hygiene (shower, brush teeth, etc.)",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "07:30",
+      "activity": "Breakfast (healthy meal with fruits)",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "08:00",
+      "activity": "Study session on AI concepts (focus on chatbot development)",
+      "moccupying": 3,
+      "intervals": "120.0 minutes"
+    },
+    {
+      "time": "10:00",
+      "activity": "Meeting with Hiroshi to discuss project progress",
+      "moccupying": 2,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "11:00",
+      "activity": "Continue working on AI chatbot project",
+      "moccupying": 3,
+      "intervals": "120.0 minutes"
+    },
+    {
+      "time": "13:00",
+      "activity": "Lunch break",
+      "moccupying": 1,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "14:00",
+      "activity": "Collaborative brainstorming session for Tech Night",
+      "moccupying": 2,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "15:00",
+      "activity": "Complete coding tasks for the day",
+      "moccupying": 3,
+      "intervals": "120.0 minutes"
+    },
+    {
+      "time": "17:00",
+      "activity": "Short break (snack, relax)",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "17:30",
+      "activity": "Prepare materials for Tech Night event",
+      "moccupying": 2,
+      "intervals": "90.0 minutes"
+    },
+    {
+      "time": "19:00",
+      "activity": "Tech Night event (share ideas and collaborate)",
+      "moccupying": 2,
+      "intervals": "120.0 minutes"
+    },
+    {
+      "time": "21:00",
+      "activity": "Dinner with roommates",
+      "moccupying": 1,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "22:00",
+      "activity": "Leisure activity (play guitar or read a book)",
+      "moccupying": 1,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "23:00",
+      "activity": "Reflect on the day and plan for tomorrow",
+      "moccupying": 2,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "23:30",
+      "activity": "Wind down and prepare for bed",
+      "moccupying": 1,
+      "intervals": "-1410.0 minutes"
+    },
+    {
+      "time": "00:00",
+      "activity": "Sleep",
+      "moccupying": 1,
+      "intervals": "1440.0 minutes"
+    }
+  ],
+  "short_memory": [
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I practiced guitar to relax before sleep."
+    },
+    {
+      "time": "00:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I interacted with: playing guitar to relax, before sleep, and to ease fear"
+    }
+  ],
+  "basic_needs": {
+    "fullness": 7,
+    "social": 6,
+    "fun": 5,
+    "health": 8,
+    "energy": 6
+  },
+  "temporary_personality_changes": {
+    "openness": 0.2,
+    "conscientiousness": 0.3,
+    "extraversion": 0.1,
+    "agreeableness": 0,
+    "neuroticism": -0.1
+  },
+  "emotion": [
+    0,
+    0,
+    1,
+    7,
+    0,
+    2,
+    0
+  ]
 }

@@ -13,7 +13,6 @@ def mess_agent_by_name(name):
         name = convert_name2id(name)
 
     root_dir = os.path.join(NPC_STORAGE_BASE_PATH, f'agents/{name}')
-    logger.debug(f"root_dir: {root_dir}")
     if not os.path.exists(root_dir):
         logger.error(f"agent {name} not exists!")
         return None, None
