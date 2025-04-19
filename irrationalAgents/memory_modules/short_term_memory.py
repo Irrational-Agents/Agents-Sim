@@ -226,12 +226,7 @@ class ShortTermMemory:
     
     def organize_memory(self, long_memory):
         """
-        moccupyingが2以上のshort_memoryをLongTermMemoryへ移行し、moccupying=1に設定する。
-        node_typeはdescription内の最初の":"までにthought,chatted,interacted,movedが含まれるかで決定。
-        moccupying=3の場合はimportance=1.0、それ以外は0.5。
-        valence, arousal, S,P,O, poignancy, filling, expiration, embedding削除済み。
-        キーワード抽出はLLMを利用することを想定（extract_keywords_for_long_term_memory）。
-
+        Transfer the short-term memory with moccupying >= 2 to the long-term memory (vector library) and reset it to moccupying=1
         """
         for event in self.short_memory:
             mocc = event.get('moccupying', 1)
@@ -250,42 +245,40 @@ class ShortTermMemory:
 
                 importance = 1.0 if mocc == 3 else 0.5
                 freshness = 1.0
-
-                # LLMでキーワード抽出
-                keywords_list = extract_keywords_for_long_term_memory(description)
-                keywords = set(keywords_list)
-
                 current_time = self.curr_datetime if self.curr_datetime else datetime.datetime.now()
 
-                # node_typeに応じてLongTermMemoryに格納
+                keywords_list = extract_keywords_for_long_term_memory(description)
+
                 if node_type == 'thought':
                     long_memory.add_thought(
                         created=current_time,
-                        description=description, 
-                        keywords=keywords, 
-                        importance=importance, 
-                        freshness=freshness
+                        description=description,
+                        keywords=keywords_list,
+                        importance=importance,
+                        freshness=freshness,
+                        moccupying=mocc
                     )
                 elif node_type == 'chat':
                     long_memory.add_chat(
                         created=current_time,
-                        description=description, 
-                        keywords=keywords, 
-                        importance=importance, 
-                        freshness=freshness
+                        description=description,
+                        keywords=keywords_list,
+                        importance=importance,
+                        freshness=freshness,
+                        moccupying=mocc
                     )
-                else:  # event
+                else:
                     long_memory.add_event(
                         created=current_time,
-                        description=description, 
-                        keywords=keywords, 
-                        importance=importance, 
-                        freshness=freshness
+                        description=description,
+                        keywords=keywords_list,
+                        importance=importance,
+                        freshness=freshness,
+                        moccupying=mocc
                     )
 
                 event['moccupying'] = 1
 
-    
 def format_events_as_text(events):
     # Errors occur very frequently here.
     if not events:
