@@ -11,8 +11,9 @@ def reflection(agent, action, description):
         basic_needs['energy'] -= 1
         return
     
-    needs = gpt_analyze_needs(agent.name, agent.formed_profile, agent.short_memory.emotion, action, description, basic_needs)
-    agent.short_memory.basic_needs = needs
+    needs = gpt_analyze_needs(agent.name, agent.formed_profile, agent.short_memory.emotion_memory[-1], action, description, basic_needs)
+    agent.short_memory.basic_needs = needs.get('new_basic_needs')
+    agent.short_memory.emotion_memory.append(needs.get('new_emotion'))
     return needs
     
 def cognition(self):

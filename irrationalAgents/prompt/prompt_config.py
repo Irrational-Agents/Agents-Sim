@@ -305,35 +305,51 @@ PROMPT_CONFIG = {
                     "resp": {
                         "type": "object",
                         "properties": {
-                            "fullness": {
-                                "type": "number"
+                            "new_emotion": {
+                                "type": "array",
+                                "items": {
+                                    "type": "number"
+                                }
                             },
-                            "social": {
-                                "type": "number"
-                            },
-                            "fun": {
-                                "type": "number"
-                            },
-                            "health": {
-                                "type": "number"
-                            },
-                            "energy": {
-                                "type": "number"
+                            "new_basic_needs": {
+                                "type": "object",
+                                "properties": {
+                                    "fullness": {
+                                        "type": "number"
+                                    },
+                                    "social": {
+                                        "type": "number"
+                                    },
+                                    "fun": {
+                                        "type": "number"
+                                    },
+                                    "health": {
+                                        "type": "number"
+                                    },
+                                    "energy": {
+                                        "type": "number"
+                                    }
+                                },
+                                "additionalProperties": False,
+                                "required": [
+                                    "fullness",
+                                    "social",
+                                    "fun",
+                                    "health",
+                                    "energy"
+                                ]
                             }
                         },
-                        "additionalProperties": False,
                         "required": [
-                            "fullness",
-                            "social",
-                            "fun",
-                            "health",
-                            "energy"
-                        ]
-                    }
+                        "new_emotion",
+                        "new_basic_needs"
+                    ],
+                    "additionalProperties": False
+                    },      
                 },
                 "required": ["resp"],
                 "additionalProperties": False
             }
         }]
-    },
+    }
 }

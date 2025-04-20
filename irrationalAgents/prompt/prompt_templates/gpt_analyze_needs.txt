@@ -1,13 +1,8 @@
 You will receive:
-1. A dictionary of the character’s current basic needs.
-2. A brief description of the activity the person just completed.
-3. Personality traits or tendencies of the person (e.g. introverted, athletic, sleepy, sensitive).
-4. Optionally, the duration of the activity (in minutes or hours).
-
-Your task:
-- Adjust the basic needs based on the activity and personality.
-- Always return a **modified version** of basic_needs.
-- Output must be in **strict JSON** format, with 5 keys and updated values.
+1. Character’s basic needs (dict with 5 float values).
+2. A description of the activity just completed.
+3. Personality traits.
+5. Emotional state
 
 Agent name: {agent_name}
 Agent profile: {agent_profile}
@@ -15,24 +10,26 @@ Current emotion: {current_emotion}
 Current Baisc needs: {basic_needs}
 {action} activity: {description}
 
-Needs include:
-- **fullness**: internal psychological satisfaction or meaning
-- **social**: sense of connection, companionship, emotional closeness
-- **fun**: stimulation, joy, creative pleasure
-- **health**: physical wellbeing, movement, or wellness
-- **energy**: physical/mental stamina and rest
+Your task:
+1. Baisc needs update
+- Adjust at least **two** basic need values by ±0.1–0.3, no exceptions.
+- All values must stay > 0 and <= 10.
+- You must take into account:
+  - **Personality**: extroverted and resilient → favors social & fun recovery.
+  - **Activity**: e.g. "sleep immediately" → restores **energy**, maybe **health**.
+  - **Emotion**: if positive → slight boost to **fun** or **fullness**.
 
-Rules:
-- You **must** adjust at least **two** values by ±0.1–0.3 each.
-- If the activity has any creative, emotional, or physical relevance, adjust related needs accordingly.
-- Never return the exact same values as the input.
-- All values must remain > 0.
-- Output only a modified JSON dictionary like this (with floats):
 
-{{
-  "fullness": 7.2,
-  "social": 6.9,
-  "fun": 5.8,
-  "health": 7.1,
-  "energy": 6.5
+2. Emotion Update:
+    - Based on the events, personality traits, and relationships, determine {agent_name} emotional state. 
+    - Return emotion values as a list of 7 integers (each between 0-10), ordered as:
+      ["happy", "sad", "angry", "afraid", "disgusted", "surprised", "neutral"].
+    - The total sum must equal 10.
+
+Then return a modified version of the original dictionary in **strict JSON format**, like this:
+{{ "new_emotion": [updated_emotion_array],
+  "new_basic_needs":{{ "fullness": 6.7, "social": 5.8, "fun": 6.1, "health": 7.2, "energy": 6.5 }}
 }}
+
+
+Make sure no two outputs are the same. Always apply at least 2 changes.

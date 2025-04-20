@@ -59,12 +59,12 @@ def handle_chat(agent, description, recent_events_text):
         "time": agent.short_memory.curr_time,
         "date": agent.short_memory.curr_date,
         "moccupying": 1,
-        "description": f"{agent.name} is chatting with {conv['object']}: {conv['description']}",
+        "description": f"{agent.name} is chatting with {conv['person']}: {conv['description']}",
         "emotion": agent.short_memory.emotion_memory[-1],
         "basic_needs": agent.short_memory.basic_needs
     }
     agent.short_memory.add_short_memory_4_plan([new_entry])
-    logger.info(f"{agent.name} chatted with {conv['object']} new entry: {new_entry}")
+    logger.info(f"{agent.name} chatted with {conv['person']} new entry: {new_entry}")
     return conv
 
 
