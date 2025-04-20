@@ -109,11 +109,11 @@ class Agent:
         # Handle new day operations for cognitive growth
         if new_day:
             logger.debug(f"New day for Agent {self.name}")
-            logger.info(f"agent {self.name} emotion memory: {self.short_memory.emotion_memory}")
             
             self.short_memory.add_short_memory(form_short_memory(self))
             self.short_memory.save(self.short_memory)
-            #self.short_memory.short_memory_for_plan = []
+            self.short_memory.log_memory()
+            self.short_memory.short_memory_for_plan = []
 
             if self.long_memory.vector_store is not None:
                 logger.debug(f"long term memory: {self.long_memory.vector_store}")

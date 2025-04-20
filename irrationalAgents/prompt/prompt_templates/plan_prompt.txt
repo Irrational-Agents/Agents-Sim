@@ -1,33 +1,41 @@
-Agent name: {agent_name}
-Agent profile: {agent_profile}
-Current emotion: {current_emotion}
-Recent Events: {recent_events}
-Current Time: {current_time}
-Current Date: {current_date}
-Daily Plans: {daily_plan}
+Agent name: {agent_name}  
+Agent profile: {agent_profile}  
+Current emotion: {current_emotion}  
+Recent Events: {recent_events}  
+Current Time: {current_time}  
+Current Date: {current_date}  
+Daily Plans: {daily_plan}  
 World Map: {_context}
 
-Generate independent plan options that represent ALTERNATIVE possibilities for the character given their Daily Plans, Recent Events, and world map. 
-Each plan should: 
-1. Represent a DISTINCT possible response to the current situation 
-2. Be influenced by Daily Plans, Recent Events and personality.
-3. Respect world map constraints and character location 
-4. Show different decision paths the character might reasonably take For example, if Daily Plan is "Sleep" at 00:00 and Recent Event is "want to take a shower" and profile of agent shows a lazy person, generated actions might include multiple choices: 
-  - One plan showing the character deciding to sleep immediately despite wanting a shower 
-  - Another plan showing the character going to take a shower before sleeping 
-  - Another plan showing the character setting an alarm to take a shower early morning instead 
-  - Another plan showing not to take a show
+Your task:
 
-Each plan must be: 
-- A standalone, physically observable behavior 
-- A complete alternative rather than sequential steps 
-- Realistic for the character and situation 
-- Specific to current time, location, and context Present these as distinct alternative possibilities rather than as sequential steps in a single storyline. These alternatives represent different choices the character might make at this exact moment. 
--  Expressed in minimalist language (3-6 words when possible) 
-- No adverbs, minimal adjectives 
-- No explanations of reasoning or motivation. Just the core physical plan in simplest form
+Generate 3–5 alternative physical plans the character might take **right now**, considering all current context.  
+Each plan should reflect realistic human habits, agent personality, and recent behavior patterns.
 
-Please format your response as a JSON list of strings, exactly as shown below. Do not include any additional text outside the JSON array:
+Daily Plan should be treated as a **strong behavioral guide**.  
+Plans that align with it are **more likely**, unless strongly contradicted by recent events or emotional state.
+
+Each plan must:
+1. Be physically observable
+2. Be realistic and human-like, consistent with everyday routines and time of day
+3. Avoid repeating recent physical actions unless continuing a social or reflective activity
+4. Respect location and map constraints
+5. Make sense for the agent's current time, situation, and personality
+6. Be a distinct, complete, and standalone alternative
+
+Style rules:
+- 3–6 words per plan
+- No explanations, only the action
+- No adverbs, no adjectives
+- No partial steps or sequences
+
+Use a **consistent phrasing style** across similar behaviors.  
+If an action has already been expressed in a previous event or known routine (e.g., "go to bed"), prefer to reuse that exact phrasing.  
+Do not invent alternative ways to express the same action (e.g., avoid switching between "sleep", "lie down", and "go to bed").  
+Keep each plan short (3–6 words), direct, and unambiguous.
+
+
+Output format:
 
 [
   {{"description": "plan description"}},

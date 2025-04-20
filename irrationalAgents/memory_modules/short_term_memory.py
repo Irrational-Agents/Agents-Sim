@@ -3,7 +3,8 @@ import json
 from config.logger_config import setup_logger
 from agents_modules.behavior.plan import *
 from config.common_method import *
-
+from memory_modules.distillation import compress_semantic_memories
+from pathlib import Path
 logger = setup_logger(__name__)
 
 
@@ -93,6 +94,23 @@ class ShortTermMemory:
 
         with open(out_json, "w", encoding='utf-8') as outfile:
             json.dump(short_memory, outfile, ensure_ascii=False, indent=2)
+
+    def log_memory(self):
+        logger.debug(f"short term memory: {self.short_memory_for_plan}, recent events: {self.recent_events}")
+        if not self.short_memory_for_plan:
+            logger.debug("short term memory is empty")
+            return
+
+        date_str = self.short_memory_for_plan[0].get("date", "unknown_date")
+        short_term_path = Path(self.short_memory_path)
+        logs_dir = short_term_path.parent.parent / "logs"
+        file_path = logs_dir / f"{date_str}.json"
+
+        with open(file_path, "w", encoding="utf-8") as f:
+            json.dump(self.short_memory_for_plan, f, ensure_ascii=False, indent=2)
+
+        logger.debug(f"short term memory saved to {file_path}")
+
 
     def get_current_plan(self):
         if not self.curr_time:
@@ -306,9 +324,9 @@ def format_events_as_text(events):
 
     return time_date + " ".join(formatted_events)
 
-
 def form_short_memory(agent):
-    short_memory_list = generate_short_memory(agent.name, get_complex_mood(agent.short_memory.emotion_memory[-1]), agent.short_memory.personality_text, agent.relationships, agent.short_memory.short_memory_for_plan)
+    compressed_mem = compress_semantic_memories(agent.short_memory.short_memory_for_plan)
+    short_memory_list = generate_short_memory(agent.name, get_complex_mood(agent.short_memory.emotion_memory[-1]), agent.short_memory.personality_text, agent.relationships, compressed_mem)
     if not short_memory_list:
         return []
     
