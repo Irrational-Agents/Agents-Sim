@@ -98,7 +98,6 @@ class Agent:
 
         # Handle new day logic
         new_day = False
-        print(f"sssss  curr_time: {self.short_memory.curr_datetime.strftime('%A %B %d')}, {curr_time.strftime('%A %B %d')}")
         if not self.short_memory.curr_datetime or (self.short_memory.curr_datetime.strftime('%A %B %d') != 
               curr_time.strftime('%A %B %d')):
             new_day = True
