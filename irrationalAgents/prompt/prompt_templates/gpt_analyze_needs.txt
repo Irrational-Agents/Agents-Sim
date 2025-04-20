@@ -9,6 +9,12 @@ Your task:
 - Always return a **modified version** of basic_needs.
 - Output must be in **strict JSON** format, with 5 keys and updated values.
 
+Agent name: {agent_name}
+Agent profile: {agent_profile}
+Current emotion: {current_emotion}
+Current Baisc needs: {basic_needs}
+{action} activity: {description}
+
 Needs include:
 - **fullness**: internal psychological satisfaction or meaning
 - **social**: sense of connection, companionship, emotional closeness
