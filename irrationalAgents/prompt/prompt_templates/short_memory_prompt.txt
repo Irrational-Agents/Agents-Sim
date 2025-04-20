@@ -17,7 +17,7 @@ Tasks:
       (must use `:`).
 
 2. Emotion Update:
-    - Based on the events, personality traits, and relationships, determine Zhang San's emotional state. 
+    - Based on the events, personality traits, and relationships, determine {agent_name} emotional state. 
     - Return emotion values as a list of 7 integers (each between 0-10), ordered as:
       ["happy", "sad", "angry", "afraid", "disgusted", "surprised", "neutral"].
     - The total sum must equal 10.
