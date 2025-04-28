@@ -185,7 +185,7 @@ class ShortTermMemory:
             if plan_time > current_time:
                 return plans[i-1] if i > 0 else None
 
-        return plans[-1]  # 如果当前时间晚于所有计划，返回最后一个计划
+        return plans[-1].get("activity", None) or plans[-1]  # 如果当前时间晚于所有计划，返回最后一个计划
 
     def get_f_daily_schedule_index(self, advance=0):
 

@@ -21,7 +21,7 @@ def action(agent, next_action):
     if action_type == "think":
         return handle_think(agent, description, agent.short_memory.recent_events)
     elif action_type == "chat":
-        return handle_chat(agent, description, agent.short_memory.recent_events)
+        return handle_chat(agent, description, agent.short_memory.recent_events, agent.short_memory.short_memory_for_plan[-1])
     elif action_type == "interact":
         # @TODO the description of interact is not correct, need to be revised in prompt
         return handle_interact(agent, description)

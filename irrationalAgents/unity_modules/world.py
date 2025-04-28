@@ -90,8 +90,8 @@ class WorldState:
                 time=self.global_time.isoformat(),
             )
 
-            self.agent_manager.write_agent_status(
-                npc_name, self.global_time, status)
+            # self.agent_manager.write_agent_status(
+            #     npc_name, self.global_time, status)
 
     def _clear_npc_positions(self) -> None:
         """Clear all NPC position markers from the map."""
@@ -212,18 +212,22 @@ class WorldState:
                 try:
                     x = npc_status[agent_name]['position']['x']
                     y = npc_status[agent_name]['position']['y']
-                    co_destination = self.map.get_address_tiles(
-                        description.split(':')[-1])
+                    co_destination = self.town_map.get_address_tiles(description)
+                    if len(co_destination) == 0:
+                        logger.error(f"No destination found for {description}")
+                        continue
                     updates['state']['move_extra'] = {
                         "path": self.path_planner.create_path((x, y), co_destination),
                         "speed": DEFAULT_SPEED
                     }
                 except Exception as e:
                     logger.error(f"Error creating path: {str(e)}")
+                logger.warning(f"Agent {agent_name} move moved to {updates}")
 
             self.agent_manager.write_agent_status(
                 agent_name,
                 self.global_time, updates[agent_name])
+            
         return updates
 
     def _update_agent(self, agent_name: str, env_info: Dict[str, Any]) -> Tuple[str, str, str]:

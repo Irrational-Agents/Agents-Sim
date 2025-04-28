@@ -28,7 +28,7 @@ def generate_plan(agent_name, agent_profile, current_emotion, recent_events, cur
         current_date=current_date,
         daily_plan=daily_plan,
         basic_needs=basic_needs,
-        _context=load_background('details'))
+        _context=load_background('overview'))
 
 @traceable(name="generate_daily_plan")
 def generate_daily_plan(agent_name, agent_profile, current_emotion, previous, current_date):
@@ -38,10 +38,10 @@ def generate_daily_plan(agent_name, agent_profile, current_emotion, previous, cu
         current_emotion=current_emotion,
         previous=previous,
         current_date=current_date,
-        _context=load_background('details'))
+        _context=load_background('overview'))
 
 @traceable(name="generate_conversation")
-def generate_conversation(agent_name, agent_profile, current_emotion, plan, recent_events, current_time, current_date):
+def generate_conversation(agent_name, agent_profile, current_emotion, plan, recent_events, current_time, current_date, current_perception):
     return run_prompt_task('generate_conversation',
         agent_name=agent_name,
         agent_profile=agent_profile,
@@ -49,7 +49,8 @@ def generate_conversation(agent_name, agent_profile, current_emotion, plan, rece
         plan=plan,
         recent_events=recent_events,
         current_time=current_time,
-        current_date=current_date
+        current_date=current_date,
+        current_perception=current_perception
     )
     
 @traceable(name="generate_thought")

@@ -4,39 +4,60 @@ Current emotion: {current_emotion}
 Recent Events: {recent_events}  
 Current Time: {current_time}  
 Current Date: {current_date}  
-Daily Plans: {daily_plan}  
+intend to do: {daily_plan}  
 World Map: {_context}
 
-Your task:
 
-Generate 3–5 alternative physical plans the character might take **right now**, considering all current context.  
-Each plan should reflect realistic human habits, agent personality, and recent behavior patterns.
+Task:
+Generate 3–5 alternative physical actions the agent might realistically take right now, based on the current "intend to do", time, emotional state, personality, and environment.
 
-Daily Plan should be treated as a **strong behavioral guide**.  
-Plans that align with it are **more likely**, unless strongly contradicted by recent events or emotional state.
+---
 
-Each plan must:
-1. Be physically observable
-2. Be realistic and human-like, consistent with everyday routines and time of day
-3. Avoid repeating recent physical actions unless continuing a social or reflective activity
-4. Respect location and map constraints
-5. Make sense for the agent's current time, situation, and personality
-6. Be a distinct, complete, and standalone alternative
+Step 1: Internal Reasoning (Do not output)
 
-Style rules:
-- 3–6 words per plan
-- No explanations, only the action
-- No adverbs, no adjectives
-- No partial steps or sequences
+- Intend to Do Alignment:
+  - Treat the current intend_to_do as the primary behavioral guide.
+  - Strongly prefer actions that directly fulfill or initiate the intended behavior.
 
-Use a **consistent phrasing style** across similar behaviors.  
-If an action has already been expressed in a previous event or known routine (e.g., "go to bed"), prefer to reuse that exact phrasing.  
-Do not invent alternative ways to express the same action (e.g., avoid switching between "sleep", "lie down", and "go to bed").  
-Keep each plan short (3–6 words), direct, and unambiguous.
+- Current Time and Date Check:
+  - Validate whether the intend_to_do is reasonable for the current time.
+  - If a mismatch exists (e.g., intend_to_do is sleep but it's early morning), allow slight adaptation.
 
+- Recent Activity History:
+  - Avoid repeating very recent physical actions unless continuing an ongoing meaningful event.
 
-Output format:
+- Emotion and Basic Needs:
+  - Adjust likelihood and style of actions based on emotional state and basic need urgency.
 
+- Personality Influence:
+  - Modulate action selection based on personality traits (e.g., introverts prefer solitary activities).
+
+- Location and Map Constraints:
+  - Only generate physically possible actions based on current location.
+
+- Physical Observability:
+  - Each action must be an externally visible, discrete movement or act.
+
+- Consistency of Expression:
+  - Reuse established phrasing for known actions (e.g., always use "go to bed", not "lie down").
+
+---
+
+Step 2: Action Output Rules
+
+- 3–6 words per action.
+- No explanations, no adverbs, no adjectives.
+- No partial steps or action sequences.
+- Use consistent phrasing across options.
+- Each action must be:
+  - Physically observable
+  - Immediately executable
+  - Distinct from others
+  - Coherent with the current intend_to_do, time, emotion, personality, and environment
+
+---
+
+Output Format:
 [
   {{"description": "plan description"}},
   {{"description": "plan description"}},
@@ -44,3 +65,26 @@ Output format:
   {{"description": "plan description"}},
   {{"description": "plan description"}}
 ]
+
+
+---
+
+Important Notes:
+- If intend_to_do strongly implies a specific action (e.g., sleep → go to bed), prioritize it.
+- If time suggests different behavior, carefully balance both intend and realistic timing.
+- If emotional or basic needs are urgent, slightly adjust action direction.
+- If environmental restrictions prevent direct fulfillment, generate feasible idle behaviors (e.g., "wait near the door", "lean on the railing").
+
+---
+
+Final Checklist (internal verification before output):
+- Intend to do alignment prioritized
+- Current time reasonableness checked
+- No forbidden recent repetitions
+- Emotion and needs considered
+- Action physically observable and discrete
+- Consistent phrasing used
+- Bullet-point clean list output
+
+---
+

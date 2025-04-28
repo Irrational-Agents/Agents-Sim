@@ -103,6 +103,7 @@ class Agent:
             new_day = True
 
         # Update time tracking
+        new_day = False
         self.short_memory.curr_datetime = curr_time
         self.short_memory.curr_time = curr_time.strftime('%H:%M')
         self.short_memory.curr_date = curr_time.strftime('%Y-%m-%d')

@@ -4,14 +4,14 @@
 # For example, compared to Benjamin on Day 1, when he was immersed in technology, his personality now includes a perception that life involves more than work and academics, and he is more focused on maintaining his health and well-being. This change was influenced by Zoe's encouragement of a healthy lifestyle in their conversation, as shown in Figure 12, which highlights the transformation in Benjamin's personality. Similarly, Isabella's interaction with Sofia and her solitary introspection in the square transforms her from a conformist personality to one that is more free and genuine.
 
 from prompt.llm_command_list import *
-
+from agents_modules.personality.emotion import get_complex_mood
 def reflection(agent, action, description):
     basic_needs = agent.short_memory.basic_needs
     if action == 'move':
         basic_needs['energy'] -= 1
         return
     
-    needs = gpt_analyze_needs(agent.name, agent.formed_profile, agent.short_memory.emotion_memory[-1], action, description, basic_needs)
+    needs = gpt_analyze_needs(agent.name, agent.formed_profile, get_complex_mood(agent.short_memory.emotion_memory[-1]), action, description, basic_needs)
     agent.short_memory.basic_needs = needs.get('new_basic_needs')
     agent.short_memory.emotion_memory.append(needs.get('new_emotion'))
     return needs
