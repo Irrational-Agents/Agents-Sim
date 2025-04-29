@@ -8,16 +8,16 @@
       "deadline": "2024-09-20"
     }
   ],
-  "short_memory_capacity": 150,
+  "short_memory_capacity": 50,
   "short_memory_for_plan": [],
   "daily_plan_req": [],
   "short_memory": [],
   "basic_needs": {
-    "fullness": 6,
-    "social": 7,
-    "fun": 5,
-    "health": 8,
-    "energy": 7
+    "fullness": 6.7,
+    "social": 5.7,
+    "fun": 6.4,
+    "health": 7.3,
+    "energy": 6.5
   },
   "temporary_personality_changes": {
     "openness": 0.3,

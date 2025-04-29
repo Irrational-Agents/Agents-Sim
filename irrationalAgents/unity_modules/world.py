@@ -207,22 +207,23 @@ class WorldState:
                 step=self.meta_manager.get('step'),
                 location=self.agent_manager.agents[agent_name].short_memory.current_location
             )
-
             if action == "move":
                 try:
                     x = npc_status[agent_name]['position']['x']
                     y = npc_status[agent_name]['position']['y']
-                    co_destination = self.town_map.get_address_tiles(description)
-                    if len(co_destination) == 0:
-                        logger.error(f"No destination found for {description}")
-                        continue
-                    updates['state']['move_extra'] = {
-                        "path": self.path_planner.create_path((x, y), co_destination),
-                        "speed": DEFAULT_SPEED
-                    }
+                    co_destination = self.town_map.get_address_tiles(description.replace(":spaces:", ":"))
+                    if co_destination:
+                        destination = next(iter(co_destination))
+                        move_extra = {
+                            "path": self.path_planner.create_path((x, y), destination),
+                            "speed": DEFAULT_SPEED
+                        }
+                        updates[agent_name]['state']['move_extra'] = move_extra
+                    else:
+                        logger.warning(f"No destination found for {description}")
                 except Exception as e:
                     logger.error(f"Error creating path: {str(e)}")
-                logger.warning(f"Agent {agent_name} move moved to {updates}")
+                    raise e
 
             self.agent_manager.write_agent_status(
                 agent_name,

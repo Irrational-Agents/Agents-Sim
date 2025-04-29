@@ -257,6 +257,8 @@ class AgentManager:
         with open(file_path, 'w', encoding='utf-8') as f:
             json.dump(data, f, ensure_ascii=False, indent=4)
 
+        logger.info(f"Agent {agent_name} status updated successfully: {status}")
+
     def get_agent_current_status(self, agent_name: str, file_path, index_) -> Dict[str, Any]:
         """Get current status of specified agent."""
         file_path = os.path.join(

@@ -30,6 +30,8 @@ class UnityRequest:
         try:
             self.sio.emit(event_name, data, to=self.current_client_sid)
             logger.info(
+                f"Emitted event '{event_name}' to client {self.current_client_sid}.")
+            logger.debug(
                 f"Emitted event '{event_name}' to client {self.current_client_sid}. Data: {data}")
         except Exception as e:
             logger.error(f"Error emitting event '{event_name}': {str(e)}")
