@@ -3,7 +3,8 @@ import json
 from config.logger_config import setup_logger
 from agents_modules.behavior.plan import *
 from config.common_method import *
-
+from memory_modules.distillation import compress_semantic_memories
+from pathlib import Path
 logger = setup_logger(__name__)
 
 
@@ -94,6 +95,23 @@ class ShortTermMemory:
         with open(out_json, "w", encoding='utf-8') as outfile:
             json.dump(short_memory, outfile, ensure_ascii=False, indent=2)
 
+    def log_memory(self):
+        logger.debug(f"short term memory: {self.short_memory_for_plan}, recent events: {self.recent_events}")
+        if not self.short_memory_for_plan:
+            logger.debug("short term memory is empty")
+            return
+
+        date_str = self.short_memory_for_plan[0].get("date", "unknown_date")
+        short_term_path = Path(self.short_memory_path)
+        logs_dir = short_term_path.parent.parent / "logs"
+        file_path = logs_dir / f"{date_str}.json"
+
+        with open(file_path, "w", encoding="utf-8") as f:
+            json.dump(self.short_memory_for_plan, f, ensure_ascii=False, indent=2)
+
+        logger.debug(f"short term memory saved to {file_path}")
+
+
     def get_current_plan(self):
         if not self.curr_time:
             return None
@@ -167,7 +185,7 @@ class ShortTermMemory:
             if plan_time > current_time:
                 return plans[i-1] if i > 0 else None
 
-        return plans[-1]  # 如果当前时间晚于所有计划，返回最后一个计划
+        return plans[-1].get("activity", None) or plans[-1]  # 如果当前时间晚于所有计划，返回最后一个计划
 
     def get_f_daily_schedule_index(self, advance=0):
 
@@ -255,36 +273,36 @@ class ShortTermMemory:
 
                 importance = 1.0 if mocc == 3 else 0.5
                 freshness = 1.0
-
-                keywords_list = extract_keywords_for_long_term_memory(
-                    description)
-                keywords = set(keywords_list)
-
                 current_time = self.curr_datetime if self.curr_datetime else datetime.datetime.now()
+
+                keywords_list = extract_keywords_for_long_term_memory(description)
 
                 if node_type == 'thought':
                     long_memory.add_thought(
                         created=current_time,
                         description=description,
-                        keywords=keywords,
+                        keywords=keywords_list,
                         importance=importance,
-                        freshness=freshness
+                        freshness=freshness,
+                        moccupying=mocc
                     )
                 elif node_type == 'chat':
                     long_memory.add_chat(
                         created=current_time,
                         description=description,
-                        keywords=keywords,
+                        keywords=keywords_list,
                         importance=importance,
-                        freshness=freshness
+                        freshness=freshness,
+                        moccupying=mocc
                     )
-                else:  # event
+                else:
                     long_memory.add_event(
                         created=current_time,
                         description=description,
-                        keywords=keywords,
+                        keywords=keywords_list,
                         importance=importance,
-                        freshness=freshness
+                        freshness=freshness,
+                        moccupying=mocc
                     )
 
                 event['moccupying'] = 1
@@ -306,9 +324,9 @@ def format_events_as_text(events):
 
     return time_date + " ".join(formatted_events)
 
-
 def form_short_memory(agent):
-    short_memory_list = generate_short_memory(agent.name, get_complex_mood(agent.short_memory.emotion_memory[-1]), agent.short_memory.personality_text, agent.relationships, agent.short_memory.short_memory_for_plan)
+    compressed_mem = compress_semantic_memories(agent.short_memory.short_memory_for_plan)
+    short_memory_list = generate_short_memory(agent.name, get_complex_mood(agent.short_memory.emotion_memory[-1]), agent.short_memory.personality_text, agent.relationships, compressed_mem)
     if not short_memory_list:
         return []
     

@@ -2,7 +2,6 @@ from agents_modules.agent import Agent
 import json
 import os
 from config.config import *
-from memory_modules.short_term_memory import form_short_memory
 from datetime import datetime, timedelta
 
 def main():
@@ -21,19 +20,21 @@ def main():
     count = 1
     try:
         while(count <= 3):
-            print(f'loop {count}')
+            print(f'loop {count}, curr_time: {curr_time}')
             #event = input("Shota(User):  ")
-            agent.move(curr_time, "wanting to take a shower")
+            agent.move(curr_time, "")
             # if count % 4 == 0:
             #     agent.short_memory.short_memory = form_short_memory(agent)
             curr_time = curr_time + timedelta(minutes=15)
             count += 1
             meta['step'] += 1
     except Exception as e:
+        print('Attention pls Error:', e)
+        raise e
         agent.short_memory.save(agent.short_memory)
         meta['curr_time'] = curr_time.strftime('%H:%M')
         meta['curr_date'] = curr_time.strftime('%Y-%m-%d')
-        raise e
+        
         
     agent.short_memory.save(agent.short_memory)
     meta['curr_time'] = curr_time.strftime('%H:%M')
@@ -51,5 +52,5 @@ def create_agent(name):
     agent = Agent(basic_info, memory_folder_path)
     return agent
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()

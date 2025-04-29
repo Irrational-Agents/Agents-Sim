@@ -1,34 +1,63 @@
-Agent name: {agent_name}
-Agent profile: {agent_profile}
-Current emotion: {current_emotion}
-Recent Events: {recent_events}
-Current Time: {current_time}
-Current Date: {current_date}
-Daily Plans: {daily_plan}
+Agent name: {agent_name}  
+Agent profile: {agent_profile}  
+Current emotion: {current_emotion}  
+Recent Events: {recent_events}  
+Current Time: {current_time}  
+Current Date: {current_date}  
+intend to do: {daily_plan}  
 World Map: {_context}
 
-Generate independent plan options that represent ALTERNATIVE possibilities for the character given their Daily Plans, Recent Events, and world map. 
-Each plan should: 
-1. Represent a DISTINCT possible response to the current situation 
-2. Be influenced by Daily Plans, Recent Events and personality.
-3. Respect world map constraints and character location 
-4. Show different decision paths the character might reasonably take For example, if Daily Plan is "Sleep" at 00:00 and Recent Event is "want to take a shower" and profile of agent shows a lazy person, generated actions might include multiple choices: 
-  - One plan showing the character deciding to sleep immediately despite wanting a shower 
-  - Another plan showing the character going to take a shower before sleeping 
-  - Another plan showing the character setting an alarm to take a shower early morning instead 
-  - Another plan showing not to take a show
 
-Each plan must be: 
-- A standalone, physically observable behavior 
-- A complete alternative rather than sequential steps 
-- Realistic for the character and situation 
-- Specific to current time, location, and context Present these as distinct alternative possibilities rather than as sequential steps in a single storyline. These alternatives represent different choices the character might make at this exact moment. 
--  Expressed in minimalist language (3-6 words when possible) 
-- No adverbs, minimal adjectives 
-- No explanations of reasoning or motivation. Just the core physical plan in simplest form
+Task:
+Generate 3–5 alternative physical actions the agent might realistically take right now, based on the current "intend to do", time, emotional state, personality, and environment.
 
-Please format your response as a JSON list of strings, exactly as shown below. Do not include any additional text outside the JSON array:
+---
 
+Step 1: Internal Reasoning (Do not output)
+
+- Intend to Do Alignment:
+  - Treat the current intend_to_do as the primary behavioral guide.
+  - Strongly prefer actions that directly fulfill or initiate the intended behavior.
+
+- Current Time and Date Check:
+  - Validate whether the intend_to_do is reasonable for the current time.
+  - If a mismatch exists (e.g., intend_to_do is sleep but it's early morning), allow slight adaptation.
+
+- Recent Activity History:
+  - Avoid repeating very recent physical actions unless continuing an ongoing meaningful event.
+
+- Emotion and Basic Needs:
+  - Adjust likelihood and style of actions based on emotional state and basic need urgency.
+
+- Personality Influence:
+  - Modulate action selection based on personality traits (e.g., introverts prefer solitary activities).
+
+- Location and Map Constraints:
+  - Only generate physically possible actions based on current location.
+
+- Physical Observability:
+  - Each action must be an externally visible, discrete movement or act.
+
+- Consistency of Expression:
+  - Reuse established phrasing for known actions (e.g., always use "go to bed", not "lie down").
+
+---
+
+Step 2: Action Output Rules
+
+- 3–6 words per action.
+- No explanations, no adverbs, no adjectives.
+- No partial steps or action sequences.
+- Use consistent phrasing across options.
+- Each action must be:
+  - Physically observable
+  - Immediately executable
+  - Distinct from others
+  - Coherent with the current intend_to_do, time, emotion, personality, and environment
+
+---
+
+Output Format:
 [
   {{"description": "plan description"}},
   {{"description": "plan description"}},
@@ -36,3 +65,26 @@ Please format your response as a JSON list of strings, exactly as shown below. D
   {{"description": "plan description"}},
   {{"description": "plan description"}}
 ]
+
+
+---
+
+Important Notes:
+- If intend_to_do strongly implies a specific action (e.g., sleep → go to bed), prioritize it.
+- If time suggests different behavior, carefully balance both intend and realistic timing.
+- If emotional or basic needs are urgent, slightly adjust action direction.
+- If environmental restrictions prevent direct fulfillment, generate feasible idle behaviors (e.g., "wait near the door", "lean on the railing").
+
+---
+
+Final Checklist (internal verification before output):
+- Intend to do alignment prioritized
+- Current time reasonableness checked
+- No forbidden recent repetitions
+- Emotion and needs considered
+- Action physically observable and discrete
+- Consistent phrasing used
+- Bullet-point clean list output
+
+---
+

@@ -5,16 +5,23 @@ Plan: {plan}
 Recent Events: {recent_events}
 Current Time: {current_time}
 Current Date: {current_date}
-Based on the information above, generate a realistic conversation between {agent_name} and others(who agent can see). The conversation should:
+Current Perception: {current_perception}
 
-Follow the given plan and make only one conversation 
-If you had a conversation 15 minutes ago in Recent Event, please answer in a way that naturally connects to that conversation
-Take into account the personality and emotion
-Be natural and engaging and no longer than 20 words
+Task:
+Based on the information above, generate a realistic conversation between {agent_name} and one of the visible people. The conversation must:
 
-Please format the a conversation as follows:
-[
-    "{agent_name}",
-    "[The person or thing the action is directed towards]",
-    "[Brief conversation, maximum 20 words]"
-]
+
+- Strictly select the conversation partner only from Current Perception.
+- Never invent or create a new person.
+- Follow the given plan closely, making only **one short statement**.
+- Use the agent's perspective: it must be a line spoken by {agent_name}, not a full dialogue.
+- If a conversation occurred within the past 15 minutes (in Recent Events), connect naturally to it.
+- Consider {agent_name}'s personality and current emotion to make the tone natural.
+- Keep the conversation casual, engaging, and no longer than 20 words.
+
+If there are no visible people, return:
+[]
+(empty list)
+
+Output format:
+{{"person":"[The person for chatting]","description":"Brief conversation, maximum 20 words"}}

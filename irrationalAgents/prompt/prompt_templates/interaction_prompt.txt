@@ -20,17 +20,12 @@ Take into account the personality and emotion
 Be natural and engaging and no longer than 10 words
 
 Please format the a conversation as follows:
-[
-    "{agent_name}",
-    "[The item you choose]",
-    "[Brief description of the interaction in an objective and observable manner, maximum 10 words]"
-]
+{{"item":"The item you choose","description":"Brief description of the interaction in an objective and observable manner, maximum 10 words"}}
+
 
 output examples:
 
-[
-    "{agent_name}",
-    "house E:empty bedroom:items:guitar",
-    "playing guitar for fun"
-]
-
+{{
+    "item": "house E:empty bedroom:items:guitar",
+    "description": "playing guitar for fun"
+}}
