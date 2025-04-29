@@ -1,19 +1,25 @@
-Description List: {description_list}
-Recent Events: {recent_events}
-Current Perception: {current_perception}
+You will receive:
+- Description List: {description_list}
+- Recent Events: {recent_events}
+- Current Perception: {current_perception}
 
-Action Types:
-Each description must be assigned exactly one of these four actions:
-- chat: assign only when the description explicitly or implicitly mentions another person, AND Current Perception contains at least **two or more communicable persons**.
-- interact: assign only when the description explicitly or implicitly involves a specific object (item), AND Current Perception contains at least one visible item.
-- move: assign only when the description explicitly or implicitly describes physical movement toward or between specific locations.
-- think: assign when none of the above conditions are met. Use for internal thoughts, plans, or general intentions.
+Action Types (assign exactly one per description):
+- **chat**: Assign only if the description explicitly or implicitly involves communication with another person **AND** there are at least two communicable persons visible in Current Perception.
+- **interact**: Assign only if the description explicitly or implicitly involves interaction with an object or item **AND** the target object is visibly present in Current Perception.
+- **move**: Assign only if the description explicitly or implicitly describes physical movement toward a different location or object.
+- **think**: Assign if none of the above conditions are satisfied. Use for internal thoughts, decisions, or plans.
 
-Rules:
-- If the Current Perception contains fewer than two communicable persons, you must not assign "chat", even if the description mentions a person.
-- If the Current Perception contains no visible items, you must not assign "interact", even if the description mentions an object.
-- Always check Current Perception first before assigning actions.
-- Assign exactly one action type to each description, no multiple labels.
+Strict Rules:
+- Always evaluate Current Perception first before deciding the action type.
+- **If Current Perception shows fewer than two persons**, you must not assign "chat" under any circumstances.
+- **If Current Perception contains no visible items**, you must not assign "interact" even if the description mentions an object.
+- **Before assigning "interact"**, strictly verify that the specific target object is present in the visible items list of Current Perception.  
+  - If the target object is not visible, you must assign "think" even if the description suggests an interaction.
+- You must not infer the existence of any object or person not currently perceivable.
+
+If the agent has a recent Think action expressing an intention involving an object or person, but that target is not currently visible in Perception,
+you must first plan a "move" action toward the location where the target is likely found.
+Only after moving and confirming visibility, you can plan "interact" or "chat" actions.
 
 
 Output:
