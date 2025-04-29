@@ -19,9 +19,10 @@ def load_background(type_):
     return map
 
 
-def generate_plan(tracer, agent_name, agent_profile, current_emotion, recent_events, current_time, current_date, basic_needs, perception, daily_plan=None):
+@traceable(name='generate_plan', run_type='prompt')
+def generate_plan(agent_name, agent_profile, current_emotion, recent_events, current_time, current_date, basic_needs, perception, daily_plan=None):
     return run_prompt_task("generate_plan",
-                           agent_tracer=tracer,
+
                            agent_name=agent_name,
                            agent_profile=agent_profile,
                            current_emotion=current_emotion,
@@ -30,13 +31,14 @@ def generate_plan(tracer, agent_name, agent_profile, current_emotion, recent_eve
                            current_date=current_date,
                            daily_plan=daily_plan,
                            basic_needs=basic_needs,
-                           current_perception=perception
+                           current_perception=perception,
                            _context=load_background('overview'))
 
 
-def generate_daily_plan(tracer, agent_name, agent_profile, current_emotion, previous, current_date):
+@traceable(name='generate_daily_plan', run_type='prompt')
+def generate_daily_plan(agent_name, agent_profile, current_emotion, previous, current_date):
     return run_prompt_task("generate_daily_plan",
-                           agent_tracer=tracer,
+
                            agent_name=agent_name,
                            agent_profile=agent_profile,
                            current_emotion=current_emotion,
@@ -45,9 +47,10 @@ def generate_daily_plan(tracer, agent_name, agent_profile, current_emotion, prev
                            _context=load_background('overview'))
 
 
-def generate_conversation(tracer, agent_name, agent_profile, current_emotion, plan, recent_events, current_time, current_date, current_perception):
+@traceable(name='generate_conversation', run_type='prompt')
+def generate_conversation(agent_name, agent_profile, current_emotion, plan, recent_events, current_time, current_date, current_perception):
     return run_prompt_task('generate_conversation',
-                           agent_tracer=tracer,
+
                            agent_name=agent_name,
                            agent_profile=agent_profile,
                            current_emotion=current_emotion,
@@ -59,9 +62,10 @@ def generate_conversation(tracer, agent_name, agent_profile, current_emotion, pl
                            )
 
 
-def generate_thought(tracer, agent_name, agent_profile, current_emotion, plan, recent_events, current_time, current_date):
+@traceable(name='generate_thought', run_type='prompt')
+def generate_thought(agent_name, agent_profile, current_emotion, plan, recent_events, current_time, current_date):
     return run_prompt_task('generate_thought',
-                           agent_tracer=tracer,
+
                            agent_name=agent_name,
                            agent_profile=agent_profile,
                            current_emotion=current_emotion,
@@ -72,9 +76,10 @@ def generate_thought(tracer, agent_name, agent_profile, current_emotion, plan, r
                            )
 
 
-def generate_move(tracer, agent_name, agent_profile, current_emotion, recent_events, plan, current_time, current_date):
+@traceable(name='generate_move', run_type='prompt')
+def generate_move(agent_name, agent_profile, current_emotion, recent_events, plan, current_time, current_date):
     return run_prompt_task('generate_move',
-                           agent_tracer=tracer,
+
                            agent_name=agent_name,
                            agent_profile=agent_profile,
                            current_emotion=current_emotion,
@@ -86,9 +91,10 @@ def generate_move(tracer, agent_name, agent_profile, current_emotion, recent_eve
                            )
 
 
-def generate_interaction(tracer, agent_name, agent_profile, current_emotion, recent_events, plan, current_time, current_date, location, current_perception):
+@traceable(name='generate_interaction', run_type='prompt')
+def generate_interaction(agent_name, agent_profile, current_emotion, recent_events, plan, current_time, current_date, location, current_perception):
     return run_prompt_task('generate_interaction',
-                           agent_tracer=tracer,
+
                            agent_name=agent_name,
                            agent_profile=agent_profile,
                            current_emotion=current_emotion,
@@ -102,14 +108,16 @@ def generate_interaction(tracer, agent_name, agent_profile, current_emotion, rec
                            )
 
 
-def generate_personality(tracer, traits):
+@traceable(name='generate_personality')
+def generate_personality(traits):
     traits_str = json.dumps(traits, indent=2)
-    return run_prompt_task('generate_personality', agent_tracer=tracer, traits=traits_str)
+    return run_prompt_task('generate_personality', agent_tracer=None, traits=traits_str)
 
 
-def generate_short_memory(tracer, agent_name, current_emotion, personality_traits, relationships, past_memories):
+@traceable(name='generate_short_memory', run_type='prompt')
+def generate_short_memory(agent_name, current_emotion, personality_traits, relationships, past_memories):
     return run_prompt_task('generate_short_memory',
-                           agent_tracer=tracer,
+
                            agent_name=agent_name,
                            current_emotion=current_emotion,
                            personality_traits=personality_traits,
@@ -118,16 +126,18 @@ def generate_short_memory(tracer, agent_name, current_emotion, personality_trait
                            )
 
 
-def extract_keywords_for_long_term_memory(tracer, description):
+@traceable(name='extract_keywords_for_long_term_memory', run_type='prompt')
+def extract_keywords_for_long_term_memory(description):
     return run_prompt_task('extract_keywords',
-                           agent_tracer=tracer,
+
                            text=description
                            )
 
 
-def plans_selection(tracer, plans, p_context, recent_events, basic_needs, biases=''):
+@traceable(name='plans_selection', run_type='prompt')
+def plans_selection(plans, p_context, recent_events, basic_needs, biases=''):
     return run_prompt_task('plans_selection',
-                           agent_tracer=tracer,
+
                            plans=plans,
                            biases=biases,
                            events=recent_events,
@@ -140,9 +150,10 @@ def gpt_analyze_memory(goals, memories):
     pass
 
 
-def gpt_analyze_needs(tracer, agent_name, agent_profile, current_emotion, action, description, basic_needs):
+@traceable(name='gpt_analyze_needs', run_type='prompt')
+def gpt_analyze_needs(agent_name, agent_profile, current_emotion, action, description, basic_needs):
     return run_prompt_task('gpt_analyze_needs',
-                           agent_tracer=tracer,
+
                            agent_name=agent_name,
                            agent_profile=agent_profile,
                            current_emotion=current_emotion,

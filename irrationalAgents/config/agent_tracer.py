@@ -1,27 +1,12 @@
-from langsmith import Client
+from langsmith import traceable
 
-class AgentTracer:
-    def __init__(self):
-        self.client = Client()
-        self.parent_run = None
+def dynamic_traceable(name_func, run_type="chain"):
+    def decorator(method):
+        def wrapper(self, *args, **kwargs):
+            name = name_func(self, *args, **kwargs)
+            parent_id = kwargs.get("parent_run_id")
+            traced = traceable(name=name, run_type=run_type, parent_run_id=parent_id)(method)
+            return traced(self, *args, **kwargs)
+        return wrapper
+    return decorator
 
-    def start_agent_run(self, agent_name, tick_info):
-        self.parent_run = self.client.create_run(
-            name=f"AgentRun-{agent_name}",
-            inputs={"tick_info": tick_info},
-            run_type="chain",
-        )
-
-    def end_agent_run(self):
-        self.parent_run = None  # 释放
-
-    def trace_child_step(self, step_name, inputs, outputs):
-        if not self.parent_run:
-            raise Exception("Parent run not started!")
-        self.client.create_run(
-            name=step_name,
-            inputs=inputs,
-            outputs=outputs,
-            run_type="tool",
-            parent_run_id=self.parent_run.id
-        )

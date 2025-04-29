@@ -9,7 +9,7 @@ from config.logger_config import setup_logger
 
 logger = setup_logger(__name__)
 api_key = os.getenv('OPENAI_API_KEY')
-client = wrap_openai(OpenAI(api_key=api_key))
+client = OpenAI(api_key=api_key)
 
 
 def _load_prompt_files(file_list):
@@ -19,7 +19,7 @@ def _load_prompt_files(file_list):
 def render_prompt(template, variables):
     return template.format(**variables)
 
-
+@traceable(name='call', run_type='llm')
 def call_openai(system_content, user_content, function):
     try:
         chat_kwargs = {
@@ -90,7 +90,7 @@ def run_prompt_task(task_name, agent_tracer=None, **variables):
         logger.info(f"[{task_name}] result: {result}")
         if agent_tracer and agent_tracer.parent_run:
             agent_tracer.trace_child_step(
-                step_name=task_name",
+                step_name=task_name,
                 inputs=variables,
                 outputs={"result": result}
             )

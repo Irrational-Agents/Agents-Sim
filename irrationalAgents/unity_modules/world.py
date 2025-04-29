@@ -87,17 +87,15 @@ class WorldState:
                 action=status['state'].get('activity'),
                 description=status['state'].get('description'),
                 step=self.meta_manager.get('step'),
-                time=self.global_time.isoformat(),
+                time=self.global_time.isoformat()
             )
-
-            # self.agent_manager.write_agent_status(
-            #     npc_name, self.global_time, status)
+            if self.meta_manager.get('step') == 1:
+                self.agent_manager.write_agent_status(npc_name, self.global_time, status)
 
     def _clear_npc_positions(self) -> None:
         """Clear all NPC position markers from the map."""
         for i in range(self.town_map.maze_height):
             for j in range(self.town_map.maze_width):
-                # Erase the event info
                 if self.town_map.tiles[i][j]['npc'] != '_':
                     self.town_map.tiles[i][j]['npc'] = '_'
 
@@ -119,7 +117,7 @@ class WorldState:
             self.refresh_status(npc_status)
 
             # 1. Collect environment information
-            environment_info = self._collect_env_info()
+            environment_info = self._collect_env_info(npc_status)
             if not environment_info:
                 logger.warning("No environment info collected for tick")
 
@@ -282,7 +280,7 @@ class WorldState:
         logger.debug(f"Generated stimuli: {stimuli}")
         return stimuli
 
-    def _collect_env_info(self) -> Dict[str, Dict[str, Any]]:
+    def _collect_env_info(self, npc_status) -> Dict[str, Dict[str, Any]]:
         """
         Collect environment information for all agents.
 
@@ -302,7 +300,7 @@ class WorldState:
             pos = positions.get(agent_name)
             if not pos:
                 logger.warning(f"No position found for agent {agent_name}")
-                continue
+            
 
             try:
                 nearby_tiles = self.town_map.generate_visible_tiles(

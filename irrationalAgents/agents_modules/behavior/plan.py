@@ -26,7 +26,7 @@ def daily_planning(agent):
     # the subsequent days have long_memory(previous).
     # So here I use get_summarized_latest_events, could use another retrieve method in the future
     previous = agent.long_memory.get_summarized_latest_events(10)
-    return generate_daily_plan(agent.tracer,
+    return generate_daily_plan(
         agent.name, agent.formed_profile,
         get_complex_mood(agent.short_memory.emotion_memory[-1]),
         previous,
@@ -35,12 +35,12 @@ def daily_planning(agent):
 
 def create_plan(agent):
     # GPTを使用してプランを生成
-    return generate_plan(agent.tracer,
+    return generate_plan(
         agent.name, agent.formed_profile,
         get_complex_mood(agent.short_memory.emotion_memory[-1]),
         agent.short_memory.recent_events,
         agent.short_memory.curr_time,
         agent.short_memory.curr_date,
         agent.short_memory.basic_needs,
-        agent.short_memory_for_plan[-1],
+        agent.short_memory.short_memory_for_plan[-1],
         agent.short_memory.get_current_daily_plan())
