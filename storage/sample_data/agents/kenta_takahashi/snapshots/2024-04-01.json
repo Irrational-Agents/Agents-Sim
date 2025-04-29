@@ -1,0 +1,44 @@
+{
+    "00:00:00": {
+        "state": {
+            "activity": "free",
+            "description": null
+        },
+        "time": "2024-04-01T00:00:00",
+        "step": 1,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "00:15:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'guitar', 'description': 'playing guitar softly to calm down'}"
+        },
+        "time": "2024-04-01T00:15:00",
+        "step": 2,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "00:30:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'guitar', 'description': 'playing guitar softly to calm down'}"
+        },
+        "time": "2024-04-01T00:30:00",
+        "step": 3,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    }
+}

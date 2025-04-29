@@ -276,6 +276,7 @@ class ShortTermMemory:
                 current_time = self.curr_datetime if self.curr_datetime else datetime.datetime.now()
 
                 keywords_list = extract_keywords_for_long_term_memory(description)
+                logger.info(f"keywords_list: {keywords_list}")
 
                 if node_type == 'thought':
                     long_memory.add_thought(
@@ -329,6 +330,8 @@ def form_short_memory(agent):
     short_memory_list = generate_short_memory( agent.name, get_complex_mood(agent.short_memory.emotion_memory[-1]), agent.short_memory.personality_text, agent.relationships, compressed_mem)
     if not short_memory_list:
         return []
+    
+    logger.info(f"short_memory_list: {short_memory_list}")
     
     new_entries = []
     logger.info(f"short_memory_list: {short_memory_list}")

@@ -1,7 +1,6 @@
 import os
 import json
 from langsmith import traceable
-from langsmith.wrappers import get_trace_context
 from config.logger_config import setup_logger
 from config.config import PROMPT_FILE_PATH
 from prompt.prompt_runner import run_prompt_task
@@ -35,8 +34,6 @@ def generate_plan(agent_name, agent_profile, current_emotion, recent_events, cur
 
 @traceable(name='generate_daily_plan', run_type='prompt')
 def generate_daily_plan(agent_name, agent_profile, current_emotion, previous, current_date):
-    ctx = get_trace_context()
-    logger.warning(f"[trace debug] inside generate_daily_plan ctx.run_id={ctx.run_id}")
     return run_prompt_task("generate_daily_plan",
                            agent_name=agent_name,
                            agent_profile=agent_profile,

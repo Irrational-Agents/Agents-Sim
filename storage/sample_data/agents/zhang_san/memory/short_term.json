@@ -9,15 +9,182 @@
     }
   ],
   "short_memory_capacity": 50,
-  "short_memory_for_plan": [],
-  "daily_plan_req": [],
-  "short_memory": [],
+  "short_memory_for_plan": [
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with co-living space:B room:items:bed: turning off the lights before sleeping",
+      "emotion": [
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      "basic_needs": {
+        "fullness": 8.9,
+        "social": 8.5,
+        "fun": 7.9,
+        "health": 7.2,
+        "energy": 1.0
+      }
+    },
+    {
+      "time": "00:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "00:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with co-living space:B room:items:bed: going to sleep after a happy day",
+      "emotion": [
+        7,
+        0,
+        0,
+        1,
+        0,
+        0,
+        2
+      ],
+      "basic_needs": {
+        "fullness": 9.2,
+        "social": 8.5,
+        "fun": 7.9,
+        "health": 7.5,
+        "energy": 1.3
+      }
+    }
+  ],
+  "daily_plan_req": [
+    {
+      "time": "00:00",
+      "activity": "Sleep",
+      "moccupying": 1,
+      "intervals": "420.0 minutes"
+    },
+    {
+      "time": "07:00",
+      "activity": "Wake up and Morning Hygiene Routine",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "07:30",
+      "activity": "Breakfast (light meal)",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "08:00",
+      "activity": "Cat care and playtime with Bobo and Langley",
+      "moccupying": 2,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "08:30",
+      "activity": "Work on design project: Redesigning the common room",
+      "moccupying": 3,
+      "intervals": "120.0 minutes"
+    },
+    {
+      "time": "10:30",
+      "activity": "Research new design trends for co-living spaces",
+      "moccupying": 3,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "11:30",
+      "activity": "Lunch at a nearby café",
+      "moccupying": 2,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "12:00",
+      "activity": "Review project progress and set goals for the day",
+      "moccupying": 3,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "12:30",
+      "activity": "Commute to work",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "13:00",
+      "activity": "Work on redesigning co-living and dorm interiors",
+      "moccupying": 1,
+      "intervals": "300.0 minutes"
+    },
+    {
+      "time": "18:00",
+      "activity": "Commute back home",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "18:30",
+      "activity": "Dinner preparation",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "19:00",
+      "activity": "Dinner and relax at home",
+      "moccupying": 2,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "20:00",
+      "activity": "Attend a local hobby group meeting for diving",
+      "moccupying": 2,
+      "intervals": "120.0 minutes"
+    },
+    {
+      "time": "22:00",
+      "activity": "Evening walk in the park with Bobo and Langley",
+      "moccupying": 2,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "22:30",
+      "activity": "Plan for studio launch and current projects",
+      "moccupying": 3,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "23:30",
+      "activity": "Wind down with a book or light activity before bed",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    }
+  ],
+  "short_memory": [
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I chatted about: recent travels and cultural experiences, I felt happy"
+    }
+  ],
   "basic_needs": {
-    "fullness": 8.9,
+    "fullness": 9.5,
     "social": 8.5,
-    "fun": 7.9,
-    "health": 7.2,
-    "energy": 1.0
+    "fun": 8.2,
+    "health": 7.5,
+    "energy": 3.5
   },
   "temporary_personality_changes": {
     "openness": 0.3,

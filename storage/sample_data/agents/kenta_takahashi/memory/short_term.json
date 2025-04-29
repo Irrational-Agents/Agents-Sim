@@ -9,15 +9,181 @@
     }
   ],
   "short_memory_capacity": 50,
-  "short_memory_for_plan": [],
-  "daily_plan_req": [],
+  "short_memory_for_plan": [
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'refrigerator', 'guitar'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with guitar: playing guitar softly to calm down",
+      "emotion": [
+        0,
+        0,
+        1,
+        7,
+        0,
+        2,
+        0
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.9,
+        "fun": 6.4,
+        "health": 7.2,
+        "energy": 6.7
+      }
+    },
+    {
+      "time": "00:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'refrigerator', 'guitar'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "00:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with guitar: playing guitar softly to calm down",
+      "emotion": [
+        0,
+        2,
+        0,
+        2,
+        0,
+        1,
+        5
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.6,
+        "fun": 6.4,
+        "health": 7.2,
+        "energy": 6.8
+      }
+    }
+  ],
+  "daily_plan_req": [
+    {
+      "time": "00:00",
+      "activity": "Wind down and prepare for bed",
+      "moccupying": 1,
+      "intervals": "15.0 minutes"
+    },
+    {
+      "time": "00:15",
+      "activity": "Sleep",
+      "moccupying": 1,
+      "intervals": "405.0 minutes"
+    },
+    {
+      "time": "07:00",
+      "activity": "Wake up and stretching exercises",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "07:30",
+      "activity": "Personal hygiene routine (shower, brush teeth, etc.)",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "08:00",
+      "activity": "Breakfast (healthy meal to boost mood)",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "08:30",
+      "activity": "Review daily goals and plan for the day",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "09:00",
+      "activity": "Attend classes at the college",
+      "moccupying": 3,
+      "intervals": "180.0 minutes"
+    },
+    {
+      "time": "12:00",
+      "activity": "Lunch break with classmates at the café",
+      "moccupying": 2,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "13:00",
+      "activity": "Continue classes and participate in group discussions",
+      "moccupying": 3,
+      "intervals": "120.0 minutes"
+    },
+    {
+      "time": "15:00",
+      "activity": "Work on AI chatbot project (coding in Python)",
+      "moccupying": 3,
+      "intervals": "120.0 minutes"
+    },
+    {
+      "time": "17:00",
+      "activity": "Take a break, walk in the park to uplift mood",
+      "moccupying": 1,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "18:00",
+      "activity": "Dinner at home with housemates",
+      "moccupying": 2,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "19:00",
+      "activity": "Collaborate with Hiroshi Watanabe on tech projects",
+      "moccupying": 2,
+      "intervals": "120.0 minutes"
+    },
+    {
+      "time": "21:00",
+      "activity": "Prepare for 'Tech Night' - organize materials and setup",
+      "moccupying": 1,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "22:00",
+      "activity": "Host 'Tech Night' event, share ideas and collaborate",
+      "moccupying": 2,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "23:00",
+      "activity": "Reflect on the day's achievements and relax with a book",
+      "moccupying": 1,
+      "intervals": "45.0 minutes"
+    },
+    {
+      "time": "23:45",
+      "activity": "Prepare for bed (night routine)",
+      "moccupying": 1,
+      "intervals": "-1425.0 minutes"
+    },
+    {
+      "time": "00:00",
+      "activity": "Sleep",
+      "moccupying": 1,
+      "intervals": "1440.0 minutes"
+    }
+  ],
   "short_memory": [],
   "basic_needs": {
     "fullness": 6.7,
-    "social": 5.9,
-    "fun": 6.4,
+    "social": 5.8,
+    "fun": 6.1,
     "health": 7.2,
-    "energy": 6.7
+    "energy": 6.5
   },
   "temporary_personality_changes": {
     "openness": 0.2,
