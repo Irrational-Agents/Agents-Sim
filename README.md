@@ -21,11 +21,11 @@ Agents Sim repository
    2. https://smith.langchain.com/
    
     ```
-    "LANGCHAIN_TRACING_V2": "true",
-    "LANGCHAIN_ENDPOINT": "https://api.smith.langchain.com",
-    "LANGCHAIN_API_KEY": "YOUR KEY",
-    "LANGCHAIN_PROJECT": "IrationalAgents",
-    "OPENAI_API_KEY": "YOUR KEY"
+      OPENAI_API_KEY=""
+      SOCKET_URL="https://orange-cliff-0b3a9151e.5.azurestaticapps.net:8080"
+      WORK_DIR='{ur path}/irrationalAgents'
+      LOG_LEVEL='DEBUG'
+      LANGCHAIN_API_KEY=""
     ```
 2. install 
    ```
@@ -44,10 +44,10 @@ Agents Sim repository
 
 ```
 cd irrationalAgents
-python -m API.unity.unity
+python main.py
 ```
 
-APIs
+~~APIs~~
 ```
 ui.tick
 server.tick

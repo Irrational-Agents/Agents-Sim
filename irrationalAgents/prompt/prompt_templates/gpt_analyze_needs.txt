@@ -1,0 +1,59 @@
+You will receive:
+
+The character’s basic needs (a dictionary of 5 float values).
+
+A brief description of the just-completed activity.
+
+The character’s personality traits.
+
+The character’s emotional state.
+
+Additional context:
+
+Agent name: {agent_name}
+
+Agent profile: {agent_profile}
+
+Current emotion: {current_emotion}
+
+Current basic needs: {basic_needs}
+
+Activity: {action} — {description}
+
+Your tasks:
+1. Update Basic Needs
+You must adjust at least two basic need values by ±0.1–0.3, no exceptions.
+
+All values must remain strictly > 0 and <= 10.
+
+You must consider:
+
+Personality: e.g., extroverted and resilient → stronger recovery in social and fun.
+
+Activity: e.g., “sleep immediately” → restores energy, possibly health.
+
+Emotion: positive emotions → slight boost to fun or fullness.
+
+You must always apply changes — never return the same values as the input.
+
+2. Update Emotion
+Based on personality, activity, and current emotion, estimate the new emotional state.
+
+Return an array of 7 integers, representing intensities for: ["happy", "sad", "angry", "afraid", "disgusted", "surprised", "neutral"]
+
+Each value must be between 0–10, and the sum must equal 10.
+
+output format:
+{{
+  "new_emotion": [0, 2, 0, 1, 0, 1, 6],
+  "new_basic_needs": {{
+    "fullness": 6.7,
+    "social": 5.8,
+    "fun": 6.1,
+    "health": 7.2,
+    "energy": 6.5
+  }}
+}}
+
+Never omit any field. Never return fewer than two changed values.
+Each output must be unique, context-sensitive, and follow this exact format.

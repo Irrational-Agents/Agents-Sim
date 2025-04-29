@@ -1,0 +1,15 @@
+Agent: {agent_name}
+Agent profile: {agent_profile}
+Current emotion: {current_emotion}
+Plan: {plan}
+Recent Events: {recent_events}
+Current Time: {current_time}
+Current Date: {current_date}
+Generate a single thought that reflects the agent’s current mental focus, using the plan and recent events. The output must:
+Is objective, neutral, and impersonal — no subjects or perspectives.
+Uses no more than 10 words.
+Reflects the plan and emotion.
+Reuses exact phrasing from Recent Events when possible.
+Avoids any verbs like “continue”, “will”, “might”, or first-person phrasing.
+
+output string

@@ -1,0 +1,79 @@
+apartment D:bathroom
+apartment D:main room:spaces:sp-A
+apartment D:main room:spaces:sp-B
+apartment E:bathroom
+apartment E:main room:spaces:sp-A
+apartment E:main room:spaces:sp-B
+apartment A:main room:spaces:sp-A
+apartment A:main room:spaces:sp-B
+apartment A:bathroom
+apartment B:bathroom
+apartment B:main room:spaces:sp-A
+apartment B:main room:spaces:sp-B
+apartment C:main room:spaces:sp-A, sp-B
+apartment C:bathroom
+co-living space:A room:spaces:sp-A
+co-living space:A bathroom
+co-living space:B room:spaces:sp-A
+co-living space:B room:spaces:sp-B
+co-living space:B bathroom
+co-living space:C room:spaces:sp-A
+co-living space:C bathroom
+co-living space:kitchen
+co-living space:common room
+co-living space:D room:spaces:sp-A
+co-living space:D bathroom
+co-living space:E room:spaces:sp-A
+co-living space:E bathroom
+Cafe:cafe
+Pub:pub
+College:classroom
+College:library
+College:hallway
+Dorm for College:garden
+Dorm for College:A room:spaces:sp-A
+Dorm for College:A room:spaces:sp-B
+Dorm for College:kitchen
+Dorm for College:common room
+Dorm for College:man's bathroom
+Dorm for College:woman's bathroom
+Dorm for College:B room:spaces:sp-A
+Dorm for College:D room:spaces:sp-A
+Dorm for College:C room:spaces:sp-A
+Dorm for College:C room:spaces:sp-B
+Park:park
+Supply Store:supply store
+Market and Pharmacy:store
+house A:main room:spaces:sp-A
+house A:main room:spaces:sp-B
+house A:bathroom
+house B:main room:spaces:sp-A
+house B:main room:spaces:sp-B
+house B:bathroom
+house C:main room:spaces:sp-A
+house C:main room:spaces:sp-B
+house C:bathroom
+house D:common room
+house D:kitchen
+house D:bathroom
+house D:main room:spaces:sp-A
+house D:main room:spaces:sp-B
+house D:second room:spaces:sp-A
+house D:second room:spaces:sp-B
+house D:garden
+house E:common room
+house E:kitchen
+house E:bathroom
+house E:main bedroom:spaces:sp-A
+house E:main bedroom:spaces:sp-B
+house E:empty bedroom:spaces:sp-A
+house E:empty bedroom:spaces:sp-B
+house E:garden
+house F:common room
+house F:kitchen
+house F:bathroom
+house F:main bedroom:spaces:sp-A
+house F:main bedroom:spaces:sp-B
+house F:second bedroom:spaces:sp-A
+house F:second bedroom:spaces:sp-B
+house F:garden

@@ -1,0 +1,40 @@
+Agent: {agent_name}
+Agent profile: {agent_profile}
+Current emotion: {current_emotion}
+Recent Events: {recent_events}
+Current Time: {current_time}
+Current Date: {current_date}
+Plan: {plan}
+Current Perception: {current_perception}
+Current Location: {location}
+
+Items List: {_context}
+
+Your task:
+
+Step 1: Analyze the plan carefully. Identify:
+- What kind of action is intended? (e.g., reading, cooking, relaxing)
+- What kind of item or location best supports this action?
+
+Step 2: Narrow down the candidate items:
+- First, filter the Items List to include only items that are **either visible in Current Perception** OR **located in the Current Location**.
+- If no matching items are found, then consider broader nearby items logically reachable from the Current Location.
+
+Step 3: From the filtered candidates, select the item that best supports the specific needs of the plan.
+- Prioritize functional compatibility with the plan.
+- Then consider the comfort and naturalness given the agent’s personality and current emotion.
+
+Each phase should have a short, natural description (no more than 10 words each).
+
+Important:
+- **Strictly follow the plan.**
+- **Use Perception and Location to guide item selection.**
+- **Output exactly three steps: Think, Move, Interact.**
+- **Be objective, natural, and concise.**
+
+output examples:
+
+{{
+    "item": "house E:empty bedroom:items:guitar",
+    "description": "playing guitar for fun"
+}}

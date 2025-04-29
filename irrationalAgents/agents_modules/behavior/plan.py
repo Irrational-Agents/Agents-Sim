@@ -11,11 +11,13 @@ def plan(agent, new_day):
 
     daily_plan = []
     if new_day:
+        logger.warning(f"New day for Agent {agent.name}")
         daily_plan = daily_planning(agent)
+        logger.info(f"{agent.name} daily plan: {daily_plan}")
         agent.short_memory.daily_plan_req = agent.short_memory.intervals4plan(
             daily_plan)
     plan_list = create_plan(agent)
-    logger.info(f"plan: {plan_list}")
+    logger.info(f"{agent.name} plan: {plan_list}")
     return plan_list
 
 
@@ -25,7 +27,7 @@ def daily_planning(agent):
     # the difference between fist day and new day is that the first day doesn't have previous,
     # the subsequent days have long_memory(previous).
     # So here I use get_summarized_latest_events, could use another retrieve method in the future
-    previous = agent.long_memory.get_summarized_latest_events(0)
+    previous = agent.long_memory.get_summarized_latest_events(10)
     return generate_daily_plan(
         agent.name, agent.formed_profile,
         get_complex_mood(agent.short_memory.emotion_memory[-1]),
@@ -41,4 +43,6 @@ def create_plan(agent):
         agent.short_memory.recent_events,
         agent.short_memory.curr_time,
         agent.short_memory.curr_date,
+        agent.short_memory.basic_needs,
+        agent.short_memory.short_memory_for_plan[-1],
         agent.short_memory.get_current_daily_plan())

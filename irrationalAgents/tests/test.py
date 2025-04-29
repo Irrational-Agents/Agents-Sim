@@ -2,12 +2,11 @@ from ast import While
 from agents_modules.agent import Agent
 import json
 import os
-from config.config import *
 from datetime import datetime, timedelta
 
 def main():
     # basic_info.jsonを読み込む
-    with open(META_FILE_PATH, 'r', encoding='utf-8') as f:
+    with open(f"../storage/sample_data/meta.json", 'r', encoding='utf-8') as f:
         meta = json.load(f)
     
     
@@ -19,20 +18,21 @@ def main():
     while(True):
         
         event = input("Shota(User):  ") # should type wake up when new day
-        sakura.move(meta['agents_list'], curr_time, event)
+        sakura.move(curr_time, event)
         print(sakura.short_memory.short_memory[-1])
         curr_time = curr_time + timedelta(minutes=15)
 
 
 def create_agent(name):
 # プロジェクトのルートディレクトリを取得
-    root_dir = NPC_STORAGE_BASE_PATH
+    root_dir = f"../storage/sample_data/agents/{name}"
+
     # basic_info.jsonを読み込む
-    with open(os.path.join(root_dir, f"agents/{name}/basic_info.json"), 'r', encoding='utf-8') as f:
+    with open(os.path.join(root_dir, "basic_info.json"), 'r', encoding='utf-8') as f:
         basic_info = json.load(f)
 
     # memoryフォルダのパスを設定
-    memory_folder_path = os.path.join(root_dir, f"agents/{name}/memory")
+    memory_folder_path = os.path.join(root_dir, "memory")
 
     # Agentインスタンスを作成
     sakura_agent = Agent(basic_info, memory_folder_path)

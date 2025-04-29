@@ -2,19 +2,13 @@ Agent name: {agent_name}
 Agent profile: {agent_profile}
 Current emotion: {current_emotion}
 Previously: {previous}
+World Context: {_context}
 
 Based on the above information, generate a detailed daily routine plans for {agent_name}, day plans need starting at 00:00. The plan should:
 - Reflect {agent_name}’s work, personal life, and socizhaal interactions.
 - Include basic daily routines such as waking up, personal hygiene, meals, and leisure activities.
 - Each activity lasts at least 15mins or more, without getting into excessive details, covering wake up and sleep, no duplicate time, day plans need starting at 00:00.
 - Strike a balance between productivity and rest, ensuring time is dedicated to work, hobbies, and relaxation.
-<<<<<<< HEAD
 - moccupying is activity type set to be peripheral:1, conversational:2 or inferential:3 information
-=======
->>>>>>> origin/sims-setup
 
 Make sure the plan accounts for {agent_name}’s emotional state, previously(if has), and their long-term and mid-term goals.
-
-Please format your response as a JSON list of strings, like below. Do not include any additional text, markdown formatting, or explanations outside the JSON array:
-
-[{{"time": "16:00","activity": "an activity example","moccupying": 1}}]

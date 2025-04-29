@@ -1,6 +1,8 @@
-from config import *
-import logging
-logger = logging.getLogger(__name__)
+from config.config import *
+from config.logger_config import setup_logger
+
+logger = setup_logger(__name__)
+
 
 def emotion(self):
     self.current_state = {emotion: 0 for emotion in EMOTION_TYPES}
@@ -27,11 +29,15 @@ def update_emotion(emotion, value):
     normalize_values()
 
 def get_emotion_levels(emotion):
+    if not emotion:
+        return {}
     return dict(zip(EMOTION_TYPES, emotion))
 
 def get_complex_mood(emotion):
     levels = get_emotion_levels(emotion)
-    logger.info('mood: %s', levels)
+    if not levels:
+        return "neutral"
+    logger.debug(f"emotion levels: {levels}")
     primary_emotion = max(levels, key=levels.get)
     primary_intensity = levels[primary_emotion]
 

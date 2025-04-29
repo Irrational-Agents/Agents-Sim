@@ -3,7 +3,7 @@ import json
 from typing import Dict
 from config.logger_config import setup_logger
 from config.common_method import *
-from config.config import NPC_STORAGE_BASE_PATH, SPAWN_FILE_PATH, META_FILE_PATH
+from config.config import NPC_STORAGE_BASE_PATH, META_FILE_PATH
 
 logger = setup_logger('tools')
 
@@ -13,7 +13,6 @@ def mess_agent_by_name(name):
         name = convert_name2id(name)
 
     root_dir = os.path.join(NPC_STORAGE_BASE_PATH, f'agents/{name}')
-    logger.info(f"root_dir: {root_dir}")
     if not os.path.exists(root_dir):
         logger.error(f"agent {name} not exists!")
         return None, None
@@ -32,7 +31,10 @@ def get_npcs(params: Dict) -> Dict:
         else:
             with open(META_FILE_PATH, 'r', encoding='utf-8') as f:
                 data = json.load(f)
-                names = list(data.get('agents_list', {}).keys())
+                names = list(data.get('npc_names'))
+
+                if data.get("player_name") != '':
+                    names.append(data.get("player_name"))
       
         npcs = []
         for npc_name in names:
@@ -55,12 +57,6 @@ def get_npc_info(params: Dict) -> Dict:
     logger.debug(f"get agent {agent}")
     npc_data = {**agent, **status}
     return npc_data
-
-
-def get_spawns() -> Dict:
-    with open(SPAWN_FILE_PATH, 'r', encoding='utf-8') as f:
-        data = json.load(f)
-    return data
 
 def get_meta() -> Dict:
     with open(META_FILE_PATH, 'r', encoding='utf-8') as f:

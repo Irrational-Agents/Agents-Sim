@@ -59,7 +59,7 @@ class TestAgentManager(unittest.TestCase):
             "short_term_goal_capacity": 3,
             "short_term_goal": [
             ],
-            "short_memory_capacity": 30,
+            "short_memory_capacity": 150,
             "short_memory_for_plan": [],
             "short_memory": [],
             "basic_needs": {

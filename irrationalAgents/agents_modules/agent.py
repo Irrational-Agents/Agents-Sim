@@ -1,189 +1,284 @@
 import json
-
-from memory_modules.long_term_memory import *
-from memory_modules.short_term_memory import *
-from config.common_method import *
-from agents_modules.stimulus import *
-from agents_modules.behavior.plan import *
-from agents_modules.behavior.plan_evaluation import *
-from agents_modules.behavior.action import *
-from agents_modules.personality.cognition import *
-from agents_modules.personality.emotion import *
-from agents_modules.personality.personality import *
-from typing import Dict, Any
+import os
+from typing import Dict, Any, Optional, Tuple, List
+from langsmith import traceable
+from memory_modules.long_term_memory import LongTermMemory
+from memory_modules.short_term_memory import ShortTermMemory, form_short_memory
+from config.common_method import convert_name2id, profile_to_narrative
+from agents_modules.stimulus import stimulus
+from agents_modules.behavior.plan import plan
+from agents_modules.behavior.plan_evaluation import plan_evaluation
+from agents_modules.behavior.action import action
+from agents_modules.personality.cognition import cognition, growth, reflection
+from agents_modules.personality.emotion import emotion
+from agents_modules.personality.personality import generate_personality
 from config.logger_config import setup_logger
-from config.meta_manager import MetaManager
-from config.config import *
+from config.agent_tracer import dynamic_traceable
+from config import config
+
 logger = setup_logger('Agent')
+
+agent_manager  = None
 
 
 class Agent:
-    def __init__(self, basic_info, memory_folder_path=False):
+    def __init__(self, basic_info: Dict[str, Any], memory_folder_path: Optional[str] = None):
+        """
+        Initialize an Agent with basic information and memory paths.
         
-        self.basic_info = basic_info
+        Args:
+            basic_info: Dictionary containing agent's basic information
+            memory_folder_path: Path to the agent's memory storage
+        """
 
+        self.basic_info = basic_info
         self.name = basic_info['name']
 
-
-        long_memory_path = f"{memory_folder_path}/long_term"
+        # Initialize memory systems
+        long_memory_path = os.path.join(memory_folder_path, "long_term") if memory_folder_path else None
         self.long_memory = LongTermMemory(long_memory_path)
 
-        short_memory_path = f"{memory_folder_path}/short_term.json"
+        short_memory_path = os.path.join(memory_folder_path, "short_term.json") if memory_folder_path else None
         self.short_memory = ShortTermMemory(short_memory_path)
 
-        if basic_info.get('personality'):
-            self.short_memory.personality_text = basic_info.get('personality')
-        else:
-            self.short_memory.personality_text = generate_personality(basic_info['personality_traits'])
+        # Initialize personality
+        self.short_memory.personality_text = (
+            basic_info.get('personality') or 
+            generate_personality(basic_info['personality_traits'])
+        )
 
-        self.basic_profile = profile_to_narrative(basic_info) 
+        # Initialize profile and relationships
+        self.basic_profile = profile_to_narrative(basic_info)
         self.formed_profile = self.basic_profile + self.short_memory.personality_text
-        self.relationships = basic_info['social_relationships']
+        self.relationships = basic_info.get('social_relationships', {})
+        
+        # Initialize emotion memory
         self.short_memory.emotion_memory.append(self.short_memory.emotion)
 
 
-    def stimulus(self, event):
+    def stimulus(self, event: Any) -> str:
+        """Process an event stimulus."""
         return stimulus(self, event)
-    
-    def plan(self, new_day):
+
+    def plan(self, new_day: bool) -> List[Dict[str, Any]]:
+        """Generate plans based on current state."""
         return plan(self, new_day)
-    
-    def plan_evaluation(self, plan_list):
+
+    def plan_evaluation(self, plan_list: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """Evaluate and select the best plan."""
         return plan_evaluation(self, plan_list)
-    
-    def action(self, best_plan):
+
+    def action(self, best_plan: Dict[str, Any]) -> str:
+        """Execute the best plan."""
         return action(self, best_plan)
 
-    def emotion(self):
+    def emotion(self) -> Dict[str, Any]:
+        """Update and return current emotion state."""
         return emotion(self)
-    
-    def cognition(self):
+
+    def cognition(self) -> Dict[str, Any]:
+        """Perform cognitive processing."""
         return cognition(self)
-
-    def growth(self):
-        growth(self)
-
-
-    def move(self, curr_time, event):
-
-        #核心逻辑
-        #用于处理agent的事件
-
-        if isinstance(event, list):
-            events = event
-        else:
-            events = []
-            events.append(event)
-
-        new_day = False
-        if not self.short_memory.curr_datetime: 
-            new_day = "First day"
-            self.short_memory.short_memory = []
-        elif (self.short_memory.curr_datetime.strftime('%A %B %d')
-            != self.short_memory.curr_datetime.strftime('%A %B %d')):
-            new_day = "New day"
-        self.short_memory.curr_datetime = curr_time
-        self.short_memory.curr_time = self.short_memory.curr_datetime.strftime('%H:%M')
-        self.short_memory.curr_date = self.short_memory.curr_datetime.strftime('%Y-%m-%d')
+    
+    def growth(self) -> Dict[str, Any]:
+        return growth(self)
+    
+    def reflection(self, action: str, description: str) -> Dict[str, Any]:
+        return reflection(self, action, description)
+    
+    @dynamic_traceable(lambda self, curr_time, event: f"{self.name}_{curr_time}", run_type="chain")
+    def move(self, curr_time: Any, event: Any) -> Optional[Tuple[Any, str]]:
+        """
+        Process agent movement and event handling.
+        
+        Args:
+            curr_time: Current datetime object
+            event: Event or list of events to process
             
-        stimulus = self.stimulus(events)
+        Returns:
+            Tuple of (action, description) if action is taken, None otherwise
+        """
 
-        if stimulus == "sys2":
-            return
-        elif stimulus == "sys1":
-            plan_list = self.plan(new_day)
-            best_plan = self.plan_evaluation(plan_list)
+        # Normalize events to list
+        events = [event] if not isinstance(event, list) else event
+
+        # Handle new day logic
+        new_day = False
+        if not self.short_memory.curr_datetime or (self.short_memory.curr_datetime.strftime('%A %B %d') != 
+              curr_time.strftime('%A %B %d')):
+            new_day = True
+
+        # Update time tracking
+        self.short_memory.curr_datetime = curr_time
+        self.short_memory.curr_time = curr_time.strftime('%H:%M')
+        self.short_memory.curr_date = curr_time.strftime('%Y-%m-%d')
+        # Handle new day operations for cognitive growth
+        if new_day:            
+            self.short_memory.add_short_memory(form_short_memory(self))
             self.short_memory.save(self.short_memory)
+            self.short_memory.log_memory()
+            self.short_memory.short_memory_for_plan = []
+
+            if self.long_memory.vector_store is not None:
+                logger.debug(f"long term memory: {self.long_memory.vector_store}")
+                self.long_memory.update_all_freshness(curr_time)
+                
+            self.short_memory.organize_memory(self.long_memory)
+            self.short_memory.cleanup_short_memory()
+            #self.growth(self.cognition())
+
+        # Process stimulus
+        stimulus_result = self.stimulus(events)
+        logger.debug(f"{self.short_memory.curr_date}:{self.short_memory.curr_time} agent {self.name}")
+
+        # Handle stimulus results
+        if stimulus_result == "sys2":
+            return None
+        elif stimulus_result == "sys1":
+            plan_list = self.plan(new_day)
+            logger.info(f"{self.name} {self.short_memory.curr_date} plan: {plan_list}")
+
+            best_plan = self.plan_evaluation(plan_list)
+            logger.info(f"{self.name}'s best_plan: {best_plan}")
+
             description = self.action(best_plan)
-            return best_plan.get('action', None), description
+        
+        needs = self.reflection(best_plan.get('action', None), description)
+        logger.info(f"{self.name}'s reflection: {needs}")
+
+        return best_plan.get('action', None), description
+        
+
 
 class AgentManager:
     def __init__(self):
-        """
-        初始化Agent管理器
-        
-        Args:
-            meta_config_path: meta.json的路径
-        """
+        """Initialize Agent manager and load all agents."""
         self.agents: Dict[str, Agent] = {}
-        
-        self.meta_manager = MetaManager()
-
         self.load_agents()
-        
-    def load_agents(self):
-        """spawn配置文件加载所有agent"""
-        try:
-            with open(SPAWN_FILE_PATH, 'r', encoding='utf-8') as f:
-                spawn_data = json.load(f)
 
-            for agent_name, agent_data in spawn_data.items():
-                if isinstance(agent_data, dict):  # 跳过非agent的配置项
-                    self.agents[agent_name] = self.create_agent(agent_name)
-                    logger.info(f"Agent {agent_name} 已创建")
-                    
+    def load_agents(self) -> None:
+        """Load all agents from meta configuration."""
+        try:
+            with open(config.META_FILE_PATH, 'r', encoding='utf-8') as f:
+                meta_data = json.load(f)
+
+            for agent_name in meta_data['npc_names']:
+                agent_data = self.create_agent(agent_name)
+                if agent_data:
+                    self.agents[agent_name] = agent_data
+                    logger.info(f"Agent {agent_name} created successfully")
+
         except Exception as e:
-            logger.error(f"加载agents时出错: {str(e)}")
+            logger.error(f"Error loading agents: {str(e)}")
             raise
-    
-    def create_agent(self, name):
+
+    def create_agent(self, name: str) -> Optional[Agent]:
+        """Create an agent instance by name."""
         basic_info, memory_folder_path = self._get_agent_info_by_name(name)
-        if basic_info is None:
-            return None
-        return Agent(basic_info, memory_folder_path)
-    
-            
-    def _get_agent_info_by_name(self, name):
-        
-        root_dir = os.path.join(NPC_STORAGE_BASE_PATH, f'agents/{name}')
-        
+        return Agent(basic_info, memory_folder_path) if basic_info else None
+
+    def _get_agent_info_by_name(self, name: str) -> Tuple[Optional[Dict[str, Any]], Optional[str]]:
+        """Retrieve agent information by name."""
+        root_dir = os.path.join(
+            config.NPC_STORAGE_BASE_PATH, 
+            f'agents/{convert_name2id(name)}'
+        )
+
         if not os.path.exists(root_dir):
-            logger.error(f"agent {name} not exists!")
+            logger.error(f"Agent {name} does not exist!")
             return None, None
 
-        with open(os.path.join(root_dir, "basic_info.json"), 'r', encoding='utf-8') as f:
-            basic_info = json.load(f)
-        
-        memory_folder_path = os.path.join(root_dir, "memory")
-        return basic_info, memory_folder_path
+        try:
+            with open(os.path.join(root_dir, "basic_info.json"), 'r', encoding='utf-8') as f:
+                basic_info = json.load(f)
+            memory_folder_path = os.path.join(root_dir, "memory")
+            return basic_info, memory_folder_path
+        except Exception as e:
+            logger.error(f"Error loading agent {name} info: {str(e)}")
+            return None, None
 
-    def get_all_agents_positions(self):
-        positions = {}
-        for agent_name, agent in self.agents.items():
-            position = agent.short_memory.current_status.get('spawn', None)
-            if position:
-                positions[agent_name] = position
-
-        return positions
+    def save_agents(self) -> None:
+        for _, agent in self.agents.items():
+            agent.short_memory.save(agent.short_memory)
     
-    def write_agent_status(self, agent_name: str, status: Dict[str, Any]):
-        """
-        写入agent的status
-        """
-        with open(NPC_STORAGE_BASE_PATH + f'agents/{agent_name}/memory/short_term.json', 'w', encoding='utf-8') as f:
-            data = json.load(f)
-            data['current_status'] = status
+    def generate_agent_snapshot(self, agent, action=None, description=None, step=None, position=None, time=None, location=None, **kwargs):
+        if time is None:
+            time = agent.short_memory.curr_datetime
+        if location is None:
+            location = agent.short_memory.current_location
+
+        ret =   {
+            "state": {
+                    "activity": action,
+                    "description": description
+                },
+            "time": time,
+            "step": step,
+            "location": location,
+            "position": position
+        }
+
+        logger.debug(f"Agent {agent.name} snapshot: {ret}")
+        return ret
+
+    def get_all_agents_positions(self, global_time) -> Dict[str, Any]:
+        file_path = global_time.strftime('%Y-%m-%d')
+        index_ = global_time.strftime('%H:%M:%S')
+        """Get current positions of all agents."""
+        status_dict = {}
+        for agent_name, _ in self.agents.items():
+            status = self.get_agent_current_status(agent_name, file_path, index_)
+            if status:
+                status_dict[agent_name] = status.get('position')
+
+        return status_dict
+
+    def write_agent_status(self, agent_name: str, global_time, status: Dict[str, Any]) -> Dict[str, Any]:
+        """Update agent's status in storage."""
+        file_path = global_time.strftime('%Y-%m-%d')
+        index_ = global_time.strftime('%H:%M:%S')
+
+        file_path = os.path.join(
+            config.NPC_STORAGE_BASE_PATH,
+            f'agents/{convert_name2id(agent_name)}/snapshots/{file_path}.json'
+        )
+        data = {}
+        if os.path.exists(file_path):
+            try:
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+            except json.JSONDecodeError:
+                data = {}
+        else:
+            data = {}
+
+        if not isinstance(data, dict):
+            data = {}
+
+        data[index_] = status
+
+        # 写入更新后的数据
+        with open(file_path, 'w', encoding='utf-8') as f:
             json.dump(data, f, ensure_ascii=False, indent=4)
-        return status
-    
-    def get_agent_current_status(self, agent_name: str) -> Dict[str, Any]:
-        """
-        获取指定agent的当前状态
-        """
-        with open(NPC_STORAGE_BASE_PATH + f'agents/{agent_name}/memory/short_term.json', 'r', encoding='utf-8') as f:
-            data = json.load(f)
-            return data['current_status']
-    
-    def get_agent_psychological_status(self, agent_name: str) -> Dict[str, Any]:
-        """
-        获取指定agent的情感状态
+
+        logger.info(f"Agent {agent_name} status updated successfully: {status}")
+
+    def get_agent_current_status(self, agent_name: str, file_path, index_) -> Dict[str, Any]:
+        """Get current status of specified agent."""
+        file_path = os.path.join(
+            config.NPC_STORAGE_BASE_PATH,
+            f'agents/{convert_name2id(agent_name)}/snapshots/{file_path}.json'
+        )
         
-        Args:
-            agent_name: agent的名称
-            
-        Returns:
-            包含agent状态信息的字典
-        """
+        try:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                return data.get(str(index_), {})
+        except Exception as e:
+            logger.error(f"Error getting status for agent {agent_name}: {str(e)}")
+
+    def get_agent_psychological_status(self, agent_name: str) -> Optional[Dict[str, Any]]:
+        """Get psychological status of specified agent."""
         if agent_name in self.agents:
             agent = self.agents[agent_name]
             return {
@@ -193,36 +288,40 @@ class AgentManager:
             }
         return None
 
-    def erase_all_agents(self, storage: bool = True):
-        """
-        删除所有agent
-        """
+    def erase_all_agents(self, storage: bool = True) -> None:
+        """Remove all agents from memory and optionally from storage."""
         agent_names = list(self.agents.keys())
         for agent_name in agent_names:
             self.erase_agent(agent_name, storage)
-    
-    def erase_agent(self, agent_name: str, storage: bool = True):
-        """
-        删除指定agent, 包括basic_info.json, short_term.json, long_term.json
-        """
-        # 删除spawn.json中的agent
-         # 删除spawn.json中的agent
-        with open(SPAWN_FILE_PATH, 'r', encoding='utf-8') as f:
-            spawn_data = json.load(f)
-        
-        # 从数据中移除agent
-        if agent_name in spawn_data:
-            spawn_data.pop(agent_name)
-        
-        # 将修改后的数据写回文件
-        with open(SPAWN_FILE_PATH, 'w', encoding='utf-8') as f:
-            json.dump(spawn_data, f, ensure_ascii=False, indent=4)
-        
-        # 从内存中移除agent
+
+    def erase_agent(self, agent_name: str, storage: bool = True) -> None:
+        """Remove specified agent from memory and optionally from storage."""
+        # Remove from spawn data
+        try:
+            with open(config.SPAWN_FILE_PATH, 'r', encoding='utf-8') as f:
+                spawn_data = json.load(f)
+
+            if agent_name in spawn_data:
+                spawn_data.pop(agent_name)
+
+            with open(config.SPAWN_FILE_PATH, 'w', encoding='utf-8') as f:
+                json.dump(spawn_data, f, ensure_ascii=False, indent=4)
+        except Exception as e:
+            logger.error(f"Error removing agent {agent_name} from spawn data: {str(e)}")
+
+        # Remove from memory
         if agent_name in self.agents:
-            self.agents.pop(agent_name)
+            del self.agents[agent_name]
 
         if storage:
-            # 删除 short_term.json, long_term.json
-            #@todo
+            # TODO: Implement storage cleanup
             pass
+
+
+
+def init_agent_manager():
+    global agent_manager
+    agent_manager = AgentManager()
+
+def get_agent_manager():
+    return agent_manager

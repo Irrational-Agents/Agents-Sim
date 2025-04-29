@@ -7,10 +7,10 @@ from config.logger_config import setup_logger
 from config.config import META_FILE_PATH
 logger = setup_logger('MetaManager')
 
+
 class MetaManager:
     """
     元数据管理器，支持从环境变量和配置文件加载配置
-    使用单例模式确保全局只有一个实例
     """
     _instance = None
     
@@ -150,4 +150,7 @@ class MetaManager:
         
     def get_all(self) -> dict:
         """获取所有元数据"""
-        return self._meta_data.copy() 
+        return self._meta_data.copy()
+    
+
+meta_manager = MetaManager()
