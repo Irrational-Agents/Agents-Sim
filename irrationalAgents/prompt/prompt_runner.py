@@ -87,7 +87,7 @@ def run_prompt_task(task_name, agent_tracer=None, **variables):
                 variables = {**variables, config['stream'][0]: result}  # 先暂时写死
                 logger.debug(f"[{task_name}] stream result: {result}")
         
-        logger.info(f"[{task_name}] result: {result}")
+        logger.debug(f"[{task_name}] result: {result}")
         if agent_tracer and agent_tracer.parent_run:
             agent_tracer.trace_child_step(
                 step_name=task_name,

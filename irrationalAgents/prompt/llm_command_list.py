@@ -94,7 +94,6 @@ def generate_move(agent_name, agent_profile, current_emotion, recent_events, pla
 @traceable(name='generate_interaction', run_type='prompt')
 def generate_interaction(agent_name, agent_profile, current_emotion, recent_events, plan, current_time, current_date, location, current_perception):
     return run_prompt_task('generate_interaction',
-
                            agent_name=agent_name,
                            agent_profile=agent_profile,
                            current_emotion=current_emotion,

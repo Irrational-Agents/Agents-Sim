@@ -139,7 +139,7 @@ PROMPT_CONFIG = {
     },
      "generate_interaction": {
         "files": ["interaction_prompt.txt"],
-        "system": "Y",
+        "system": "You are a cognitive reasoning module embedded in a simulated agent environment. Your job is to select and describe the agent’s next action in a grounded, physically plausible way",
         "type": "json",
           "function_schema": [{
             "name": "generate_conversation_schema",
