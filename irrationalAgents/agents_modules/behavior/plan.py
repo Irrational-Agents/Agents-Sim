@@ -13,6 +13,7 @@ def plan(agent, new_day):
     if new_day:
         logger.warning(f"New day for Agent {agent.name}")
         daily_plan = daily_planning(agent)
+        logger.info(f"{agent.name} daily plan: {daily_plan}")
         agent.short_memory.daily_plan_req = agent.short_memory.intervals4plan(
             daily_plan)
     plan_list = create_plan(agent)

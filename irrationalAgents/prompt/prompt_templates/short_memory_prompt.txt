@@ -15,6 +15,7 @@ Tasks:
     - All event descriptions must be written in **first-person** and must follow this strict format:
       &gt; `I [thought/chatted/interacted/moved] about/with: [event content]`
       (must use `:`).
+    - If the Recent Short-Term Memories list is empty, you must immediately output an empty array for "new_entries", and no creative generation is allowed.
 
 2. Emotion Update:
     - Based on the events, personality traits, and relationships, determine {agent_name} emotional state. 

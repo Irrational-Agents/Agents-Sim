@@ -1,25 +1,70 @@
-Description List: {description_list}
-Recent Events: {recent_events}
-Current Perception: {current_perception}
+You will receive:
+- Description List: {description_list}
+- Recent Events: {recent_events}
+- Current Perception: {current_perception}
 
-Action Types:
-Each description must be assigned exactly one of these four actions:
-- chat: assign only when the description explicitly or implicitly mentions another person, AND Current Perception contains at least **two or more communicable persons**.
-- interact: assign only when the description explicitly or implicitly involves a specific object (item), AND Current Perception contains at least one visible item.
-- move: assign only when the description explicitly or implicitly describes physical movement toward or between specific locations.
-- think: assign when none of the above conditions are met. Use for internal thoughts, plans, or general intentions.
+## Action Types (assign exactly one per description)
+- **chat**: Assign if the description involves communication with another person **AND** there are at least two communicable persons in Current Perception.
+- **interact**: Assign if the description involves interacting with an object **AND** the object is visible in Current Perception.
+- **move**: Assign if the description involves physical movement toward another place or object.
+- **think**: Assign if none of the above conditions are satisfied.
 
-Rules:
-- If the Current Perception contains fewer than two communicable persons, you must not assign "chat", even if the description mentions a person.
-- If the Current Perception contains no visible items, you must not assign "interact", even if the description mentions an object.
-- Always check Current Perception first before assigning actions.
-- Assign exactly one action type to each description, no multiple labels.
+## Few-Shot Examples
 
+**Example 1**:
+Input: "make coffee at dorm kitchen"
+Perception: {{"bed", "closet"}}
+Reasoning:
+1. Target object: kitchen or coffee machine.
+2. Target not visible.
+3. Cannot assign interact.
+4. Assign: **think**
 
 Output:
-Return a JSON array of objects. Each object must include the assigned action and the original description.
-Do not include any additional text, markdown formatting, or explanations outside the JSON array.
+{{"action": "think", "description": "make coffee at dorm kitchen"}}
 
+**Example 2**:
+Input: "talk to friends at the sofa"
+Perception: {{"common room sofa"}}
+Visible NPCs: only 1
+Reasoning:
+1. Target person: friends.
+2. Only 1 NPC visible.
+3. Cannot assign chat.
+4. Assign: **think**
+
+Output:
+{{"action": "think", "description": "talk to friends at the sofa"}}
+
+**Example 3**:
+Input: "move to the library"
+Perception: {{"desk", "bed"}}
+Reasoning:
+1. Explicit move action.
+2. Assign: **move**
+
+Output:
+
+{{"action": "move", "description": "move to the library"}}
+
+---
+
+For each description:
+1. Identify the target object or person.
+2. Check if the target is visible in Current Perception.
+3. If the target is visible, assign accordingly.
+4. If not visible, assign **think**, regardless of the description content.
+
+After initial assignment:
+- For each action, verify:
+  - If interact or chat is assigned, is the target actually visible according to Perception?
+- If not, revise the action to **think**.
+
+- You **must not infer** the existence of any object or person not in Current Perception.
+- If there is any conflict between natural language intuition and Perception validation, **Perception validation takes absolute priority**.
+
+## Output Format
+Return a JSON array of objects:
 [
 {{"action": "action_type", "description": "original description"}},
 {{"action": "action_type", "description": "original description"}},
@@ -27,3 +72,8 @@ Do not include any additional text, markdown formatting, or explanations outside
 {{"action": "action_type", "description": "original description"}},
 {{"action": "action_type", "description": "original description"}}
 ]
+
+
+No additional explanation. No markdown. Only valid strict JSON.
+
+

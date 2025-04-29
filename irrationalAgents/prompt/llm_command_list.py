@@ -1,8 +1,6 @@
 import os
-from openai import OpenAI
 import json
 from langsmith import traceable
-from langsmith.wrappers import wrap_openai
 from config.logger_config import setup_logger
 from config.config import PROMPT_FILE_PATH
 from prompt.prompt_runner import run_prompt_task
@@ -10,7 +8,6 @@ from prompt.prompt_runner import run_prompt_task
 logger = setup_logger(__name__)
 
 api_key = os.getenv('OPENAI_API_KEY')
-client = wrap_openai(OpenAI(api_key=api_key))
 
 
 def load_background(type_):
@@ -37,7 +34,6 @@ def generate_plan(agent_name, agent_profile, current_emotion, recent_events, cur
 
 @traceable(name='generate_daily_plan', run_type='prompt')
 def generate_daily_plan(agent_name, agent_profile, current_emotion, previous, current_date):
-    logger.info(f"Generating daily plan for {agent_name}")
     return run_prompt_task("generate_daily_plan",
                            agent_name=agent_name,
                            agent_profile=agent_profile,

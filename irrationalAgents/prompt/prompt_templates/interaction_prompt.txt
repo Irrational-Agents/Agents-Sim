@@ -8,7 +8,7 @@ Plan: {plan}
 Current Perception: {current_perception}
 Current Location: {location}
 
-Items List: {{_context}}
+Items List: {_context}
 
 Your task:
 
@@ -23,11 +23,6 @@ Step 2: Narrow down the candidate items:
 Step 3: From the filtered candidates, select the item that best supports the specific needs of the plan.
 - Prioritize functional compatibility with the plan.
 - Then consider the comfort and naturalness given the agent’s personality and current emotion.
-
-Step 4: Think like the agent:
-- (1) **Thinking**: Internally decide where and what to do.
-- (2) **Moving**: Move to the selected item.
-- (3) **Interacting**: Perform the planned action at the selected item.
 
 Each phase should have a short, natural description (no more than 10 words each).
 
