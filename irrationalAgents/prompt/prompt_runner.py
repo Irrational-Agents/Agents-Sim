@@ -20,7 +20,6 @@ def render_prompt(template, variables):
     return template.format(**variables)
 
 
-@traceable(name='call')
 def call_openai(system_content, user_content, function):
     try:
         chat_kwargs = {
@@ -62,7 +61,8 @@ def call_openai(system_content, user_content, function):
         return None
 
 
-def run_prompt_task(task_name, **variables):
+def run_prompt_task(task_name, agent_tracer=None, **variables):
+
     config = PROMPT_CONFIG.get(task_name)
     if not config:
         raise ValueError(f"No configuration for task: {task_name}")
@@ -71,20 +71,37 @@ def run_prompt_task(task_name, **variables):
     system_content = config["system"]
     function_schemas = config.get(
         "function_schema", [None for _ in range(len(templates))])
+    try:
+        for t, function_schema in zip(templates, function_schemas):
+            user_prompt = render_prompt(t, variables)
+            result = call_openai(system_content, user_prompt, function_schema)
+            logger.debug(f"[{task_name}] result: {result}")
+            if config["type"] == "json":
+                try:
+                    result = json.loads(result).get("resp")
+                except Exception:
+                    logger.error(f"[{task_name}] JSON decoding error: {result}")
+                    return None
 
-    for t, function_schema in zip(templates, function_schemas):
-        user_prompt = render_prompt(t, variables)
-        result = call_openai(system_content, user_prompt, function_schema)
-        logger.debug(f"[{task_name}] result: {result}")
-        if config["type"] == "json":
-            try:
-                result = json.loads(result).get("resp")
-            except Exception:
-                logger.error(f"[{task_name}] JSON decoding error: {result}")
-                return None
+            if config.get('stream'):
+                variables = {**variables, config['stream'][0]: result}  # 先暂时写死
+                logger.debug(f"[{task_name}] stream result: {result}")
+        
+        logger.info(f"[{task_name}] result: {result}")
+        if agent_tracer and agent_tracer.parent_run:
+            agent_tracer.trace_child_step(
+                step_name=task_name",
+                inputs=variables,
+                outputs={"result": result}
+            )
 
-        if config.get('stream'):
-            variables = {**variables, config['stream'][0]: result}  # 先暂时写死
-            logger.debug(f"[{task_name}] stream result: {result}")
-    logger.info(f"[{task_name}] result: {result}")
-    return result
+        return result
+    except Exception as e:
+        logger.error(f"[{task_name}] error: {str(e)}")
+        if agent_tracer and agent_tracer.parent_run:
+            agent_tracer.trace_child_step(
+                step_name=f"{task_name} [Error]",
+                inputs=variables,
+                outputs={"error": str(e)}
+            )
+        return None

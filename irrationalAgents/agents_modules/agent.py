@@ -13,11 +13,13 @@ from agents_modules.personality.cognition import cognition, growth, reflection
 from agents_modules.personality.emotion import emotion
 from agents_modules.personality.personality import generate_personality
 from config.logger_config import setup_logger
+from config.agent_tracer import AgentTracer
 from config import config
 
 logger = setup_logger('Agent')
 
 agent_manager  = None
+
 
 class Agent:
     def __init__(self, basic_info: Dict[str, Any], memory_folder_path: Optional[str] = None):
@@ -28,6 +30,8 @@ class Agent:
             basic_info: Dictionary containing agent's basic information
             memory_folder_path: Path to the agent's memory storage
         """
+        self.tracer = AgentTracer()
+
         self.basic_info = basic_info
         self.name = basic_info['name']
 
@@ -41,7 +45,7 @@ class Agent:
         # Initialize personality
         self.short_memory.personality_text = (
             basic_info.get('personality') or 
-            generate_personality(basic_info['personality_traits'])
+            generate_personality(self.tracer, basic_info['personality_traits'])
         )
 
         # Initialize profile and relationships
@@ -51,6 +55,7 @@ class Agent:
         
         # Initialize emotion memory
         self.short_memory.emotion_memory.append(self.short_memory.emotion)
+
 
     def stimulus(self, event: Any) -> str:
         """Process an event stimulus."""
@@ -93,6 +98,9 @@ class Agent:
         Returns:
             Tuple of (action, description) if action is taken, None otherwise
         """
+        self.tracer.start_agent_run(self.name, {"curr_time": str(curr_time)})
+
+
         # Normalize events to list
         events = [event] if not isinstance(event, list) else event
 
@@ -120,7 +128,7 @@ class Agent:
                 logger.debug(f"long term memory: {self.long_memory.vector_store}")
                 self.long_memory.update_all_freshness(curr_time)
                 
-            self.short_memory.organize_memory(self.long_memory)
+            self.short_memory.organize_memory(self.tracer, self.long_memory)
             self.short_memory.cleanup_short_memory()
             #self.growth(self.cognition())
 
@@ -142,6 +150,8 @@ class Agent:
         
         needs = self.reflection(best_plan.get('action', None), description)
         logger.info(f"{self.name}'s reflection: {needs}")
+
+        self.tracer.end_agent_run()
         return best_plan.get('action', None), description
         
 

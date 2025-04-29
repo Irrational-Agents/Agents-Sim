@@ -33,7 +33,7 @@ def action(agent, next_action):
 
 
 def handle_think(agent, description, recent_events_text):
-    thoughts = generate_thought(agent.name, agent.formed_profile, get_complex_mood(
+    thoughts = generate_thought(agent.tracer, agent.name, agent.formed_profile, get_complex_mood(
         agent.short_memory.emotion_memory[-1]), description, recent_events_text, agent.short_memory.curr_time, agent.short_memory.curr_date)
 
     new_entry = {
@@ -49,11 +49,11 @@ def handle_think(agent, description, recent_events_text):
     return f"{thoughts}"
 
 
-def handle_chat(agent, description, recent_events_text):
+def handle_chat(agent, description, recent_events_text, current_perception):
     # advance_time, advance_date = advance_time_by_15_minutes(agent.short_memory.curr_time, agent.short_memory.curr_date)
 
-    conv = generate_conversation(agent.name, agent.formed_profile, get_complex_mood(
-        agent.short_memory.emotion_memory[-1]), description, recent_events_text, agent.short_memory.curr_time, agent.short_memory.curr_date)
+    conv = generate_conversation(agent.tracer,agent.name, agent.formed_profile, get_complex_mood(
+        agent.short_memory.emotion_memory[-1]), description, recent_events_text, agent.short_memory.curr_time, agent.short_memory.curr_date, current_perception)
 
     new_entry = {
         "time": agent.short_memory.curr_time,
@@ -83,8 +83,9 @@ def handle_interact(agent, description):
         }
     }
     '''
-    interaction = generate_interaction(agent.name, agent.formed_profile, get_complex_mood(
-        agent.short_memory.emotion_memory[-1]), agent.short_memory.recent_events, description, agent.short_memory.curr_time, agent.short_memory.curr_date)
+    loc = agent.short_memory.current_location
+    interaction = generate_interaction(agent.tracer,agent.name, agent.formed_profile, get_complex_mood(
+        agent.short_memory.emotion_memory[-1]), agent.short_memory.recent_events, description, agent.short_memory.curr_time, agent.short_memory.curr_date, loc, agent.short_memory_for_plan[-1])
 
     new_entry = {
         "time": agent.short_memory.curr_time,
@@ -111,7 +112,7 @@ def handle_move(agent, description):
     }
     '''
     # Using LLM obtains the destination in natural language form.
-    destination = generate_move(agent.name, agent.formed_profile, get_complex_mood(
+    destination = generate_move(agent.tracer,agent.name, agent.formed_profile, get_complex_mood(
         agent.short_memory.emotion_memory[-1]), agent.short_memory.recent_events, description, agent.short_memory.curr_time, agent.short_memory.curr_date)
 
     new_entry = {

@@ -277,7 +277,7 @@ class WorldState:
         if events or items or npcs:
             # @TODO refien the expression
             stimuli.append(
-                f"seeing events: {events}, items: {set(items)}, npcs: {npcs}")
+                f"currently seeing events: {events}, currently seeing items: {set(items)}, currently seeing npcs: {npcs}")
 
         logger.debug(f"Generated stimuli: {stimuli}")
         return stimuli
