@@ -37,8 +37,8 @@ def generate_plan(agent_name, agent_profile, current_emotion, recent_events, cur
 
 @traceable(name='generate_daily_plan', run_type='prompt')
 def generate_daily_plan(agent_name, agent_profile, current_emotion, previous, current_date):
+    logger.info(f"Generating daily plan for {agent_name}")
     return run_prompt_task("generate_daily_plan",
-
                            agent_name=agent_name,
                            agent_profile=agent_profile,
                            current_emotion=current_emotion,
@@ -50,7 +50,6 @@ def generate_daily_plan(agent_name, agent_profile, current_emotion, previous, cu
 @traceable(name='generate_conversation', run_type='prompt')
 def generate_conversation(agent_name, agent_profile, current_emotion, plan, recent_events, current_time, current_date, current_perception):
     return run_prompt_task('generate_conversation',
-
                            agent_name=agent_name,
                            agent_profile=agent_profile,
                            current_emotion=current_emotion,
@@ -116,7 +115,6 @@ def generate_personality(traits):
 @traceable(name='generate_short_memory', run_type='prompt')
 def generate_short_memory(agent_name, current_emotion, personality_traits, relationships, past_memories):
     return run_prompt_task('generate_short_memory',
-
                            agent_name=agent_name,
                            current_emotion=current_emotion,
                            personality_traits=personality_traits,

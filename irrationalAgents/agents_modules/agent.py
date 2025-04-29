@@ -113,9 +113,7 @@ class Agent:
         self.short_memory.curr_time = curr_time.strftime('%H:%M')
         self.short_memory.curr_date = curr_time.strftime('%Y-%m-%d')
         # Handle new day operations for cognitive growth
-        if new_day:
-            logger.debug(f"New day for Agent {self.name}")
-            
+        if new_day:            
             self.short_memory.add_short_memory(form_short_memory(self))
             self.short_memory.save(self.short_memory)
             self.short_memory.log_memory()
