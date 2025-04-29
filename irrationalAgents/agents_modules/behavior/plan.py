@@ -1,4 +1,3 @@
-
 from datetime import datetime, timedelta
 import math
 import logging
@@ -12,6 +11,7 @@ def plan(agent, new_day):
 
     daily_plan = []
     if new_day:
+        logger.warning(f"New day for Agent {agent.name}")
         daily_plan = daily_planning(agent)
         agent.short_memory.daily_plan_req = agent.short_memory.intervals4plan(
             daily_plan)
@@ -43,4 +43,5 @@ def create_plan(agent):
         agent.short_memory.curr_time,
         agent.short_memory.curr_date,
         agent.short_memory.basic_needs,
+        agent.short_memory.short_memory_for_plan[-1],
         agent.short_memory.get_current_daily_plan())

@@ -1,7 +1,7 @@
 import json
 import os
 from typing import Dict, Any, Optional, Tuple, List
-
+from langsmith import traceable
 from memory_modules.long_term_memory import LongTermMemory
 from memory_modules.short_term_memory import ShortTermMemory, form_short_memory
 from config.common_method import convert_name2id, profile_to_narrative
@@ -13,11 +13,13 @@ from agents_modules.personality.cognition import cognition, growth, reflection
 from agents_modules.personality.emotion import emotion
 from agents_modules.personality.personality import generate_personality
 from config.logger_config import setup_logger
+from config.agent_tracer import dynamic_traceable
 from config import config
 
 logger = setup_logger('Agent')
 
 agent_manager  = None
+
 
 class Agent:
     def __init__(self, basic_info: Dict[str, Any], memory_folder_path: Optional[str] = None):
@@ -28,6 +30,7 @@ class Agent:
             basic_info: Dictionary containing agent's basic information
             memory_folder_path: Path to the agent's memory storage
         """
+
         self.basic_info = basic_info
         self.name = basic_info['name']
 
@@ -51,6 +54,7 @@ class Agent:
         
         # Initialize emotion memory
         self.short_memory.emotion_memory.append(self.short_memory.emotion)
+
 
     def stimulus(self, event: Any) -> str:
         """Process an event stimulus."""
@@ -81,7 +85,8 @@ class Agent:
     
     def reflection(self, action: str, description: str) -> Dict[str, Any]:
         return reflection(self, action, description)
-
+    
+    @dynamic_traceable(lambda self, curr_time, event: f"{self.name}_{curr_time}", run_type="chain")
     def move(self, curr_time: Any, event: Any) -> Optional[Tuple[Any, str]]:
         """
         Process agent movement and event handling.
@@ -93,6 +98,7 @@ class Agent:
         Returns:
             Tuple of (action, description) if action is taken, None otherwise
         """
+
         # Normalize events to list
         events = [event] if not isinstance(event, list) else event
 
@@ -103,14 +109,11 @@ class Agent:
             new_day = True
 
         # Update time tracking
-        new_day = False
         self.short_memory.curr_datetime = curr_time
         self.short_memory.curr_time = curr_time.strftime('%H:%M')
         self.short_memory.curr_date = curr_time.strftime('%Y-%m-%d')
         # Handle new day operations for cognitive growth
-        if new_day:
-            logger.debug(f"New day for Agent {self.name}")
-            
+        if new_day:            
             self.short_memory.add_short_memory(form_short_memory(self))
             self.short_memory.save(self.short_memory)
             self.short_memory.log_memory()
@@ -142,6 +145,7 @@ class Agent:
         
         needs = self.reflection(best_plan.get('action', None), description)
         logger.info(f"{self.name}'s reflection: {needs}")
+
         return best_plan.get('action', None), description
         
 

@@ -6,12 +6,11 @@
 from prompt.llm_command_list import *
 from agents_modules.personality.emotion import get_complex_mood
 def reflection(agent, action, description):
-    basic_needs = agent.short_memory.basic_needs
+    needs = agent.short_memory.basic_needs
     if action == 'move':
-        basic_needs['energy'] -= 1
-        return
-    
-    needs = gpt_analyze_needs(agent.name, agent.formed_profile, get_complex_mood(agent.short_memory.emotion_memory[-1]), action, description, basic_needs)
+        needs['energy'] -= 1
+    else:
+        needs = gpt_analyze_needs( agent.name, agent.formed_profile, get_complex_mood(agent.short_memory.emotion_memory[-1]), action, description, needs)
     agent.short_memory.basic_needs = needs.get('new_basic_needs')
     agent.short_memory.emotion_memory.append(needs.get('new_emotion'))
     return needs

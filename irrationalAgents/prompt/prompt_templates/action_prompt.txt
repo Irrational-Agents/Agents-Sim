@@ -1,15 +1,25 @@
 Description List: {description_list}
 Recent Events: {recent_events}
+Current Perception: {current_perception}
 
 Action Types:
-Each description must be assigned exactly one of these 4 actions:
-- chat: used only when another person is explicitly or implicitly mentioned in the description.
-- interact: used only when a specific object is explicitly or implicitly involved in the action (e.g., interacting with an item like desk, toilet).
-- move: used only when a physical movement toward or between specific locations is explicitly or implicitly described.
-- think: used for internal thoughts, plans, or general intentions when no specific person or object is mentioned.
+Each description must be assigned exactly one of these four actions:
+- chat: assign only when the description explicitly or implicitly mentions another person, AND Current Perception contains at least **two or more communicable persons**.
+- interact: assign only when the description explicitly or implicitly involves a specific object (item), AND Current Perception contains at least one visible item.
+- move: assign only when the description explicitly or implicitly describes physical movement toward or between specific locations.
+- think: assign when none of the above conditions are met. Use for internal thoughts, plans, or general intentions.
 
-Please assign one of these four action types to each description in the Description List.
-Format your response as a JSON list of objects, where each object contains the action type and the original description. Do not include any additional text, markdown formatting, or explanations outside the JSON array:
+Rules:
+- If the Current Perception contains fewer than two communicable persons, you must not assign "chat", even if the description mentions a person.
+- If the Current Perception contains no visible items, you must not assign "interact", even if the description mentions an object.
+- Always check Current Perception first before assigning actions.
+- Assign exactly one action type to each description, no multiple labels.
+
+
+Output:
+Return a JSON array of objects. Each object must include the assigned action and the original description.
+Do not include any additional text, markdown formatting, or explanations outside the JSON array.
+
 [
 {{"action": "action_type", "description": "original description"}},
 {{"action": "action_type", "description": "original description"}},

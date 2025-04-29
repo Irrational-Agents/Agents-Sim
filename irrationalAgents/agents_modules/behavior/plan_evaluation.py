@@ -18,7 +18,8 @@ def plan_evaluation(agent, plan_list):
         # a plan should be evaluated based on bias, Context (in this stage it should be personality)
         p_context = agent.basic_info.get('personality_traits', {})
         basic_needs = agent.short_memory.basic_needs
-        best_plan = select_plan(plan_list, p_context,basic_needs,agent.short_memory.recent_events) 
+        best_plan = select_plan(
+             plan_list, p_context, basic_needs, agent.short_memory.recent_events)
         action = decide_next_action(best_plan)
 
         return action
@@ -28,16 +29,18 @@ def plan_evaluation(agent, plan_list):
         return plan_list[0]
 
 
-def select_plan(plan_list, p_context, basic_needs, recent_events):
-    # this will return optimal response if no biases else it will send 
+def select_plan( plan_list, p_context, basic_needs, recent_events):
+    # this will return optimal response if no biases else it will send
     # experimental part
-    biases=''
+    biases = ''
     if AGENT_BIASES:
-        #@TODO biases = bias_module(bias)
+        # @TODO biases = bias_module(bias)
         biases = ''
     logger.debug(f"biases: {biases} p_context: {p_context}")
-    plan = plans_selection(plan_list, p_context, recent_events, basic_needs, biases)
+    plan = plans_selection( plan_list, p_context,
+                           recent_events, basic_needs, biases)
     return plan
+
 
 def decide_next_action(best_plan):
     # 最適なプランに基づいて次のアクションを決定するロジックをここに実装します

@@ -240,7 +240,7 @@ class ShortTermMemory:
 
             current_usage = len(self.short_memory) / self.short_memory_capacity
 
-    def organize_memory(self, long_memory):
+    def organize_memory(self,  long_memory):
         """
         Migrate short_memory entries with moccupying ≥ 2 to LongTermMemory, and set their moccupying to 1.
         Move short-term memories with moccupying value of 2 or more into long-term memory, and reset their moccupying to 1.
@@ -326,7 +326,7 @@ def format_events_as_text(events):
 
 def form_short_memory(agent):
     compressed_mem = compress_semantic_memories(agent.short_memory.short_memory_for_plan)
-    short_memory_list = generate_short_memory(agent.name, get_complex_mood(agent.short_memory.emotion_memory[-1]), agent.short_memory.personality_text, agent.relationships, compressed_mem)
+    short_memory_list = generate_short_memory( agent.name, get_complex_mood(agent.short_memory.emotion_memory[-1]), agent.short_memory.personality_text, agent.relationships, compressed_mem)
     if not short_memory_list:
         return []
     

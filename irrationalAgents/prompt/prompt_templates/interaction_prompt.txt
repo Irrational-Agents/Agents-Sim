@@ -1,27 +1,41 @@
 Agent: {agent_name}
 Agent profile: {agent_profile}
 Current emotion: {current_emotion}
-Plan: {plan}
 Recent Events: {recent_events}
 Current Time: {current_time}
 Current Date: {current_date}
+Plan: {plan}
+Current Perception: {current_perception}
+Current Location: {location}
 
-Please select the most suitable item from the following list that best matches the given plan, and return the complete path of that item (e.g., "apartment E:bathroom:items:bathroom sink"). Each item is separated by \n. Make your selection based on the nature of the planned activity, space requirements, and functional compatibility.
+Items List: {{_context}}
 
-Items List: {{items}}
+Your task:
 
-First analyze the requirements of the plan, then identify the most appropriate item from the list. If there are multiple potential options, please select the one that best meets the requirements. Provide just the complete item path with no additional explanation.
+Step 1: Analyze the plan carefully. Identify:
+- What kind of action is intended? (e.g., reading, cooking, relaxing)
+- What kind of item or location best supports this action?
 
+Step 2: Narrow down the candidate items:
+- First, filter the Items List to include only items that are **either visible in Current Perception** OR **located in the Current Location**.
+- If no matching items are found, then consider broader nearby items logically reachable from the Current Location.
 
-Based on the information above, generate a interaction between {agent_name} and {_context}. The interaction should:
+Step 3: From the filtered candidates, select the item that best supports the specific needs of the plan.
+- Prioritize functional compatibility with the plan.
+- Then consider the comfort and naturalness given the agent’s personality and current emotion.
 
-Follow the given plan and make only one interaction 
-Take into account the personality and emotion
-Be natural and engaging and no longer than 10 words
+Step 4: Think like the agent:
+- (1) **Thinking**: Internally decide where and what to do.
+- (2) **Moving**: Move to the selected item.
+- (3) **Interacting**: Perform the planned action at the selected item.
 
-Please format the a conversation as follows:
-{{"item":"The item you choose","description":"Brief description of the interaction in an objective and observable manner, maximum 10 words"}}
+Each phase should have a short, natural description (no more than 10 words each).
 
+Important:
+- **Strictly follow the plan.**
+- **Use Perception and Location to guide item selection.**
+- **Output exactly three steps: Think, Move, Interact.**
+- **Be objective, natural, and concise.**
 
 output examples:
 
