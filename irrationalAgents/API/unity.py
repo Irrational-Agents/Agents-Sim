@@ -24,7 +24,7 @@ class UnityServer:
         self.unity_request = None
 
         self.command_map = {
-            'map.data': 'handle_map_data',
+            'init': 'init',
             'ui.tick': 'update'
         }
 
@@ -84,12 +84,6 @@ class UnityServer:
     def start_background(self):
         return eventlet.spawn(self.start)
 
-    def init(self):
-        logger.info("Initializing server...")
-        sim_config = {'npcs': get_npcs({})}
-        meta_config = get_meta()
-        self.unity_request.send_init(json.dumps({**sim_config, **meta_config}))
-
     def start(self, host: str = '0.0.0.0', port: int = 8080):
         logger.info(f"Starting Unity server on {host}:{port}")
         eventlet.wsgi.server(eventlet.listen((host, port)), self.app)
@@ -109,7 +103,6 @@ class UnityServer:
         self.start_background()
         logger.info("Waiting for client connection...")
         if self.wait_for_connection(timeout=120):
-            self.init()
             logger.info("Client connected")
             return True
         else:

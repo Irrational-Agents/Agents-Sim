@@ -22,8 +22,7 @@ logger = setup_logger('World')
             "location": status['location'],
             "action": "move",
             "description": "Dorm for College:A room:spaces:sp-A",
-            "move_extra": {
-            }
+            "path": Array of directions,
         }
 """
 
@@ -212,11 +211,8 @@ class WorldState:
                     co_destination = self.town_map.get_address_tiles(description.replace(":spaces:", ":"))
                     if co_destination:
                         destination = next(iter(co_destination))
-                        move_extra = {
-                            "path": self.path_planner.create_path((x, y), destination),
-                            "speed": DEFAULT_SPEED
-                        }
-                        updates[agent_name]['state']['move_extra'] = move_extra
+                        updates[agent_name]['state']["path"] = self.path_planner.create_path((x, y), destination)
+                        updates[agent_name]['state']["speed"] = DEFAULT_SPEED
                     else:
                         logger.warning(f"No destination found for {description}")
                 except Exception as e:

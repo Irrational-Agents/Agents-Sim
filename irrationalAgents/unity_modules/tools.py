@@ -3,7 +3,7 @@ import json
 from typing import Dict
 from config.logger_config import setup_logger
 from config.common_method import *
-from config.config import NPC_STORAGE_BASE_PATH, META_FILE_PATH
+from config.config import NPC_STORAGE_BASE_PATH, META_FILE_PATH, SIM_FILE_PATH, NPC_STORAGE_BASE_PATH_MAIN
 
 logger = setup_logger('tools')
 
@@ -58,7 +58,57 @@ def get_npc_info(params: Dict) -> Dict:
     npc_data = {**agent, **status}
     return npc_data
 
-def get_meta() -> Dict:
+def create_sim_id() -> int:
+    # Load existing meta data
     with open(META_FILE_PATH, 'r', encoding='utf-8') as f:
         data = json.load(f)
+
+    # Get current sim_id, default to 0 if not present
+    sim_id = data.get('sim_id', 0)
+
+    # Increment sim_id
+    sim_id += 1
+    data['sim_id'] = sim_id
+
+    # Save back to file
+    with open(SIM_FILE_PATH, 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=4)
+
+    # Create directory
+    new_dir_path = os.path.join(NPC_STORAGE_BASE_PATH_MAIN, str(sim_id))
+    os.makedirs(new_dir_path, exist_ok=True)
+
+    return sim_id
+
+def create_meta_data(sim_id: int, data: Dict) -> Dict:
+    # Convert npcList (a list) into a name-indexed dictionary
+    npcs = {npc["name"]: npc for npc in data.get("npcList", [])}
+
+    sim_config = {
+        "sim_id": sim_id,
+        "sim_type": data.get("sim_type"),
+        "map_name": data.get("map_name"),
+        "steps_per_min": data.get("steps_per_min"),
+        "start_date": data.get("start_date"),
+        "start_time": data.get("start_time"),
+        "total_steps": data.get("total_steps"),
+        "end_time": data.get("end_time"),
+        "end_date": data.get("end_date"),
+        "npcs": npcs,
+        "player_enabled": data.get("player_enabled", False),
+        "player_name": data.get("player_name", ""),
+        "npc_names": [npc["name"] for npc in data.get("npcList", [])]
+    }
+
+    return sim_config
+
+def load_replay_meta_data(replay_id: int) -> Dict:
+    replay_path = os.path.join(NPC_STORAGE_BASE_PATH)
+    if not os.path.exists(replay_path):
+        logger.error(f"Replay {replay_id} not found!")
+        return None
+
+    with open(os.path.join(replay_path, "meta.json"), 'r', encoding='utf-8') as f:
+        data = json.load(f)
+
     return data

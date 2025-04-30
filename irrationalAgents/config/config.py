@@ -118,6 +118,8 @@ def get_config(key: str, default: Any = None) -> Any:
 load_config_to_env()
 
 META_FILE_PATH = os.path.join(WORK_DIR, "../storage/meta.data")
+NPC_STORAGE_BASE_PATH_MAIN = os.path.join(WORK_DIR, "../storage/data/")
 NPC_STORAGE_BASE_PATH = os.path.join(WORK_DIR, "../storage/sample_data/")
+SIM_FILE_PATH = os.path.join(WORK_DIR, "../storage/sim_count.data")
 
 PROMPT_FILE_PATH = os.path.join(WORK_DIR, "prompt/prompt_templates/")
