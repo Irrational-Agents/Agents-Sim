@@ -14,13 +14,13 @@
       "time": "00:00",
       "date": "2024-04-01",
       "moccupying": 1,
-      "description": "seeing events: [], items: {'game console', 'bed'}, npcs: ['Sakura Sato']"
+      "description": "seeing events: [], items: {'bed', 'game console'}, npcs: ['Sakura Sato']"
     },
     {
       "time": "00:00",
       "date": "2024-04-01",
       "moccupying": 1,
-      "description": "Sakura Sato chatting with friends: I'm so pumped for this game! Let's show them what we've got!",
+      "description": "Sakura Sato chatting with Friends: So, about our strategy—should we focus on teamwork or individual strengths this match?",
       "emotion": [
         9,
         0,
@@ -35,13 +35,13 @@
       "time": "00:15",
       "date": "2024-04-01",
       "moccupying": 1,
-      "description": "seeing events: [], items: {'game console', 'bed'}, npcs: ['Sakura Sato']"
+      "description": "seeing events: [], items: {'bed', 'game console'}, npcs: ['Sakura Sato']"
     },
     {
       "time": "00:15",
       "date": "2024-04-01",
       "moccupying": 1,
-      "description": "Sakura Sato chatting with Friends: That last match was epic! Ready for another round? Let's dominate!",
+      "description": "Sakura Sato chatting with Friends: I think we should highlight our teamwork; it could really give us an edge this time!",
       "emotion": [
         9,
         0,
@@ -56,13 +56,13 @@
       "time": "00:30",
       "date": "2024-04-01",
       "moccupying": 1,
-      "description": "seeing events: [], items: {'game console', 'bed'}, npcs: ['Sakura Sato']"
+      "description": "seeing events: [], items: {'bed', 'game console'}, npcs: ['Sakura Sato']"
     },
     {
       "time": "00:30",
       "date": "2024-04-01",
       "moccupying": 1,
-      "description": "Sakura Sato interacted with apartment D:main room:items:desk: writing her creative story with enthusiasm",
+      "description": "Sakura Sato chatting with Friends: I've been thinking more about our teamwork; let’s focus on collaboration for our strategies!",
       "emotion": [
         9,
         0,
@@ -77,13 +77,13 @@
       "time": "00:45",
       "date": "2024-04-01",
       "moccupying": 1,
-      "description": "seeing events: [], items: {'game console', 'bed'}, npcs: ['Sakura Sato']"
+      "description": "seeing events: [], items: {'bed', 'game console'}, npcs: ['Sakura Sato']"
     },
     {
       "time": "00:45",
       "date": "2024-04-01",
       "moccupying": 1,
-      "description": "Sakura Sato chatting with Friends: That was intense! Let's go for another round, I can feel the victory coming!",
+      "description": "Sakura Sato chatting with Friends: Let’s finalize our game plan! Remember, communication is key to our teamwork!",
       "emotion": [
         9,
         0,
@@ -98,13 +98,160 @@
       "time": "01:00",
       "date": "2024-04-01",
       "moccupying": 1,
-      "description": "seeing events: [], items: {'game console', 'bed'}, npcs: ['Sakura Sato']"
+      "description": "seeing events: [], items: {'bed', 'game console'}, npcs: ['Sakura Sato']"
     },
     {
       "time": "01:00",
       "date": "2024-04-01",
       "moccupying": 1,
-      "description": "Sakura Sato chatting with Friends: That final round was so close! Let’s push harder this time!",
+      "description": "Sakura Sato chatting with Friends: Alright team, let’s stick to our strong communication; it’ll really enhance our teamwork this match!",
+      "emotion": [
+        9,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "time": "01:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'bed', 'game console'}, npcs: ['Sakura Sato']"
+    },
+    {
+      "time": "01:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Sakura Sato chatting with Friends: Continuing our discussion, how do you think youth culture shapes our views on teamwork in gaming?",
+      "emotion": [
+        9,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "time": "01:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'bed', 'game console'}, npcs: ['Sakura Sato']"
+    },
+    {
+      "time": "01:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Sakura Sato chatting with Friends: Thinking about our strategy—how can we improve our communication for this match?",
+      "emotion": [
+        9,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "time": "01:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'bed', 'game console'}, npcs: ['Sakura Sato']"
+    },
+    {
+      "time": "01:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Sakura Sato chatting with friends: I'm feeling great! Let's brainstorm more ideas on improving our communication for the match.",
+      "emotion": [
+        9,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "time": "02:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'bed', 'game console'}, npcs: ['Sakura Sato']"
+    },
+    {
+      "time": "02:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Sakura Sato chatting with Friends: Let's also think about how we can support each other during the match!",
+      "emotion": [
+        9,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "time": "02:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'bed', 'game console'}, npcs: ['Sakura Sato']"
+    },
+    {
+      "time": "02:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Sakura Sato chatting with Friends: Let's also share tips on keeping calm during the game; it could boost our performance!",
+      "emotion": [
+        9,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "time": "02:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'bed', 'game console'}, npcs: ['Sakura Sato']"
+    },
+    {
+      "time": "02:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Sakura Sato chatting with Friends: I'm feeling inspired! Let’s also discuss how our favorite books influence our gameplay styles!",
+      "emotion": [
+        9,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "time": "02:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'bed', 'game console'}, npcs: ['Sakura Sato']"
+    },
+    {
+      "time": "02:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Sakura Sato chatting with Friends: Continuing from our last game, let's bring in our favorite book strategies to enhance our gameplay!",
       "emotion": [
         9,
         0,
@@ -125,87 +272,111 @@
     },
     {
       "time": "07:00",
-      "activity": "Wake up and morning routine (personal hygiene and breakfast)",
+      "activity": "Wake up and do morning stretches",
       "moccupying": 1,
-      "intervals": "60.0 minutes"
+      "intervals": "15.0 minutes"
     },
     {
-      "time": "08:00",
-      "activity": "Attend Literary Theory Class",
+      "time": "07:15",
+      "activity": "Personal hygiene (shower, wash face, brush teeth)",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "07:45",
+      "activity": "Breakfast in the dormitory kitchen",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "08:15",
+      "activity": "Reading a book on contemporary literature for inspiration",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "08:45",
+      "activity": "Attend Japanese Literature class",
+      "moccupying": 2,
+      "intervals": "75.0 minutes"
+    },
+    {
+      "time": "10:00",
+      "activity": "Library session with a friend to discuss ongoing assignments",
       "moccupying": 2,
       "intervals": "90.0 minutes"
     },
     {
-      "time": "09:30",
-      "activity": "Study in College Library with friend",
-      "moccupying": 3,
-      "intervals": "90.0 minutes"
-    },
-    {
-      "time": "11:00",
-      "activity": "Creative Writing Class",
+      "time": "11:30",
+      "activity": "Creative writing practice class",
       "moccupying": 2,
       "intervals": "90.0 minutes"
     },
     {
-      "time": "12:30",
-      "activity": "Lunch at Campus Cafe",
+      "time": "13:00",
+      "activity": "Lunch at the campus cafe",
       "moccupying": 1,
-      "intervals": "60.0 minutes"
+      "intervals": "30.0 minutes"
     },
     {
       "time": "13:30",
-      "activity": "Write short story for creative writing workshop",
+      "activity": "Write draft of short story themed on youth culture",
       "moccupying": 3,
       "intervals": "90.0 minutes"
     },
     {
       "time": "15:00",
-      "activity": "Literary Club Meeting",
+      "activity": "Meet with literary club members to discuss recent readings",
       "moccupying": 2,
       "intervals": "90.0 minutes"
     },
     {
       "time": "16:30",
-      "activity": "Visit the College Gym / Exercise",
-      "moccupying": 1,
-      "intervals": "90.0 minutes"
-    },
-    {
-      "time": "18:00",
-      "activity": "Dinner with friends from the dormitory",
-      "moccupying": 2,
-      "intervals": "60.0 minutes"
-    },
-    {
-      "time": "19:00",
-      "activity": "Relax and read a book (Contemporary Literature)",
-      "moccupying": 1,
-      "intervals": "60.0 minutes"
-    },
-    {
-      "time": "20:00",
-      "activity": "Write in the dorm common room or Cafe for inspiration",
-      "moccupying": 3,
-      "intervals": "120.0 minutes"
-    },
-    {
-      "time": "22:00",
-      "activity": "Reflect on the day's experiences and plan tomorrow's goals",
-      "moccupying": 3,
-      "intervals": "60.0 minutes"
-    },
-    {
-      "time": "23:00",
-      "activity": "Leisure time (listen to music, play guitar)",
+      "activity": "Spend time in the park for inspiration and reflection",
       "moccupying": 1,
       "intervals": "45.0 minutes"
     },
     {
-      "time": "23:45",
-      "activity": "Wind down and prepare for bed",
+      "time": "17:15",
+      "activity": "Dinner in dormitory with roommates",
+      "moccupying": 2,
+      "intervals": "45.0 minutes"
+    },
+    {
+      "time": "18:00",
+      "activity": "Evening study session for literary theory class",
+      "moccupying": 3,
+      "intervals": "120.0 minutes"
+    },
+    {
+      "time": "20:00",
+      "activity": "Relaxation time (watch a movie or play video games)",
       "moccupying": 1,
-      "intervals": "15.0 minutes"
+      "intervals": "90.0 minutes"
+    },
+    {
+      "time": "21:30",
+      "activity": "Write in journal to reflect on the day and express feelings",
+      "moccupying": 3,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "22:00",
+      "activity": "Prepare for bed (night hygiene routine)",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "22:30",
+      "activity": "Read a chapter from a favorite Haruki Murakami book before sleep",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "23:00",
+      "activity": "Sleep",
+      "moccupying": 1,
+      "intervals": "60.0 minutes"
     }
   ],
   "short_memory": [
@@ -238,6 +409,138 @@
       "date": "2024-04-01",
       "moccupying": 1,
       "description": "I interacted with: my desk while writing creatively, feeling happy and inspired."
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I chatted with Friends: I'm so pumped for this game! Let's show them what we've got!"
+    },
+    {
+      "time": "00:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I chatted with Friends: That last match was epic! Ready for another round? Let's dominate!"
+    },
+    {
+      "time": "00:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I interacted with: writing my creative story with enthusiasm in the main room of my apartment."
+    },
+    {
+      "time": "00:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I chatted with Friends: That was intense! Let's go for another round, I can feel the victory coming!"
+    },
+    {
+      "time": "01:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I chatted with Friends: That final round was so close! Let’s push harder this time!"
+    },
+    {
+      "time": "00:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I interacted with: writing my creative story with enthusiasm"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I chatted with Friends: I'm so pumped for this game! Let's show them what we've got!"
+    },
+    {
+      "time": "00:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I chatted with Friends: That last match was epic! Ready for another round? Let's dominate!"
+    },
+    {
+      "time": "00:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I chatted with Friends: That was intense! Let's go for another round, I can feel the victory coming!"
+    },
+    {
+      "time": "01:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I chatted with Friends: That final round was so close! Let’s push harder this time!"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I saw: ['bed', 'game console']"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I chatted with Friends: That was such a close game! I can't wait for our next match!"
+    },
+    {
+      "time": "00:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I chatted with Friends: I'm so ready for our next match! Let's crush it this time!"
+    },
+    {
+      "time": "00:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I chatted with Friends: That last match was insane! I can't wait for us to dominate this next one!"
+    },
+    {
+      "time": "00:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I chatted with Friends: I can't believe how close that was! Let's strategize for our next match!"
+    },
+    {
+      "time": "01:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I chatted with Friends: I'm so excited for our next match! Let's put our game plan into action!"
+    },
+    {
+      "time": "01:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I chatted with Friends: Let's discuss our game plan! I have some strategies we can try for victory!"
+    },
+    {
+      "time": "01:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I chatted with Friends: Alright team, let’s break down their strategies and come up with our winning approach!"
+    },
+    {
+      "time": "01:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I chatted with Friends: Let's finalize our strategies! I think we can really outsmart them this time!"
+    },
+    {
+      "time": "02:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I chatted with Friends: Okay, let's dive into contemporary themes! What do you think about youth culture in literature?"
+    },
+    {
+      "time": "02:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I chatted with friends: Okay, let's dive deeper! How do you think youth culture shapes contemporary literature?"
+    },
+    {
+      "time": "02:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I chatted with Friends: Continuing our discussion, how do you think social media impacts youth culture in literature?"
     }
   ],
   "basic_needs": {

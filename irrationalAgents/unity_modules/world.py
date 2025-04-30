@@ -32,13 +32,13 @@ class WorldState:
     def __init__(self, map_data: Dict[str, Any]):
         """Initialize the world state with map data and core components."""
         self.town_map = Map(map_data)
-        self.meta_manager = meta_manager
+        #self.meta_manager = meta_manager
         self.path_planner = PathPlanner(self.town_map)
-        self.global_time = self.meta_manager.get_start_datetime()
+        #self.global_time = self.meta_manager.get_start_datetime()
         self.thread_pool = ThreadPoolExecutor(max_workers=10)
         init_agent_manager()
-        self.agent_manager = get_agent_manager()
-        self._validate_initial_state()
+        #self.agent_manager = get_agent_manager()
+        #self._validate_initial_state()
 
     def _validate_initial_state(self) -> None:
         """Validate the initial state of the world."""
@@ -183,7 +183,7 @@ class WorldState:
                 world_info.add(
                     (info['position']['x'], info['position']['y'], info['description']))
                 self.town_map.add_event_to_tile(
-                    (info['position']['x'], info['position']['y']). info['description'])
+                    (info['position']['x'], info['position']['y']), info['description'])
         return world_info
 
     def _generate_npc_snapshot(self, results: List[Tuple[str, str, str]], npc_status) -> Dict[str, Any]:
@@ -212,12 +212,10 @@ class WorldState:
                 try:
                     x = npc_status[agent_name]['position']['x']
                     y = npc_status[agent_name]['position']['y']
-                    co_destination = self.map.get_address_tiles(
+                    co_destination = self.town_map.get_address_tiles(
                         description.split(':')[-1])
-                    updates['state']['move_extra'] = {
-                        "path": self.path_planner.create_path((x, y), co_destination),
-                        "speed": DEFAULT_SPEED
-                    }
+                    updates['state']["path"] = self.path_planner.create_path((x, y), co_destination)
+                    updates['state']["speed"] = DEFAULT_SPEED
                 except Exception as e:
                     logger.error(f"Error creating path: {str(e)}")
 

@@ -20,14 +20,14 @@
       "time": "00:00",
       "date": "2024-04-01",
       "moccupying": 1,
-      "description": "Kenta Takahashi interacted with apartment A:main room:items:guitar: playing guitar to relax and ease fear",
+      "description": "Kenta Takahashi thought about: Prepare notes for Tech Night amid feelings of fear.",
       "emotion": [
         0,
         0,
         0,
-        8,
+        10,
         0,
-        2,
+        0,
         0
       ]
     },
@@ -41,14 +41,14 @@
       "time": "00:15",
       "date": "2024-04-01",
       "moccupying": 1,
-      "description": "Kenta Takahashi interacted with apartment A:main room:items:guitar: playing guitar to ease fear",
+      "description": "Kenta Takahashi thought about: Prepare notes for Tech Night amid feelings of fear.",
       "emotion": [
         0,
         0,
         0,
-        8,
+        10,
         0,
-        2,
+        0,
         0
       ]
     },
@@ -62,14 +62,14 @@
       "time": "00:30",
       "date": "2024-04-01",
       "moccupying": 1,
-      "description": "Kenta Takahashi interacted with apartment A:main room:items:guitar: playing guitar to relax and ease fear",
+      "description": "Kenta Takahashi thought about: Prepare notes for Tech Night amid feelings of fear.",
       "emotion": [
         0,
         0,
         0,
-        8,
+        10,
         0,
-        2,
+        0,
         0
       ]
     },
@@ -83,14 +83,14 @@
       "time": "00:45",
       "date": "2024-04-01",
       "moccupying": 1,
-      "description": "Kenta Takahashi interacted with apartment A:main room:items:guitar: playing guitar to relax",
+      "description": "Kenta Takahashi thought about: Prepare notes for Tech Night amid feelings of fear.",
       "emotion": [
         0,
         0,
         0,
-        8,
+        10,
         0,
-        2,
+        0,
         0
       ]
     },
@@ -104,14 +104,161 @@
       "time": "01:00",
       "date": "2024-04-01",
       "moccupying": 1,
-      "description": "Kenta Takahashi interacted with apartment A:main room:items:guitar: strumming guitar to soothe fears",
+      "description": "Kenta Takahashi thought about: Prepare notes for Tech Night amid feelings of fear.",
       "emotion": [
         0,
         0,
         0,
-        8,
+        10,
         0,
-        2,
+        0,
+        0
+      ]
+    },
+    {
+      "time": "01:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'guitar', 'bed', 'refrigerator'}, npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "01:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi thought about: Prepare notes for Tech Night amid feelings of fear.",
+      "emotion": [
+        0,
+        0,
+        0,
+        10,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "time": "01:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'guitar', 'bed', 'refrigerator'}, npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "01:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi thought about: Prepare notes for Tech Night amid feelings of fear.",
+      "emotion": [
+        0,
+        0,
+        0,
+        10,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "time": "01:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'guitar', 'bed', 'refrigerator'}, npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "01:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:guitar: playing guitar to relieve stress",
+      "emotion": [
+        0,
+        0,
+        0,
+        10,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "time": "02:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'guitar', 'bed', 'refrigerator'}, npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "02:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:guitar: playing guitar to relieve fear",
+      "emotion": [
+        0,
+        0,
+        0,
+        10,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "time": "02:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'guitar', 'bed', 'refrigerator'}, npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "02:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi chatting with Hiroshi Watanabe: I've been really anxious about Tech Night. Can we brainstorm ideas together?",
+      "emotion": [
+        0,
+        0,
+        0,
+        10,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "time": "02:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'guitar', 'bed', 'refrigerator'}, npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "02:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi chatting with Hiroshi Watanabe: I've been thinking about our earlier chat. Any new ideas to ease my anxiety about Tech Night?",
+      "emotion": [
+        0,
+        0,
+        0,
+        10,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "time": "02:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing events: [], items: {'guitar', 'bed', 'refrigerator'}, npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "02:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi chatting with Hiroshi Watanabe: Thanks for meeting again, Hiroshi. Any fresh ideas to help me with Tech Night?",
+      "emotion": [
+        0,
+        0,
+        0,
+        10,
+        0,
+        0,
         0
       ]
     }
@@ -119,105 +266,117 @@
   "daily_plan_req": [
     {
       "time": "00:00",
-      "activity": "Sleep",
-      "moccupying": 1,
-      "intervals": "420.0 minutes"
-    },
-    {
-      "time": "07:00",
-      "activity": "Wake up and morning hygiene (shower, brush teeth, etc.)",
+      "activity": "Relax and unwind before bed, focusing on relaxation techniques to cope with fear",
       "moccupying": 1,
       "intervals": "30.0 minutes"
     },
     {
-      "time": "07:30",
-      "activity": "Breakfast (healthy meal with fruits)",
+      "time": "00:30",
+      "activity": "Sleep to rejuvenate for the next day",
       "moccupying": 1,
-      "intervals": "30.0 minutes"
+      "intervals": "450.0 minutes"
     },
     {
       "time": "08:00",
-      "activity": "Study session on AI concepts (focus on chatbot development)",
-      "moccupying": 3,
-      "intervals": "120.0 minutes"
-    },
-    {
-      "time": "10:00",
-      "activity": "Meeting with Hiroshi to discuss project progress",
-      "moccupying": 2,
-      "intervals": "60.0 minutes"
-    },
-    {
-      "time": "11:00",
-      "activity": "Continue working on AI chatbot project",
-      "moccupying": 3,
-      "intervals": "120.0 minutes"
-    },
-    {
-      "time": "13:00",
-      "activity": "Lunch break",
-      "moccupying": 1,
-      "intervals": "60.0 minutes"
-    },
-    {
-      "time": "14:00",
-      "activity": "Collaborative brainstorming session for Tech Night",
-      "moccupying": 2,
-      "intervals": "60.0 minutes"
-    },
-    {
-      "time": "15:00",
-      "activity": "Complete coding tasks for the day",
-      "moccupying": 3,
-      "intervals": "120.0 minutes"
-    },
-    {
-      "time": "17:00",
-      "activity": "Short break (snack, relax)",
+      "activity": "Wake up and practice morning mindfulness, addressing current emotions",
       "moccupying": 1,
       "intervals": "30.0 minutes"
     },
     {
-      "time": "17:30",
-      "activity": "Prepare materials for Tech Night event",
+      "time": "08:30",
+      "activity": "Personal hygiene (shower, brush teeth, etc.)",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "09:00",
+      "activity": "Breakfast (healthy meal to start the day)",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "09:30",
+      "activity": "Study time focusing on AI projects and concepts",
+      "moccupying": 3,
+      "intervals": "90.0 minutes"
+    },
+    {
+      "time": "11:00",
+      "activity": "Collaborate with Hiroshi on the AI chatbot project",
       "moccupying": 2,
       "intervals": "90.0 minutes"
     },
     {
-      "time": "19:00",
-      "activity": "Tech Night event (share ideas and collaborate)",
+      "time": "12:30",
+      "activity": "Lunch break and social chat with roommates or classmates",
+      "moccupying": 2,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "13:30",
+      "activity": "Continue project development and coding in Python",
+      "moccupying": 3,
+      "intervals": "90.0 minutes"
+    },
+    {
+      "time": "15:00",
+      "activity": "Take a break for a quick walk or some fresh air",
+      "moccupying": 1,
+      "intervals": "15.0 minutes"
+    },
+    {
+      "time": "15:15",
+      "activity": "Research new AI trends and emotional wellness technology",
+      "moccupying": 3,
+      "intervals": "75.0 minutes"
+    },
+    {
+      "time": "16:30",
+      "activity": "Prepare for the weekly 'Tech Night' event by organizing materials",
+      "moccupying": 3,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "17:30",
+      "activity": "Dinner with roommates, discussing projects and personal updates",
+      "moccupying": 2,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "18:30",
+      "activity": "Host 'Tech Night' event with peers, share ideas and collaborate",
       "moccupying": 2,
       "intervals": "120.0 minutes"
     },
     {
+      "time": "20:30",
+      "activity": "Wind down after the event, reflecting on feedback received",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
       "time": "21:00",
-      "activity": "Dinner with roommates",
+      "activity": "Leisure time (read, play guitar, light gaming)",
       "moccupying": 1,
       "intervals": "60.0 minutes"
     },
     {
       "time": "22:00",
-      "activity": "Leisure activity (play guitar or read a book)",
-      "moccupying": 1,
+      "activity": "Recognize achievements of the day and plan for tomorrow",
+      "moccupying": 3,
       "intervals": "60.0 minutes"
     },
     {
       "time": "23:00",
-      "activity": "Reflect on the day and plan for tomorrow",
-      "moccupying": 2,
+      "activity": "Start bedtime routine, focusing on relaxation needed to alleviate fear",
+      "moccupying": 1,
       "intervals": "30.0 minutes"
     },
     {
       "time": "23:30",
-      "activity": "Wind down and prepare for bed",
+      "activity": "Sleep, preparing for the next productive day",
       "moccupying": 1,
-      "intervals": "-1410.0 minutes"
-    },
-    {
-      "time": "00:00",
-      "activity": "Sleep",
-      "moccupying": 1,
-      "intervals": "1440.0 minutes"
+      "intervals": "30.0 minutes"
     }
   ],
   "short_memory": [
@@ -232,6 +391,30 @@
       "date": "2024-04-01",
       "moccupying": 1,
       "description": "I interacted with: playing guitar to relax, before sleep, and to ease fear"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I interacted with: guitar - playing guitar to relax and ease fear"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I interacted with: items: {'guitar', 'bed', 'refrigerator'}"
+    },
+    {
+      "time": "01:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I played guitar to relax and ease fear"
+    },
+    {
+      "time": "01:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I thought about: Prepare for Tech Night amid feelings of fear."
     }
   ],
   "basic_needs": {

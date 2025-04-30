@@ -89,7 +89,7 @@
             "description": null
         },
         "time": "2024-04-01T00:00:00",
-        "step": 5,
+        "step": 22,
         "location": "Dorm for College:A room:sp-A",
         "position": {
             "x": 126,
@@ -103,7 +103,7 @@
             "description": null
         },
         "time": "2024-04-01T00:15:00",
-        "step": 6,
+        "step": 23,
         "location": "Dorm for College:A room:sp-A",
         "position": {
             "x": 126,
@@ -117,7 +117,7 @@
             "description": null
         },
         "time": "2024-04-01T00:30:00",
-        "step": 7,
+        "step": 24,
         "location": "Dorm for College:A room:sp-A",
         "position": {
             "x": 126,
@@ -131,7 +131,7 @@
             "description": null
         },
         "time": "2024-04-01T00:45:00",
-        "step": 8,
+        "step": 25,
         "location": "Dorm for College:A room:sp-A",
         "position": {
             "x": 126,
@@ -145,7 +145,7 @@
             "description": null
         },
         "time": "2024-04-01T01:00:00",
-        "step": 9,
+        "step": 26,
         "location": "Dorm for College:A room:sp-A",
         "position": {
             "x": 126,
@@ -155,18 +155,95 @@
     },
     "01:15:00": {
         "state": {
-            "activity": "chat",
-            "description": [
-                "Sakura Sato",
-                "Friends",
-                "That final round was so close! Let’s push harder this time!",
-                "Sakura Sato",
-                "Friends",
-                "I can feel us getting better, let's keep up the momentum!"
-            ]
+            "activity": "free",
+            "description": null
         },
         "time": "2024-04-01T01:15:00",
-        "step": 10,
+        "step": 27,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "01:30:00": {
+        "state": {
+            "activity": "free",
+            "description": null
+        },
+        "time": "2024-04-01T01:30:00",
+        "step": 28,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "01:45:00": {
+        "state": {
+            "activity": "free",
+            "description": null
+        },
+        "time": "2024-04-01T01:45:00",
+        "step": 29,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "02:00:00": {
+        "state": {
+            "activity": "free",
+            "description": null
+        },
+        "time": "2024-04-01T02:00:00",
+        "step": 30,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "02:15:00": {
+        "state": {
+            "activity": "free",
+            "description": null
+        },
+        "time": "2024-04-01T02:15:00",
+        "step": 31,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "02:30:00": {
+        "state": {
+            "activity": "free",
+            "description": null
+        },
+        "time": "2024-04-01T02:30:00",
+        "step": 32,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "02:45:00": {
+        "state": {
+            "activity": "free",
+            "description": null
+        },
+        "time": "2024-04-01T02:45:00",
+        "step": 33,
         "location": "Dorm for College:A room:sp-A",
         "position": {
             "x": 126,

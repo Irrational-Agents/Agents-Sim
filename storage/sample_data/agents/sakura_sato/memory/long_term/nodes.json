@@ -1,4 +1,429 @@
 {
+  "node_28": {
+    "node_count": 28,
+    "type_count": 23,
+    "type": "chat",
+    "depth": 0,
+    "created": "2024-04-01 00:00:00",
+    "description": "I chatted with Friends: Continuing our discussion, how do you think social media impacts youth culture in literature?",
+    "keywords": [
+      "literature",
+      "youth culture",
+      "social media",
+      "Friends"
+    ],
+    "importance": 0.5,
+    "freshness": 1.0,
+    "time_id": null,
+    "timestamp": null
+  },
+  "node_27": {
+    "node_count": 27,
+    "type_count": 22,
+    "type": "chat",
+    "depth": 0,
+    "created": "2024-04-01 00:00:00",
+    "description": "I chatted with friends: Okay, let's dive deeper! How do you think youth culture shapes contemporary literature?",
+    "keywords": [
+      "contemporary literature",
+      "youth culture"
+    ],
+    "importance": 0.5,
+    "freshness": 1.0,
+    "time_id": null,
+    "timestamp": null
+  },
+  "node_26": {
+    "node_count": 26,
+    "type_count": 21,
+    "type": "chat",
+    "depth": 0,
+    "created": "2024-04-01 00:00:00",
+    "description": "I chatted with Friends: Okay, let's dive into contemporary themes! What do you think about youth culture in literature?",
+    "keywords": [
+      "contemporary themes",
+      "literature",
+      "youth culture",
+      "Friends"
+    ],
+    "importance": 0.5,
+    "freshness": 1.0,
+    "time_id": null,
+    "timestamp": null
+  },
+  "node_25": {
+    "node_count": 25,
+    "type_count": 20,
+    "type": "chat",
+    "depth": 0,
+    "created": "2024-04-01 00:00:00",
+    "description": "I chatted with Friends: Let's finalize our strategies! I think we can really outsmart them this time!",
+    "keywords": [
+      "outsmart",
+      "strategies",
+      "Friends"
+    ],
+    "importance": 0.5,
+    "freshness": 1.0,
+    "time_id": null,
+    "timestamp": null
+  },
+  "node_24": {
+    "node_count": 24,
+    "type_count": 19,
+    "type": "chat",
+    "depth": 0,
+    "created": "2024-04-01 00:00:00",
+    "description": "I chatted with Friends: Alright team, let’s break down their strategies and come up with our winning approach!",
+    "keywords": [
+      "approach",
+      "team",
+      "strategies",
+      "Friends"
+    ],
+    "importance": 0.5,
+    "freshness": 1.0,
+    "time_id": null,
+    "timestamp": null
+  },
+  "node_23": {
+    "node_count": 23,
+    "type_count": 18,
+    "type": "chat",
+    "depth": 0,
+    "created": "2024-04-01 00:00:00",
+    "description": "I chatted with Friends: Let's discuss our game plan! I have some strategies we can try for victory!",
+    "keywords": [
+      "victory",
+      "game plan",
+      "strategies",
+      "Friends"
+    ],
+    "importance": 0.5,
+    "freshness": 1.0,
+    "time_id": null,
+    "timestamp": null
+  },
+  "node_22": {
+    "node_count": 22,
+    "type_count": 17,
+    "type": "chat",
+    "depth": 0,
+    "created": "2024-04-01 00:00:00",
+    "description": "I chatted with Friends: I'm so excited for our next match! Let's put our game plan into action!",
+    "keywords": [
+      "game plan",
+      "match",
+      "Friends"
+    ],
+    "importance": 0.5,
+    "freshness": 1.0,
+    "time_id": null,
+    "timestamp": null
+  },
+  "node_21": {
+    "node_count": 21,
+    "type_count": 16,
+    "type": "chat",
+    "depth": 0,
+    "created": "2024-04-01 00:00:00",
+    "description": "I chatted with Friends: I can't believe how close that was! Let's strategize for our next match!",
+    "keywords": [
+      "strategize",
+      "match",
+      "Friends"
+    ],
+    "importance": 0.5,
+    "freshness": 1.0,
+    "time_id": null,
+    "timestamp": null
+  },
+  "node_20": {
+    "node_count": 20,
+    "type_count": 15,
+    "type": "chat",
+    "depth": 0,
+    "created": "2024-04-01 00:00:00",
+    "description": "I chatted with Friends: That last match was insane! I can't wait for us to dominate this next one!",
+    "keywords": [
+      "next one",
+      "match",
+      "Friends"
+    ],
+    "importance": 0.5,
+    "freshness": 1.0,
+    "time_id": null,
+    "timestamp": null
+  },
+  "node_19": {
+    "node_count": 19,
+    "type_count": 14,
+    "type": "chat",
+    "depth": 0,
+    "created": "2024-04-01 00:00:00",
+    "description": "I chatted with Friends: I'm so ready for our next match! Let's crush it this time!",
+    "keywords": [
+      "match",
+      "Friends"
+    ],
+    "importance": 0.5,
+    "freshness": 1.0,
+    "time_id": null,
+    "timestamp": null
+  },
+  "node_18": {
+    "node_count": 18,
+    "type_count": 13,
+    "type": "chat",
+    "depth": 0,
+    "created": "2024-04-01 00:00:00",
+    "description": "I chatted with Friends: That was such a close game! I can't wait for our next match!",
+    "keywords": [
+      "match",
+      "game",
+      "Friends"
+    ],
+    "importance": 0.5,
+    "freshness": 1.0,
+    "time_id": null,
+    "timestamp": null
+  },
+  "node_17": {
+    "node_count": 17,
+    "type_count": 12,
+    "type": "chat",
+    "depth": 0,
+    "created": "2024-04-01 00:00:00",
+    "description": "I chatted with Friends: That final round was so close! Let’s push harder this time!",
+    "keywords": [
+      "final round",
+      "Friends"
+    ],
+    "importance": 0.5,
+    "freshness": 1.0,
+    "time_id": null,
+    "timestamp": null
+  },
+  "node_16": {
+    "node_count": 16,
+    "type_count": 11,
+    "type": "chat",
+    "depth": 0,
+    "created": "2024-04-01 00:00:00",
+    "description": "I chatted with Friends: That was intense! Let's go for another round, I can feel the victory coming!",
+    "keywords": [
+      "victory",
+      "Friends"
+    ],
+    "importance": 0.5,
+    "freshness": 1.0,
+    "time_id": null,
+    "timestamp": null
+  },
+  "node_15": {
+    "node_count": 15,
+    "type_count": 10,
+    "type": "chat",
+    "depth": 0,
+    "created": "2024-04-01 00:00:00",
+    "description": "I chatted with Friends: That last match was epic! Ready for another round? Let's dominate!",
+    "keywords": [
+      "round",
+      "match",
+      "Friends"
+    ],
+    "importance": 0.5,
+    "freshness": 1.0,
+    "time_id": null,
+    "timestamp": null
+  },
+  "node_14": {
+    "node_count": 14,
+    "type_count": 9,
+    "type": "chat",
+    "depth": 0,
+    "created": "2024-04-01 00:00:00",
+    "description": "I chatted with Friends: I'm so pumped for this game! Let's show them what we've got!",
+    "keywords": [
+      "game",
+      "Friends"
+    ],
+    "importance": 0.5,
+    "freshness": 1.0,
+    "time_id": null,
+    "timestamp": null
+  },
+  "node_13": {
+    "node_count": 13,
+    "type_count": 8,
+    "type": "chat",
+    "depth": 0,
+    "created": "2024-04-01 00:00:00",
+    "description": "I chatted with Friends: That final round was so close! Let’s push harder this time!",
+    "keywords": [
+      "final round",
+      "Friends"
+    ],
+    "importance": 0.5,
+    "freshness": 1.0,
+    "time_id": null,
+    "timestamp": null
+  },
+  "node_12": {
+    "node_count": 12,
+    "type_count": 7,
+    "type": "chat",
+    "depth": 0,
+    "created": "2024-04-01 00:00:00",
+    "description": "I chatted with Friends: That was intense! Let's go for another round, I can feel the victory coming!",
+    "keywords": [
+      "round",
+      "victory",
+      "Friends"
+    ],
+    "importance": 0.5,
+    "freshness": 1.0,
+    "time_id": null,
+    "timestamp": null
+  },
+  "node_11": {
+    "node_count": 11,
+    "type_count": 4,
+    "type": "event",
+    "depth": 0,
+    "created": "2024-04-01 00:00:00",
+    "description": "I interacted with: writing my creative story with enthusiasm in the main room of my apartment.",
+    "keywords": [
+      "writing",
+      "apartment",
+      "main room",
+      "creative story"
+    ],
+    "importance": 0.5,
+    "freshness": 1.0,
+    "time_id": null,
+    "timestamp": null
+  },
+  "node_10": {
+    "node_count": 10,
+    "type_count": 6,
+    "type": "chat",
+    "depth": 0,
+    "created": "2024-04-01 00:00:00",
+    "description": "I chatted with Friends: That last match was epic! Ready for another round? Let's dominate!",
+    "keywords": [
+      "round",
+      "dominate",
+      "match",
+      "Friends"
+    ],
+    "importance": 0.5,
+    "freshness": 1.0,
+    "time_id": null,
+    "timestamp": null
+  },
+  "node_9": {
+    "node_count": 9,
+    "type_count": 5,
+    "type": "chat",
+    "depth": 0,
+    "created": "2024-04-01 00:00:00",
+    "description": "I chatted with Friends: I'm so pumped for this game! Let's show them what we've got!",
+    "keywords": [
+      "game",
+      "Friends"
+    ],
+    "importance": 0.5,
+    "freshness": 1.0,
+    "time_id": null,
+    "timestamp": null
+  },
+  "node_8": {
+    "node_count": 8,
+    "type_count": 4,
+    "type": "chat",
+    "depth": 0,
+    "created": "2024-04-01 00:00:00",
+    "description": "I chatted with Friends: That final round was so close! Let’s push harder this time!",
+    "keywords": [
+      "final round",
+      "Friends"
+    ],
+    "importance": 0.5,
+    "freshness": 1.0,
+    "time_id": null,
+    "timestamp": null
+  },
+  "node_7": {
+    "node_count": 7,
+    "type_count": 3,
+    "type": "chat",
+    "depth": 0,
+    "created": "2024-04-01 00:00:00",
+    "description": "I chatted with Friends: That was intense! Let's go for another round, I can feel the victory coming!",
+    "keywords": [
+      "round",
+      "victory",
+      "Friends"
+    ],
+    "importance": 0.5,
+    "freshness": 1.0,
+    "time_id": null,
+    "timestamp": null
+  },
+  "node_6": {
+    "node_count": 6,
+    "type_count": 3,
+    "type": "event",
+    "depth": 0,
+    "created": "2024-04-01 00:00:00",
+    "description": "I interacted with: writing my creative story with enthusiasm in the main room of my apartment.",
+    "keywords": [
+      "writing",
+      "apartment",
+      "main room",
+      "creative story"
+    ],
+    "importance": 0.5,
+    "freshness": 1.0,
+    "time_id": null,
+    "timestamp": null
+  },
+  "node_5": {
+    "node_count": 5,
+    "type_count": 2,
+    "type": "chat",
+    "depth": 0,
+    "created": "2024-04-01 00:00:00",
+    "description": "I chatted with Friends: That last match was epic! Ready for another round? Let's dominate!",
+    "keywords": [
+      "dominate",
+      "Friends",
+      "epic",
+      "round",
+      "last match"
+    ],
+    "importance": 0.5,
+    "freshness": 1.0,
+    "time_id": null,
+    "timestamp": null
+  },
+  "node_4": {
+    "node_count": 4,
+    "type_count": 1,
+    "type": "chat",
+    "depth": 0,
+    "created": "2024-04-01 00:00:00",
+    "description": "I chatted with Friends: I'm so pumped for this game! Let's show them what we've got!",
+    "keywords": [
+      "game",
+      "Friends"
+    ],
+    "importance": 0.5,
+    "freshness": 1.0,
+    "time_id": null,
+    "timestamp": null
+  },
   "node_3": {
     "node_count": 3,
     "type_count": 2,
@@ -7,10 +432,10 @@
     "created": "2024-04-01 00:00:00",
     "description": "I interacted with: my desk while writing creatively, feeling happy and inspired.",
     "keywords": [
-      "writing",
-      "creatively",
+      "desk",
       "inspired",
-      "desk"
+      "writing",
+      "creatively"
     ],
     "importance": 1.0,
     "freshness": 1.0,
@@ -26,8 +451,8 @@
     "description": "I interacted with: my game console, excitedly playing video games with friends.",
     "keywords": [
       "friends",
-      "video games",
-      "game console"
+      "game console",
+      "video games"
     ],
     "importance": 0.5,
     "freshness": 1.0,
@@ -42,10 +467,10 @@
     "created": "2024-04-01 00:00:00",
     "description": "I thought about: sleeping in bed brings happiness and contentment.",
     "keywords": [
-      "contentment",
       "bed",
-      "happiness",
-      "sleeping"
+      "contentment",
+      "sleeping",
+      "happiness"
     ],
     "importance": 1.0,
     "freshness": 1.0,
