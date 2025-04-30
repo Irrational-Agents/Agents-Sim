@@ -104,7 +104,8 @@ class Agent:
 
         # Handle new day logic
         new_day = False
-        if not self.short_memory.curr_datetime or (self.short_memory.curr_datetime.strftime('%A %B %d') != 
+        is_midnight = curr_time.hour == 0 and curr_time.minute == 0
+        if is_midnight or (self.short_memory.curr_datetime and self.short_memory.curr_datetime.strftime('%A %B %d') != 
               curr_time.strftime('%A %B %d')):
             new_day = True
 
