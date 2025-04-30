@@ -22,7 +22,7 @@ def compress_semantic_memories(memories, threshold=0.8):
         start_time = group[0]['time']
         end_time = group[-1]['time']
         summary = group[0]['description'] 
-        avg_emotion = [round(sum(e) / len(e), 2) for e in zip(*[m['emotion'] for m in group if 'emotion' in m])]
+        avg_emotion = [round(sum(e) / len(e), 2) for e in zip(*[m['emotion'] for m in group if 'emotion' in m and m is not None])]
         last_needs = group[-1].get('basic_needs')
 
         compressed.append({
