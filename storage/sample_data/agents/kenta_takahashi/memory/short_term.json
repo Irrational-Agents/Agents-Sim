@@ -9,8 +9,1269 @@
     }
   ],
   "short_memory_capacity": 50,
-  "short_memory_for_plan": [],
-  "daily_plan_req": [],
+  "short_memory_for_plan": [
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with guitar: Playing calming music to alleviate fear.",
+      "emotion": [
+        0,
+        0,
+        1,
+        7,
+        0,
+        2,
+        0
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "00:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "00:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with guitar: playing calming music to alleviate fear",
+      "emotion": [
+        0,
+        2,
+        0,
+        2,
+        0,
+        1,
+        5
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.4,
+        "health": 7.3,
+        "energy": 6.8
+      }
+    },
+    {
+      "time": "00:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "00:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with guitar: playing calming music to alleviate feelings",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "00:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "00:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with guitar: playing soothing music for relaxation",
+      "emotion": [
+        0,
+        2,
+        0,
+        0,
+        0,
+        1,
+        7
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.5,
+        "fun": 6.4,
+        "health": 7.2,
+        "energy": 6.8
+      }
+    },
+    {
+      "time": "01:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "01:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:bed: lying on bed to listen to music",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "01:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "01:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi thought about: Journal thoughts before sleeping, calming music for relaxation.",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.5,
+        "fun": 6.4,
+        "health": 7.2,
+        "energy": 6.8
+      }
+    },
+    {
+      "time": "01:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "01:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi thought about: Journal thoughts before sleeping; calming music for relaxation.",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "01:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "01:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:bed: lying on bed to listen to calming music",
+      "emotion": [
+        0,
+        2,
+        0,
+        2,
+        0,
+        1,
+        5
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 6.1,
+        "fun": 6.4,
+        "health": 7.5,
+        "energy": 6.8
+      }
+    },
+    {
+      "time": "02:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "02:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi thought about: Journal thoughts before sleeping; calming music for relaxation.",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "02:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "02:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi thought about: Journal thoughts before sleeping; calming music for relaxation.",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 6.1,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.8
+      }
+    },
+    {
+      "time": "02:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "02:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:bed: lying in bed to listen to soothing music",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "02:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "02:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi thought about: Journal thoughts before sleeping; calming music for relaxation.",
+      "emotion": [
+        0,
+        2,
+        0,
+        0,
+        0,
+        1,
+        7
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.5,
+        "fun": 6.4,
+        "health": 7.2,
+        "energy": 6.8
+      }
+    },
+    {
+      "time": "03:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "03:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:guitar: Playing calming music on my guitar",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "03:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "03:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi thought about: Journal thoughts before sleeping; calming music for relaxation.",
+      "emotion": [
+        1,
+        3,
+        0,
+        1,
+        0,
+        1,
+        4
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.9,
+        "fun": 6.4,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "03:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "03:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:desk: writing in journal by the bed",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.8
+      }
+    },
+    {
+      "time": "03:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "03:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:desk: writing more in my journal",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.3,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "04:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "04:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:desk: writing in the journal",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.8
+      }
+    },
+    {
+      "time": "04:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "04:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:desk: writing in my journal for reflection",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 6.1,
+        "fun": 6.4,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "04:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "04:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi thought about: Read a book in bed for reflection and relaxation.",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.8
+      }
+    },
+    {
+      "time": "04:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "04:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:desk: write in my journal for reflection",
+      "emotion": [
+        0,
+        3,
+        0,
+        1,
+        0,
+        1,
+        5
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 6.1,
+        "fun": 6.4,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "05:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "05:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:desk: writing in my journal for reflection",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        5
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.3
+      }
+    },
+    {
+      "time": "05:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "05:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi thought about: Read a book in bed for reflection and relaxation.",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.6,
+        "fun": 6.4,
+        "health": 7.2,
+        "energy": 6.6
+      }
+    },
+    {
+      "time": "05:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "05:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:desk: writing in the journal for reflection",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "05:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "05:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi did: write in my journal for reflection - Writing in my journal for reflection",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ]
+    },
+    {
+      "time": "06:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "06:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:desk: writing in journal for reflection",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "06:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "06:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with journal: writing in my journal for reflection",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.4,
+        "fun": 6.4,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "06:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "06:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:guitar: playing calming music on the guitar",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "06:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "06:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items: desk: writing in my journal for reflection",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 6.1,
+        "fun": 6.4,
+        "health": 7.3,
+        "energy": 6.4
+      }
+    },
+    {
+      "time": "07:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "07:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:desk: writing in my journal for reflection",
+      "emotion": [
+        1,
+        2,
+        0,
+        1,
+        0,
+        1,
+        5
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "07:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "07:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:guitar: playing calming music on the guitar",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.5,
+        "fun": 6.4,
+        "health": 7.2,
+        "energy": 6.8
+      }
+    },
+    {
+      "time": "07:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "07:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:guitar: practicing guitar to improve skills and relax",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "07:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "07:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi thought about: Making a smoothie with uplifting ingredients for wellness.",
+      "emotion": [
+        0,
+        3,
+        0,
+        1,
+        0,
+        1,
+        5
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.4,
+        "health": 7.2,
+        "energy": 6.8
+      }
+    },
+    {
+      "time": "08:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "08:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi thought about: Check schedule for morning classes after making smoothie.",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "08:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "08:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:guitar: practicing guitar for relaxation and skill improvement",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.9,
+        "fun": 6.4,
+        "health": 7.2,
+        "energy": 6.8
+      }
+    },
+    {
+      "time": "08:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "08:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:refrigerator: making a smoothie for breakfast",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "08:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "08:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:refrigerator: making a smoothie for breakfast",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.9,
+        "social": 6.1,
+        "fun": 6.0,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "09:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "09:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:desk: checking class schedule on my desk",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "09:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "09:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi thought about: Reviewing class notes briefly before checking schedule.",
+      "emotion": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        7
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.5,
+        "fun": 6.4,
+        "health": 7.2,
+        "energy": 6.8
+      }
+    },
+    {
+      "time": "09:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "09:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi thought about: Reviewing class notes briefly before checking schedule.",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "09:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "09:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi thought about: Reviewing class notes briefly before checking schedule.",
+      "emotion": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        7
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 6.1,
+        "fun": 6.3,
+        "health": 7.2,
+        "energy": 6.3
+      }
+    },
+    {
+      "time": "10:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "10:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi interacted with apartment A:main room:items:desk: checking class schedule on my desk",
+      "emotion": [
+        1,
+        2,
+        0,
+        1,
+        0,
+        1,
+        5
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.4,
+        "health": 7.2,
+        "energy": 6.6
+      }
+    },
+    {
+      "time": "10:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'refrigerator', 'guitar', 'bed'}, currently seeing npcs: ['Kenta Takahashi']"
+    },
+    {
+      "time": "10:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Kenta Takahashi thought about: Study at shared collaboration space for focus and reflection.",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.7,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.9
+      }
+    }
+  ],
+  "daily_plan_req": [
+    {
+      "time": "00:00",
+      "activity": "Wind down and relax with calming music or meditation",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "00:30",
+      "activity": "Prepare for sleep, read a book or journal",
+      "moccupying": 1,
+      "intervals": "390.0 minutes"
+    },
+    {
+      "time": "07:00",
+      "activity": "Wake up and freshen up for the day",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "07:30",
+      "activity": "Have a nutritious breakfast, focus on mood-lifting foods",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "08:00",
+      "activity": "Attend morning classes or study sessions at the tech institute",
+      "moccupying": 3,
+      "intervals": "180.0 minutes"
+    },
+    {
+      "time": "11:00",
+      "activity": "Collaborate with Hiroshi Watanabe on AI chatbot development",
+      "moccupying": 2,
+      "intervals": "90.0 minutes"
+    },
+    {
+      "time": "12:30",
+      "activity": "Lunch break, enjoy a healthy meal with peers at the café",
+      "moccupying": 2,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "13:30",
+      "activity": "Work on personal programming projects or assignments (Python)",
+      "moccupying": 3,
+      "intervals": "150.0 minutes"
+    },
+    {
+      "time": "16:00",
+      "activity": "Take a break, go for a walk in the park or garden to relax",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "16:30",
+      "activity": "Practice mindfulness exercises to manage emotions",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "17:00",
+      "activity": "Continue working on the AI chatbot project, focusing on problem-solving",
+      "moccupying": 3,
+      "intervals": "120.0 minutes"
+    },
+    {
+      "time": "19:00",
+      "activity": "Dinner preparation and a shared meal with housemates to strengthen relationships",
+      "moccupying": 2,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "20:00",
+      "activity": "Host 'Tech Night' event for skill sharing and community building",
+      "moccupying": 2,
+      "intervals": "120.0 minutes"
+    },
+    {
+      "time": "22:00",
+      "activity": "Reflect on the day, write in a journal, and set goals for the next day",
+      "moccupying": 1,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "23:00",
+      "activity": "Prepare for bed, focus on relaxation techniques or light reading",
+      "moccupying": 1,
+      "intervals": "60.0 minutes"
+    }
+  ],
   "short_memory": [],
   "basic_needs": {
     "fullness": 6.7,

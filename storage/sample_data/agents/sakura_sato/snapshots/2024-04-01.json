@@ -1,0 +1,590 @@
+{
+    "00:00:00": {
+        "state": {
+            "activity": "free",
+            "description": null
+        },
+        "time": "2024-04-01T00:00:00",
+        "step": 1,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "00:15:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'Dorm for College:A room:items:game console', 'description': 'putting away the game console'}"
+        },
+        "time": "2024-04-01T00:15:00",
+        "step": 2,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "00:30:00": {
+        "state": {
+            "activity": "think",
+            "description": "Writing ideas for a short story while feeling extremely happy."
+        },
+        "time": "2024-04-01T00:30:00",
+        "step": 3,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "00:45:00": {
+        "state": {
+            "activity": "think",
+            "description": "Reflect on short story ideas while feeling very neutral."
+        },
+        "time": "2024-04-01T00:45:00",
+        "step": 4,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "01:00:00": {
+        "state": {
+            "activity": "think",
+            "description": "Write notes for short story while feeling very neutral."
+        },
+        "time": "2024-04-01T01:00:00",
+        "step": 5,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "01:15:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'Dorm for College:A room:items:bed', 'description': 'turning off the lights before sleeping'}"
+        },
+        "time": "2024-04-01T01:15:00",
+        "step": 6,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "01:30:00": {
+        "state": {
+            "activity": "think",
+            "description": "Reflect on short story ideas while feeling very neutral."
+        },
+        "time": "2024-04-01T01:30:00",
+        "step": 7,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "01:45:00": {
+        "state": {
+            "activity": "think",
+            "description": "Write notes for short story while feeling very neutral."
+        },
+        "time": "2024-04-01T01:45:00",
+        "step": 8,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "02:00:00": {
+        "state": {
+            "activity": "think",
+            "description": "Write notes for short story while feeling very neutral."
+        },
+        "time": "2024-04-01T02:00:00",
+        "step": 9,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "02:15:00": {
+        "state": {
+            "activity": "think",
+            "description": "Write notes for short story while feeling very neutral."
+        },
+        "time": "2024-04-01T02:15:00",
+        "step": 10,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "02:30:00": {
+        "state": {
+            "activity": "think",
+            "description": "Going to bed, feeling very neutral, turning off the lights."
+        },
+        "time": "2024-04-01T02:30:00",
+        "step": 11,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "02:45:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'Dorm for College:A room:items:bed', 'description': 'sleeping to reset emotions and gain energy'}"
+        },
+        "time": "2024-04-01T02:45:00",
+        "step": 12,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "03:00:00": {
+        "state": {
+            "activity": "think",
+            "description": "Write notes for short story while feeling very neutral."
+        },
+        "time": "2024-04-01T03:00:00",
+        "step": 13,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "03:15:00": {
+        "state": {
+            "activity": "think",
+            "description": "Write notes for short story while feeling very neutral."
+        },
+        "time": "2024-04-01T03:15:00",
+        "step": 14,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "03:30:00": {
+        "state": {
+            "activity": "think",
+            "description": "Reflect on short story ideas while feeling very neutral."
+        },
+        "time": "2024-04-01T03:30:00",
+        "step": 15,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "03:45:00": {
+        "state": {
+            "activity": "think",
+            "description": "Write notes for short story while feeling very neutral."
+        },
+        "time": "2024-04-01T03:45:00",
+        "step": 16,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "04:00:00": {
+        "state": {
+            "activity": "think",
+            "description": "Write notes for short story while feeling very neutral."
+        },
+        "time": "2024-04-01T04:00:00",
+        "step": 17,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "04:15:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'Dorm for College:A room:items:bed', 'description': 'Sleeping to recover energy and reset emotions.'}"
+        },
+        "time": "2024-04-01T04:15:00",
+        "step": 18,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "04:30:00": {
+        "state": {
+            "activity": "think",
+            "description": "Taking a moment to breathe, resetting emotions and energy."
+        },
+        "time": "2024-04-01T04:30:00",
+        "step": 19,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "04:45:00": {
+        "state": {
+            "activity": "think",
+            "description": "Taking a moment to breathe, resetting emotions and energy."
+        },
+        "time": "2024-04-01T04:45:00",
+        "step": 20,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "05:00:00": {
+        "state": {
+            "activity": "think",
+            "description": "Write notes for short story while feeling very neutral."
+        },
+        "time": "2024-04-01T05:00:00",
+        "step": 21,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "05:15:00": {
+        "state": {
+            "activity": "think",
+            "description": "Taking a moment to breathe, resetting emotions and energy."
+        },
+        "time": "2024-04-01T05:15:00",
+        "step": 22,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "05:30:00": {
+        "state": {
+            "activity": "think",
+            "description": "Taking a moment to breathe, resetting emotions and energy."
+        },
+        "time": "2024-04-01T05:30:00",
+        "step": 23,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "05:45:00": {
+        "state": {
+            "activity": "think",
+            "description": "Taking a moment to breathe, resetting emotions and energy."
+        },
+        "time": "2024-04-01T05:45:00",
+        "step": 24,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "06:00:00": {
+        "state": {
+            "activity": "think",
+            "description": "Write notes for short story while feeling very neutral."
+        },
+        "time": "2024-04-01T06:00:00",
+        "step": 25,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "06:15:00": {
+        "state": {
+            "activity": "think",
+            "description": "Taking a moment to breathe, resetting emotions and energy."
+        },
+        "time": "2024-04-01T06:15:00",
+        "step": 26,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "06:30:00": {
+        "state": {
+            "activity": "think",
+            "description": "Taking a moment to breathe, resetting emotions and energy."
+        },
+        "time": "2024-04-01T06:30:00",
+        "step": 27,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "06:45:00": {
+        "state": {
+            "activity": "think",
+            "description": "Taking a moment to breathe, resetting emotions and energy."
+        },
+        "time": "2024-04-01T06:45:00",
+        "step": 28,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "07:00:00": {
+        "state": {
+            "activity": "think",
+            "description": "Write notes for short story while feeling very neutral."
+        },
+        "time": "2024-04-01T07:00:00",
+        "step": 29,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "07:15:00": {
+        "state": {
+            "activity": "think",
+            "description": "Taking a moment to breathe, resetting emotions and energy."
+        },
+        "time": "2024-04-01T07:15:00",
+        "step": 30,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "07:30:00": {
+        "state": {
+            "activity": "think",
+            "description": "Taking a moment to breathe, resetting emotions and energy."
+        },
+        "time": "2024-04-01T07:30:00",
+        "step": 31,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "07:45:00": {
+        "state": {
+            "activity": "think",
+            "description": "Sleeping to recover energy and reset emotions."
+        },
+        "time": "2024-04-01T07:45:00",
+        "step": 32,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "08:00:00": {
+        "state": {
+            "activity": "think",
+            "description": "Taking a moment to breathe, resetting emotions and energy."
+        },
+        "time": "2024-04-01T08:00:00",
+        "step": 33,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "08:15:00": {
+        "state": {
+            "activity": "think",
+            "description": "Taking a moment to breathe, resetting emotions and energy."
+        },
+        "time": "2024-04-01T08:15:00",
+        "step": 34,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "08:30:00": {
+        "state": {
+            "activity": "think",
+            "description": "Write notes for short story while feeling very neutral."
+        },
+        "time": "2024-04-01T08:30:00",
+        "step": 35,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "08:45:00": {
+        "state": {
+            "activity": "think",
+            "description": "Prepare breakfast to reset emotions and gain energy."
+        },
+        "time": "2024-04-01T08:45:00",
+        "step": 36,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "09:00:00": {
+        "state": {
+            "activity": "think",
+            "description": "Write notes for short story after breakfast."
+        },
+        "time": "2024-04-01T09:00:00",
+        "step": 37,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "09:15:00": {
+        "state": {
+            "activity": "think",
+            "description": "Prepare breakfast to reset emotions and gain energy."
+        },
+        "time": "2024-04-01T09:15:00",
+        "step": 38,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "09:30:00": {
+        "state": {
+            "activity": "think",
+            "description": "Prepare breakfast to reset emotions and gain energy."
+        },
+        "time": "2024-04-01T09:30:00",
+        "step": 39,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "09:45:00": {
+        "state": {
+            "activity": "think",
+            "description": "Prepare breakfast to reset emotions and gain energy."
+        },
+        "time": "2024-04-01T09:45:00",
+        "step": 40,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "10:00:00": {
+        "state": {
+            "activity": "think",
+            "description": "Prepare breakfast to reset emotions and gain energy."
+        },
+        "time": "2024-04-01T10:00:00",
+        "step": 41,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "10:15:00": {
+        "state": {
+            "activity": "think",
+            "description": "Prepare breakfast to reset emotions and gain energy."
+        },
+        "time": "2024-04-01T10:15:00",
+        "step": 42,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    }
+}
