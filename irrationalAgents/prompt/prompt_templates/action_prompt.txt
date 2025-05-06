@@ -17,11 +17,12 @@ Perception: {{"bed", "closet"}}
 Reasoning:
 1. Target object: kitchen or coffee machine.
 2. Target not visible.
-3. Cannot assign interact.
-4. Assign: **think**
+3. Cannot assign interact. but agent knows where kitchen is.
+4. Assign: **think** or **move**
 
 Output:
 {{"action": "think", "description": "make coffee at dorm kitchen"}}
+{{"action": "move", "description": "make coffee at dorm kitchen"}}
 
 **Example 2**:
 Input: "talk to friends at the sofa"
