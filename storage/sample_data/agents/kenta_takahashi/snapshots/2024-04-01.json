@@ -16,7 +16,7 @@
     "00:15:00": {
         "state": {
             "activity": "interact",
-            "description": "{'item': 'guitar', 'description': 'playing guitar softly to calm down'}"
+            "description": "{'item': 'guitar', 'description': 'Playing calming music to alleviate fear.'}"
         },
         "time": "2024-04-01T00:15:00",
         "step": 2,
@@ -30,10 +30,556 @@
     "00:30:00": {
         "state": {
             "activity": "interact",
-            "description": "{'item': 'guitar', 'description': 'playing guitar softly to calm down'}"
+            "description": "{'item': 'guitar', 'description': 'playing calming music to alleviate fear'}"
         },
         "time": "2024-04-01T00:30:00",
         "step": 3,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "00:45:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'guitar', 'description': 'playing calming music to alleviate feelings'}"
+        },
+        "time": "2024-04-01T00:45:00",
+        "step": 4,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "01:00:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'guitar', 'description': 'playing soothing music for relaxation'}"
+        },
+        "time": "2024-04-01T01:00:00",
+        "step": 5,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "01:15:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'apartment A:main room:items:bed', 'description': 'lying on bed to listen to music'}"
+        },
+        "time": "2024-04-01T01:15:00",
+        "step": 6,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "01:30:00": {
+        "state": {
+            "activity": "think",
+            "description": "Journal thoughts before sleeping, calming music for relaxation."
+        },
+        "time": "2024-04-01T01:30:00",
+        "step": 7,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "01:45:00": {
+        "state": {
+            "activity": "think",
+            "description": "Journal thoughts before sleeping; calming music for relaxation."
+        },
+        "time": "2024-04-01T01:45:00",
+        "step": 8,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "02:00:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'apartment A:main room:items:bed', 'description': 'lying on bed to listen to calming music'}"
+        },
+        "time": "2024-04-01T02:00:00",
+        "step": 9,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "02:15:00": {
+        "state": {
+            "activity": "think",
+            "description": "Journal thoughts before sleeping; calming music for relaxation."
+        },
+        "time": "2024-04-01T02:15:00",
+        "step": 10,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "02:30:00": {
+        "state": {
+            "activity": "think",
+            "description": "Journal thoughts before sleeping; calming music for relaxation."
+        },
+        "time": "2024-04-01T02:30:00",
+        "step": 11,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "02:45:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'apartment A:main room:items:bed', 'description': 'lying in bed to listen to soothing music'}"
+        },
+        "time": "2024-04-01T02:45:00",
+        "step": 12,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "03:00:00": {
+        "state": {
+            "activity": "think",
+            "description": "Journal thoughts before sleeping; calming music for relaxation."
+        },
+        "time": "2024-04-01T03:00:00",
+        "step": 13,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "03:15:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'apartment A:main room:items:guitar', 'description': 'Playing calming music on my guitar'}"
+        },
+        "time": "2024-04-01T03:15:00",
+        "step": 14,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "03:30:00": {
+        "state": {
+            "activity": "think",
+            "description": "Journal thoughts before sleeping; calming music for relaxation."
+        },
+        "time": "2024-04-01T03:30:00",
+        "step": 15,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "03:45:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'apartment A:main room:items:desk', 'description': 'writing in journal by the bed'}"
+        },
+        "time": "2024-04-01T03:45:00",
+        "step": 16,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "04:00:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'apartment A:main room:items:desk', 'description': 'writing more in my journal'}"
+        },
+        "time": "2024-04-01T04:00:00",
+        "step": 17,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "04:15:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'apartment A:main room:items:desk', 'description': 'writing in the journal'}"
+        },
+        "time": "2024-04-01T04:15:00",
+        "step": 18,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "04:30:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'apartment A:main room:items:desk', 'description': 'writing in my journal for reflection'}"
+        },
+        "time": "2024-04-01T04:30:00",
+        "step": 19,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "04:45:00": {
+        "state": {
+            "activity": "think",
+            "description": "Read a book in bed for reflection and relaxation."
+        },
+        "time": "2024-04-01T04:45:00",
+        "step": 20,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "05:00:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'apartment A:main room:items:desk', 'description': 'write in my journal for reflection'}"
+        },
+        "time": "2024-04-01T05:00:00",
+        "step": 21,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "05:15:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'apartment A:main room:items:desk', 'description': 'writing in my journal for reflection'}"
+        },
+        "time": "2024-04-01T05:15:00",
+        "step": 22,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "05:30:00": {
+        "state": {
+            "activity": "think",
+            "description": "Read a book in bed for reflection and relaxation."
+        },
+        "time": "2024-04-01T05:30:00",
+        "step": 23,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "05:45:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'apartment A:main room:items:desk', 'description': 'writing in the journal for reflection'}"
+        },
+        "time": "2024-04-01T05:45:00",
+        "step": 24,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "06:00:00": {
+        "state": {
+            "activity": "write in my journal for reflection",
+            "description": "Attempted unknown action: write in my journal for reflection - Writing in my journal for reflection"
+        },
+        "time": "2024-04-01T06:00:00",
+        "step": 25,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "06:15:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'apartment A:main room:items:desk', 'description': 'writing in journal for reflection'}"
+        },
+        "time": "2024-04-01T06:15:00",
+        "step": 26,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "06:30:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'journal', 'description': 'writing in my journal for reflection'}"
+        },
+        "time": "2024-04-01T06:30:00",
+        "step": 27,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "06:45:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'apartment A:main room:items:guitar', 'description': 'playing calming music on the guitar'}"
+        },
+        "time": "2024-04-01T06:45:00",
+        "step": 28,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "07:00:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'apartment A:main room:items: desk', 'description': 'writing in my journal for reflection'}"
+        },
+        "time": "2024-04-01T07:00:00",
+        "step": 29,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "07:15:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'apartment A:main room:items:desk', 'description': 'writing in my journal for reflection'}"
+        },
+        "time": "2024-04-01T07:15:00",
+        "step": 30,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "07:30:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'apartment A:main room:items:guitar', 'description': 'playing calming music on the guitar'}"
+        },
+        "time": "2024-04-01T07:30:00",
+        "step": 31,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "07:45:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'apartment A:main room:items:guitar', 'description': 'practicing guitar to improve skills and relax'}"
+        },
+        "time": "2024-04-01T07:45:00",
+        "step": 32,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "08:00:00": {
+        "state": {
+            "activity": "think",
+            "description": "Making a smoothie with uplifting ingredients for wellness."
+        },
+        "time": "2024-04-01T08:00:00",
+        "step": 33,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "08:15:00": {
+        "state": {
+            "activity": "think",
+            "description": "Check schedule for morning classes after making smoothie."
+        },
+        "time": "2024-04-01T08:15:00",
+        "step": 34,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "08:30:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'apartment A:main room:items:guitar', 'description': 'practicing guitar for relaxation and skill improvement'}"
+        },
+        "time": "2024-04-01T08:30:00",
+        "step": 35,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "08:45:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'apartment A:main room:items:refrigerator', 'description': 'making a smoothie for breakfast'}"
+        },
+        "time": "2024-04-01T08:45:00",
+        "step": 36,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "09:00:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'apartment A:main room:items:refrigerator', 'description': 'making a smoothie for breakfast'}"
+        },
+        "time": "2024-04-01T09:00:00",
+        "step": 37,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "09:15:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'apartment A:main room:items:desk', 'description': 'checking class schedule on my desk'}"
+        },
+        "time": "2024-04-01T09:15:00",
+        "step": 38,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "09:30:00": {
+        "state": {
+            "activity": "think",
+            "description": "Reviewing class notes briefly before checking schedule."
+        },
+        "time": "2024-04-01T09:30:00",
+        "step": 39,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "09:45:00": {
+        "state": {
+            "activity": "think",
+            "description": "Reviewing class notes briefly before checking schedule."
+        },
+        "time": "2024-04-01T09:45:00",
+        "step": 40,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "10:00:00": {
+        "state": {
+            "activity": "think",
+            "description": "Reviewing class notes briefly before checking schedule."
+        },
+        "time": "2024-04-01T10:00:00",
+        "step": 41,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    },
+    "10:15:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'apartment A:main room:items:desk', 'description': 'checking class schedule on my desk'}"
+        },
+        "time": "2024-04-01T10:15:00",
+        "step": 42,
         "location": "apartment A:main room:sp-A",
         "position": {
             "x": 53,

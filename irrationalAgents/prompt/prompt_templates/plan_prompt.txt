@@ -40,6 +40,11 @@ Step 1: Internal Reasoning (Do not output)
 
 - Consistency of Expression:
   - Reuse established phrasing for known actions (e.g., always use "go to bed", not "lie down").
+  
+- Do not repeat the last two executed physical actions unless continuing a multi-step task.
+- If recent events include thinking about a goal repeatedly, and no action yet taken toward it, consider generating the next logical step (e.g., move to relevant location).
+- If "intend to do" is outdated (e.g. already missed), prefer catching up or redirecting toward the next meaningful daily plan.
+
 
 ---
 
