@@ -3,11 +3,6 @@ To complete the task:
 2. Carefully review each of the proposed plans and recent events for continuity.
 3. Select the plan that best aligns with the individual's personality, past experiences, and biases.
 
-Chat Action Restriction:
-- ONLY choose a chat action if the most recent event (the very last event in the list) explicitly mentions interaction with a SPECIFIC NAMED PERSON or CLEARLY IDENTIFIABLE GROUP (e.g., "Fellow residents", "Classmates").
-- References like "other", "someone", or general terms without specific identities DO NOT qualify for enabling chat actions.
-- If the last event does not show interaction with specific individuals or groups, automatically exclude any chat actions from consideration.
-
 Here is the person's profile: {context}
 
 Here is the behavioral economical biases: {biases}

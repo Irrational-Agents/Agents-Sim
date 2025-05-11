@@ -38,7 +38,7 @@ class UnityHandlers:
             updates = self.world.tick_world(self.npc_status)
             
             self.clock += 1
-            self.unity_request.send_server_tick(1, updates)
+            self.unity_request.send_server_tick(self.clock, updates)
 
         except ValueError as e:
             logger.error(

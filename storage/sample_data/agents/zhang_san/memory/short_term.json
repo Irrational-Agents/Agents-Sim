@@ -20,22 +20,22 @@
       "time": "00:00",
       "date": "2024-04-01",
       "moccupying": 1,
-      "description": "Zhang San interacted with co-living space:B room:items:bed: turning off the lights before sleeping",
+      "description": "Zhang San interacted with co-living space:B room:items:bed: arranging a cozy sleeping area for the cats",
       "emotion": [
-        8,
+        6,
         0,
         0,
         0,
+        1,
         0,
-        0,
-        2
+        3
       ],
       "basic_needs": {
-        "fullness": 8.9,
+        "fullness": 9.5,
         "social": 8.5,
-        "fun": 7.9,
-        "health": 7.2,
-        "energy": 1.0
+        "fun": 8.2,
+        "health": 7.5,
+        "energy": 3.5
       }
     },
     {
@@ -48,23 +48,1121 @@
       "time": "00:15",
       "date": "2024-04-01",
       "moccupying": 1,
-      "description": "Zhang San interacted with co-living space:B room:items:bed: going to sleep after a happy day",
+      "description": "Zhang San interacted with co-living space:B room:items:bed: arranging the bed for a cozy sleeping area",
+      "emotion": [
+        6,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "basic_needs": {
+        "fullness": 9.6,
+        "social": 8.8,
+        "fun": 8.5,
+        "health": 7.5,
+        "energy": 3.5
+      }
+    },
+    {
+      "time": "00:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "00:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with co-living space:B room:items:bed: petting the cats on the cozy bed",
+      "emotion": [
+        6,
+        0,
+        0,
+        1,
+        0,
+        1,
+        2
+      ],
+      "basic_needs": {
+        "fullness": 9.8,
+        "social": 9.1,
+        "fun": 8.7,
+        "health": 7.5,
+        "energy": 3.0
+      }
+    },
+    {
+      "time": "00:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "00:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with co-living space:B room:items:bed: petting the cats on the cozy bed",
+      "emotion": [
+        6,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4
+      ],
+      "basic_needs": {
+        "fullness": 10.0,
+        "social": 9.3,
+        "fun": 9.0,
+        "health": 7.5,
+        "energy": 2.9
+      }
+    },
+    {
+      "time": "01:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "01:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with co-living space:B room:items:bed: lying down with Bobo and Langley",
       "emotion": [
         7,
         0,
         0,
+        0,
+        0,
+        0,
+        3
+      ],
+      "basic_needs": {
+        "fullness": 10.0,
+        "social": 9.3,
+        "fun": 9.3,
+        "health": 7.5,
+        "energy": 3.2
+      }
+    },
+    {
+      "time": "01:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "01:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with bed: lounging with Bobo and Langley, enjoying their company",
+      "emotion": [
+        5,
+        0,
+        0,
         1,
+        0,
+        1,
+        3
+      ],
+      "basic_needs": {
+        "fullness": 10.0,
+        "social": 9.6,
+        "fun": 9.6,
+        "health": 7.5,
+        "energy": 3.5
+      }
+    },
+    {
+      "time": "01:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "01:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with bed: lying down with Bobo and Langley",
+      "emotion": [
+        6,
+        0,
+        0,
+        0,
+        1,
+        0,
+        3
+      ],
+      "basic_needs": {
+        "fullness": 10.0,
+        "social": 9.8,
+        "fun": 9.9,
+        "health": 7.5,
+        "energy": 3.2
+      }
+    },
+    {
+      "time": "01:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "01:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with co-living space:B room:items:bed: snuggling with Bobo and Langley",
+      "emotion": [
+        7,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "basic_needs": {
+        "fullness": 10.0,
+        "social": 9.7,
+        "fun": 10.0,
+        "health": 7.8,
+        "energy": 3.2
+      }
+    },
+    {
+      "time": "02:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "02:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with co-living space:B room:items:bed: snuggling with Bobo and Langley",
+      "emotion": [
+        8,
+        0,
+        0,
+        0,
         0,
         0,
         2
       ],
       "basic_needs": {
-        "fullness": 9.2,
-        "social": 8.5,
-        "fun": 7.9,
-        "health": 7.5,
-        "energy": 1.3
+        "fullness": 10.0,
+        "social": 9.9,
+        "fun": 10.0,
+        "health": 7.8,
+        "energy": 3.5
       }
+    },
+    {
+      "time": "02:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "02:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with co-living space:B room:items:bed: snuggling with Bobo and Langley",
+      "emotion": [
+        5,
+        0,
+        0,
+        1,
+        0,
+        1,
+        3
+      ],
+      "basic_needs": {
+        "fullness": 10.2,
+        "social": 9.7,
+        "fun": 10.3,
+        "health": 8.2,
+        "energy": 3.2
+      }
+    },
+    {
+      "time": "02:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "02:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with co-living space:B room:items:bed: laying down with Bobo and Langley",
+      "emotion": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        9
+      ],
+      "basic_needs": {
+        "fullness": 10.5,
+        "social": 10.0,
+        "fun": 10.6,
+        "health": 8.5,
+        "energy": 3.0
+      }
+    },
+    {
+      "time": "02:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "02:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San thought about: Snuggling with Bobo and Langley on the cozy bed.",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 10.5,
+        "social": 10.3,
+        "fun": 10.6,
+        "health": 8.5,
+        "energy": 3.5
+      }
+    },
+    {
+      "time": "03:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "03:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with bed: petting the cats on the cozy bed",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 10.5,
+        "social": 10.6,
+        "fun": 10.9,
+        "health": 8.5,
+        "energy": 3.8
+      }
+    },
+    {
+      "time": "03:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "03:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with co-living space:B room:items:bed: snuggling with Bobo and Langley",
+      "emotion": [
+        0,
+        2,
+        0,
+        2,
+        0,
+        1,
+        5
+      ],
+      "basic_needs": {
+        "fullness": 10.8,
+        "social": 10.8,
+        "fun": 11.2,
+        "health": 8.5,
+        "energy": 4.1
+      }
+    },
+    {
+      "time": "03:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "03:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with co-living space:B room:items:bed: lying down with Bobo and Langley",
+      "emotion": [
+        1,
+        3,
+        0,
+        1,
+        0,
+        0,
+        5
+      ],
+      "basic_needs": {
+        "fullness": 10.8,
+        "social": 10.5,
+        "fun": 11.5,
+        "health": 8.4,
+        "energy": 4.1
+      }
+    },
+    {
+      "time": "03:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "03:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San thought about: Lying down with Bobo and Langley, enjoying their company.",
+      "emotion": [
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        7
+      ],
+      "basic_needs": {
+        "fullness": 10.8,
+        "social": 10.8,
+        "fun": 11.2,
+        "health": 8.4,
+        "energy": 4.4
+      }
+    },
+    {
+      "time": "04:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "04:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with co-living space:B room:items:bed: snuggling with Bobo and Langley",
+      "emotion": [
+        1,
+        3,
+        0,
+        1,
+        0,
+        1,
+        4
+      ],
+      "basic_needs": {
+        "fullness": 10.8,
+        "social": 11.1,
+        "fun": 11.5,
+        "health": 8.4,
+        "energy": 4.7
+      }
+    },
+    {
+      "time": "04:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "04:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with co-living space:B room:items:bed: snuggling with Bobo and Langley on the cozy bed",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 10.6,
+        "social": 11.4,
+        "fun": 11.8,
+        "health": 8.4,
+        "energy": 5.0
+      }
+    },
+    {
+      "time": "04:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "04:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with cats: petting the cats for comfort",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 10.6,
+        "social": 11.699999999999998,
+        "fun": 12.1,
+        "health": 8.4,
+        "energy": 5.3
+      }
+    },
+    {
+      "time": "04:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "04:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with Bobo and Langley: snuggling with the cats on the cozy bed",
+      "emotion": [
+        1,
+        3,
+        0,
+        1,
+        0,
+        1,
+        4
+      ],
+      "basic_needs": {
+        "fullness": 10.3,
+        "social": 11.399999999999999,
+        "fun": 12.4,
+        "health": 8.4,
+        "energy": 5.8
+      }
+    },
+    {
+      "time": "05:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "05:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with Bobo and Langley: snuggling with my Maine Coon cats",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 10.5,
+        "social": 11.099999999999998,
+        "fun": 12.700000000000001,
+        "health": 8.4,
+        "energy": 5.8
+      }
+    },
+    {
+      "time": "05:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "05:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with cat bed: providing comfort for the cats while petting",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 10.3,
+        "social": 11.3,
+        "fun": 12.4,
+        "health": 8.4,
+        "energy": 6.1
+      }
+    },
+    {
+      "time": "05:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "05:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San thought about: Organizing the common room with Bobo and Langley.",
+      "emotion": [
+        1,
+        3,
+        0,
+        1,
+        1,
+        0,
+        4
+      ],
+      "basic_needs": {
+        "fullness": 10.3,
+        "social": 11.6,
+        "fun": 12.2,
+        "health": 8.4,
+        "energy": 6.4
+      }
+    },
+    {
+      "time": "05:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "05:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with co-living space:B room:items:bed: snuggling with Bobo and Langley on the cozy bed",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 10.0,
+        "social": 9.0,
+        "fun": 12.5,
+        "health": 8.4,
+        "energy": 6.7
+      }
+    },
+    {
+      "time": "06:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "06:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with co-living space:B room:items:bed: snuggling with Bobo and Langley on the cozy bed",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 8.7,
+        "fun": 12.1,
+        "health": 8.4,
+        "energy": 6.9
+      }
+    },
+    {
+      "time": "06:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "06:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with co-living space:B room:items:bed: snuggling with Bobo and Langley",
+      "emotion": [
+        1,
+        2,
+        0,
+        1,
+        0,
+        1,
+        5
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 6.4,
+        "fun": 6.4,
+        "health": 8.4,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "06:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "06:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with co-living space:B room:items:bed: snoozing peacefully with Bobo and Langley",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "06:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "06:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with co-living space:B room:items:bed: snuggling with Bobo and Langley on the cozy bed",
+      "emotion": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        7
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.5,
+        "fun": 6.4,
+        "health": 7.2,
+        "energy": 6.8
+      }
+    },
+    {
+      "time": "07:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "07:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with bed: snuggling and petting Bobo and Langley",
+      "emotion": [
+        1,
+        2,
+        0,
+        1,
+        0,
+        1,
+        5
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "07:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "07:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with co-living space:B room:items:bed: snuggling with Bobo and Langley on the cozy bed",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 6.1,
+        "fun": 6.4,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "07:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "07:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with apartment D:main room:items:refrigerator: getting cat food for Bobo and Langley",
+      "emotion": [
+        0,
+        2,
+        0,
+        0,
+        0,
+        1,
+        7
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.2,
+        "health": 7.2,
+        "energy": 6.8
+      }
+    },
+    {
+      "time": "07:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "07:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with apartment D:main room:items:refrigerator: getting cat food for Bobo and Langley",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "08:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "08:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San thought about: Researching design inspirations online while feeling very neutral.",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.4,
+        "social": 6.1,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "08:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "08:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San thought about: Researching design inspirations online while feeling very neutral.",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "08:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "08:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San thought about: Researching design inspirations online; feeling very neutral.",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.2,
+        "health": 7.2,
+        "energy": 6.8
+      }
+    },
+    {
+      "time": "08:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "08:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San thought about: Researching design inspirations online; feeling very neutral.",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.7,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "09:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "09:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San thought about: Researching design inspirations online while feeling very neutral.",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.7
+      }
+    },
+    {
+      "time": "09:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "09:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San thought about: Researching design inspirations online while feeling very neutral.",
+      "emotion": [
+        1,
+        2,
+        0,
+        1,
+        0,
+        1,
+        5
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.5,
+        "fun": 6.3,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "09:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "09:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San thought about: Organizing materials for redesigning the common room project.",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "09:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "09:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San thought about: Organizing materials for redesigning the common room project.",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        2,
+        5
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.4,
+        "health": 7.2,
+        "energy": 6.8
+      }
+    },
+    {
+      "time": "10:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "10:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San thought about: Organizing materials for redesigning the common room project.",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.5,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 7.0
+      }
+    },
+    {
+      "time": "10:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
     }
   ],
   "daily_plan_req": [
@@ -76,115 +1174,90 @@
     },
     {
       "time": "07:00",
-      "activity": "Wake up and Morning Hygiene Routine",
+      "activity": "Wake up and personal hygiene",
       "moccupying": 1,
       "intervals": "30.0 minutes"
     },
     {
       "time": "07:30",
-      "activity": "Breakfast (light meal)",
+      "activity": "Breakfast",
       "moccupying": 1,
       "intervals": "30.0 minutes"
     },
     {
       "time": "08:00",
-      "activity": "Cat care and playtime with Bobo and Langley",
-      "moccupying": 2,
-      "intervals": "30.0 minutes"
-    },
-    {
-      "time": "08:30",
-      "activity": "Work on design project: Redesigning the common room",
-      "moccupying": 3,
-      "intervals": "120.0 minutes"
-    },
-    {
-      "time": "10:30",
-      "activity": "Research new design trends for co-living spaces",
+      "activity": "Conceptualizing ideas for transforming the old dorm wing",
       "moccupying": 3,
       "intervals": "60.0 minutes"
     },
     {
-      "time": "11:30",
-      "activity": "Lunch at a nearby café",
+      "time": "09:00",
+      "activity": "Work on redesigning the common room in the dorm",
       "moccupying": 2,
-      "intervals": "30.0 minutes"
+      "intervals": "180.0 minutes"
     },
     {
       "time": "12:00",
-      "activity": "Review project progress and set goals for the day",
-      "moccupying": 3,
+      "activity": "Lunch break",
+      "moccupying": 1,
       "intervals": "30.0 minutes"
     },
     {
       "time": "12:30",
-      "activity": "Commute to work",
-      "moccupying": 1,
+      "activity": "Leisure time - Relaxing with Bobo and Langley in the garden",
+      "moccupying": 2,
       "intervals": "30.0 minutes"
     },
     {
       "time": "13:00",
       "activity": "Work on redesigning co-living and dorm interiors",
-      "moccupying": 1,
+      "moccupying": 2,
       "intervals": "300.0 minutes"
     },
     {
       "time": "18:00",
-      "activity": "Commute back home",
-      "moccupying": 1,
-      "intervals": "30.0 minutes"
-    },
-    {
-      "time": "18:30",
-      "activity": "Dinner preparation",
-      "moccupying": 1,
-      "intervals": "30.0 minutes"
+      "activity": "Wrap up work and reflect on the day's progress towards the boutique studio goal",
+      "moccupying": 2,
+      "intervals": "60.0 minutes"
     },
     {
       "time": "19:00",
-      "activity": "Dinner and relax at home",
-      "moccupying": 2,
+      "activity": "Dinner",
+      "moccupying": 1,
       "intervals": "60.0 minutes"
     },
     {
       "time": "20:00",
-      "activity": "Attend a local hobby group meeting for diving",
-      "moccupying": 2,
-      "intervals": "120.0 minutes"
-    },
-    {
-      "time": "22:00",
-      "activity": "Evening walk in the park with Bobo and Langley",
-      "moccupying": 2,
-      "intervals": "30.0 minutes"
-    },
-    {
-      "time": "22:30",
-      "activity": "Plan for studio launch and current projects",
+      "activity": "Join local hobby group for diving at the park's artificial lake",
       "moccupying": 3,
-      "intervals": "60.0 minutes"
+      "intervals": "180.0 minutes"
+    },
+    {
+      "time": "23:00",
+      "activity": "Wind down with a book or design magazine",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
     },
     {
       "time": "23:30",
-      "activity": "Wind down with a book or light activity before bed",
+      "activity": "Prepare for bed",
       "moccupying": 1,
-      "intervals": "30.0 minutes"
-    }
-  ],
-  "short_memory": [
+      "intervals": "-1410.0 minutes"
+    },
     {
       "time": "00:00",
-      "date": "2024-04-01",
+      "activity": "Sleep",
       "moccupying": 1,
-      "description": "I chatted about: recent travels and cultural experiences, I felt happy"
+      "intervals": "1440.0 minutes"
     }
   ],
+  "short_memory": [],
   "basic_needs": {
-    "fullness": 9.5,
-    "social": 8.5,
-    "fun": 8.2,
-    "health": 7.5,
-    "energy": 3.5
+    "fullness": 6.7,
+    "social": 5.8,
+    "fun": 6.1,
+    "health": 7.2,
+    "energy": 6.5
   },
   "temporary_personality_changes": {
     "openness": 0.3,
