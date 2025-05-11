@@ -13,7 +13,7 @@
 
 PROMPT_CONFIG = {
     "generate_plan": {
-        "files": ["plan_prompt.txt", "action_prompt.txt"],
+        "files": ["plan_prompt_bak.txt", "action_prompt.txt"],
         "stream": ["description_list"],
         "system": "You are an AI assistant tasked with creating plans based on recent events and current context.",
         "type": "json",

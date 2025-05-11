@@ -4,7 +4,8 @@ Current emotion: {current_emotion}
 Recent Events: {recent_events}  
 Current Time: {current_time}  
 Current Date: {current_date}  
-intend to do: {daily_plan}  
+intend to do: {daily_plan}
+Current Event: {current_perception}
 World Map: {_context}
 
 

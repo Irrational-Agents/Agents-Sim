@@ -108,7 +108,7 @@ class Agent:
         if is_midnight or (self.short_memory.curr_datetime and self.short_memory.curr_datetime.strftime('%A %B %d') != 
               curr_time.strftime('%A %B %d')):
             new_day = True
-
+        new_day = False
         # Update time tracking
         self.short_memory.curr_datetime = curr_time
         self.short_memory.curr_time = curr_time.strftime('%H:%M')

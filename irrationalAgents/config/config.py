@@ -119,5 +119,5 @@ load_config_to_env()
 
 META_FILE_PATH = os.path.join(WORK_DIR, "../storage/meta.data")
 NPC_STORAGE_BASE_PATH = os.path.join(WORK_DIR, "../storage/sample_data/")
-
+EVALUATION_BASE_PATH = os.path.join(WORK_DIR, "../evaluation/")
 PROMPT_FILE_PATH = os.path.join(WORK_DIR, "prompt/prompt_templates/")
