@@ -68,14 +68,14 @@ class MetaManager:
             'START_DATE': 'start_date',
             'CURR_TIME': 'curr_time',
             'STEP': 'step',
-            'SEC_PER_STEP': 'sec_per_step'
+            'steps_per_min': 'steps_per_min'
         }
         
         for env_key, meta_key in env_mappings.items():
             env_value = os.getenv(env_key)
             if env_value is not None:
                 # 特殊类型转换
-                if meta_key in ['step', 'sec_per_step']:
+                if meta_key in ['step', 'steps_per_min']:
                     env_value = int(env_value)
                     
                 self._meta_data[meta_key] = env_value
@@ -87,7 +87,7 @@ class MetaManager:
             'start_date': str,
             'curr_time': str,
             'step': int,
-            'sec_per_step': int
+            'steps_per_min': int
         }
         
         for field, field_type in required_fields.items():
@@ -107,7 +107,7 @@ class MetaManager:
         return {
             'start_date': datetime.now().strftime('%Y-%m-%d'),
             'curr_time': '00:00',
-            'sec_per_step': 15,
+            'steps_per_min': 15,
             'step': 0
         }
         
@@ -138,6 +138,7 @@ class MetaManager:
         )
             
     def get_start_datetime(self) -> datetime:
+        logger.debug(f"{self.get('start_date')} {self.get('start_time')}")
         """获取初始日期时间"""
         return datetime.strptime(
             f"{self.get('start_date')} {self.get('start_time')}", 

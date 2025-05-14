@@ -32,6 +32,7 @@ class WorldState:
         """Initialize the world state with map data and core components."""
         self.town_map = Map(map_data)
         self.meta_manager = meta_manager
+        self.meta_manager.reload()
         self.path_planner = PathPlanner(self.town_map)
         self.global_time = self.meta_manager.get_start_datetime()
         self.thread_pool = ThreadPoolExecutor(max_workers=10)

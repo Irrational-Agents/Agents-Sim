@@ -165,3 +165,7 @@ cython_debug/
 
 storage/sample_data/**
 storage/sample_data/*
+
+#Ignore vscode AI rules
+.github/copilot-instructions.md
+storage/data/*

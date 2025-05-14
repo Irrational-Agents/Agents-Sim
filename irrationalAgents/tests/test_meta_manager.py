@@ -15,7 +15,7 @@ class TestMetaManager(unittest.TestCase):
             'curr_time': '08:00',
             'start_time': '08:00',
             'step': 0,
-            'sec_per_step': 15
+            'steps_per_min': 15
         }
         
         # 写入测试数据

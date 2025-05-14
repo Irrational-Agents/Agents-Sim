@@ -22,19 +22,19 @@
       "moccupying": 1,
       "description": "Sakura Sato thought about: Reading Haruki Murakami's book in bed feels very happy.",
       "emotion": [
-        6,
+        7,
         0,
         0,
         0,
-        1,
+        0,
         0,
         3
       ],
       "basic_needs": {
         "fullness": 6.7,
-        "social": 5.7,
+        "social": 5.8,
         "fun": 6.4,
-        "health": 7.3,
+        "health": 7.2,
         "energy": 6.5
       }
     },
@@ -50,129 +50,489 @@
       "moccupying": 1,
       "description": "Sakura Sato thought about: Reading Haruki Murakami's book in bed feels very happy.",
       "emotion": [
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.4,
+        "energy": 6.7
+      }
+    },
+    {
+      "time": "00:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'game console', 'bed'}, currently seeing npcs: ['Sakura Sato']"
+    },
+    {
+      "time": "00:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Sakura Sato thought about: Reading Haruki Murakami's book in bed feels very happy.",
+      "emotion": [
+        8,
+        0,
+        0,
+        0,
+        0,
         1,
+        1
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.6,
+        "fun": 6.4,
+        "health": 7.4,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "00:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'game console', 'bed'}, currently seeing npcs: ['Sakura Sato']"
+    },
+    {
+      "time": "00:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Sakura Sato thought about: Reading Haruki Murakami's book in bed feels very happy.",
+      "emotion": [
+        7,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3
+      ],
+      "basic_needs": {
+        "fullness": 6.8,
+        "social": 5.9,
+        "fun": 6.4,
+        "health": 7.4,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "01:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'game console', 'bed'}, currently seeing npcs: ['Sakura Sato']"
+    },
+    {
+      "time": "01:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Sakura Sato thought about: Reading Haruki Murakami's book in bed feels very happy.",
+      "emotion": [
+        6,
         0,
         0,
         1,
         0,
+        2,
+        1
+      ],
+      "basic_needs": {
+        "fullness": 7.0,
+        "social": 5.9,
+        "fun": 6.7,
+        "health": 7.4,
+        "energy": 6.8
+      }
+    },
+    {
+      "time": "01:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'game console', 'bed'}, currently seeing npcs: ['Sakura Sato']"
+    },
+    {
+      "time": "01:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Sakura Sato thought about: Reading Haruki Murakami's book in bed feels very happy.",
+      "emotion": [
+        0,
+        2,
+        0,
         1,
-        7
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.8,
+        "social": 5.8,
+        "fun": 6.8,
+        "health": 7.4,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "01:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'game console', 'bed'}, currently seeing npcs: ['Sakura Sato']"
+    },
+    {
+      "time": "01:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Sakura Sato thought about: Reading Haruki Murakami's book in bed feels very happy.",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
       ],
       "basic_needs": {
         "fullness": 6.7,
         "social": 5.8,
         "fun": 6.1,
         "health": 7.2,
-        "energy": 6.4
+        "energy": 6.5
       }
+    },
+    {
+      "time": "01:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'game console', 'bed'}, currently seeing npcs: ['Sakura Sato']"
+    },
+    {
+      "time": "01:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Sakura Sato thought about: Reading Haruki Murakami's book in bed feels very happy.",
+      "emotion": [
+        1,
+        2,
+        0,
+        1,
+        0,
+        1,
+        5
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.4,
+        "health": 7.2,
+        "energy": 6.8
+      }
+    },
+    {
+      "time": "02:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'game console', 'bed'}, currently seeing npcs: ['Sakura Sato']"
+    },
+    {
+      "time": "02:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Sakura Sato interacted with bed: reading Haruki Murakami's book to feel happy",
+      "emotion": [
+        1,
+        2,
+        0,
+        1,
+        0,
+        1,
+        5
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.9
+      }
+    },
+    {
+      "time": "02:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'game console', 'bed'}, currently seeing npcs: ['Sakura Sato']"
+    },
+    {
+      "time": "02:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Sakura Sato interacted with bed: reading Haruki Murakami's book for happiness",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.4,
+        "health": 7.2,
+        "energy": 6.6
+      }
+    },
+    {
+      "time": "02:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'game console', 'bed'}, currently seeing npcs: ['Sakura Sato']"
+    },
+    {
+      "time": "02:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Sakura Sato interacted with bed: reading Haruki Murakami's book in bed",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "02:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'game console', 'bed'}, currently seeing npcs: ['Sakura Sato']"
+    },
+    {
+      "time": "02:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Sakura Sato thought about: Reading Haruki Murakami's book to feel happy.",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.9,
+        "fun": 6.3,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "03:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'game console', 'bed'}, currently seeing npcs: ['Sakura Sato']"
+    },
+    {
+      "time": "03:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Sakura Sato thought about: Reading Haruki Murakami's book to feel happy.",
+      "emotion": [
+        0,
+        2,
+        0,
+        2,
+        0,
+        0,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.2
+      }
+    },
+    {
+      "time": "03:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'game console', 'bed'}, currently seeing npcs: ['Sakura Sato']"
+    },
+    {
+      "time": "03:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Sakura Sato thought about: Reading Haruki Murakami's book feels very happy.",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.4,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "03:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'game console', 'bed'}, currently seeing npcs: ['Sakura Sato']"
+    },
+    {
+      "time": "03:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Sakura Sato moved: Dorm for College:A room:spaces:sp-A",
+      "emotion": [
+        2,
+        1,
+        0,
+        1,
+        0,
+        1,
+        5
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 5.5
+      }
+    },
+    {
+      "time": "03:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'game console', 'bed'}, currently seeing npcs: ['Sakura Sato']"
+    },
+    {
+      "time": "03:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Sakura Sato thought about: Reading Haruki Murakami's book feels very happy.",
+      "emotion": null,
+      "basic_needs": null
+    },
+    {
+      "time": "04:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'game console', 'bed'}, currently seeing npcs: ['Sakura Sato']"
     }
   ],
   "daily_plan_req": [
     {
       "time": "00:00",
-      "activity": "Reading a book by Haruki Murakami for inspiration",
-      "moccupying": 3,
-      "intervals": "60.0 minutes"
-    },
-    {
-      "time": "01:00",
-      "activity": "Practicing creative writing exercises",
-      "moccupying": 3,
-      "intervals": "30.0 minutes"
-    },
-    {
-      "time": "01:30",
-      "activity": "Personal hygiene and preparing for bed",
-      "moccupying": 1,
-      "intervals": "30.0 minutes"
-    },
-    {
-      "time": "02:00",
       "activity": "Sleep",
       "moccupying": 1,
-      "intervals": "300.0 minutes"
+      "intervals": "420.0 minutes"
     },
     {
       "time": "07:00",
-      "activity": "Wake up and morning routine",
+      "activity": "Wake up and personal hygiene",
       "moccupying": 1,
       "intervals": "30.0 minutes"
     },
     {
       "time": "07:30",
-      "activity": "Breakfast at the dormitory kitchen",
+      "activity": "Breakfast at the dormitory",
       "moccupying": 1,
       "intervals": "30.0 minutes"
     },
     {
       "time": "08:00",
-      "activity": "Morning literary theory class",
+      "activity": "Attend literary theory class",
       "moccupying": 2,
       "intervals": "120.0 minutes"
     },
     {
       "time": "10:00",
-      "activity": "Study session at the college library with friends",
+      "activity": "Study in the library with a friend",
       "moccupying": 2,
       "intervals": "120.0 minutes"
     },
     {
       "time": "12:00",
-      "activity": "Lunch at the campus café",
+      "activity": "Lunch at the campus café, writing inspiration",
       "moccupying": 1,
       "intervals": "60.0 minutes"
     },
     {
       "time": "13:00",
-      "activity": "Afternoon creative writing practice focused on short story",
-      "moccupying": 3,
+      "activity": "Attend creative writing practice class",
+      "moccupying": 2,
       "intervals": "120.0 minutes"
     },
     {
       "time": "15:00",
-      "activity": "Join the college literary club meeting",
-      "moccupying": 2,
-      "intervals": "90.0 minutes"
+      "activity": "Writing short story themed around youth culture",
+      "moccupying": 3,
+      "intervals": "120.0 minutes"
     },
     {
-      "time": "16:30",
-      "activity": "Free time for reflection or casual writing in the park",
-      "moccupying": 1,
-      "intervals": "90.0 minutes"
-    },
-    {
-      "time": "18:00",
-      "activity": "Dinner with friends at the dormitory",
+      "time": "17:00",
+      "activity": "Meet with literary club members for discussion",
       "moccupying": 2,
-      "intervals": "60.0 minutes"
+      "intervals": "120.0 minutes"
     },
     {
       "time": "19:00",
-      "activity": "Work on short story revisions for creative writing class",
-      "moccupying": 3,
-      "intervals": "90.0 minutes"
-    },
-    {
-      "time": "20:30",
-      "activity": "Leisure reading or writing poetry",
-      "moccupying": 3,
-      "intervals": "60.0 minutes"
-    },
-    {
-      "time": "21:30",
-      "activity": "Relax and chat with dormitory mates",
-      "moccupying": 2,
-      "intervals": "60.0 minutes"
-    },
-    {
-      "time": "22:30",
-      "activity": "Plan tasks for the next day and wind down",
+      "activity": "Dinner at the dormitory",
       "moccupying": 1,
-      "intervals": "30.0 minutes"
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "20:00",
+      "activity": "Relaxation - reading Haruki Murakami's works",
+      "moccupying": 1,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "21:00",
+      "activity": "Solo reflection and journaling",
+      "moccupying": 3,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "22:00",
+      "activity": "Leisure activity - walk in the park",
+      "moccupying": 1,
+      "intervals": "60.0 minutes"
     },
     {
       "time": "23:00",
-      "activity": "Meditation or light stretching before bed",
+      "activity": "Prepare for bed and wind down",
       "moccupying": 1,
       "intervals": "30.0 minutes"
     },
@@ -183,11 +543,36 @@
       "intervals": "30.0 minutes"
     }
   ],
-  "short_memory": [],
+  "short_memory": [
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I thought about: Reading Haruki Murakami's book in bed, I felt very happy"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I thought about: Reading Haruki Murakami's book in bed feels very happy, I felt joyful"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I thought about: Reading Haruki Murakami's book in bed feels very happy, I felt happy"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I thought about: Reading Haruki Murakami's book in bed feels very happy, I felt happy"
+    }
+  ],
   "basic_needs": {
-    "fullness": 6.7,
-    "social": 5.8,
-    "fun": 6.4,
+    "fullness": 6.4,
+    "social": 5.6,
+    "fun": 6.3,
     "health": 7.2,
     "energy": 6.5
   },

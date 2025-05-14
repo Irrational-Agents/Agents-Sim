@@ -20,50 +20,22 @@
       "time": "00:00",
       "date": "2024-04-01",
       "moccupying": 1,
-      "description": "Zhang San interacted with co-living space:B room:items:bed: turning off the lights before sleeping",
+      "description": "Zhang San interacted with Bobo: petting my Maine Coon cat in the garden",
       "emotion": [
         8,
         0,
         0,
         0,
         0,
-        0,
-        2
-      ],
-      "basic_needs": {
-        "fullness": 8.9,
-        "social": 8.5,
-        "fun": 7.9,
-        "health": 7.2,
-        "energy": 1.0
-      }
-    },
-    {
-      "time": "00:15",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
-    },
-    {
-      "time": "00:15",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "Zhang San interacted with co-living space:B room:items:bed: going to sleep after a happy day",
-      "emotion": [
-        7,
-        0,
-        0,
         1,
-        0,
-        0,
-        2
+        1
       ],
       "basic_needs": {
-        "fullness": 9.2,
-        "social": 8.5,
-        "fun": 7.9,
-        "health": 7.5,
-        "energy": 1.3
+        "fullness": 10,
+        "social": 10,
+        "fun": 9.6,
+        "health": 9.3,
+        "energy": 10
       }
     }
   ],
@@ -76,97 +48,97 @@
     },
     {
       "time": "07:00",
-      "activity": "Wake up and Morning Hygiene Routine",
+      "activity": "Wake up and do morning hygiene routine",
       "moccupying": 1,
       "intervals": "30.0 minutes"
     },
     {
       "time": "07:30",
-      "activity": "Breakfast (light meal)",
+      "activity": "Have a healthy breakfast",
       "moccupying": 1,
       "intervals": "30.0 minutes"
     },
     {
       "time": "08:00",
-      "activity": "Cat care and playtime with Bobo and Langley",
+      "activity": "Spend 30 minutes petting and playing with cats Bobo and Langley in the garden",
       "moccupying": 2,
       "intervals": "30.0 minutes"
     },
     {
       "time": "08:30",
-      "activity": "Work on design project: Redesigning the common room",
-      "moccupying": 3,
-      "intervals": "120.0 minutes"
-    },
-    {
-      "time": "10:30",
-      "activity": "Research new design trends for co-living spaces",
+      "activity": "Brainstorm ideas for transforming the old dorm wing into a modern creative studio-home",
       "moccupying": 3,
       "intervals": "60.0 minutes"
     },
     {
-      "time": "11:30",
-      "activity": "Lunch at a nearby café",
+      "time": "09:30",
+      "activity": "Visit the nearby café to work on design sketches for the common room redesign",
+      "moccupying": 3,
+      "intervals": "90.0 minutes"
+    },
+    {
+      "time": "11:00",
+      "activity": "Take a walk in the park and meet with local hobby groups for diving discussions",
       "moccupying": 2,
-      "intervals": "30.0 minutes"
+      "intervals": "60.0 minutes"
     },
     {
       "time": "12:00",
-      "activity": "Review project progress and set goals for the day",
-      "moccupying": 3,
-      "intervals": "30.0 minutes"
-    },
-    {
-      "time": "12:30",
-      "activity": "Commute to work",
+      "activity": "Lunch at home, preparing a meal to recharge",
       "moccupying": 1,
-      "intervals": "30.0 minutes"
-    },
-    {
-      "time": "13:00",
-      "activity": "Work on redesigning co-living and dorm interiors",
-      "moccupying": 1,
-      "intervals": "300.0 minutes"
-    },
-    {
-      "time": "18:00",
-      "activity": "Commute back home",
-      "moccupying": 1,
-      "intervals": "30.0 minutes"
-    },
-    {
-      "time": "18:30",
-      "activity": "Dinner preparation",
-      "moccupying": 1,
-      "intervals": "30.0 minutes"
-    },
-    {
-      "time": "19:00",
-      "activity": "Dinner and relax at home",
-      "moccupying": 2,
       "intervals": "60.0 minutes"
     },
     {
-      "time": "20:00",
-      "activity": "Attend a local hobby group meeting for diving",
+      "time": "13:00",
+      "activity": "Work on redesigning co-living and dorm interiors for young professionals",
+      "moccupying": 3,
+      "intervals": "120.0 minutes"
+    },
+    {
+      "time": "15:00",
+      "activity": "Collaborate with peers or students from the college for design input",
+      "moccupying": 2,
+      "intervals": "90.0 minutes"
+    },
+    {
+      "time": "16:30",
+      "activity": "Review progress on the common room redesign project using reclaimed wood and soft lighting",
+      "moccupying": 3,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "17:30",
+      "activity": "Wrap up work and reflect on the day's accomplishments",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "18:00",
+      "activity": "Prepare and have dinner while enjoying some music",
+      "moccupying": 1,
+      "intervals": "60.0 minutes"
+    },
+    {
+      "time": "19:00",
+      "activity": "Host a small get-together with friends to discuss design ideas and socialize",
       "moccupying": 2,
       "intervals": "120.0 minutes"
     },
     {
-      "time": "22:00",
-      "activity": "Evening walk in the park with Bobo and Langley",
-      "moccupying": 2,
-      "intervals": "30.0 minutes"
+      "time": "21:00",
+      "activity": "Relax and unwind by watching a movie or reading a book",
+      "moccupying": 1,
+      "intervals": "90.0 minutes"
     },
     {
       "time": "22:30",
-      "activity": "Plan for studio launch and current projects",
+      "activity": "Engage in a creative hobby like sketching or crafting related to the design studio launch",
       "moccupying": 3,
       "intervals": "60.0 minutes"
     },
     {
       "time": "23:30",
-      "activity": "Wind down with a book or light activity before bed",
+      "activity": "Begin winding down for bed with a quiet reflection on dreams and future goals",
       "moccupying": 1,
       "intervals": "30.0 minutes"
     }
@@ -177,14 +149,128 @@
       "date": "2024-04-01",
       "moccupying": 1,
       "description": "I chatted about: recent travels and cultural experiences, I felt happy"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I interacted with: co-living space:B room:items:bed: turning off the lights before sleeping, I felt happy"
+    },
+    {
+      "time": "00:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I interacted with: co-living space:B room:items:bed: going to sleep after a happy day, I felt happy"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I interacted with: co-living space:B room:items:bed: turning off the lights before sleeping, I felt peaceful"
+    },
+    {
+      "time": "00:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I interacted with: co-living space:B room:items:bed: going to sleep after a happy day, I felt content"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I interacted with: turning off the lights before sleeping, I felt happy"
+    },
+    {
+      "time": "00:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I interacted with: going to sleep after a happy day, I felt happy"
+    },
+    {
+      "time": "00:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I interacted with: going to sleep after a happy day, I felt happy"
+    },
+    {
+      "time": "03:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I thought about: Reading a book in bed before a happy sleep, I felt happy"
+    },
+    {
+      "time": "03:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I thought about: Reading a book in bed before a happy sleep, I felt happy"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I thought about: Reading a book in bed before a happy sleep, I felt happy"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I thought about: Reading a book in bed before a happy sleep, I felt joyful"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I interacted with: petting Bobo and Langley on the bed, I felt happy"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I interacted with: petting my cats, I felt joyful"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I moved about: currently seeing items: {'bed', 'closet'}, I felt neutral"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I interacted with: petting my cats on the cozy bed, I felt happy"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I interacted with: petting my cats on the cozy bed, I felt happy"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I interacted with: petting my cats on the cozy bed, I felt happy"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I interacted with: petting my cats on the cozy bed, I felt happy"
+    },
+    {
+      "time": "00:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I interacted with: petting my Maine Coon cat Bobo, I felt happy"
     }
   ],
   "basic_needs": {
-    "fullness": 9.5,
-    "social": 8.5,
-    "fun": 8.2,
-    "health": 7.5,
-    "energy": 3.5
+    "fullness": 10,
+    "social": 9.7,
+    "fun": 9.9,
+    "health": 9.3,
+    "energy": 9.8
   },
   "temporary_personality_changes": {
     "openness": 0.3,

@@ -3,7 +3,7 @@ import json
 from typing import Dict
 from config.logger_config import setup_logger
 from config.common_method import *
-from config.config import NPC_STORAGE_BASE_PATH, META_FILE_PATH, SIM_FILE_PATH, NPC_STORAGE_BASE_PATH_MAIN
+from config.config import NPC_STORAGE_BASE_PATH, META_FILE_PATH, SIM_FILE_PATH, NPC_STORAGE_BASE_PATH_MAIN, set_meta_file_path, set_npc_storage_base_path, get_npc_storage_base_path
 
 logger = setup_logger('tools')
 
@@ -12,7 +12,7 @@ def mess_agent_by_name(name):
     if ' ' in name:
         name = convert_name2id(name)
 
-    root_dir = os.path.join(NPC_STORAGE_BASE_PATH, f'agents/{name}')
+    root_dir = os.path.join(get_npc_storage_base_path(), f'agents/{name}')
     if not os.path.exists(root_dir):
         logger.error(f"agent {name} not exists!")
         return None, None
@@ -60,7 +60,7 @@ def get_npc_info(params: Dict) -> Dict:
 
 def create_sim_id() -> int:
     # Load existing meta data
-    with open(META_FILE_PATH, 'r', encoding='utf-8') as f:
+    with open(SIM_FILE_PATH, 'r', encoding='utf-8') as f:
         data = json.load(f)
 
     # Get current sim_id, default to 0 if not present
@@ -100,10 +100,112 @@ def create_meta_data(sim_id: int, data: Dict) -> Dict:
         "npc_names": [npc["name"] for npc in data.get("npcList", [])]
     }
 
+    short_term_memory = {
+        "age": 21,
+        "current_location": data.get("spawn"),
+        "short_term_goal_capacity": 3,
+        "short_term_goal": [
+        ],
+        "short_memory_capacity": 50,
+        "short_memory_for_plan": [
+        ],
+        "daily_plan_req": [
+        ],
+        "short_memory": [
+        ],
+        "basic_needs": {
+            "fullness": 6.7,
+            "social": 6.1,
+            "fun": 6.3,
+            "health": 7.2,
+            "energy": 6.5
+        },
+        "temporary_personality_changes": {
+            "openness": 0,
+            "conscientiousness": 0,
+            "extraversion": 0, 
+            "agreeableness": 0,
+            "neuroticism": 0
+        },
+        "emotion": [
+            0,
+            0,
+            1,
+            7,
+            0,
+            2,
+            0
+        ]
+    }
+
+    status = {
+        "00:00:00": {
+            "state": {
+            "activity": "free",
+            "description": None
+            },
+        "time": "2024-04-01T00:00:00",
+        "step": 1,
+        "location": "apartment A:main room:sp-A",
+        "position": {
+            "x": 53,
+            "y": 14,
+            "direction": "down"
+        }
+    }
+    }
+
+    # Path where the file will be saved
+    save_path = os.path.join(NPC_STORAGE_BASE_PATH_MAIN, str(sim_id))
+
+    # Ensure the directory exists; create it if it does not
+    os.makedirs(save_path, exist_ok=True)
+    os.makedirs(os.path.join(save_path, "agents"), exist_ok=True)
+
+    for npc_name in sim_config["npc_names"]:
+        npc_path = os.path.join(save_path, "agents", convert_name2id(npc_name))
+        os.makedirs(npc_path, exist_ok=True)
+        os.makedirs(os.path.join(npc_path,"memory"), exist_ok=True)
+        os.makedirs(os.path.join(npc_path,"memory","long_term"), exist_ok=True)
+        os.makedirs(os.path.join(npc_path,"snapshots"), exist_ok=True)
+        os.makedirs(os.path.join(npc_path,"logs"), exist_ok=True)
+
+        # Save the basic info and short-term memory for each NPC
+        with open(os.path.join(npc_path, "basic_info.json"), 'w', encoding='utf-8') as f:
+            json.dump(sim_config["npcs"][npc_name], f, ensure_ascii=False, indent=4)
+        with open(os.path.join(npc_path, "memory/short_term.json"), 'w', encoding='utf-8') as f:
+            short_term_memory["current_location"] = sim_config["npcs"][npc_name]["spawn"]
+            short_term_memory["temporary_personality_changes"]["openness"] = sim_config["npcs"][npc_name]["personality_traits"]["openness"]
+            short_term_memory["temporary_personality_changes"]["conscientiousness"] = sim_config["npcs"][npc_name]["personality_traits"]["conscientiousness"]
+            short_term_memory["temporary_personality_changes"]['extraversion'] = sim_config["npcs"][npc_name]["personality_traits"]["extraversion"]
+            short_term_memory["temporary_personality_changes"]["agreeableness"] = sim_config["npcs"][npc_name]["personality_traits"]["agreeableness"]
+            short_term_memory["temporary_personality_changes"]["neuroticism"] = sim_config["npcs"][npc_name]["personality_traits"]["neuroticism"]
+
+            json.dump(short_term_memory, f, ensure_ascii=False, indent=4)
+        with open(os.path.join(npc_path, f"logs/2025-04-30.json"), 'w', encoding='utf-8') as f:
+            json.dump([], f, ensure_ascii=False, indent=4)
+
+        with open(os.path.join(npc_path, f"snapshots/2025-04-30.json"), 'w', encoding='utf-8') as f:
+            status['00:00:00']['location'] = sim_config["npcs"][npc_name]["spawn"]
+            json.dump(status, f, ensure_ascii=False, indent=4)
+
+    # Define the path to the meta.json file
+    meta_file_path = os.path.join(save_path, "meta.json")
+    set_meta_file_path(meta_file_path)
+    set_npc_storage_base_path(save_path)
+    
+    # Check if the file exists; if not, initialize with an empty dictionary
+    if not os.path.exists(meta_file_path):
+        # If file doesn't exist, create and initialize it
+        with open(meta_file_path, 'w', encoding='utf-8') as f:
+            json.dump(sim_config, f, ensure_ascii=False, indent=4)
+    
+
     return sim_config
 
 def load_replay_meta_data(replay_id: int) -> Dict:
-    replay_path = os.path.join(NPC_STORAGE_BASE_PATH)
+    replay_path = os.path.join(NPC_STORAGE_BASE_PATH_MAIN, str(replay_id))
+    logger.debug(f"Loading replay meta data from {replay_path}")
     if not os.path.exists(replay_path):
         logger.error(f"Replay {replay_id} not found!")
         return None

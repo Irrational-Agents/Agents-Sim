@@ -118,15 +118,10 @@ class UnityHandlers:
 
                 return
             
-            updates = {}
-            logger.info(self.meta['sim_type'])
-            if self.meta['sim_type'] == "replay":
-                updates = self.get_update(self.clock)
-            else:
-                updates = self.world.tick_world(self.npc_status)
+            updates = self.world.tick_world(self.npc_status)
 
             
-            self.unity_request.send_server_tick(self.clock, updates)
+            #self.unity_request.send_server_tick(self.clock, updates)
 
         except ValueError as e:
             logger.error(

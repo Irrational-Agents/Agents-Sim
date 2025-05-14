@@ -19,7 +19,7 @@
             "description": "Reading Haruki Murakami's book in bed feels very happy."
         },
         "time": "2024-04-01T00:15:00",
-        "step": 2,
+        "step": 4,
         "location": "Dorm for College:A room:sp-A",
         "position": {
             "x": 126,
@@ -33,7 +33,210 @@
             "description": "Reading Haruki Murakami's book in bed feels very happy."
         },
         "time": "2024-04-01T00:30:00",
-        "step": 3,
+        "step": 5,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "00:45:00": {
+        "state": {
+            "activity": "think",
+            "description": "Reading Haruki Murakami's book in bed feels very happy."
+        },
+        "time": "2024-04-01T00:45:00",
+        "step": 6,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "01:00:00": {
+        "state": {
+            "activity": "think",
+            "description": "Reading Haruki Murakami's book in bed feels very happy."
+        },
+        "time": "2024-04-01T01:00:00",
+        "step": 7,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "01:15:00": {
+        "state": {
+            "activity": "think",
+            "description": "Reading Haruki Murakami's book in bed feels very happy."
+        },
+        "time": "2024-04-01T01:15:00",
+        "step": 8,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "01:30:00": {
+        "state": {
+            "activity": "think",
+            "description": "Reading Haruki Murakami's book in bed feels very happy."
+        },
+        "time": "2024-04-01T01:30:00",
+        "step": 9,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "01:45:00": {
+        "state": {
+            "activity": "think",
+            "description": "Reading Haruki Murakami's book in bed feels very happy."
+        },
+        "time": "2024-04-01T01:45:00",
+        "step": 10,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "02:00:00": {
+        "state": {
+            "activity": "think",
+            "description": "Reading Haruki Murakami's book in bed feels very happy."
+        },
+        "time": "2024-04-01T02:00:00",
+        "step": 11,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "02:15:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'bed', 'description': \"reading Haruki Murakami's book to feel happy\"}"
+        },
+        "time": "2024-04-01T02:15:00",
+        "step": 12,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "02:30:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'bed', 'description': \"reading Haruki Murakami's book for happiness\"}"
+        },
+        "time": "2024-04-01T02:30:00",
+        "step": 13,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "02:45:00": {
+        "state": {
+            "activity": "interact",
+            "description": "{'item': 'bed', 'description': \"reading Haruki Murakami's book in bed\"}"
+        },
+        "time": "2024-04-01T02:45:00",
+        "step": 14,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "03:00:00": {
+        "state": {
+            "activity": "think",
+            "description": "Reading Haruki Murakami's book to feel happy."
+        },
+        "time": "2024-04-01T03:00:00",
+        "step": 15,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "03:15:00": {
+        "state": {
+            "activity": "think",
+            "description": "Reading Haruki Murakami's book to feel happy."
+        },
+        "time": "2024-04-01T03:15:00",
+        "step": 16,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "03:30:00": {
+        "state": {
+            "activity": "think",
+            "description": "Reading Haruki Murakami's book feels very happy."
+        },
+        "time": "2024-04-01T03:30:00",
+        "step": 17,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "03:45:00": {
+        "state": {
+            "activity": "move",
+            "description": "Dorm for College:A room:spaces:sp-A",
+            "move_extra": {
+                "path": [
+                    "right",
+                    "left"
+                ],
+                "speed": 3
+            }
+        },
+        "time": "2024-04-01T03:45:00",
+        "step": 18,
+        "location": "Dorm for College:A room:sp-A",
+        "position": {
+            "x": 126,
+            "y": 46,
+            "direction": "down"
+        }
+    },
+    "04:00:00": {
+        "state": {
+            "activity": "think",
+            "description": "Reading Haruki Murakami's book feels very happy."
+        },
+        "time": "2024-04-01T04:00:00",
+        "step": 19,
         "location": "Dorm for College:A room:sp-A",
         "position": {
             "x": 126,
