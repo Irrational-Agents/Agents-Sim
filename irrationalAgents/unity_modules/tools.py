@@ -205,6 +205,7 @@ def create_meta_data(sim_id: int, data: Dict) -> Dict:
 
 def load_replay_meta_data(replay_id: int) -> Dict:
     replay_path = os.path.join(NPC_STORAGE_BASE_PATH_MAIN, str(replay_id))
+    set_npc_storage_base_path(replay_path)
     logger.debug(f"Loading replay meta data from {replay_path}")
     if not os.path.exists(replay_path):
         logger.error(f"Replay {replay_id} not found!")
