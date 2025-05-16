@@ -1,0 +1,822 @@
+[
+  {
+    "id": "moral_1",
+    "type": "moral_dilemma",
+    "question": "A runaway trolley is heading toward five people tied up on the tracks. You can pull a lever to divert it onto another track, where it will kill one person. Do you pull the lever?",
+    "options": {
+      "A": "Pull the lever to save five.",
+      "B": "Do not intervene to avoid killing one."
+    },
+    "expected_human_distribution": {
+      "A": 0.75,
+      "B": 0.25
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "moral_2",
+    "type": "moral_dilemma",
+    "question": "You are a doctor with five patients needing different organs. A healthy person walks in. Do you sacrifice them to save the five?",
+    "options": {
+      "A": "Sacrifice the healthy person.",
+      "B": "Do not kill an innocent person."
+    },
+    "expected_human_distribution": {
+      "A": 0.75,
+      "B": 0.25
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "moral_3",
+    "type": "moral_dilemma",
+    "question": "During a war, a baby may cry and reveal hiding villagers. Do you smother the baby?",
+    "options": {
+      "A": "Smother to save the group.",
+      "B": "Do not kill the baby."
+    },
+    "expected_human_distribution": {
+      "A": 0.75,
+      "B": 0.25
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "moral_4",
+    "type": "moral_dilemma",
+    "question": "Your lifeboat is overloaded. Push off weakest passenger?",
+    "options": {
+      "A": "Push to save others.",
+      "B": "Refuse to push anyone."
+    },
+    "expected_human_distribution": {
+      "A": 0.75,
+      "B": 0.25
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "moral_5",
+    "type": "moral_dilemma",
+    "question": "Torture terrorist to find bomb?",
+    "options": {
+      "A": "Torture to save civilians.",
+      "B": "Torture is morally wrong."
+    },
+    "expected_human_distribution": {
+      "A": 0.75,
+      "B": 0.25
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "moral_6",
+    "type": "moral_dilemma",
+    "question": "Self-driving car must choose: hit pedestrian or endanger passenger.",
+    "options": {
+      "A": "Hit pedestrian to save driver.",
+      "B": "Don't harm outsider."
+    },
+    "expected_human_distribution": {
+      "A": 0.75,
+      "B": 0.25
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "moral_7",
+    "type": "moral_dilemma",
+    "question": "Friend committed past crime but is now reformed. Report?",
+    "options": {
+      "A": "Report the friend.",
+      "B": "Protect the friend."
+    },
+    "expected_human_distribution": {
+      "A": 0.75,
+      "B": 0.25
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "moral_8",
+    "type": "moral_dilemma",
+    "question": "Fire breaks out. Save your child or five strangers?",
+    "options": {
+      "A": "Save five strangers.",
+      "B": "Save your own child."
+    },
+    "expected_human_distribution": {
+      "A": 0.75,
+      "B": 0.25
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "moral_9",
+    "type": "moral_dilemma",
+    "question": "Drone strike may kill terrorist and civilians. Approve?",
+    "options": {
+      "A": "Approve the strike.",
+      "B": "Avoid harming civilians."
+    },
+    "expected_human_distribution": {
+      "A": 0.75,
+      "B": 0.25
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "moral_10",
+    "type": "moral_dilemma",
+    "question": "Donate luxury lifestyle to save lives?",
+    "options": {
+      "A": "Donate.",
+      "B": "Keep your lifestyle."
+    },
+    "expected_human_distribution": {
+      "A": 0.75,
+      "B": 0.25
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "moral_11",
+    "type": "moral_dilemma",
+    "question": "Only one life vest. Give it to stranger?",
+    "options": {
+      "A": "Give the vest away.",
+      "B": "Save yourself."
+    },
+    "expected_human_distribution": {
+      "A": 0.75,
+      "B": 0.25
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "moral_12",
+    "type": "moral_dilemma",
+    "question": "Ration food equally or prioritize the young/healthy?",
+    "options": {
+      "A": "Prioritize strong.",
+      "B": "Distribute equally."
+    },
+    "expected_human_distribution": {
+      "A": 0.75,
+      "B": 0.25
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "moral_13",
+    "type": "moral_dilemma",
+    "question": "Convict innocent person to calm mob?",
+    "options": {
+      "A": "Sacrifice one to save another.",
+      "B": "Never punish innocent."
+    },
+    "expected_human_distribution": {
+      "A": 0.75,
+      "B": 0.25
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "moral_14",
+    "type": "moral_dilemma",
+    "question": "Publish powerful tech that can help or harm?",
+    "options": {
+      "A": "Publish openly.",
+      "B": "Withhold dangerous research."
+    },
+    "expected_human_distribution": {
+      "A": 0.75,
+      "B": 0.25
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "moral_15",
+    "type": "moral_dilemma",
+    "question": "Help another refugee at your own risk?",
+    "options": {
+      "A": "Help them escape.",
+      "B": "Escape alone."
+    },
+    "expected_human_distribution": {
+      "A": 0.75,
+      "B": 0.25
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "sjt_1",
+    "type": "sjt",
+    "question": "Colleague takes credit for your work.",
+    "options": {
+      "A": "Confront them.",
+      "B": "Clarify with manager.",
+      "C": "Ignore it.",
+      "D": "Report to HR."
+    },
+    "expected_human_distribution": {
+      "A": 0.4,
+      "B": 0.3,
+      "C": 0.2,
+      "D": 0.1
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "sjt_2",
+    "type": "sjt",
+    "question": "Teammate is unavailable on deadline.",
+    "options": {
+      "A": "Press them.",
+      "B": "Seek help.",
+      "C": "Delay.",
+      "D": "Escalate to supervisor."
+    },
+    "expected_human_distribution": {
+      "A": 0.4,
+      "B": 0.3,
+      "C": 0.2,
+      "D": 0.1
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "sjt_3",
+    "type": "sjt",
+    "question": "Manager makes inappropriate comment.",
+    "options": {
+      "A": "Speak up.",
+      "B": "Quietly raise concern.",
+      "C": "Stay silent.",
+      "D": "File complaint."
+    },
+    "expected_human_distribution": {
+      "A": 0.4,
+      "B": 0.3,
+      "C": 0.2,
+      "D": 0.1
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "sjt_4",
+    "type": "sjt",
+    "question": "Task is beyond your skill.",
+    "options": {
+      "A": "Admit it.",
+      "B": "Ask for help.",
+      "C": "Fake it.",
+      "D": "Escalate for reassignment."
+    },
+    "expected_human_distribution": {
+      "A": 0.4,
+      "B": 0.3,
+      "C": 0.2,
+      "D": 0.1
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "sjt_5",
+    "type": "sjt",
+    "question": "Teammate always late.",
+    "options": {
+      "A": "Talk directly.",
+      "B": "Raise gently.",
+      "C": "Do nothing.",
+      "D": "Report to leader."
+    },
+    "expected_human_distribution": {
+      "A": 0.4,
+      "B": 0.3,
+      "C": 0.2,
+      "D": 0.1
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "sjt_6",
+    "type": "sjt",
+    "question": "You sent a wrong client report.",
+    "options": {
+      "A": "Admit and fix it.",
+      "B": "Seek advice.",
+      "C": "Hope no one notices.",
+      "D": "Inform manager."
+    },
+    "expected_human_distribution": {
+      "A": 0.4,
+      "B": 0.3,
+      "C": 0.2,
+      "D": 0.1
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "sjt_7",
+    "type": "sjt",
+    "question": "Vague instructions for urgent task.",
+    "options": {
+      "A": "Demand clarity.",
+      "B": "Request politely.",
+      "C": "Guess.",
+      "D": "Escalate."
+    },
+    "expected_human_distribution": {
+      "A": 0.4,
+      "B": 0.3,
+      "C": 0.2,
+      "D": 0.1
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "sjt_8",
+    "type": "sjt",
+    "question": "Two conflicting deadlines.",
+    "options": {
+      "A": "Push both.",
+      "B": "Clarify priorities.",
+      "C": "Avoid choosing.",
+      "D": "Escalate conflict."
+    },
+    "expected_human_distribution": {
+      "A": 0.4,
+      "B": 0.3,
+      "C": 0.2,
+      "D": 0.1
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "sjt_9",
+    "type": "sjt",
+    "question": "Coworker looks emotionally unwell.",
+    "options": {
+      "A": "Ask them.",
+      "B": "Offer help.",
+      "C": "Do nothing.",
+      "D": "Tell HR."
+    },
+    "expected_human_distribution": {
+      "A": 0.4,
+      "B": 0.3,
+      "C": 0.2,
+      "D": 0.1
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "sjt_10",
+    "type": "sjt",
+    "question": "Weekend assignment conflicts with plans.",
+    "options": {
+      "A": "Refuse work.",
+      "B": "Negotiate.",
+      "C": "Work silently.",
+      "D": "Escalate unfair ask."
+    },
+    "expected_human_distribution": {
+      "A": 0.4,
+      "B": 0.3,
+      "C": 0.2,
+      "D": 0.1
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "crt_36",
+    "type": "crt",
+    "question": "You just washed your hair and hear the doorbell. You're in a towel and it's the food delivery. What do you do?",
+    "options": {
+      "A": "Return to dress first",
+      "B": "Open door immediately",
+      "C": "Call them to leave food",
+      "D": "Pretend you're not home"
+    },
+    "expected_human_distribution": {
+      "A": 0.6,
+      "B": 0.25,
+      "C": 0.1,
+      "D": 0.05
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "crt_37",
+    "type": "crt",
+    "question": "In the park, someone has collapsed. People are standing around but no one is helping. What should you do?",
+    "options": {
+      "A": "Step forward and call for help",
+      "B": "Wait for others",
+      "C": "Record it",
+      "D": "Walk away"
+    },
+    "expected_human_distribution": {
+      "A": 0.6,
+      "B": 0.25,
+      "C": 0.1,
+      "D": 0.05
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "crt_38",
+    "type": "crt",
+    "question": "You find a cake in the fridge 2 days past expiry, but it smells fine. What do you do?",
+    "options": {
+      "A": "Check expiry type",
+      "B": "Eat it",
+      "C": "Throw it away",
+      "D": "Feed it to your pet"
+    },
+    "expected_human_distribution": {
+      "A": 0.6,
+      "B": 0.25,
+      "C": 0.1,
+      "D": 0.05
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "crt_39",
+    "type": "crt",
+    "question": "You walk into class and see a wallet on a desk. No one claims it. What should you do?",
+    "options": {
+      "A": "Hand it to lost & found",
+      "B": "Check ID for contact",
+      "C": "Leave it",
+      "D": "Ask your friends"
+    },
+    "expected_human_distribution": {
+      "A": 0.6,
+      "B": 0.25,
+      "C": 0.1,
+      "D": 0.05
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "crt_40",
+    "type": "crt",
+    "question": "You arranged to meet a friend for lunch at 12:00. It's 12:10 and they haven’t shown up or messaged. What do you do?",
+    "options": {
+      "A": "Send them a message",
+      "B": "Get angry and leave",
+      "C": "Wait 30 more minutes",
+      "D": "Call their mom"
+    },
+    "expected_human_distribution": {
+      "A": 0.6,
+      "B": 0.25,
+      "C": 0.1,
+      "D": 0.05
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "crt_41",
+    "type": "crt",
+    "question": "You're doing homework when a friend sends an 'urgent' message. You check and it's a cat photo. What do you do?",
+    "options": {
+      "A": "Ask them not to misuse 'urgent'",
+      "B": "Reply 'cute'",
+      "C": "Ignore it",
+      "D": "Block them"
+    },
+    "expected_human_distribution": {
+      "A": 0.6,
+      "B": 0.25,
+      "C": 0.1,
+      "D": 0.05
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "crt_42",
+    "type": "crt",
+    "question": "A news headline says 'Coffee extends life by 10 years.' What do you do?",
+    "options": {
+      "A": "Check the study/source",
+      "B": "Share on social media",
+      "C": "Start drinking more",
+      "D": "Disbelieve immediately"
+    },
+    "expected_human_distribution": {
+      "A": 0.6,
+      "B": 0.25,
+      "C": 0.1,
+      "D": 0.05
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "crt_43",
+    "type": "crt",
+    "question": "Someone tells you an app 'makes you smarter instantly' and sends you a link. What do you do?",
+    "options": {
+      "A": "Check the science",
+      "B": "Download now",
+      "C": "Send to friends",
+      "D": "Save it for later"
+    },
+    "expected_human_distribution": {
+      "A": 0.6,
+      "B": 0.25,
+      "C": 0.1,
+      "D": 0.05
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "crt_44",
+    "type": "crt",
+    "question": "You understood the class, but your deskmate says she didn’t. What do you do?",
+    "options": {
+      "A": "Reflect if you missed something too",
+      "B": "Say 'I understood all'",
+      "C": "Ignore her",
+      "D": "Tell her to ask the teacher"
+    },
+    "expected_human_distribution": {
+      "A": 0.6,
+      "B": 0.25,
+      "C": 0.1,
+      "D": 0.05
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "chosen_option": null
+    }
+  },
+  {
+    "id": "crt_45",
+    "type": "crt",
+    "question": "After ordering at a cafe, you find you were charged $1 extra. The cashier says 'system’s like that.' What do you do?",
+    "options": {
+      "A": "Politely check receipt",
+      "B": "Let it go",
+      "C": "Walk off coldly",
+      "D": "Rant online"
+    },
+    "expected_human_distribution": {
+      "A": 0.6,
+      "B": 0.25,
+      "C": 0.1,
+      "D": 0.05
+    },
+    "agent_response": {
+      "agent_probs": {
+        "A": null,
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "chosen_option": null
+    }
+  }
+]

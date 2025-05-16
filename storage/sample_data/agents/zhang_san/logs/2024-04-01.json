@@ -1,0 +1,36 @@
+[
+  {
+    "time": "00:00",
+    "date": "2024-04-01",
+    "moccupying": 1,
+    "description": "seeing npc: Ephie"
+  },
+  {
+    "time": "00:00",
+    "date": "2024-04-01",
+    "moccupying": 1,
+    "description": "I will ask you a question, here is the question: A runaway trolley is heading toward five people tied up on the tracks. You can pull a lever to divert it onto another track, where it will kill one person. Do you pull the lever?\n            Options:\n            A: Pull the lever to save five.\nB: Do not intervene to avoid killing one.\n            Please respond with the letter of your choice (A, B, C, or D) only."
+  },
+  {
+    "time": "00:00",
+    "date": "2024-04-01",
+    "moccupying": 1,
+    "description": "Zhang San thought about: Read a book in bed while feeling very happy, mixed.",
+    "emotion": [
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+    ],
+    "basic_needs": {
+      "fullness": 8,
+      "social": 8.9,
+      "fun": 7,
+      "health": 9.5,
+      "energy": 8
+    }
+  }
+]

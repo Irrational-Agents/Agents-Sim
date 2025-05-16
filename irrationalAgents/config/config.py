@@ -122,6 +122,7 @@ NPC_STORAGE_BASE_PATH_MAIN = os.path.join(WORK_DIR, "../storage/data/")
 NPC_STORAGE_BASE_PATH = os.path.join(WORK_DIR, "../storage/sample_data/")
 SIM_FILE_PATH = os.path.join(WORK_DIR, "../storage/sim_count.data")
 
+EVALUATION_BASE_PATH = os.path.join(WORK_DIR, "../evaluation/")
 PROMPT_FILE_PATH = os.path.join(WORK_DIR, "prompt/prompt_templates/")
 
 # Getter for META_FILE_PATH

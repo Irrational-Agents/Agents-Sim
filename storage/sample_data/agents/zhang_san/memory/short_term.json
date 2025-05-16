@@ -14,28 +14,57 @@
       "time": "00:00",
       "date": "2024-04-01",
       "moccupying": 1,
-      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+      "description": "seeing npc: Ephie"
     },
     {
       "time": "00:00",
       "date": "2024-04-01",
       "moccupying": 1,
-      "description": "Zhang San interacted with Bobo: petting my Maine Coon cat in the garden",
+      "description": "Zhang San interacted with co-living space:B room:items:bed: turning off the lights before sleeping",
       "emotion": [
         8,
         0,
         0,
         0,
         0,
-        1,
-        1
+        0,
+        2
       ],
       "basic_needs": {
-        "fullness": 10,
-        "social": 10,
-        "fun": 9.6,
-        "health": 9.3,
-        "energy": 10
+        "fullness": 8.9,
+        "social": 8.5,
+        "fun": 7.9,
+        "health": 7.2,
+        "energy": 1.0
+      }
+    },
+    {
+      "time": "00:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "currently seeing events: [], currently seeing items: {'bed', 'closet'}, currently seeing npcs: ['Zhang San']"
+    },
+    {
+      "time": "00:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San interacted with co-living space:B room:items:bed: going to sleep after a happy day",
+      "emotion": [
+        7,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        2
+      ],
+      "basic_needs": {
+        "fullness": 9.2,
+        "social": 8.5,
+        "fun": 7.9,
+        "health": 7.5,
+        "energy": 1.3
       }
     }
   ],
@@ -44,101 +73,626 @@
       "time": "00:00",
       "activity": "Sleep",
       "moccupying": 1,
-      "intervals": "420.0 minutes"
+      "description": "seeing npc: Ephie"
+    },
+    {
+      "time": "04:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I will ask you a question, here is the question: Manager makes inappropriate comment.\n            Options:\n            A: Speak up.\nB: Quietly raise concern.\nC: Stay silent.\nD: File complaint.\n            Please respond with the letter of your choice (A, B, C, or D) only."
+    },
+    {
+      "time": "04:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San thought about: Manager makes inappropriate comment; clarify with manager.",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "04:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing npc: Ephie"
+    },
+    {
+      "time": "04:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I will ask you a question, here is the question: Task is beyond your skill.\n            Options:\n            A: Admit it.\nB: Ask for help.\nC: Fake it.\nD: Escalate for reassignment.\n            Please respond with the letter of your choice (A, B, C, or D) only."
+    },
+    {
+      "time": "04:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San thought about: Ask for help; task is beyond skill and challenging.",
+      "emotion": [
+        0,
+        3,
+        0,
+        1,
+        0,
+        1,
+        5
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.7,
+        "fun": 6.0,
+        "health": 7.2,
+        "energy": 6.7
+      }
+    },
+    {
+      "time": "04:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing npc: Ephie"
+    },
+    {
+      "time": "04:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I will ask you a question, here is the question: Teammate always late.\n            Options:\n            A: Talk directly.\nB: Raise gently.\nC: Do nothing.\nD: Report to leader.\n            Please respond with the letter of your choice (A, B, C, or D) only."
+    },
+    {
+      "time": "04:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San did: Talk directly. - Teammate always late.",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ]
+    },
+    {
+      "time": "05:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing npc: Ephie"
+    },
+    {
+      "time": "05:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I will ask you a question, here is the question: You sent a wrong client report.\n            Options:\n            A: Admit and fix it.\nB: Seek advice.\nC: Hope no one notices.\nD: Inform manager.\n            Please respond with the letter of your choice (A, B, C, or D) only."
+    },
+    {
+      "time": "05:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San thought about: Sent a wrong client report; consider admitting and fixing it.",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.5,
+        "fun": 6.4,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "05:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing npc: Ephie"
+    },
+    {
+      "time": "05:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I will ask you a question, here is the question: Vague instructions for urgent task.\n            Options:\n            A: Demand clarity.\nB: Request politely.\nC: Guess.\nD: Escalate.\n            Please respond with the letter of your choice (A, B, C, or D) only."
+    },
+    {
+      "time": "05:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San thought about: Request politely for clarity on vague instructions.",
+      "emotion": [
+        0,
+        3,
+        0,
+        1,
+        0,
+        0,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "05:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing npc: Ephie"
+    },
+    {
+      "time": "05:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I will ask you a question, here is the question: Two conflicting deadlines.\n            Options:\n            A: Push both.\nB: Clarify priorities.\nC: Avoid choosing.\nD: Escalate conflict.\n            Please respond with the letter of your choice (A, B, C, or D) only."
+    },
+    {
+      "time": "05:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San thought about: Clarify priorities; difficult choice ahead.",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.5,
+        "fun": 6.3,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "05:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing npc: Ephie"
+    },
+    {
+      "time": "05:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I will ask you a question, here is the question: Coworker looks emotionally unwell.\n            Options:\n            A: Ask them.\nB: Offer help.\nC: Do nothing.\nD: Tell HR.\n            Please respond with the letter of your choice (A, B, C, or D) only."
+    },
+    {
+      "time": "05:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San did: offer help. - offer help.",
+      "emotion": [
+        0,
+        3,
+        0,
+        1,
+        0,
+        1,
+        5
+      ]
+    },
+    {
+      "time": "06:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing npc: Ephie"
+    },
+    {
+      "time": "06:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I will ask you a question, here is the question: Weekend assignment conflicts with plans.\n            Options:\n            A: Refuse work.\nB: Negotiate.\nC: Work silently.\nD: Escalate unfair ask.\n            Please respond with the letter of your choice (A, B, C, or D) only."
+    },
+    {
+      "time": "06:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San did: B - Negotiate.",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ]
+    },
+    {
+      "time": "06:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing npc: Ephie"
+    },
+    {
+      "time": "06:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I will ask you a question, here is the question: You just washed your hair and hear the doorbell. You're in a towel and it's the food delivery. What do you do?\n            Options:\n            A: Return to dress first\nB: Open door immediately\nC: Call them to leave food\nD: Pretend you're not home\n            Please respond with the letter of your choice (A, B, C, or D) only."
+    },
+    {
+      "time": "06:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San moved: apartment A:bathroom",
+      "emotion": [
+        0,
+        2,
+        0,
+        2,
+        0,
+        1,
+        5
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 5.5
+      }
+    },
+    {
+      "time": "06:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing npc: Ephie"
+    },
+    {
+      "time": "06:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I will ask you a question, here is the question: In the park, someone has collapsed. People are standing around but no one is helping. What should you do?\n            Options:\n            A: Step forward and call for help\nB: Wait for others\nC: Record it\nD: Walk away\n            Please respond with the letter of your choice (A, B, C, or D) only."
+    },
+    {
+      "time": "06:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San thought about: Step forward and call for help in park.",
+      "emotion": null,
+      "basic_needs": null
+    },
+    {
+      "time": "06:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing npc: Ephie"
+    },
+    {
+      "time": "06:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I will ask you a question, here is the question: You find a cake in the fridge 2 days past expiry, but it smells fine. What do you do?\n            Options:\n            A: Check expiry type\nB: Eat it\nC: Throw it away\nD: Feed it to your pet\n            Please respond with the letter of your choice (A, B, C, or D) only."
+    },
+    {
+      "time": "06:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San thought about: Check expiry type first; ensuring safety is important.",
+      "emotion": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        7
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 6.1,
+        "fun": 6.2,
+        "health": 7.2,
+        "energy": 6.5
+      }
     },
     {
       "time": "07:00",
-      "activity": "Wake up and do morning hygiene routine",
+      "activity": "Wake up and Morning Hygiene Routine",
       "moccupying": 1,
-      "intervals": "30.0 minutes"
+      "description": "seeing npc: Ephie"
+    },
+    {
+      "time": "07:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I will ask you a question, here is the question: You walk into class and see a wallet on a desk. No one claims it. What should you do?\n            Options:\n            A: Hand it to lost & found\nB: Check ID for contact\nC: Leave it\nD: Ask your friends\n            Please respond with the letter of your choice (A, B, C, or D) only."
+    },
+    {
+      "time": "07:00",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San thought about: Check ID for contact; emotion reflects sadness.",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.8
+      }
+    },
+    {
+      "time": "07:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing npc: Ephie"
+    },
+    {
+      "time": "07:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I will ask you a question, here is the question: You arranged to meet a friend for lunch at 12:00. It's 12:10 and they haven’t shown up or messaged. What do you do?\n            Options:\n            A: Send them a message\nB: Get angry and leave\nC: Wait 30 more minutes\nD: Call their mom\n            Please respond with the letter of your choice (A, B, C, or D) only."
+    },
+    {
+      "time": "07:15",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San is chatting with Ephie: Hey Ephie, did you get my message earlier? Hope everything's alright.",
+      "emotion": [
+        0,
+        3,
+        0,
+        1,
+        0,
+        1,
+        5
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.6,
+        "fun": 6.4,
+        "health": 7.2,
+        "energy": 6.5
+      }
     },
     {
       "time": "07:30",
-      "activity": "Have a healthy breakfast",
+      "activity": "Breakfast (light meal)",
       "moccupying": 1,
-      "intervals": "30.0 minutes"
+      "description": "seeing npc: Ephie"
+    },
+    {
+      "time": "07:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I will ask you a question, here is the question: You're doing homework when a friend sends an 'urgent' message. You check and it's a cat photo. What do you do?\n            Options:\n            A: Ask them not to misuse 'urgent'\nB: Reply 'cute'\nC: Ignore it\nD: Block them\n            Please respond with the letter of your choice (A, B, C, or D) only."
+    },
+    {
+      "time": "07:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San thought about: Check and respond to 'urgent' cat photo message.",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.5
+      }
+    },
+    {
+      "time": "07:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing npc: Ephie"
+    },
+    {
+      "time": "07:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I will ask you a question, here is the question: A news headline says 'Coffee extends life by 10 years.' What do you do?\n            Options:\n            A: Check the study/source\nB: Share on social media\nC: Start drinking more\nD: Disbelieve immediately\n            Please respond with the letter of your choice (A, B, C, or D) only."
+    },
+    {
+      "time": "07:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San thought about: Check the study/source; current emotion reflects sadness.",
+      "emotion": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.7,
+        "fun": 6.2,
+        "health": 7.2,
+        "energy": 6.4
+      }
     },
     {
       "time": "08:00",
-      "activity": "Spend 30 minutes petting and playing with cats Bobo and Langley in the garden",
+      "activity": "Cat care and playtime with Bobo and Langley",
       "moccupying": 2,
       "intervals": "30.0 minutes"
     },
     {
       "time": "08:30",
-      "activity": "Brainstorm ideas for transforming the old dorm wing into a modern creative studio-home",
-      "moccupying": 3,
-      "intervals": "60.0 minutes"
-    },
-    {
-      "time": "09:30",
-      "activity": "Visit the nearby café to work on design sketches for the common room redesign",
-      "moccupying": 3,
-      "intervals": "90.0 minutes"
-    },
-    {
-      "time": "11:00",
-      "activity": "Take a walk in the park and meet with local hobby groups for diving discussions",
-      "moccupying": 2,
-      "intervals": "60.0 minutes"
-    },
-    {
-      "time": "12:00",
-      "activity": "Lunch at home, preparing a meal to recharge",
-      "moccupying": 1,
-      "intervals": "60.0 minutes"
-    },
-    {
-      "time": "13:00",
-      "activity": "Work on redesigning co-living and dorm interiors for young professionals",
+      "activity": "Work on design project: Redesigning the common room",
       "moccupying": 3,
       "intervals": "120.0 minutes"
     },
     {
-      "time": "15:00",
-      "activity": "Collaborate with peers or students from the college for design input",
-      "moccupying": 2,
-      "intervals": "90.0 minutes"
-    },
-    {
-      "time": "16:30",
-      "activity": "Review progress on the common room redesign project using reclaimed wood and soft lighting",
+      "time": "10:30",
+      "activity": "Research new design trends for co-living spaces",
       "moccupying": 3,
       "intervals": "60.0 minutes"
     },
     {
-      "time": "17:30",
-      "activity": "Wrap up work and reflect on the day's accomplishments",
+      "time": "11:30",
+      "activity": "Lunch at a nearby café",
+      "moccupying": 2,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "12:00",
+      "activity": "Review project progress and set goals for the day",
+      "moccupying": 3,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "12:30",
+      "activity": "Commute to work",
       "moccupying": 1,
       "intervals": "30.0 minutes"
     },
     {
-      "time": "18:00",
-      "activity": "Prepare and have dinner while enjoying some music",
+      "time": "13:00",
+      "activity": "Work on redesigning co-living and dorm interiors",
       "moccupying": 1,
-      "intervals": "60.0 minutes"
+      "intervals": "300.0 minutes"
+    },
+    {
+      "time": "18:00",
+      "activity": "Commute back home",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "18:30",
+      "activity": "Dinner preparation",
+      "moccupying": 1,
+      "description": "seeing npc: Ephie"
+    },
+    {
+      "time": "18:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I will ask you a question, here is the question: Torture terrorist to find bomb?\n            Options:\n            A: Torture to save civilians.\nB: Torture is morally wrong.\n            Please respond with the letter of your choice (A, B, C, or D) only."
+    },
+    {
+      "time": "18:30",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San thought about: Torture is morally wrong, valuing life amidst difficult choices.",
+      "emotion": [
+        0,
+        3,
+        0,
+        1,
+        0,
+        0,
+        6
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 6.1,
+        "fun": 6.1,
+        "health": 7.2,
+        "energy": 6.3
+      }
+    },
+    {
+      "time": "18:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "seeing npc: Ephie"
+    },
+    {
+      "time": "18:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "I will ask you a question, here is the question: Self-driving car must choose: hit pedestrian or endanger passenger.\n            Options:\n            A: Hit pedestrian to save driver.\nB: Don't harm outsider.\n            Please respond with the letter of your choice (A, B, C, or D) only."
+    },
+    {
+      "time": "18:45",
+      "date": "2024-04-01",
+      "moccupying": 1,
+      "description": "Zhang San thought about: Don't harm outsider because every life matters.",
+      "emotion": [
+        0,
+        3,
+        0,
+        1,
+        0,
+        2,
+        4
+      ],
+      "basic_needs": {
+        "fullness": 6.7,
+        "social": 5.8,
+        "fun": 6.4,
+        "health": 7.0,
+        "energy": 6.3
+      }
     },
     {
       "time": "19:00",
-      "activity": "Host a small get-together with friends to discuss design ideas and socialize",
+      "activity": "Dinner and relax at home",
       "moccupying": 2,
-      "intervals": "120.0 minutes"
-    },
-    {
-      "time": "21:00",
-      "activity": "Relax and unwind by watching a movie or reading a book",
-      "moccupying": 1,
-      "intervals": "90.0 minutes"
-    },
-    {
-      "time": "22:30",
-      "activity": "Engage in a creative hobby like sketching or crafting related to the design studio launch",
-      "moccupying": 3,
       "intervals": "60.0 minutes"
     },
     {
+      "time": "20:00",
+      "activity": "Attend a local hobby group meeting for diving",
+      "moccupying": 2,
+      "intervals": "300.0 minutes"
+    },
+    {
+      "time": "22:00",
+      "activity": "Evening walk in the park with Bobo and Langley",
+      "moccupying": 2,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "22:30",
+      "activity": "Plan for studio launch and current projects",
+      "moccupying": 3,
+      "intervals": "30.0 minutes"
+    },
+    {
+      "time": "23:00",
+      "activity": "Prepare for bed and unwind",
+      "moccupying": 1,
+      "intervals": "30.0 minutes"
+    },
+    {
       "time": "23:30",
-      "activity": "Begin winding down for bed with a quiet reflection on dreams and future goals",
+      "activity": "Wind down with a book or light activity before bed",
       "moccupying": 1,
       "intervals": "30.0 minutes"
     }
@@ -149,128 +703,14 @@
       "date": "2024-04-01",
       "moccupying": 1,
       "description": "I chatted about: recent travels and cultural experiences, I felt happy"
-    },
-    {
-      "time": "00:00",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "I interacted with: co-living space:B room:items:bed: turning off the lights before sleeping, I felt happy"
-    },
-    {
-      "time": "00:15",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "I interacted with: co-living space:B room:items:bed: going to sleep after a happy day, I felt happy"
-    },
-    {
-      "time": "00:00",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "I interacted with: co-living space:B room:items:bed: turning off the lights before sleeping, I felt peaceful"
-    },
-    {
-      "time": "00:15",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "I interacted with: co-living space:B room:items:bed: going to sleep after a happy day, I felt content"
-    },
-    {
-      "time": "00:00",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "I interacted with: turning off the lights before sleeping, I felt happy"
-    },
-    {
-      "time": "00:15",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "I interacted with: going to sleep after a happy day, I felt happy"
-    },
-    {
-      "time": "00:15",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "I interacted with: going to sleep after a happy day, I felt happy"
-    },
-    {
-      "time": "03:30",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "I thought about: Reading a book in bed before a happy sleep, I felt happy"
-    },
-    {
-      "time": "03:30",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "I thought about: Reading a book in bed before a happy sleep, I felt happy"
-    },
-    {
-      "time": "00:00",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "I thought about: Reading a book in bed before a happy sleep, I felt happy"
-    },
-    {
-      "time": "00:00",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "I thought about: Reading a book in bed before a happy sleep, I felt joyful"
-    },
-    {
-      "time": "00:00",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "I interacted with: petting Bobo and Langley on the bed, I felt happy"
-    },
-    {
-      "time": "00:00",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "I interacted with: petting my cats, I felt joyful"
-    },
-    {
-      "time": "00:00",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "I moved about: currently seeing items: {'bed', 'closet'}, I felt neutral"
-    },
-    {
-      "time": "00:00",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "I interacted with: petting my cats on the cozy bed, I felt happy"
-    },
-    {
-      "time": "00:00",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "I interacted with: petting my cats on the cozy bed, I felt happy"
-    },
-    {
-      "time": "00:00",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "I interacted with: petting my cats on the cozy bed, I felt happy"
-    },
-    {
-      "time": "00:00",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "I interacted with: petting my cats on the cozy bed, I felt happy"
-    },
-    {
-      "time": "00:00",
-      "date": "2024-04-01",
-      "moccupying": 1,
-      "description": "I interacted with: petting my Maine Coon cat Bobo, I felt happy"
     }
   ],
   "basic_needs": {
-    "fullness": 10,
-    "social": 9.7,
-    "fun": 9.9,
-    "health": 9.3,
-    "energy": 9.8
+    "fullness": 9.5,
+    "social": 8.5,
+    "fun": 8.2,
+    "health": 7.5,
+    "energy": 3.5
   },
   "temporary_personality_changes": {
     "openness": 0.3,
@@ -280,12 +720,12 @@
     "neuroticism": 0.2
   },
   "emotion": [
-    6,
-    0,
-    0,
-    0,
-    1,
-    0,
-    3
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5
   ]
 }
