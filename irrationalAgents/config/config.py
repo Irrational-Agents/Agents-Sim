@@ -117,7 +117,37 @@ def get_config(key: str, default: Any = None) -> Any:
 
 load_config_to_env()
 
-META_FILE_PATH = os.path.join(WORK_DIR, "../storage/meta.data")
+META_FILE_PATH = os.path.join(WORK_DIR, "../storage/sample_data/meta.json")
+NPC_STORAGE_BASE_PATH_MAIN = os.path.join(WORK_DIR, "../storage/data/")
 NPC_STORAGE_BASE_PATH = os.path.join(WORK_DIR, "../storage/sample_data/")
+SIM_FILE_PATH = os.path.join(WORK_DIR, "../storage/sim_count.data")
+
 EVALUATION_BASE_PATH = os.path.join(WORK_DIR, "../evaluation/")
 PROMPT_FILE_PATH = os.path.join(WORK_DIR, "prompt/prompt_templates/")
+
+# Getter for META_FILE_PATH
+def get_meta_file_path() -> str:
+    return META_FILE_PATH
+
+# Setter for META_FILE_PATH (Updates the path)
+def set_meta_file_path(new_path: str) -> None:
+    global META_FILE_PATH
+    META_FILE_PATH = new_path
+
+# Getter for NPC_STORAGE_BASE_PATH_MAIN
+def get_npc_storage_base_path_main() -> str:
+    return NPC_STORAGE_BASE_PATH_MAIN
+
+# Setter for NPC_STORAGE_BASE_PATH_MAIN (Updates the path)
+def set_npc_storage_base_path_main(new_path: str) -> None:
+    global NPC_STORAGE_BASE_PATH_MAIN
+    NPC_STORAGE_BASE_PATH_MAIN = new_path
+
+# Getter for NPC_STORAGE_BASE_PATH
+def get_npc_storage_base_path() -> str:
+    return NPC_STORAGE_BASE_PATH
+
+# Setter for NPC_STORAGE_BASE_PATH (Updates the path)
+def set_npc_storage_base_path(new_path: str) -> None:
+    global NPC_STORAGE_BASE_PATH
+    NPC_STORAGE_BASE_PATH = new_path

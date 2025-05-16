@@ -181,10 +181,11 @@ class AgentManager:
     def _get_agent_info_by_name(self, name: str) -> Tuple[Optional[Dict[str, Any]], Optional[str]]:
         """Retrieve agent information by name."""
         root_dir = os.path.join(
-            config.NPC_STORAGE_BASE_PATH, 
+            config.get_npc_storage_base_path(), 
             f'agents/{convert_name2id(name)}'
         )
 
+        logger.debug(f"Agent root directory: {root_dir}")
         if not os.path.exists(root_dir):
             logger.error(f"Agent {name} does not exist!")
             return None, None
@@ -225,12 +226,21 @@ class AgentManager:
     def get_all_agents_positions(self, global_time) -> Dict[str, Any]:
         file_path = global_time.strftime('%Y-%m-%d')
         index_ = global_time.strftime('%H:%M:%S')
+        logger.debug(f"Getting all agents' positions at {file_path}")
         """Get current positions of all agents."""
         status_dict = {}
         for agent_name, _ in self.agents.items():
             status = self.get_agent_current_status(agent_name, file_path, index_)
             if status:
                 status_dict[agent_name] = status.get('position')
+        
+        if len(status_dict) == 0:
+            index_ = '00:00:00'
+            for agent_name, _ in self.agents.items():
+                status = self.get_agent_current_status(agent_name, file_path, index_)
+                if status:
+                    status_dict[agent_name] = status.get('position')
+            return status_dict
 
         return status_dict
 
@@ -240,7 +250,7 @@ class AgentManager:
         index_ = global_time.strftime('%H:%M:%S')
 
         file_path = os.path.join(
-            config.NPC_STORAGE_BASE_PATH,
+            config.get_npc_storage_base_path(),
             f'agents/{convert_name2id(agent_name)}/snapshots/{file_path}.json'
         )
         data = {}
@@ -267,7 +277,7 @@ class AgentManager:
     def get_agent_current_status(self, agent_name: str, file_path, index_) -> Dict[str, Any]:
         """Get current status of specified agent."""
         file_path = os.path.join(
-            config.NPC_STORAGE_BASE_PATH,
+            config.get_npc_storage_base_path(),
             f'agents/{convert_name2id(agent_name)}/snapshots/{file_path}.json'
         )
         
